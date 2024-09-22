@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.29)  22 SEP 2024 05:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.29)  22 SEP 2024 21:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1341,10 +1341,10 @@ Package rerunfilecheck Info: File `Group_theory.out' has not changed.
 (rerunfilecheck)             Checksum: 15EDB39EB4675A782E0E14391F98FF54;9157.
  ) 
 Here is how much of TeX's memory you used:
- 28469 strings out of 474103
- 541379 string characters out of 5747481
+ 28473 strings out of 474103
+ 541431 string characters out of 5747481
  1946496 words of memory out of 5000000
- 50172 multiletter control sequences out of 15000+600000
+ 50174 multiletter control sequences out of 15000+600000
  584409 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,14n,93p,1485b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1366,10 +1366,10 @@ r/sfrm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728
 .pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2488.pfb><c:/t
 exlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb><c:/texlive/202
 4/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on Group_theory.pdf (31 pages, 356318 bytes).
+Output written on Group_theory.pdf (31 pages, 356845 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 417 compressed objects within 5 object streams
- 171 named destinations out of 1000 (max. 500000)
+ 497 PDF objects out of 1000 (max. 8388607)
+ 419 compressed objects within 5 object streams
+ 173 named destinations out of 1000 (max. 500000)
  117 words of extra memory for PDF output out of 10000 (max. 10000000)
 
