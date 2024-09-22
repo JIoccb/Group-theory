@@ -1,9 +1,13 @@
 \documentclass[a4paper, 14pt]{extarticle}
 \usepackage{titlesec}
 \usepackage{tocloft}
+\usepackage[nottoc]{tocbibind}
+
+
 \renewcommand{\cftsecfont}{\normalsize\bfseries}
 \renewcommand{\cftsecpagefont}{\normalsize\bfseries} 
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \usepackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
 \usepackage{titleps} % Колонтитулы
@@ -80,6 +84,7 @@ citecolor=black, menucolor=black, filecolor=black,
 \newcommand{\Rot}{\mathrm{R}}
 \newcommand{\Sym}{\mathrm{S}}
 
+
 \DeclareRobustCommand{\divby}{%
 	\mathrel{\text{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}}%
 }
@@ -129,462 +134,462 @@ citecolor=black, menucolor=black, filecolor=black,
 \affil{ФКН ВГУ}
 \date{2024}
 \begin{document}
-
+	
 	\maketitle
 	\thispagestyle{empty}
 	\newpage
 	\tableofcontents
 	\newpage
 	\section{Бинарные операции. Полугруппы, моноиды и группы}
-		\begin{definition}
-			Пусть $M$~--- непустое множество. \textit{Бинарной операцией} $\circ$ на множестве $M$ называется отображение 
-			${\circ{:} \ M \times M \rightarrow M}$, ${\ \forall a,b \in M{:} \ (a, b) \mapsto a \circ b}$.
-		\end{definition}
-
-		Множество с бинарной операцией обычно обозначают $(M, \circ).$
+	\begin{definition}
+		Пусть $M$~--- непустое множество. \textit{Бинарной операцией} $\circ$ на множестве $M$ называется отображение 
+		${\circ{:} \ M \times M \rightarrow M}$, ${\ \forall a,b \in M{:} \ (a, b) \mapsto a \circ b}$.
+	\end{definition}
 	
-		\begin{definition}
-			Множество с бинарной операцией $(M, \circ)$ называется \textit{полугруппой}, если данная бинарная операция
-			ассоциативна, т.е.
-			\begin{equation*}
-				\forall a, b, c \in M{:} \ a \circ (b \circ c) = (a \circ b) \circ c.
-			\end{equation*}
-		\end{definition}
-
-		\begin{definition}
-			Полугруппа $(M, \circ)$ называется \textit{моноидом}, если в ней есть \textit{нейтральный элемент}, т.е.
-			\begin{equation*}
-				\exists e \in M \suchthat \forall a \in M{:} \ e \circ a = a \circ e = a.
-			\end{equation*}
-		\end{definition}
-
-		\begin{definition}
-			Моноид $(M, \circ)$ называется \textit{группой}, если для каждого элемента $a \in M$ найдется \textit{обратный элемент}, т.е.
-			\begin{equation*} 
-			 \forall a \in M \ \exists a^{-1} \in M \suchthat a \circ a^{-1} = a^{-1} \circ a = e.
-			\end{equation*} \n
-			Группы обычно обозначаются $\langle M, \circ \rangle.$
-		\end{definition}
-		\begin{definition}
-			Группа $G$ называется \textit{коммутативной} или \textit{абелевой}, если групповая операция \textit{коммутативна}, т.е.
-			\begin{equation*}
-				\forall a, b \in G{:} \ ab = ba.
-			\end{equation*}
-		\end{definition}
-		\thispagestyle{empty}
-		\begin{definition}
-			\textit{Порядок} группы $G$ — это число элементов в $G$. Группа называется \textit{конечной}, если её порядок конечен, и \textit{бесконечной} иначе. \n
-			Порядок группы $G$ обозначается $|G|$.
-		\end{definition} 
-		\newpage
-		\begin{exmpls}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item Числовые \textit{аддитивные} группы: \newline
-				$\langle \integers, + \rangle, \, \langle \rationals, + \rangle, \, 
-				\langle \real, + \rangle, \,
-				\langle \complex, + \rangle, \, 
-				\langle \integers_n, + \rangle.$ 
-				\item Числовые \textit{мультипликативные} группы: \newline
-				$\langle \rationals \, \backslash \, \{0\}, \times \rangle, \,
-				\langle \real \, \backslash \, \{0\}, \times \rangle, \,
-				\langle \complex \, \backslash \, \{0\}, \times \rangle, \,
-				\langle \integers_p \, \backslash \, \{0\}, \times \rangle, \, p$~--- простое.
-				\item Группы матриц: \newline
-				${\GL_n(\real) = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ \det A \neq 0 \}}$~--- \textit{полная линейная группа}; \newline
-				${\SL_n(\real) = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ \det A = 1 \}}$~--- \textit{специальная линейная
+	Множество с бинарной операцией обычно обозначают $(M, \circ).$
+	
+	\begin{definition}
+		Множество с бинарной операцией $(M, \circ)$ называется \textit{полугруппой}, если данная бинарная операция
+		ассоциативна, т.е.
+		\begin{equation*}
+			\forall a, b, c \in M{:} \ a \circ (b \circ c) = (a \circ b) \circ c.
+		\end{equation*}
+	\end{definition}
+	
+	\begin{definition}
+		Полугруппа $(M, \circ)$ называется \textit{моноидом}, если в ней есть \textit{нейтральный элемент}, т.е.
+		\begin{equation*}
+			\exists e \in M \suchthat \forall a \in M{:} \ e \circ a = a \circ e = a.
+		\end{equation*}
+	\end{definition}
+	
+	\begin{definition}
+		Моноид $(M, \circ)$ называется \textit{группой}, если для каждого элемента $a \in M$ найдется \textit{обратный элемент}, т.е.
+		\begin{equation*} 
+			\forall a \in M \ \exists a^{-1} \in M \suchthat a \circ a^{-1} = a^{-1} \circ a = e.
+		\end{equation*} \n
+		Группы обычно обозначаются $\langle M, \circ \rangle.$
+	\end{definition}
+	\begin{definition}
+		Группа $G$ называется \textit{коммутативной} или \textit{абелевой}, если групповая операция \textit{коммутативна}, т.е.
+		\begin{equation*}
+			\forall a, b \in G{:} \ ab = ba.
+		\end{equation*}
+	\end{definition}
+	\thispagestyle{empty}
+	\begin{definition}
+		\textit{Порядок} группы $G$ — это число элементов в $G$. Группа называется \textit{конечной}, если её порядок конечен, и \textit{бесконечной} иначе. \n
+		Порядок группы $G$ обозначается $|G|$.
+	\end{definition} 
+	\newpage
+	\begin{exmpls}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Числовые \textit{аддитивные} группы: \newline
+			$\langle \integers, + \rangle, \, \langle \rationals, + \rangle, \, 
+			\langle \real, + \rangle, \,
+			\langle \complex, + \rangle, \, 
+			\langle \integers_n, + \rangle.$ 
+			\item Числовые \textit{мультипликативные} группы: \newline
+			$\langle \rationals \, \backslash \, \{0\}, \times \rangle, \,
+			\langle \real \, \backslash \, \{0\}, \times \rangle, \,
+			\langle \complex \, \backslash \, \{0\}, \times \rangle, \,
+			\langle \integers_p \, \backslash \, \{0\}, \times \rangle, \, p$~--- простое.
+			\item Группы матриц: \newline
+			${\GL_n(\real) = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ \det A \neq 0 \}}$~--- \textit{полная линейная группа}; \newline
+			${\SL_n(\real) = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ \det A = 1 \}}$~--- \textit{специальная линейная
 				группа}; \newline
-				${\Orth_n(\real)} = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ A \cdot A^T = I\}$~--- \textit{ортогональная группа}; \newline
-				${\SOrth_n(\real) = \Orth_n(\real) \cap \SL_n(\real)}$~--- \textit{специальная ортогональная группа.}
-				\item Группы перестановок: \newline
-				\textit{симметрическая группа} $S_n$~--- все перестановки длины $n$;\newline
-				\textit{знакопеременная группа} $A_n$~--- все чётные перестановки длины $n$.
-				\item Группы преобразований подобия: гомотетии, движения (осевые и скользящие симметрии, параллельные переносы, повороты).
-			\end{enumerate}
-		\end{exmpls}
-		\begin{definition}
-			Для описания структур групп часто используются \textit{таблицы Кэли}. Они представляют собой квадратные таблицы, заполненные результатами применения бинарной операции к элементам множества.
-		\end{definition}
-		\begin{exmpl*}
-			Таблица Кэли для группы $\langle \{1, 3, 5, 7\}, \times (\mod 8) \rangle{:}$
-			\begin{center}
-				\begin{tabular}{c|cccc}
-					$\times$ & 1 & 3 & 5 & 7\\
-					\hline
-					1 & 1 & 3 & 5 & 7\\
-					
-					3 & 3 & 1 & 7 & 5\\
-					
-					5 & 5 & 7 & 1 & 3\\
-					
-					7 & 7 & 5 & 3 & 1\\
-				\end{tabular}
-			\end{center} \n
-		\end{exmpl*}
+			${\Orth_n(\real)} = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ A \cdot A^T = I\}$~--- \textit{ортогональная группа}; \newline
+			${\SOrth_n(\real) = \Orth_n(\real) \cap \SL_n(\real)}$~--- \textit{специальная ортогональная группа.}
+			\item Группы перестановок: \newline
+			\textit{симметрическая группа} $S_n$~--- все перестановки длины $n$;\newline
+			\textit{знакопеременная группа} $A_n$~--- все чётные перестановки длины $n$.
+			\item Группы преобразований подобия: гомотетии, движения (осевые и скользящие симметрии, параллельные переносы, повороты).
+		\end{enumerate}
+	\end{exmpls}
+	\begin{definition}
+		Для описания структур групп часто используются \textit{таблицы Кэли}. Они представляют собой квадратные таблицы, заполненные результатами применения бинарной операции к элементам множества.
+	\end{definition}
+	\begin{exmpl*}
+		Таблица Кэли для группы $\langle \{1, 3, 5, 7\}, \times (\mod 8) \rangle{:}$
+		\begin{center}
+			\begin{tabular}{c|cccc}
+				$\times$ & 1 & 3 & 5 & 7\\
+				\hline
+				1 & 1 & 3 & 5 & 7\\
+				
+				3 & 3 & 1 & 7 & 5\\
+				
+				5 & 5 & 7 & 1 & 3\\
+				
+				7 & 7 & 5 & 3 & 1\\
+			\end{tabular}
+		\end{center} \n
+	\end{exmpl*}
 	\newpage
 	\section{Подгруппы. Описание всех подгрупп в группе $\langle \integers, + \rangle$. Циклические подгруппы и группы. Порядок элемента. Связь между порядком элемента и порядком порождаемой им циклической подгруппы}
-
-		\begin{definition}	
-			Подмножество $H$ группы $G$ называется \textit{подгруппой} и обозначается $H < G$, если выполнены следующие условия:
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $e \in H;$
-				\item $\forall a,b \in H{:} \ ab \in H;$
-				\item $\forall a \in H{:} \ a^{-1} \in H.$
-			\end{enumerate}
-		\end{definition}
-		В каждой группе $G$ есть \textit{несобственные} или \textit{тривиальные} подгруппы $H = \{e\}$ и $H = G$. Все прочие подгруппы называются \textit{собственными}.
-		\begin{exmpls}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item ${\langle \integers < \rationals < \real < \complex, + \rangle}$
-				\item ${\GL_n(\real) > \Orth_n(\real) > \SOrth_n(\real); \ \GL_n(\real) > \SL_n(\real).}$
-				\item ${S_n > A_n.}$
-			\end{enumerate}
-		\end{exmpls}
-		\begin{theorem*}[\textbf{Критерий подгруппы}]
-			Пусть $G$~--- группа, тогда
-			\begin{equation*}
-				H < G \Longleftrightarrow \forall a,b \in H{:} \ a \circ b^{-1} \in H.
-			\end{equation*}
-		\end{theorem*}
-		\begin{proof}
-			Определим на $H$ вспомогательное отношение ${R_H = \{(a,b)\ | \ a \circ b^{-1} \in H\}}.$ Покажем, что $R_H$ является отношением эквивалентности. Для этого проверим, что оно ${\text{рефлексивно} \ (1)}$, симметрично $(2)$ и транзитивно $(3)$:
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $a \circ a^{-1} = e \in H;$
-				\item $ab^{-1} \in H \Longrightarrow b a^{-1} = (ab^{-1})^{-1} \in H;$
-				\item $ab^{-1} \in H, \ bc^{-1} \in H \Longrightarrow ac^{-1} = (ab^{-1})(bc^{-1}) = a(b^{-1}b)c^{-1} \in H.$
-			\end{enumerate} \n
-			
-			Рефлексивность $R_H$ определяет наличие нейтрального элемента, симметричность~-- наличие обратного элемента, транзитивность~-- ассоциативность заданной бинарной операции. Каждый класс эквивалентности будет ассоциирован с некоторой подгруппой (как с алгебраически замкнутым множеством). 
-		\end{proof}
-		\begin{statement*}
-			Всякая подгруппа в ${}\langle\integers, +\rangle$ имеет вид $k\integers$ для некоторого ${k \in \naturals_0 \ (\mathbb{N}_0 = \mathbb{N} \cup \{0\})}$.
-		\end{statement*}
-		\begin{proof}
-			Очевидно, что все подмножества вида $k\mathbb{Z}$ являются подгруппами в $\integers$.
-			Пусть ${H < \integers}$. Если ${H = \{0\}}$, то ${H = 0\integers}$.
-			Иначе положим ${k = \min(H \cap N) \neq 0}$ (это множество непусто, т.к. ${\forall x \in H \cap N{:} ~-x \in H}$), тогда ${k\integers \subseteq H}$.
-			Покажем, что ${k\integers = H}$. Пусть ${a \in H}$ — произвольный элемент. Поделим его на $k$ с остатком:
-			\begin{equation*}
-				a = qk + r, \text{где} \ k \in H, \  
-				0 \leqslant r < k \Rightarrow r = a - qk \in H.
-			\end{equation*}
-			В силу выбора $k$ получаем: ${r = 0 \Rightarrow a = qk \in k\integers}$.
-		\end{proof}
-		\begin{definition}
-			Пусть $G$~--- группа, $g \in G$ и $n \in \integers$. \textit{Степень} элемента $g$ определяется следующим образом:
-			\begin{equation*}
-				g^{n}=
-				\begin{cases*}
-					\underbrace{g \mathellipsis g}_n,  &$n > 0$ \\
-					e,  &$n = 0$ \\
-					\underbrace{g^{-1} \mathellipsis g^{-1}}_n, &$n < 0$
-				\end{cases*}
-			\end{equation*}
-			и обладает свойствами:\n
-			$\forall m, n \in \integers:$
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $g^m \cdot g^n = g^{m+n};$
-				\item $(g^m)^{-1} = g^{-m};$
-				\item $(g^m)^n = g^{mn}.$
-			\end{enumerate}
-		\end{definition}
-		\newpage
-		\begin{definition}
-			Пусть $G$~--- группа и $g \in G$. \textit{Циклической подгруппой}, порожденной элементом $g$, называется подмножество ${\{g^n \ | \ n \in \integers\} \subseteq G}$. \n
-			Циклическая подгруппа, порождённая элементом $g$, обозначается $\langle g \rangle$. Элемент $g$ называется \textit{порождающим} или \textit{образующим} для подгруппы $\langle g \rangle$.
-		\end{definition}
-		\begin{exmpl*}
-			Подгруппа ${2\integers < \langle \integers, + \rangle}$ является циклической, и в качестве порождающего элемента в ней можно взять $g = 2$ или $g = -2.$ Другими словами, ${2\integers = \langle 2 \rangle = \langle -2 \rangle.}$
-		\end{exmpl*}
-		\begin{definition}
-			Группа $G$ называется \textit{циклической}, если 
-			\begin{equation*}
-				\exists g \in G \suchthat G = \langle g \rangle.
-			\end{equation*}
-			Циклическая группа порядка $n$ обозначается ${C_n.}$
-		\end{definition}
-		\begin{exmpls}
-			${\langle \integers, + \rangle; \ \langle \integers_n, + \rangle, n \geqslant 1.}$
-		\end{exmpls}
-		\begin{definition}
-			Пусть $G$ — группа и ${g \in G}$. \textit{Порядком} элемента $g$ называется наименьшее ${m \in \naturals \suchthat g^m = e}$. Если такого натурального числа $m$ не существует, говорят, что порядок элемента $g$ равен бесконечности. Порядок элемента обозначается $\ord(g)$.
-		\end{definition}
-		\begin{remark}
-			\begin{equation*}
-				\ord(g) = 1 \Longleftrightarrow g = e.
-			\end{equation*}
-			
-		\end{remark}
-		\begin{statement*}
-			Если $G$~--- группа и $g \in G$, то $\ord(g) = |\langle g \rangle|.$
-		\end{statement*}
-		\begin{proof}
-			Заметим, что если $g^k = g^s$, то $g^{k - s} = e$. Поэтому если элемент $g$ имеет бесконечный порядок, то все элементы $g^n, n \in \integers$, попарно различны, и подгруппа $\langle g \rangle$ содержит бесконечно много элементов. 
-			Если же ${\ord(g) = m}$, то из минимальности числа $m$ следует, что элементы ${e = g^0, g^1, g^2, \mathellipsis , g^{m-1}}$ попарно различны.
-			Далее, ${\forall n \in \integers{:} \ n = mq + r, \ \text{где} \ 0 \leqslant r \leq m - 1, \ \text{и}}$
-			\begin{equation*}
-				g^n = g^{mq + r} = (g^m)^q g^r = e^q g^r = g^r.
-			\end{equation*}
-			Следовательно, $\langle g \rangle = \{e, g, g^2, \mathellipsis, g^{m - 1}\}$ и $|\langle g \rangle| = m.$
-		\end{proof}
-		Очевидно, что всякая циклическая группа коммутативна и не более чем счётна.
+	
+	\begin{definition}	
+		Подмножество $H$ группы $G$ называется \textit{подгруппой} и обозначается $H < G$, если выполнены следующие условия:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $e \in H;$
+			\item $\forall a,b \in H{:} \ ab \in H;$
+			\item $\forall a \in H{:} \ a^{-1} \in H.$
+		\end{enumerate}
+	\end{definition}
+	В каждой группе $G$ есть \textit{несобственные} или \textit{тривиальные} подгруппы $H = \{e\}$ и $H = G$. Все прочие подгруппы называются \textit{собственными}.
+	\begin{exmpls}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item ${\langle \integers < \rationals < \real < \complex, + \rangle}$
+			\item ${\GL_n(\real) > \Orth_n(\real) > \SOrth_n(\real); \ \GL_n(\real) > \SL_n(\real).}$
+			\item ${S_n > A_n.}$
+		\end{enumerate}
+	\end{exmpls}
+	\begin{theorem*}[\textbf{Критерий подгруппы}]
+		Пусть $G$~--- группа, тогда
+		\begin{equation*}
+			H < G \Longleftrightarrow \forall a,b \in H{:} \ a \circ b^{-1} \in H.
+		\end{equation*}
+	\end{theorem*}
+	\begin{proof}
+		Определим на $H$ вспомогательное отношение ${R_H = \{(a,b)\ | \ a \circ b^{-1} \in H\}}.$ Покажем, что $R_H$ является отношением эквивалентности. Для этого проверим, что оно ${\text{рефлексивно} \ (1)}$, симметрично $(2)$ и транзитивно $(3)$:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $a \circ a^{-1} = e \in H;$
+			\item $ab^{-1} \in H \Longrightarrow b a^{-1} = (ab^{-1})^{-1} \in H;$
+			\item $ab^{-1} \in H, \ bc^{-1} \in H \Longrightarrow ac^{-1} = (ab^{-1})(bc^{-1}) = a(b^{-1}b)c^{-1} \in H.$
+		\end{enumerate} \n
+		
+		Рефлексивность $R_H$ определяет наличие нейтрального элемента, симметричность~-- наличие обратного элемента, транзитивность~-- ассоциативность заданной бинарной операции. Каждый класс эквивалентности будет ассоциирован с некоторой подгруппой (как с алгебраически замкнутым множеством). 
+	\end{proof}
+	\begin{statement*}
+		Всякая подгруппа в ${}\langle\integers, +\rangle$ имеет вид $k\integers$ для некоторого ${k \in \naturals_0 \ (\mathbb{N}_0 = \mathbb{N} \cup \{0\})}$.
+	\end{statement*}
+	\begin{proof}
+		Очевидно, что все подмножества вида $k\mathbb{Z}$ являются подгруппами в $\integers$.
+		Пусть ${H < \integers}$. Если ${H = \{0\}}$, то ${H = 0\integers}$.
+		Иначе положим ${k = \min(H \cap N) \neq 0}$ (это множество непусто, т.к. ${\forall x \in H \cap N{:} ~-x \in H}$), тогда ${k\integers \subseteq H}$.
+		Покажем, что ${k\integers = H}$. Пусть ${a \in H}$ — произвольный элемент. Поделим его на $k$ с остатком:
+		\begin{equation*}
+			a = qk + r, \text{где} \ k \in H, \  
+			0 \leqslant r < k \Rightarrow r = a - qk \in H.
+		\end{equation*}
+		В силу выбора $k$ получаем: ${r = 0 \Rightarrow a = qk \in k\integers}$.
+	\end{proof}
+	\begin{definition}
+		Пусть $G$~--- группа, $g \in G$ и $n \in \integers$. \textit{Степень} элемента $g$ определяется следующим образом:
+		\begin{equation*}
+			g^{n}=
+			\begin{cases*}
+				\underbrace{g \mathellipsis g}_n,  &$n > 0$ \\
+				e,  &$n = 0$ \\
+				\underbrace{g^{-1} \mathellipsis g^{-1}}_n, &$n < 0$
+			\end{cases*}
+		\end{equation*}
+		и обладает свойствами:\n
+		$\forall m, n \in \integers:$
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $g^m \cdot g^n = g^{m+n};$
+			\item $(g^m)^{-1} = g^{-m};$
+			\item $(g^m)^n = g^{mn}.$
+		\end{enumerate}
+	\end{definition}
+	\newpage
+	\begin{definition}
+		Пусть $G$~--- группа и $g \in G$. \textit{Циклической подгруппой}, порожденной элементом $g$, называется подмножество ${\{g^n \ | \ n \in \integers\} \subseteq G}$. \n
+		Циклическая подгруппа, порождённая элементом $g$, обозначается $\langle g \rangle$. Элемент $g$ называется \textit{порождающим} или \textit{образующим} для подгруппы $\langle g \rangle$.
+	\end{definition}
+	\begin{exmpl*}
+		Подгруппа ${2\integers < \langle \integers, + \rangle}$ является циклической, и в качестве порождающего элемента в ней можно взять $g = 2$ или $g = -2.$ Другими словами, ${2\integers = \langle 2 \rangle = \langle -2 \rangle.}$
+	\end{exmpl*}
+	\begin{definition}
+		Группа $G$ называется \textit{циклической}, если 
+		\begin{equation*}
+			\exists g \in G \suchthat G = \langle g \rangle.
+		\end{equation*}
+		Циклическая группа порядка $n$ обозначается ${C_n.}$
+	\end{definition}
+	\begin{exmpls}
+		${\langle \integers, + \rangle; \ \langle \integers_n, + \rangle, n \geqslant 1.}$
+	\end{exmpls}
+	\begin{definition}
+		Пусть $G$ — группа и ${g \in G}$. \textit{Порядком} элемента $g$ называется наименьшее ${m \in \naturals \suchthat g^m = e}$. Если такого натурального числа $m$ не существует, говорят, что порядок элемента $g$ равен бесконечности. Порядок элемента обозначается $\ord(g)$.
+	\end{definition}
+	\begin{remark}
+		\begin{equation*}
+			\ord(g) = 1 \Longleftrightarrow g = e.
+		\end{equation*}
+		
+	\end{remark}
+	\begin{statement*}
+		Если $G$~--- группа и $g \in G$, то $\ord(g) = |\langle g \rangle|.$
+	\end{statement*}
+	\begin{proof}
+		Заметим, что если $g^k = g^s$, то $g^{k - s} = e$. Поэтому если элемент $g$ имеет бесконечный порядок, то все элементы $g^n, n \in \integers$, попарно различны, и подгруппа $\langle g \rangle$ содержит бесконечно много элементов. 
+		Если же ${\ord(g) = m}$, то из минимальности числа $m$ следует, что элементы ${e = g^0, g^1, g^2, \mathellipsis , g^{m-1}}$ попарно различны.
+		Далее, ${\forall n \in \integers{:} \ n = mq + r, \ \text{где} \ 0 \leqslant r \leq m - 1, \ \text{и}}$
+		\begin{equation*}
+			g^n = g^{mq + r} = (g^m)^q g^r = e^q g^r = g^r.
+		\end{equation*}
+		Следовательно, $\langle g \rangle = \{e, g, g^2, \mathellipsis, g^{m - 1}\}$ и $|\langle g \rangle| = m.$
+	\end{proof}
+	Очевидно, что всякая циклическая группа коммутативна и не более чем счётна.
 	\newpage
 	\section{Смежные классы. Индекс подгруппы. Теорема Лагранжа}
 	\setcounter{definition}{0}
-		\begin{definition}
-			\textit{Левым смежным классом} элемента $g$ группы $G$ по подгруппе $H$ называется подмножество
-			\begin{equation*}
-				gH = \{gh \ | \ h \in H\},
-			\end{equation*}
-			аналогично определяется \textit{правый смежный класс}:
-			\begin{equation*}
-				Hg = \{hg \ | \ h \in H\}.
-			\end{equation*}
-		\end{definition}
-		\begin{lemma*}
-			Пусть $G$~--- конечная подгруппа, тогда $\forall g \in G{:} \ |gH| = |H|.$
-		\end{lemma*}
-		\begin{proof}
-			Поскольку ${gH = \{gh \ | \ h \in H\}}$, в $gH$ элементов не больше, чем в $H$. Если ${gh_1 = gh_2}$, то домножив слева на $g^{-1},$ получаем ${h_1 = h_2}$. Значит, все элементы вида $gh$, где ${h \in H}$, попарно различны, откуда ${|gH| = |H|}$.
-		\end{proof}
-		\begin{definition}
-			Пусть $G$~--- группа, $H < G$. \textit{Индексом} подгруппы $H$ в группе $G$ называется число левых смежных классов $G$ по $H$.
-		\end{definition} \n
-		Индекс группы $G$ по подгруппе $H$ обозначается $[G : H]$.
-		\begin{theorem*}[\textbf{Лагранж}]
-			Пусть $G$~--- конечная группа, $H < G$. Тогда
-			\begin{equation*}
-				|G| = |H| \cdot [G : H].
-			\end{equation*}
-		\end{theorem*}
-		\begin{proof}
-			Каждый элемент группы $G$ лежит в (своём) левом смежном классе по подгруппе $H$, разные смежные классы не пересекаются (по следствию из доказательства критерия подгруппы) и каждый из них содержит по $|H|$ элементов (по предыдущей лемме).
-		\end{proof}
-		\newpage
-		\begin{consequence}
-			$|G| \divby |H|$.
-		\end{consequence}
-		\begin{consequence}
-			$|G| \divby \ord(g)$.
-		\end{consequence}
-		\begin{proof}
-			Вытекает из следствия 1 и того, что $\ord(g) = |\langle g \rangle|$.
-		\end{proof}
-		\begin{consequence}
-			$g^{|G|} = e$.
-		\end{consequence}
-		\begin{proof}
-			Из предыдущего следствия получаем: ${|G| = \ord(g) \cdot s, \ s \in \naturals} \Longrightarrow g^{|G|} = (g^{\ord(g)})^s = e^s = e.$
-		\end{proof}
-		\begin{consequence}[\textbf{Малая теорема Ферма}]
-			Пусть $\overline{a}$~--- ненулевой вычет по простому модулю $p$, тогда $\overline{a}^{p-1} \equiv 1 \ (\mod \, p).$
-		\end{consequence}
-		\begin{proof}
-			Достаточно применить следствие 3 к группе $\langle \integers_p \ \backslash \ \{0\}, \times \rangle.$
-		\end{proof}
-		\begin{consequence}
-			Пусть $|G|$~--- простое число, тогда $G$~--- циклическая группа, порождённая любым своим ненейтральным элементом.
-		\end{consequence}
-		\begin{proof}
-			Пусть $g \in G$~--- произвольный ненейтральный элемент. Тогда циклическая подгруппа $\langle g \rangle$ содержит более одного элемента и $|\langle g \rangle|$ делит $|G|$ по следствию 1. Значит, $|\langle g \rangle| = |G|$, откуда $G = \langle g \rangle$. 
-		\end{proof}
-		\newpage
+	\begin{definition}
+		\textit{Левым смежным классом} элемента $g$ группы $G$ по подгруппе $H$ называется подмножество
+		\begin{equation*}
+			gH = \{gh \ | \ h \in H\},
+		\end{equation*}
+		аналогично определяется \textit{правый смежный класс}:
+		\begin{equation*}
+			Hg = \{hg \ | \ h \in H\}.
+		\end{equation*}
+	\end{definition}
+	\begin{lemma*}
+		Пусть $G$~--- конечная подгруппа, тогда $\forall g \in G{:} \ |gH| = |H|.$
+	\end{lemma*}
+	\begin{proof}
+		Поскольку ${gH = \{gh \ | \ h \in H\}}$, в $gH$ элементов не больше, чем в $H$. Если ${gh_1 = gh_2}$, то домножив слева на $g^{-1},$ получаем ${h_1 = h_2}$. Значит, все элементы вида $gh$, где ${h \in H}$, попарно различны, откуда ${|gH| = |H|}$.
+	\end{proof}
+	\begin{definition}
+		Пусть $G$~--- группа, $H < G$. \textit{Индексом} подгруппы $H$ в группе $G$ называется число левых смежных классов $G$ по $H$.
+	\end{definition} \n
+	Индекс группы $G$ по подгруппе $H$ обозначается $[G : H]$.
+	\begin{theorem*}[\textbf{Лагранж}]
+		Пусть $G$~--- конечная группа, $H < G$. Тогда
+		\begin{equation*}
+			|G| = |H| \cdot [G : H].
+		\end{equation*}
+	\end{theorem*}
+	\begin{proof}
+		Каждый элемент группы $G$ лежит в (своём) левом смежном классе по подгруппе $H$, разные смежные классы не пересекаются (по следствию из доказательства критерия подгруппы) и каждый из них содержит по $|H|$ элементов (по предыдущей лемме).
+	\end{proof}
+	\newpage
+	\begin{consequence}
+		$|G| \divby |H|$.
+	\end{consequence}
+	\begin{consequence}
+		$|G| \divby \ord(g)$.
+	\end{consequence}
+	\begin{proof}
+		Вытекает из следствия 1 и того, что $\ord(g) = |\langle g \rangle|$.
+	\end{proof}
+	\begin{consequence}
+		$g^{|G|} = e$.
+	\end{consequence}
+	\begin{proof}
+		Из предыдущего следствия получаем: ${|G| = \ord(g) \cdot s, \ s \in \naturals} \Longrightarrow g^{|G|} = (g^{\ord(g)})^s = e^s = e.$
+	\end{proof}
+	\begin{consequence}[\textbf{Малая теорема Ферма}]
+		Пусть $\overline{a}$~--- ненулевой вычет по простому модулю $p$, тогда $\overline{a}^{p-1} \equiv 1 \ (\mod \, p).$
+	\end{consequence}
+	\begin{proof}
+		Достаточно применить следствие 3 к группе $\langle \integers_p \ \backslash \ \{0\}, \times \rangle.$
+	\end{proof}
+	\begin{consequence}
+		Пусть $|G|$~--- простое число, тогда $G$~--- циклическая группа, порождённая любым своим ненейтральным элементом.
+	\end{consequence}
+	\begin{proof}
+		Пусть $g \in G$~--- произвольный ненейтральный элемент. Тогда циклическая подгруппа $\langle g \rangle$ содержит более одного элемента и $|\langle g \rangle|$ делит $|G|$ по следствию 1. Значит, $|\langle g \rangle| = |G|$, откуда $G = \langle g \rangle$. 
+	\end{proof}
+	\newpage
 	\section{Метрические пространства. Изометрии и движения. Группы движений. Диэдральные группы}
-		\setcounter{definition}{0}
-		\begin{definition}
-			Упорядоченная пара ${(M, d),}$ состоящая из множества $M$ и отображения ${d{:} \ M \times M \rightarrow \real,}$  называется \textit{метрическим пространством}, если ${\forall x, y \in M{:}}$
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item ${d(x, y) = 0 \Leftrightarrow x = y}$ (\textit{аксиома тождества});
-				\item ${d(x, y) \geqslant 0}$ (\textit{аксиома неотрицательности});
-				\item ${d(x, y) = d(y, x)}$ (\textit{аксиома симметричности});
-				\item ${d(x, y) + d(y, z) \geqslant d(x, y)}$ (\textit{аксиома} или \textit{неравенство треугольника}).
-			\end{enumerate}
-		\end{definition}
-		\begin{definition}
-			Пусть $X$ и $Y$~--- метрические пространства. Отображение ${f{:} \ X \rightarrow Y}$ называется \textit{изометрией}, если оно сохраняет расстояние между точками:
-			\begin{equation*}
-				\forall x, x' \in X{:} \ |f(x) - f(x')|_Y = |x - x'|_X,
-			\end{equation*} \n
-			где ${|a - b|_S}$~--- расстояние между $a$ и $b$ в пространстве $S$.\n
-			Если ${X = Y,}$ $f$ называют \textit{движением}.
-		\end{definition}
-		\begin{definition}
-			Движение называют \textit{собственным}, если оно сохраняет \textit{ориентацию} пространства.
-		\end{definition}
-		\begin{definition}
-			Пусть $E$~--- \textit{евклидово аффинное пространство} и ${F \subseteq E}$~--- геометрическая фигура. \textit{Группой движений (изометрий)} ${\Isom(F)}$ фигуры $F$ называется множество тех движений аффинного пространства $E$, которые  переводят фигуру $F$ в себя:
-			\begin{equation*}
-				\Isom(F) = \{\phi{:} \ E \rightarrow E \ | \ \phi\textrm{~--- движение}, \ \phi(F) = F\}.
-			\end{equation*} 
-			В качестве групповой операции рассматривается операция композиции движений.
-		\end{definition}
-		\begin{remark}
-			Группа собственных движений ${\Isom(F)^+}$ является подгруппой группы движений ${\Isom(F)}$ фигуры $F.$
-		\end{remark}
-		\newpage
-		\begin{definition}
-			Группа движений правильного $n$-угольника ${\Delta_n \subset \real^2}$ называется \textit{диэдральной группой} $D_n{:}$
-			\begin{equation*}
-			 	D_n = \Isom(\Delta_n).
-			\end{equation*} \n
-		 	Есть всего 2 вида таких преобразований:
-		 	\begin{enumerate}
-				\setlength\itemsep{0.1em}
-		 		\item $n$ вращений относительно центра на угол, кратный $\frac{2\pi}{n}$ (вращение на угол $\phi$ обозначается $\Rot_\phi$);
-		 		\item $n$ симметрий относительно осей симметрии (симметрия относительно прямой $l$ обозначается $\Sym_l$). \n В случае нечетного $n$ любая ось симметрии проходит через центр $\Delta_n$ и одну из вершин, в случае четного $n$ любая ось симметрии проходит либо через противоположные вершины, либо через середины противоположных сторон. 
-		 	\end{enumerate}
-		\end{definition}
-		\begin{statement*}
-			${|D_n| = 2n.}$
-		\end{statement*}
-		\begin{remark}
-			Группа собственных движений $\Delta_n$ содержит только повороты:
-			\begin{equation*}
-				\Isom(D_n)^+ = \{\Rot_{\frac{2\pi k}{n}}\}.
-			\end{equation*}
-		\end{remark}
-		\begin{exmpl*}
-			Таблица Кэли группы $D_4$ квадрата $ABCD{:}$
-			\begin{center}
-				\begin{tabular}{c|c|c|c|c|c|c|c|c}
-					$\circ$ & $\id$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_{\frac{3\pi}{2}}$ & 
-					$\Sym_h$ &
-					$\Sym_v$ &
-					$\Sym_{AC}$ &
-					$\Sym_{BD}$ \\
-					\hline
-					$\id$ & $\id$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_{\frac{3\pi}{2}}$ & 
-					$\Sym_h$ &
-					$\Sym_v$ &
-					$\Sym_{AC}$ &
-					$\Sym_{BD}$ \\
-					\hline
-					$\Rot_{\frac{\pi}{2}}$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Sym_{BD}$ & $\Sym_{AC}$ & $\Sym_h$ & $\Sym_v$ \\
-					\hline
-					$\Rot_{\pi}$ & $\Rot_{\pi}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Rot_\frac{\pi}{2}$ & $\Sym_v$ & $\Sym_h$ & $\Sym_{BD}$ & $\Sym_{AC}$ \\ \hline
-					$\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Rot_\frac{\pi}{2}$ & $\Rot_{\pi}$ & $\Sym_{AC}$ & $\Sym_{BD}$ & $\Sym_v$ & $\Sym_h$ \\
-					\hline
-					$\Sym_h$ & $\Sym_h$ & $\Sym_{AC}$ & $\Sym_v$ & $\Sym_{BD}$ & $\id$ & $\Rot_{\pi}$ & $\Rot_\frac{\pi}{2}$ & $\Rot_\frac{3\pi}{2}$
-					\\
-					\hline
-					$\Sym_v$ & $\Sym_v$ & $\Sym_{BD}$ & $\Sym_h$ & $\Sym_{AC}$ & $\Rot_{\pi}$ & $\id$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{\pi}{2}$
-					\\
-					\hline
-					$\Sym_{AC}$ & $\Sym_{AC}$ & $\Sym_v$ & $\Sym_{BD}$ & $\Sym_h$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{\pi}{2}$ & $\id$ & $\Rot_{\pi}$
-					\\
-					\hline
-					$\Sym_{BD}$ & $\Sym_{BD}$ & $\Sym_h$ & $\Sym_{AC}$ & $\Sym_v$ & $\Rot_\frac{\pi}{2}$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_{\pi}$ & $\id$\\
-				\end{tabular}
-			\end{center} \n
-		\end{exmpl*}
-		\newpage
+	\setcounter{definition}{0}
+	\begin{definition}
+		Упорядоченная пара ${(M, d),}$ состоящая из множества $M$ и отображения ${d{:} \ M \times M \rightarrow \real,}$  называется \textit{метрическим пространством}, если ${\forall x, y \in M{:}}$
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item ${d(x, y) = 0 \Leftrightarrow x = y}$ (\textit{аксиома тождества});
+			\item ${d(x, y) \geqslant 0}$ (\textit{аксиома неотрицательности});
+			\item ${d(x, y) = d(y, x)}$ (\textit{аксиома симметричности});
+			\item ${d(x, y) + d(y, z) \geqslant d(x, y)}$ (\textit{аксиома} или \textit{неравенство треугольника}).
+		\end{enumerate}
+	\end{definition}
+	\begin{definition}
+		Пусть $X$ и $Y$~--- метрические пространства. Отображение ${f{:} \ X \rightarrow Y}$ называется \textit{изометрией}, если оно сохраняет расстояние между точками:
+		\begin{equation*}
+			\forall x, x' \in X{:} \ |f(x) - f(x')|_Y = |x - x'|_X,
+		\end{equation*} \n
+		где ${|a - b|_S}$~--- расстояние между $a$ и $b$ в пространстве $S$.\n
+		Если ${X = Y,}$ $f$ называют \textit{движением}.
+	\end{definition}
+	\begin{definition}
+		Движение называют \textit{собственным}, если оно сохраняет \textit{ориентацию} пространства.
+	\end{definition}
+	\begin{definition}
+		Пусть $E$~--- \textit{евклидово аффинное пространство} и ${F \subseteq E}$~--- геометрическая фигура. \textit{Группой движений (изометрий)} ${\Isom(F)}$ фигуры $F$ называется множество тех движений аффинного пространства $E$, которые  переводят фигуру $F$ в себя:
+		\begin{equation*}
+			\Isom(F) = \{\phi{:} \ E \rightarrow E \ | \ \phi\textrm{~--- движение}, \ \phi(F) = F\}.
+		\end{equation*} 
+		В качестве групповой операции рассматривается операция композиции движений.
+	\end{definition}
+	\begin{remark}
+		Группа собственных движений ${\Isom(F)^+}$ является подгруппой группы движений ${\Isom(F)}$ фигуры $F.$
+	\end{remark}
+	\newpage
+	\begin{definition}
+		Группа движений правильного $n$-угольника ${\Delta_n \subset \real^2}$ называется \textit{диэдральной группой} $D_n{:}$
+		\begin{equation*}
+			D_n = \Isom(\Delta_n).
+		\end{equation*} \n
+		Есть всего 2 вида таких преобразований:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $n$ вращений относительно центра на угол, кратный $\frac{2\pi}{n}$ (вращение на угол $\phi$ обозначается $\Rot_\phi$);
+			\item $n$ симметрий относительно осей симметрии (симметрия относительно прямой $l$ обозначается $\Sym_l$). \n В случае нечетного $n$ любая ось симметрии проходит через центр $\Delta_n$ и одну из вершин, в случае четного $n$ любая ось симметрии проходит либо через противоположные вершины, либо через середины противоположных сторон. 
+		\end{enumerate}
+	\end{definition}
+	\begin{statement*}
+		${|D_n| = 2n.}$
+	\end{statement*}
+	\begin{remark}
+		Группа собственных движений $\Delta_n$ содержит только повороты:
+		\begin{equation*}
+			\Isom(D_n)^+ = \{\Rot_{\frac{2\pi k}{n}}\}.
+		\end{equation*}
+	\end{remark}
+	\begin{exmpl*}
+		Таблица Кэли группы $D_4$ квадрата $ABCD{:}$
+		\begin{center}
+			\begin{tabular}{c|c|c|c|c|c|c|c|c}
+				$\circ$ & $\id$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_{\frac{3\pi}{2}}$ & 
+				$\Sym_h$ &
+				$\Sym_v$ &
+				$\Sym_{AC}$ &
+				$\Sym_{BD}$ \\
+				\hline
+				$\id$ & $\id$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_{\frac{3\pi}{2}}$ & 
+				$\Sym_h$ &
+				$\Sym_v$ &
+				$\Sym_{AC}$ &
+				$\Sym_{BD}$ \\
+				\hline
+				$\Rot_{\frac{\pi}{2}}$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Sym_{BD}$ & $\Sym_{AC}$ & $\Sym_h$ & $\Sym_v$ \\
+				\hline
+				$\Rot_{\pi}$ & $\Rot_{\pi}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Rot_\frac{\pi}{2}$ & $\Sym_v$ & $\Sym_h$ & $\Sym_{BD}$ & $\Sym_{AC}$ \\ \hline
+				$\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Rot_\frac{\pi}{2}$ & $\Rot_{\pi}$ & $\Sym_{AC}$ & $\Sym_{BD}$ & $\Sym_v$ & $\Sym_h$ \\
+				\hline
+				$\Sym_h$ & $\Sym_h$ & $\Sym_{AC}$ & $\Sym_v$ & $\Sym_{BD}$ & $\id$ & $\Rot_{\pi}$ & $\Rot_\frac{\pi}{2}$ & $\Rot_\frac{3\pi}{2}$
+				\\
+				\hline
+				$\Sym_v$ & $\Sym_v$ & $\Sym_{BD}$ & $\Sym_h$ & $\Sym_{AC}$ & $\Rot_{\pi}$ & $\id$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{\pi}{2}$
+				\\
+				\hline
+				$\Sym_{AC}$ & $\Sym_{AC}$ & $\Sym_v$ & $\Sym_{BD}$ & $\Sym_h$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{\pi}{2}$ & $\id$ & $\Rot_{\pi}$
+				\\
+				\hline
+				$\Sym_{BD}$ & $\Sym_{BD}$ & $\Sym_h$ & $\Sym_{AC}$ & $\Sym_v$ & $\Rot_\frac{\pi}{2}$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_{\pi}$ & $\id$\\
+			\end{tabular}
+		\end{center} \n
+	\end{exmpl*}
+	\newpage
 	\section{Группа перестановок. Цикловое разложение. Порядок элементов в $S_n$. Теорема Кэли}
-		\setcounter{definition}{0}
-		\begin{definition}
-			Пусть задано множество ${X = \{1, 2, \mathellipsis, n\}, \ n \in \naturals}$. Множество всех возможных биекций ${\Pi =\{\pi_i{:} \ X \leftrightarrow X\}}$ с операцией композиции $\circ$ образует группу ${S_n = \langle \Pi, \circ \rangle,}$ называемую \textit{симметрической группой} или \textit{группой перестановок}.
-		\end{definition}
-		\begin{statement}
-			\begin{equation*}
-				|S_n| = \mathrm{Card} \, \Pi = n!.
-			\end{equation*}
-		\end{statement}
-		\begin{proof}
-			Символ 1 можно подходящей перестановкой $\sigma$ перевести в любой другой символ ${\sigma(1)}$, для чего существует в точности $n$ различных возможностей. Но зафиксировав ${\sigma(1)}$, в качестве ${\sigma(2)}$ можно брать лишь один из оставшихся ${n - 1}$ символов и т.д. Всего возможностей выбора ${\sigma(1), \sigma(2), \mathellipsis, \sigma(n)}$, значит и всех перестановок будет ${n(n - 1) \mathellipsis 2 \cdot 1 = n!.}$
-		\end{proof}
-		\begin{statement}
-			Любая перестановка может быть представлена в виде композиции непересекающихся циклов.
-		\end{statement}
-		\begin{definition}
-			Цикл длины 2 называется \textit{транспозицией}.
-		\end{definition}
-		\begin{statement}
-			Каждая перестановка ${\pi \in S_n}$ является композицией транспозиций.
-		\end{statement}
-		\begin{statement}
-			Непересекающиеся циклы коммутируют.
-		\end{statement}
-		\begin{statement}
-			Порядок цикла равен его длине.
-		\end{statement}
-		\begin{statement}
-			Порядок перестановки равен $\NOK$ длин циклов в его цикловом разложении.
-		\end{statement}
-		\begin{definition}
-			\textit{Цикловой структурой} перестановки ${\pi \in S_n}$ называется упорядоченный набор чисел ${\CS(\pi) = (c_1, c_2, \mathellipsis, c_n),}$ где $c_i$~--- количество циклов длины $i$ в разложении $\pi.$
-		\end{definition}
-		\newpage
-		\begin{exmpl*}
-			Пусть $G = S_3, \ H = \langle(12)\rangle = \{\id, (12)\}.$ Найдём все левые и правые смежные классы $G$ по $H$ (произвольный элемент обозначим $a$):
-			\begin{center}
-				\begin{tabular}{c|c|c}
-					$a$ & $aH$ & $Ha$\\
-					\hline
-					$\id$ & $aH$ & $Ha$ \\
-					\hline
-					$(12)$ & $\{(12), \id\}$ & $\{(12), \id\}$ \\
-					\hline
-					$(13)$ & $\{(13), (123)\}$ & $\{(13), (132)\}$ \\
-					\hline
-					$(23)$ & $\{(23), (132)\}$ & $\{(23), (123)\}$ \\
-					\hline
-					$(123)$ & $\{(123), (13)\}$ & $\{(123), (23)\}$ \\
-					\hline
-					$(132)$ & $\{(132), (23)\}$ & $\{(132), (13)\}$
-				\end{tabular}
-			\end{center} \n
-		\end{exmpl*}
-			\begin{theorem*}[\textbf{Кэли}]
-			Любая конечная группа $G$ порядка $n$ изоморфна некоторой подгруппе симметрической группы $S_n{:}$
-			\begin{equation*}
+	\setcounter{definition}{0}
+	\begin{definition}
+		Пусть задано множество ${X = \{1, 2, \mathellipsis, n\}, \ n \in \naturals}$. Множество всех возможных биекций ${\Pi =\{\pi_i{:} \ X \leftrightarrow X\}}$ с операцией композиции $\circ$ образует группу ${S_n = \langle \Pi, \circ \rangle,}$ называемую \textit{симметрической группой} или \textit{группой перестановок}.
+	\end{definition}
+	\begin{statement}
+		\begin{equation*}
+			|S_n| = \mathrm{Card} \, \Pi = n!.
+		\end{equation*}
+	\end{statement}
+	\begin{proof}
+		Символ 1 можно подходящей перестановкой $\sigma$ перевести в любой другой символ ${\sigma(1)}$, для чего существует в точности $n$ различных возможностей. Но зафиксировав ${\sigma(1)}$, в качестве ${\sigma(2)}$ можно брать лишь один из оставшихся ${n - 1}$ символов и т.д. Всего возможностей выбора ${\sigma(1), \sigma(2), \mathellipsis, \sigma(n)}$, значит и всех перестановок будет ${n(n - 1) \mathellipsis 2 \cdot 1 = n!.}$
+	\end{proof}
+	\begin{statement}
+		Любая перестановка может быть представлена в виде композиции непересекающихся циклов.
+	\end{statement}
+	\begin{definition}
+		Цикл длины 2 называется \textit{транспозицией}.
+	\end{definition}
+	\begin{statement}
+		Каждая перестановка ${\pi \in S_n}$ является композицией транспозиций.
+	\end{statement}
+	\begin{statement}
+		Непересекающиеся циклы коммутируют.
+	\end{statement}
+	\begin{statement}
+		Порядок цикла равен его длине.
+	\end{statement}
+	\begin{statement}
+		Порядок перестановки равен $\NOK$ длин циклов в его цикловом разложении.
+	\end{statement}
+	\begin{definition}
+		\textit{Цикловой структурой} перестановки ${\pi \in S_n}$ называется упорядоченный набор чисел ${\CS(\pi) = (c_1, c_2, \mathellipsis, c_n),}$ где $c_i$~--- количество циклов длины $i$ в разложении $\pi.$
+	\end{definition}
+	\newpage
+	\begin{exmpl*}
+		Пусть $G = S_3, \ H = \langle(12)\rangle = \{\id, (12)\}.$ Найдём все левые и правые смежные классы $G$ по $H$ (произвольный элемент обозначим $a$):
+		\begin{center}
+			\begin{tabular}{c|c|c}
+				$a$ & $aH$ & $Ha$\\
+				\hline
+				$\id$ & $aH$ & $Ha$ \\
+				\hline
+				$(12)$ & $\{(12), \id\}$ & $\{(12), \id\}$ \\
+				\hline
+				$(13)$ & $\{(13), (123)\}$ & $\{(13), (132)\}$ \\
+				\hline
+				$(23)$ & $\{(23), (132)\}$ & $\{(23), (123)\}$ \\
+				\hline
+				$(123)$ & $\{(123), (13)\}$ & $\{(123), (23)\}$ \\
+				\hline
+				$(132)$ & $\{(132), (23)\}$ & $\{(132), (13)\}$
+			\end{tabular}
+		\end{center} \n
+	\end{exmpl*}
+	\begin{theorem*}[\textbf{Кэли}]
+		Любая конечная группа $G$ порядка $n$ изоморфна некоторой подгруппе симметрической группы $S_n{:}$
+		\begin{equation*}
 			\forall a, g \in G{:} \ a \mapsto \pi_a, \quad \pi_a(g) = a \circ g.
-			\end{equation*} \n
-		\end{theorem*}
-		\begin{proof}
-			содержимое...
-		\end{proof}
+		\end{equation*} \n
+	\end{theorem*}
+	\begin{proof}
+		содержимое...
+	\end{proof}
 	\newpage
 	\section{Нормальные подгруппы. Факторгруппы}
 	\setcounter{definition}{0}
-		\begin{definition}
-			Подгруппа $H$ группы $G$ называется \textit{нормальной}, если 
-			\begin{equation*}
-				\forall g \in G{:} \ gH = Hg. 
-			\end{equation*}
-			\n
-			Обозначается $H \lhd G.$
-		\end{definition}
-		\begin{statement*}
-			Пусть $H$~--- подгруппа группы $G$, тогда следующие условия эквивалентны:
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $H$ нормальна;
-				\item $\forall g \in G{:} \ gHg^{-1} = H$;
-				\item $\forall g \in G{:} \ gHg^{-1} \subseteq H$.
-			\end{enumerate}
-		\end{statement*}
-		\begin{proof}
-			\
-			\begin{itemize}
-				\setlength\itemsep{0.1em}
-				\item[(1)] $\Longrightarrow (2){:} \ gH = Hg \ | \cdot g^{-1} \Longrightarrow gHg^{-1} = H$.
-				\item[(2)] $\Longrightarrow (3){:}$ очевидно.
-				\item[(3)] ${\Longrightarrow (2){:} \ gHg^{-1} \subseteq H \Longrightarrow gHg^{-1} \subseteq H \ | \cdot g \Longrightarrow gH \subseteq Hg.}$
-				\n
-				${\text{Если} \ g = g^{-1}, \ \text{то} \ g \cdot | \ g^{-1}Hg \subseteq H \Longrightarrow Hg \subseteq gH \Longrightarrow gH = Hg. \qedhere}$ 
-			\end{itemize}
-		\end{proof}
-		Рассмотрим множество смежных классов по нормальной подгруппе, обозначенной $G/H$.
-		Определим на $G/H$ бинарную операцию, полагая, что $(g_1H)(g_2H) = (g_1g_2)H$.
-		\n
-		Пусть ${g'_1H = g_1H}$ и ${g'_2H=g_2H,}$ тогда ${g'_1 = g_1h_1, \ g'_2=g_2h_2,}$ ${\text{где} \ h_1, h_2 \in H.}$
+	\begin{definition}
+		Подгруппа $H$ группы $G$ называется \textit{нормальной}, если 
 		\begin{equation*}
+			\forall g \in G{:} \ gH = Hg. 
+		\end{equation*}
+		\n
+		Обозначается $H \lhd G.$
+	\end{definition}
+	\begin{statement*}
+		Пусть $H$~--- подгруппа группы $G$, тогда следующие условия эквивалентны:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $H$ нормальна;
+			\item $\forall g \in G{:} \ gHg^{-1} = H$;
+			\item $\forall g \in G{:} \ gHg^{-1} \subseteq H$.
+		\end{enumerate}
+	\end{statement*}
+	\begin{proof}
+		\
+		\begin{itemize}
+			\setlength\itemsep{0.1em}
+			\item[(1)] $\Longrightarrow (2){:} \ gH = Hg \ | \cdot g^{-1} \Longrightarrow gHg^{-1} = H$.
+			\item[(2)] $\Longrightarrow (3){:}$ очевидно.
+			\item[(3)] ${\Longrightarrow (2){:} \ gHg^{-1} \subseteq H \Longrightarrow gHg^{-1} \subseteq H \ | \cdot g \Longrightarrow gH \subseteq Hg.}$
+			\n
+			${\text{Если} \ g = g^{-1}, \ \text{то} \ g \cdot | \ g^{-1}Hg \subseteq H \Longrightarrow Hg \subseteq gH \Longrightarrow gH = Hg. \qedhere}$ 
+		\end{itemize}
+	\end{proof}
+	Рассмотрим множество смежных классов по нормальной подгруппе, обозначенной $G/H$.
+	Определим на $G/H$ бинарную операцию, полагая, что $(g_1H)(g_2H) = (g_1g_2)H$.
+	\n
+	Пусть ${g'_1H = g_1H}$ и ${g'_2H=g_2H,}$ тогда ${g'_1 = g_1h_1, \ g'_2=g_2h_2,}$ ${\text{где} \ h_1, h_2 \in H.}$
+	\begin{equation*}
 		\begin{gathered}
 			(g'_1H)(g'_2H) =
 			(g'_1g'_2)H = 
@@ -592,459 +597,474 @@ citecolor=black, menucolor=black, filecolor=black,
 			(g_1g_2 \underbrace{g^{-1}_2h_1g_2}_{\in H}h_2)H \subseteq (g_1g_2)H \Longrightarrow \\
 			\Longrightarrow (g'_1g'_2)H = (g_1g_2)H.
 		\end{gathered}
-		\end{equation*}
-		\newpage
-		\begin{statement*}
-			$G/H$ является группой.
-		\end{statement*}
-		\begin{proof}
-			Проверим аксиомы группы:
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item Ассоциативность очевидна.
-				\item Нейтральный элемент~--- $eH.$
-				\item Обратный к $gH$~--- $g^{-1}H.$ \qedhere 
-			\end{enumerate}
-		\end{proof}
-		\begin{definition}
-			Множество $G/H$ с указанной операцией называется \textit{факторгруппой} группы $G$ по нормальной подгруппе $H$.
-		\end{definition}
-		\begin{exmpl*}
-			Если $G = \langle \integers, + \rangle$ и $H = n\integers$, то $G/H$~--- группа вычетов $\langle \integers_n, + \rangle.$
-		\end{exmpl*}
+	\end{equation*}
+	\newpage
+	\begin{statement*}
+		$G/H$ является группой.
+	\end{statement*}
+	\begin{proof}
+		Проверим аксиомы группы:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Ассоциативность очевидна.
+			\item Нейтральный элемент~--- $eH.$
+			\item Обратный к $gH$~--- $g^{-1}H.$ \qedhere 
+		\end{enumerate}
+	\end{proof}
+	\begin{definition}
+		Множество $G/H$ с указанной операцией называется \textit{факторгруппой} группы $G$ по нормальной подгруппе $H$.
+	\end{definition}
+	\begin{exmpl*}
+		Если $G = \langle \integers, + \rangle$ и $H = n\integers$, то $G/H$~--- группа вычетов $\langle \integers_n, + \rangle.$
+	\end{exmpl*}
 	\newpage	
 	\section{Гомоморфизмы групп, их виды. Свойства гомоморфизмов. Четверная группа Клейна. Ядро и образ гомоморфизма}
 	\setcounter{definition}{0}
-		\begin{definition}
-			Пусть $\langle G, \circ \rangle$ и $\langle F, * \rangle$~--- группы.
-			\n
-			Отображение $\phi{:} \ G \rightarrow F$ называется \textit{гомоморфизмом}, если
-			\begin{equation*}
-				\forall g_1, g_2 \in G{:} \ \phi(g_1 \circ g_2) = \phi(g_1) * \phi(g_2).
-			\end{equation*}
-		\end{definition}
-		\begin{remark}
-			Пусть ${\phi{:} \ G \rightarrow F}$~--- гомоморфизм групп, и пусть ${e_G, \ e_F}$~--- нейтральные элементы групп $G$ и $F$ соответственно, тогда:
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $\phi(e_G) = e_F$
-				\item $\forall g \in G{:} \ \phi(g^{-1}) = \phi(g)^{-1}$
-			\end{enumerate}
-		\end{remark}
-		\begin{proof}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $\phi(e_G) = \phi(e_Ge_G) = \phi(e_G)\phi(e_G).$ \n
-				Домножив обе крайние части равенства на $\phi(e_G)^{-1},$ получим
-				${e_F = \phi(e_G).}$
-				\item $\phi(g * g^{-1}) = e_F = \phi(g)\phi(g^{-1}).$ \n
-				Умножив обе части на $\phi(g)^{-1},$ получаем необходимое. \qedhere
-			\end{enumerate}
-		\end{proof}
-		\begin{definition}
-			Гомоморфизм групп ${\phi{:} \ G \rightarrow F}$ называется 
-			\begin{itemize}
-				\item [~--] \textit{эндоморфизмом}, если $F = G$;
-				\item [~--] \textit{мономорфизмом}, если $\phi$ инъективно;
-				\item [~--] \textit{эпиморфизмом}, если $\phi$ сюръективно;
-				\item [~--] \textit{изоморфизмом}, если $\phi$ биективно;
-				\item [~--] \textit{автоморфизмом}, если $\phi$ является эндоморфизмом и изоморфизмом.
-			\end{itemize} \n
-			Группы $G$ и $F$ называются \textit{изоморфными}, если между ними существует изоморфизм. Обозначается: $G \cong F.$
-		\end{definition}
-		\newpage
-		\begin{exmpl*}
-			\textit{Четверная группа Клейна}~--- ациклическая коммутативная группа четвёртого порядка, задающаяся следующей таблицей Кэли: \n
-
-			\begin{center}
-				\begin{tabular}{c |c c c c}
-					$\cdot$ & $e$ & $a$ & $b$ & $ab$\\
-					\hline
-					$e$ & $e$ & $a$ & $b$ & $ab$\\
-					
-					$a$ & $a$ & $e$ & $ab$ & $b$\\
-					
-					$b$ & $b$ & $ab$ & $e$ & $a$\\
-					
-					$ab$ & $ab$ & $b$ & $a$ & $e$\\
-				\end{tabular}
-			\end{center} \n
-			Порядок каждого элемента, отличного от нейтрального, равен 2. \n
-			Обозначается $V$ или $V_4$ (от нем. \textit{Vierergruppe} — четверная группа). \n
-			Любая группа четвёртого порядка изоморфна либо циклической группе, либо четверной группе Клейна, наименьшей по порядку нециклической группе. Симметрическая группа $S_4$ имеет лишь две нетривиальные нормальные подгруппы~--- знакопеременную группу $A_4$ и четверную группу Клейна $V_4$, состоящую из перестановок ${\mathrm{id}, (12)(34), (13)(24), (14)(23).}$ \n
-			Несколько примеров изоморфных ей групп:
-			\begin{itemize}
-				\setlength\itemsep{0.1em}
-				\item[~--] \textit{прямая сумма} $\integers_2 \oplus \integers_2$;
-				\item[~--] диэдральная группа $D_2;$
-				\item[~--] множество ${\{0, 1, 2, 3\}}$ с операцией XOR;
-				\item[~--] группа симметрий ромба $ABCD$ в трёхмерном пространстве, состоящая из 4 преобразований: ${\id, \Rot_\pi, \Sym_{AC}, \Sym_{BD}}$;
-				\item[~--] группа поворотов тетраэдра на угол $\pi$ вокруг всех трёх рёберных медиан (вместе с тождественным поворотом).
-			\end{itemize}
-		\end{exmpl*}
-		\newpage
-		\begin{definition}
-			\textit{Ядром} гомоморфизма ${\phi{:} \ G \rightarrow F}$ называется множество всех элементов $G$, которые отображаются в нейтральный элемент $F$, т.е.
-			\begin{equation*}
-				\ker \phi = \{g \in G \ | \ \phi(g) = e_F\}.
-			\end{equation*} \n
-			\textit{Образ} $\phi$ определяется как
-			\begin{equation*}
-				\im \phi = \phi(G) = \{f \in F \ | \ \exists g \in G \suchthat \phi(g) = f\}.
-			\end{equation*}
-		\end{definition}
-		Очевидно, что $\ker \phi < G$ и Im$\, \phi < F.$
-		\begin{lemma*}
-			Гомоморфизм групп ${\phi{:} \ G \rightarrow F}$ инъективен тогда и только тогда, когда  $\ker \phi = \{e_G\}$.
-		\end{lemma*}
-		\begin{proof}
-			Ясно, что если $\phi$ инъективен, то $\ker \phi = \{e_G\}.$ \n
-			Обратно, пусть ${g_1, g_2 \in G}$ и ${\phi(g_1) = \phi(g_2).}$ Тогда ${g^{-1}_1g_2 \in \ker \phi,}$ поскольку ${\phi(g^{-1}_1g_2) = \phi(g^{-1}_1) \phi(g_2) = \phi(g_1)^{-1} \phi(g_2) = e_F.}$ Отсюда $g^{-1}_1g_2 = e_G$ и $g_1 = g_2.$
-		\end{proof}
-		\begin{consequence*}
-			Гомоморфизм групп ${\phi{:} \ G \rightarrow F}$ является изоморфизмом тогда и только тогда, когда ${\ker \phi = \{e_G\}}$ и ${\im \phi = F.}$
-		\end{consequence*}
-		\begin{statement*}
-			Пусть ${\phi{:} \ G \rightarrow F}$ гомоморфизм групп, тогда $\ker \phi \lhd G.$
-		\end{statement*}
-		\begin{proof}
-			Достаточно проверить, что
-			\begin{equation*}
-				\forall g \in G \ \ \forall h \in \ker \phi{:} \ g^{-1}hg \in \ker \phi.
-			\end{equation*}
-			Это следует из цепочки равенств:
-			\begin{equation*}
-				\phi(g^{-1}_1hg) = \phi(g^{-1}) \phi(h) \phi(g) = \phi(g^{-1}) e_F \phi(g) = \phi(g^{-1}) \phi(g) = \phi(g)^{-1} \phi(g) = e_F.
-			\end{equation*}
-		\end{proof}
+	\begin{definition}
+		Пусть $\langle G, \circ \rangle$ и $\langle F, * \rangle$~--- группы.
+		\n
+		Отображение $\phi{:} \ G \rightarrow F$ называется \textit{гомоморфизмом}, если
+		\begin{equation*}
+			\forall g_1, g_2 \in G{:} \ \phi(g_1 \circ g_2) = \phi(g_1) * \phi(g_2).
+		\end{equation*}
+	\end{definition}
+	\begin{remark}
+		Пусть ${\phi{:} \ G \rightarrow F}$~--- гомоморфизм групп, и пусть ${e_G, \ e_F}$~--- нейтральные элементы групп $G$ и $F$ соответственно, тогда:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $\phi(e_G) = e_F$
+			\item $\forall g \in G{:} \ \phi(g^{-1}) = \phi(g)^{-1}$
+		\end{enumerate}
+	\end{remark}
+	\begin{proof}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $\phi(e_G) = \phi(e_Ge_G) = \phi(e_G)\phi(e_G).$ \n
+			Домножив обе крайние части равенства на $\phi(e_G)^{-1},$ получим
+			${e_F = \phi(e_G).}$
+			\item $\phi(g * g^{-1}) = e_F = \phi(g)\phi(g^{-1}).$ \n
+			Умножив обе части на $\phi(g)^{-1},$ получаем необходимое. \qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{definition}
+		Гомоморфизм групп ${\phi{:} \ G \rightarrow F}$ называется 
+		\begin{itemize}
+			\item [~--] \textit{эндоморфизмом}, если $F = G$;
+			\item [~--] \textit{мономорфизмом}, если $\phi$ инъективно;
+			\item [~--] \textit{эпиморфизмом}, если $\phi$ сюръективно;
+			\item [~--] \textit{изоморфизмом}, если $\phi$ биективно;
+			\item [~--] \textit{автоморфизмом}, если $\phi$ является эндоморфизмом и изоморфизмом.
+		\end{itemize} \n
+		Группы $G$ и $F$ называются \textit{изоморфными}, если между ними существует изоморфизм. Обозначается: $G \cong F.$
+	\end{definition}
+	\newpage
+	\begin{exmpl*}
+		\textit{Четверная группа Клейна}~--- ациклическая коммутативная группа четвёртого порядка, задающаяся следующей таблицей Кэли: \n
+		
+		\begin{center}
+			\begin{tabular}{c |c c c c}
+				$\cdot$ & $e$ & $a$ & $b$ & $ab$\\
+				\hline
+				$e$ & $e$ & $a$ & $b$ & $ab$\\
+				
+				$a$ & $a$ & $e$ & $ab$ & $b$\\
+				
+				$b$ & $b$ & $ab$ & $e$ & $a$\\
+				
+				$ab$ & $ab$ & $b$ & $a$ & $e$\\
+			\end{tabular}
+		\end{center} \n
+		Порядок каждого элемента, отличного от нейтрального, равен 2. \n
+		Обозначается $V$ или $V_4$ (от нем. \textit{Vierergruppe} — четверная группа). \n
+		Любая группа четвёртого порядка изоморфна либо циклической группе, либо четверной группе Клейна, наименьшей по порядку нециклической группе. Симметрическая группа $S_4$ имеет лишь две нетривиальные нормальные подгруппы~--- знакопеременную группу $A_4$ и четверную группу Клейна $V_4$, состоящую из перестановок ${\mathrm{id}, (12)(34), (13)(24), (14)(23).}$ \n
+		Несколько примеров изоморфных ей групп:
+		\begin{itemize}
+			\setlength\itemsep{0.1em}
+			\item[~--] \textit{прямая сумма} $\integers_2 \oplus \integers_2$;
+			\item[~--] диэдральная группа $D_2;$
+			\item[~--] множество ${\{0, 1, 2, 3\}}$ с операцией XOR;
+			\item[~--] группа симметрий ромба $ABCD$ в трёхмерном пространстве, состоящая из 4 преобразований: ${\id, \Rot_\pi, \Sym_{AC}, \Sym_{BD}}$;
+			\item[~--] группа поворотов тетраэдра на угол $\pi$ вокруг всех трёх рёберных медиан (вместе с тождественным поворотом).
+		\end{itemize}
+	\end{exmpl*}
+	\newpage
+	\begin{definition}
+		\textit{Ядром} гомоморфизма ${\phi{:} \ G \rightarrow F}$ называется множество всех элементов $G$, которые отображаются в нейтральный элемент $F$, т.е.
+		\begin{equation*}
+			\ker \phi = \{g \in G \ | \ \phi(g) = e_F\}.
+		\end{equation*} \n
+		\textit{Образ} $\phi$ определяется как
+		\begin{equation*}
+			\im \phi = \phi(G) = \{f \in F \ | \ \exists g \in G \suchthat \phi(g) = f\}.
+		\end{equation*}
+	\end{definition}
+	Очевидно, что $\ker \phi < G$ и Im$\, \phi < F.$
+	\begin{lemma*}
+		Гомоморфизм групп ${\phi{:} \ G \rightarrow F}$ инъективен тогда и только тогда, когда  $\ker \phi = \{e_G\}$.
+	\end{lemma*}
+	\begin{proof}
+		Ясно, что если $\phi$ инъективен, то $\ker \phi = \{e_G\}.$ \n
+		Обратно, пусть ${g_1, g_2 \in G}$ и ${\phi(g_1) = \phi(g_2).}$ Тогда ${g^{-1}_1g_2 \in \ker \phi,}$ поскольку ${\phi(g^{-1}_1g_2) = \phi(g^{-1}_1) \phi(g_2) = \phi(g_1)^{-1} \phi(g_2) = e_F.}$ Отсюда $g^{-1}_1g_2 = e_G$ и $g_1 = g_2.$
+	\end{proof}
+	\begin{consequence*}
+		Гомоморфизм групп ${\phi{:} \ G \rightarrow F}$ является изоморфизмом тогда и только тогда, когда ${\ker \phi = \{e_G\}}$ и ${\im \phi = F.}$
+	\end{consequence*}
+	\begin{statement*}
+		Пусть ${\phi{:} \ G \rightarrow F}$ гомоморфизм групп, тогда $\ker \phi \lhd G.$
+	\end{statement*}
+	\begin{proof}
+		Достаточно проверить, что
+		\begin{equation*}
+			\forall g \in G \ \ \forall h \in \ker \phi{:} \ g^{-1}hg \in \ker \phi.
+		\end{equation*}
+		Это следует из цепочки равенств:
+		\begin{equation*}
+			\phi(g^{-1}_1hg) = \phi(g^{-1}) \phi(h) \phi(g) = \phi(g^{-1}) e_F \phi(g) = \phi(g^{-1}) \phi(g) = \phi(g)^{-1} \phi(g) = e_F.
+		\end{equation*}
+	\end{proof}
 	\newpage
 	\section{Теорема о гомоморфизме. Классификация циклических групп}
-		\begin{theorem*}[\textbf{О гомоморфизме}]
-			Пусть ${\phi{:} \ G \rightarrow F}$~--- гомоморфизм групп, тогда
-			\begin{equation*}
-				\im \phi \cong G/ \ker \phi.
-			\end{equation*}
-		\end{theorem*}
-		\begin{proof}
-			Рассмотрим отображение ${\psi{:} \ G/ \ker \phi \rightarrow \im \phi,}$ заданное формулой ${\psi(g \ker \phi) = \phi(g).}$ \n
-			Достаточно проверить определение изоморфизма для $\psi.$ Для этого покажем, что заданное отображение корректно определено, биективно и гомоморфно.
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item Проверим корректность $\psi{:}$ \n
-				$\exists h_1, h_2 \in \ker \phi \suchthat g_1 \ker \phi = g_2 \ker \phi \Longrightarrow g_1 h_1 = g_2 h_2;$ \n
-				$\psi(g_1 \ker \phi) = \phi(g_1) = \phi(g_1 h_1) = \phi(g_2 h_2) = \phi(g_2) = \psi(g_2 \ker \phi).$
-				\item Докажем, что $\psi$~--- гомоморфизм: \n
-				${\psi((g_1 \ker \phi)(g_2 \ker \phi)) = \psi ((g_1g_2) \ker \phi) = \phi(g_1 g_2) = \phi(g_1) \phi(g_2) =}$ \n
-				${=\psi(g_1 \ker \phi) \psi(g_2 \ker \phi).}$
-				\item Сюръективность видна из построения.
-				\item Инъективность: \n
-				${\psi(g_1 \ker \phi) = \psi(g_2 \ker \phi) \Longrightarrow \phi(g_1) = \phi(g_2) \Longrightarrow \phi(g_1) \phi(g_2)^{-1} = e_F \Longrightarrow}$ \n $\Longrightarrow \phi(g_1g_2^{-1}) = e_F \Longrightarrow g_1g_2^{-1} \in \ker \phi \Longrightarrow g_1 \ker \phi = g_2 \ker \phi. \qedhere$
-			\end{enumerate} 
-		\end{proof}
-		\begin{exmpl*}
-			Пусть ${G = \langle \real, + \rangle}$ и ${H = \langle \integers, + \rangle}$. Рассмотрим группу ${F = \langle \complex \, \backslash \, \{0\}, \times \rangle}$ и гомоморфизм
-			\begin{equation*}
-				\phi{:} \ G \rightarrow F, \quad g \mapsto e^{2\pi i g} = \cos(2\pi g) + i \sin(2\pi g).
-			\end{equation*}
-			Тогда ${\ker \phi = H}$ и факторгруппа $G/H$ изоморфна окружности $S^1$, рассматриваемой как подгруппа в $F$, состоящей из комплексных чисел с модулем равным 1.
-		\end{exmpl*}
-		\newpage
-		\begin{theorem*}[\textbf{О классификации циклических групп}]
-			Пусть $G$~--- циклическая группа. Тогда
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item Если $|G| = \infty$, то $G \cong \langle \integers, + \rangle.$
-				\item Если $|G| = n < \infty$, то $G \cong \langle \integers_n, + \rangle$.
-			\end{enumerate}
-		\end{theorem*}
-		\begin{proof}
-			Пусть ${G = \langle g \rangle.}$ Рассмотрим отображение $\phi{:} \ \integers \rightarrow G, \quad k \mapsto g^k.$
-			\begin{equation*}
-				\phi(k + l) = g^{k+l} = g^kg^l =
-				\phi(k) \phi(l), \text{ поэтому } \phi \text{~--- гомоморфизм.}
-			\end{equation*} \n
-			 Из определения циклической группы следует, что $\phi$ сюръективен, т.е. $\im \phi = G$. По теореме о гомоморфизме получаем ${G \cong \integers/\ker \phi,}$ т.к. ${\ker \phi < \integers \Longrightarrow \exists m \geqslant 0 \suchthat \ker \phi = m \integers}$ (любая подгруппа $\integers$ имеет вид $k\integers$). Если ${m = 0},$ то ${\ker \phi = \{0\},}$ откуда ${G \cong \integers \, / \, \{0\} \cong \integers.}$ Если ${m > 0,}$ то ${G \cong \integers/m\integers = \integers_m.}$
-		\end{proof}
-
+	\begin{theorem*}[\textbf{О гомоморфизме}]
+		Пусть ${\phi{:} \ G \rightarrow F}$~--- гомоморфизм групп, тогда
+		\begin{equation*}
+			\im \phi \cong G/ \ker \phi.
+		\end{equation*}
+	\end{theorem*}
+	\begin{proof}
+		Рассмотрим отображение ${\psi{:} \ G/ \ker \phi \rightarrow \im \phi,}$ заданное формулой ${\psi(g \ker \phi) = \phi(g).}$ \n
+		Достаточно проверить определение изоморфизма для $\psi.$ Для этого покажем, что заданное отображение корректно определено, биективно и гомоморфно.
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Проверим корректность $\psi{:}$ \n
+			$\exists h_1, h_2 \in \ker \phi \suchthat g_1 \ker \phi = g_2 \ker \phi \Longrightarrow g_1 h_1 = g_2 h_2;$ \n
+			$\psi(g_1 \ker \phi) = \phi(g_1) = \phi(g_1 h_1) = \phi(g_2 h_2) = \phi(g_2) = \psi(g_2 \ker \phi).$
+			\item Докажем, что $\psi$~--- гомоморфизм: \n
+			${\psi((g_1 \ker \phi)(g_2 \ker \phi)) = \psi ((g_1g_2) \ker \phi) = \phi(g_1 g_2) = \phi(g_1) \phi(g_2) =}$ \n
+			${=\psi(g_1 \ker \phi) \psi(g_2 \ker \phi).}$
+			\item Сюръективность видна из построения.
+			\item Инъективность: \n
+			${\psi(g_1 \ker \phi) = \psi(g_2 \ker \phi) \Longrightarrow \phi(g_1) = \phi(g_2) \Longrightarrow \phi(g_1) \phi(g_2)^{-1} = e_F \Longrightarrow}$ \n $\Longrightarrow \phi(g_1g_2^{-1}) = e_F \Longrightarrow g_1g_2^{-1} \in \ker \phi \Longrightarrow g_1 \ker \phi = g_2 \ker \phi. \qedhere$
+		\end{enumerate} 
+	\end{proof}
+	\begin{exmpl*}
+		Пусть ${G = \langle \real, + \rangle}$ и ${H = \langle \integers, + \rangle}$. Рассмотрим группу ${F = \langle \complex \, \backslash \, \{0\}, \times \rangle}$ и гомоморфизм
+		\begin{equation*}
+			\phi{:} \ G \rightarrow F, \quad g \mapsto e^{2\pi i g} = \cos(2\pi g) + i \sin(2\pi g).
+		\end{equation*}
+		Тогда ${\ker \phi = H}$ и факторгруппа $G/H$ изоморфна окружности $S^1$, рассматриваемой как подгруппа в $F$, состоящей из комплексных чисел с модулем равным 1.
+	\end{exmpl*}
+	\newpage
+	\begin{theorem*}[\textbf{О классификации циклических групп}]
+		Пусть $G$~--- циклическая группа. Тогда
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Если $|G| = \infty$, то $G \cong \langle \integers, + \rangle.$
+			\item Если $|G| = n < \infty$, то $G \cong \langle \integers_n, + \rangle$.
+		\end{enumerate}
+	\end{theorem*}
+	\begin{proof}
+		Пусть ${G = \langle g \rangle.}$ Рассмотрим отображение $\phi{:} \ \integers \rightarrow G, \quad k \mapsto g^k.$
+		\begin{equation*}
+			\phi(k + l) = g^{k+l} = g^kg^l =
+			\phi(k) \phi(l), \text{ поэтому } \phi \text{~--- гомоморфизм.}
+		\end{equation*} \n
+		Из определения циклической группы следует, что $\phi$ сюръективен, т.е. $\im \phi = G$. По теореме о гомоморфизме получаем ${G \cong \integers/\ker \phi,}$ т.к. ${\ker \phi < \integers \Longrightarrow \exists m \geqslant 0 \suchthat \ker \phi = m \integers}$ (любая подгруппа $\integers$ имеет вид $k\integers$). Если ${m = 0},$ то ${\ker \phi = \{0\},}$ откуда ${G \cong \integers \, / \, \{0\} \cong \integers.}$ Если ${m > 0,}$ то ${G \cong \integers/m\integers = \integers_m.}$
+	\end{proof}
+	
 	\newpage
 	\section{Прямое произведение групп. Разложение конечной циклической группы. Теорема о строении конечных абелевых групп}
-		\setcounter{definition}{0}
-		\begin{definition}
-			\textit{Прямым произведением групп} $G_1, \mathellipsis, G_m$ называется группа
+	\setcounter{definition}{0}
+	\begin{definition}
+		\textit{Прямым произведением групп} $G_1, \mathellipsis, G_m$ называется группа
+		\begin{equation*}
+			G_1 \times \mathellipsis \times G_m = \{(g_1, \mathellipsis, g_m) \ | \ g_1 \in G_1, \mathellipsis, g_m \in G_m\}
+		\end{equation*}
+		с операцией $(g_1, \mathellipsis, g_m)(g'_1, \mathellipsis, g'_m) = (g_1g'_1, \mathellipsis g_mg'_m).$ \n
+		Ясно, что эта операция ассоциативна, обладает нейтральным элементом $(e_{G_1}, \mathellipsis, e_{G_m})$ и для каждого элемента $(g_1, \mathellipsis, g_m)$ есть обратный элемент $(g^{-1}_1, \mathellipsis, g^{-1}_1).$
+	\end{definition}
+	\begin{remark}
+		Группа $G_1 \times \mathellipsis \times G_m$ коммутативна тогда и только тогда, когда коммутативна каждая из групп $G_1, \mathellipsis, G_m.$
+	\end{remark}
+	\begin{remark}
+		Если все группы ${G_1, \mathellipsis, G_m}$ конечны, то ${|G_1 \times \mathellipsis \times G_m| = |G_1| \mathellipsis |G_m|.}$
+	\end{remark}
+	\begin{definition}
+		Говорят, что группа $G$ \textit{раскладывается в прямое произведение} своих подгрупп ${H_1, \mathellipsis, H_m}$, если отображение
+		${H_1 \times \mathellipsis \times H_m \rightarrow G, \quad (h_1, \mathellipsis, h_m) \mapsto h_1 \mathellipsis h_m}$ является изоморфизмом.
+	\end{definition}
+	\begin{theorem*}
+		Пусть ${n = pq}$~--- разложение натурального числа $n$ на два взаимно простых сомножителя. Тогда имеет место изоморфизм групп
+		\begin{equation*}
+			\integers_n \cong \integers_p \times \integers_q.
+		\end{equation*}
+	\end{theorem*}
+	\newpage
+	\begin{proof}
+		Рассмотрим отображение
+		\begin{equation*}
+			\phi{:} \ \integers_n \rightarrow \integers_p \times \integers_q, \quad \phi(a \ \mod n) = (a \ \mod p, \, a \ \mod q).
+		\end{equation*}
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Корректность следует из того, что $n \divby p, \ n \divby q.$
+			\item $\phi$~--- гомоморфизм, т.к.
 			\begin{equation*}
-				G_1 \times \mathellipsis \times G_m = \{(g_1, \mathellipsis, g_m) \ | \ g_1 \in G_1, \mathellipsis, g_m \in G_m\}
+				\phi((a + b) \ \mod n) = \phi(a \ \mod n) + \phi(b \ \mod n).
 			\end{equation*}
-			с операцией $(g_1, \mathellipsis, g_m)(g'_1, \mathellipsis, g'_m) = (g_1g'_1, \mathellipsis g_mg'_m).$ \n
-			Ясно, что эта операция ассоциативна, обладает нейтральным элементом $(e_{G_1}, \mathellipsis, e_{G_m})$ и для каждого элемента $(g_1, \mathellipsis, g_m)$ есть обратный элемент $(g^{-1}_1, \mathellipsis, g^{-1}_1).$
-		\end{definition}
-		\begin{remark}
-			Группа $G_1 \times \mathellipsis \times G_m$ коммутативна тогда и только тогда, когда коммутативна каждая из групп $G_1, \mathellipsis, G_m.$
-		\end{remark}
-		\begin{remark}
-			Если все группы ${G_1, \mathellipsis, G_m}$ конечны, то ${|G_1 \times \mathellipsis \times G_m| = |G_1| \mathellipsis |G_m|.}$
-		\end{remark}
-		\begin{definition}
-			Говорят, что группа $G$ \textit{раскладывается в прямое произведение} своих подгрупп ${H_1, \mathellipsis, H_m}$, если отображение
-			${H_1 \times \mathellipsis \times H_m \rightarrow G, \quad (h_1, \mathellipsis, h_m) \mapsto h_1 \mathellipsis h_m}$ является изоморфизмом.
-		\end{definition}
-		\begin{theorem*}
-			Пусть ${n = pq}$~--- разложение натурального числа $n$ на два взаимно простых сомножителя. Тогда имеет место изоморфизм групп
-			\begin{equation*}
-				\integers_n \cong \integers_p \times \integers_q.
-			\end{equation*}
-		\end{theorem*}
-		\newpage
-		\begin{proof}
-			Рассмотрим отображение
-			\begin{equation*}
-				\phi{:} \ \integers_n \rightarrow \integers_p \times \integers_q, \quad \phi(a \ \mod n) = (a \ \mod p, \, a \ \mod q).
-			\end{equation*}
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item Корректность следует из того, что $n \divby p, \ n \divby q.$
-				\item $\phi$~--- гомоморфизм, т.к.
-				\begin{equation*}
-					\phi((a + b) \ \mod n) = \phi(a \ \mod n) + \phi(b \ \mod n).
-				\end{equation*}
-				\item $\phi$ инъективен: \n
-				Если ${\phi(a \ \mod n) =(0, \, 0),}$ то ${a \divby p, \ a \divby q.}$ Но так как ${\NOK(p, \, q) = 1,}$ \n
-				получаем, что $a \, | \, n.$ Тогда ${a \equiv 0 \ (\mod n),}$ т.е. ${\ker \phi = \{0\}.}$
-				\item $\phi$ сюръективен, т.к. ${|\integers_n| = n = p \cdot q = |\integers_p \times \integers_q|.}$ \qedhere
-			\end{enumerate}
-		\end{proof}
-		\begin{consequence*}
-			Пусть ${n \geqslant 2}$~--- натуральное число и ${n = p^{k_1}_1 \mathellipsis p^{k_s}_s}$~--- его разложение в произведение простых множителей ${(p_i \neq p_j \text{ при } i \neq j).}$ Тогда имеет место изоморфизм групп
-			\begin{equation*}
-				\integers_n \cong \integers_{p^{k_1}_1} \times \mathellipsis \times \integers_{p^{k_s}_s}.
-			\end{equation*}
-		\end{consequence*}
-		\begin{definition}
-			Конечная абелева группа $A$ называется \textit{примарной}, если ${|A| = p^k,}$ где $p$~--- простое и ${k \in \naturals.}$
-		\end{definition}
-		\begin{theorem*}[\textbf{О строении конечных абелевых групп}]
-			Пусть $A$~--- конечная абелева группа. Тогда ${A \cong \integers_{p^{k_1}_1} \times \mathellipsis \times \integers_{p^{k_t}_t},}$ где ${p_1, \mathellipsis, p_t}$~--- простые числа (не обязательно различные) и ${k_1, \mathellipsis, k_t \in \naturals.}$ Более того, набор примарных циклических множителей ${\integers_{p^{k_1}_1}, \mathellipsis, \integers_{p^{k_t}_t}}$ определен однозначно с точностью до перестановки (в частности, число этих множителей определено однозначно).
-		\end{theorem*}
+			\item $\phi$ инъективен: \n
+			Если ${\phi(a \ \mod n) =(0, \, 0),}$ то ${a \divby p, \ a \divby q.}$ Но так как ${\NOK(p, \, q) = 1,}$ \n
+			получаем, что $a \, | \, n.$ Тогда ${a \equiv 0 \ (\mod n),}$ т.е. ${\ker \phi = \{0\}.}$
+			\item $\phi$ сюръективен, т.к. ${|\integers_n| = n = p \cdot q = |\integers_p \times \integers_q|.}$ \qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{consequence*}
+		Пусть ${n \geqslant 2}$~--- натуральное число и ${n = p^{k_1}_1 \mathellipsis p^{k_s}_s}$~--- его разложение в произведение простых множителей ${(p_i \neq p_j \text{ при } i \neq j).}$ Тогда имеет место изоморфизм групп
+		\begin{equation*}
+			\integers_n \cong \integers_{p^{k_1}_1} \times \mathellipsis \times \integers_{p^{k_s}_s}.
+		\end{equation*}
+	\end{consequence*}
+	\begin{definition}
+		Конечная абелева группа $A$ называется \textit{примарной}, если ${|A| = p^k,}$ где $p$~--- простое и ${k \in \naturals.}$
+	\end{definition}
+	\begin{theorem*}[\textbf{О строении конечных абелевых групп}]
+		Пусть $A$~--- конечная абелева группа. Тогда ${A \cong \integers_{p^{k_1}_1} \times \mathellipsis \times \integers_{p^{k_t}_t},}$ где ${p_1, \mathellipsis, p_t}$~--- простые числа (не обязательно различные) и ${k_1, \mathellipsis, k_t \in \naturals.}$ Более того, набор примарных циклических множителей ${\integers_{p^{k_1}_1}, \mathellipsis, \integers_{p^{k_t}_t}}$ определен однозначно с точностью до перестановки (в частности, число этих множителей определено однозначно).
+	\end{theorem*}
 	\newpage
 	\section{Экспонента конечной абелевой группы и критерий цикличности}
-		\begin{definition*}
-			\textit{Экспонентой} конечной абелевой группы $A$ называется число
-			\begin{equation*}
-				\exp A =\min \{m \in \naturals \ | \ \forall a \in A{:} \ ma = 0\}.
-			\end{equation*}
-		\end{definition*}
-		\begin{remark}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item Из того, что ${\forall a \in A \  \forall m \in \integers{:} \ ma = 0 \Longleftrightarrow m \divby \ord(a),}$ определение экспоненты можно переписать в виде ${\exp A = \NOK \{\ord(a) \ | \ a \in A\}.}$
-				\item Из того, что ${\forall a \in A{:} \ |A| \divby \ord(a),}$ следует, что $|A|$~--- общее кратное
-				множества ${\{\ord(a) \ | \ a \in A\},}$ а значит, ${|A| \divby \exp A.}$ В частности,
-				${\exp A \leqslant |A|.}$
-			\end{enumerate}
-		\end{remark}
-		\begin{theorem*}[\textbf{Критерий цикличности}]
-			Группа $A$ является циклической тогда и только тогда, когда ${\exp A = |A|.}$
-		\end{theorem*}
-		\begin{proof}
-			Пусть ${|A| = n = p^{k_1}_1 \cdot \mathellipsis \cdot p^{k_s}_s}$~--- разложение на простые множители, где $p_i$~--- простое и ${k_s \in \naturals \ (p_i \neq p_j \text{ при } i \neq j).}$ \newline
-			{\textit{Необходимость.}} Если ${A = \langle a \rangle,}$ то ${\ord (a) = n,}$ откуда ${\exp A = n.}$ \newline
-			{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \mathellipsis, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \mathellipsis, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \mathellipsis + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \mathellipsis + ma_s = 0.}$ При фиксированном ${i \in \{1, \mathellipsis, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j{:} \ mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Longrightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
-			${n_i \ndivby p_i}$, то ${m \divby p^{k_i}_i.}$  В силу произвольности выбора $i$ отсюда вытекает, что ${m \divby n,}$ и т.к. ${na = 0,}$ то окончательно получаем ${\ord(a) = n.}$ Значит, ${A = \langle a \rangle}$~--- циклическая группа.
-		\end{proof}
+	\begin{definition*}
+		\textit{Экспонентой} конечной абелевой группы $A$ называется число
+		\begin{equation*}
+			\exp A =\min \{m \in \naturals \ | \ \forall a \in A{:} \ ma = 0\}.
+		\end{equation*}
+	\end{definition*}
+	\begin{remark}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Из того, что ${\forall a \in A \  \forall m \in \integers{:} \ ma = 0 \Longleftrightarrow m \divby \ord(a),}$ определение экспоненты можно переписать в виде ${\exp A = \NOK \{\ord(a) \ | \ a \in A\}.}$
+			\item Из того, что ${\forall a \in A{:} \ |A| \divby \ord(a),}$ следует, что $|A|$~--- общее кратное
+			множества ${\{\ord(a) \ | \ a \in A\},}$ а значит, ${|A| \divby \exp A.}$ В частности,
+			${\exp A \leqslant |A|.}$
+		\end{enumerate}
+	\end{remark}
+	\begin{theorem*}[\textbf{Критерий цикличности}]
+		Группа $A$ является циклической тогда и только тогда, когда ${\exp A = |A|.}$
+	\end{theorem*}
+	\begin{proof}
+		Пусть ${|A| = n = p^{k_1}_1 \cdot \mathellipsis \cdot p^{k_s}_s}$~--- разложение на простые множители, где $p_i$~--- простое и ${k_s \in \naturals \ (p_i \neq p_j \text{ при } i \neq j).}$ \newline
+		{\textit{Необходимость.}} Если ${A = \langle a \rangle,}$ то ${\ord (a) = n,}$ откуда ${\exp A = n.}$ \newline
+		{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \mathellipsis, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \mathellipsis, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \mathellipsis + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \mathellipsis + ma_s = 0.}$ При фиксированном ${i \in \{1, \mathellipsis, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j{:} \ mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Longrightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
+		${n_i \ndivby p_i}$, то ${m \divby p^{k_i}_i.}$  В силу произвольности выбора $i$ отсюда вытекает, что ${m \divby n,}$ и т.к. ${na = 0,}$ то окончательно получаем ${\ord(a) = n.}$ Значит, ${A = \langle a \rangle}$~--- циклическая группа.
+	\end{proof}
 	\newpage
 	\section{Кольца. Коммутативные кольца. Обратимые элементы, делители нуля и нильпотенты. Поля. Критерий того, что кольцо вычетов является полем}
-		\setcounter{definition}{0}
-		\begin{definition}
-			\textit{Кольцо}~--- это множество $R,$ на котором заданы две бинарные операции ${\flqq+\frqq}$ (сложение) и ${\flqq \cdot \frqq}$ (умножение), удовлетворяющее следующим условиям:
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $\langle R, + \rangle$ ~--- абелева группа;
-				\item $(R, \cdot)$~--- алгебраическая структура;
-				\item $\forall a, b, c \in R{:} \ a(b + c) = ab + ac$ и $(a + b)c = ac + bc.$
-				%\item $\forall a, b, c \in R{:} \ (ab)c = a(bc);$
-				%\item $\exists 1 \in R \suchthat 1 \cdot a = a \cdot 1 = a \quad \forall a \in R.$
-			\end{enumerate} 
-		\end{definition}
-		\begin{remark}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $\forall a \in R{:} \ 0 \cdot a = a \cdot 0 = 0;$
-				\item Если $|R| > 1,$ то $1 \neq 0.$ 
-			\end{enumerate}
-		\end{remark}
-		\begin{proof}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $a0 = a(0 + 0) = a0 + a0 \Longrightarrow 0 = a0.$
-				\item Следует из условий выше. \qedhere
-			\end{enumerate}
-		\end{proof}
-		\begin{exmpls}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item Числовые кольца $\integers, \rationals, \real, \complex;$
-				\item Кольцо $\integers_n$ вычетов по модулю $n;$
-				\item Кольцо матриц $\mathrm{Mat}_{n \times n}(\real);$
-				\item Кольцо многочленов $\real[x]$ от переменной $x$ с коэффициентами из $\real;$
-				\item Кольцо функций $F(M, \real)$ из множества $M$ в $\real$ с поэлементными
-				операциями сложения и умножения: \n
-				$\forall m \in M{:} \ (f_1 + f_2)(m) = f_1(m) + f_2(m), \quad (f_1 \cdot f_2)(m) = f_1(m) \cdot f_2(m).$
-			\end{enumerate}
-		\end{exmpls}
-		\newpage
+	\setcounter{definition}{0}
+	\begin{definition}
+		\textit{Кольцо}~--- это множество $R,$ на котором заданы две бинарные операции ${\flqq+\frqq}$ (сложение) и ${\flqq \cdot \frqq}$ (умножение), удовлетворяющее следующим условиям:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $\langle R, + \rangle$ ~--- абелева группа;
+			\item $(R, \cdot)$~--- алгебраическая структура;
+			\item $\forall a, b, c \in R{:} \ a(b + c) = ab + ac$ и $(a + b)c = ac + bc.$
+			%\item $\forall a, b, c \in R{:} \ (ab)c = a(bc);$
+			%\item $\exists 1 \in R \suchthat 1 \cdot a = a \cdot 1 = a \quad \forall a \in R.$
+		\end{enumerate} 
+	\end{definition}
+	\begin{remark}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $\forall a \in R{:} \ 0 \cdot a = a \cdot 0 = 0;$
+			\item Если $|R| > 1,$ то $1 \neq 0.$ 
+		\end{enumerate}
+	\end{remark}
+	\begin{proof}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $a0 = a(0 + 0) = a0 + a0 \Longrightarrow 0 = a0.$
+			\item Следует из условий выше. \qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{exmpls}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Числовые кольца $\integers, \rationals, \real, \complex;$
+			\item Кольцо $\integers_n$ вычетов по модулю $n;$
+			\item Кольцо матриц $\mathrm{Mat}_{n \times n}(\real);$
+			\item Кольцо многочленов $\real[x]$ от переменной $x$ с коэффициентами из $\real;$
+			\item Кольцо функций $F(M, \real)$ из множества $M$ в $\real$ с поэлементными
+			операциями сложения и умножения: \n
+			$\forall m \in M{:} \ (f_1 + f_2)(m) = f_1(m) + f_2(m), \quad (f_1 \cdot f_2)(m) = f_1(m) \cdot f_2(m).$
+		\end{enumerate}
+	\end{exmpls}
+	\newpage
 	
-		\begin{definition}
-			Кольцо $R$ называется \textit{ассоциативным} \textit{коммутативным}, если 
-			\begin{equation*}
-				\forall a, b \in R{:} \ ab = ba.
-			\end{equation*}
-		\end{definition}
-		\begin{definition}
-			Элемент $a$ кольца $R$ называется \textit{обратимым}, а кольцо \textit{содержащим единицу}, если 
-			\begin{equation*}
-				\exists b \in R \suchthat ab = ba = 1.
-			\end{equation*}
-		\end{definition}
-		\begin{remark}
-			Все обратимые элементы кольца образуют группу по умножению.
-		\end{remark}
-		\begin{definition}
-			Элемент $a$ кольца $R$ называется \textit{левым} (соответственно \textit{правым}) \textit{делителем нуля}, если ${a \neq 0}$ и ${\exists b \neq 0 \in R \suchthat ab = 0}$ (соответственно $ba = 0$).
-		\end{definition}
-		\begin{remark}
-			Если кольцо коммутативно, то множества левых и правых делителей нуля совпадают. Тогда левые и правые делители нуля называются просто «делителями нуля».
-		\end{remark}
-		\begin{remark}
-			Все делители нуля в кольце необратимы.
-		\end{remark}
-		\begin{proof}
-			Пусть $R$~--- кольцо; ${a \neq 0, \ b \neq 0.}$ Если ${ab = 0}$ и ${\exists a^{-1},}$ то ${a^{-1}ab = a^{-1}0 \Longrightarrow b = 0}$~--- противоречие.
-		\end{proof}
-		\begin{definition}
-			Элемент $a$ кольца $R$ называется \textit{нильпотентным (нильпотентом)}, если ${a \neq 0}$ и ${\exists n \in \naturals \suchthat a^n = 0.}$
-		\end{definition}
-		\begin{remark}
-			Всякий нильпотент является делителем нуля.
-		\end{remark}
-		\begin{definition}
-			Кольцо $R$ называется \textit{полем}, если оно коммутативно, ассоциативно, содержит ${1 \neq 0,}$ и любой ненулевой элемент обратим.
-		\end{definition}
-		\begin{remark}
-			В поле не существует делителей нуля.
-		\end{remark}
-		\begin{exmpls}
-			$\rationals, \real, \complex, \algebraic, \integers_2.$
-		\end{exmpls}
-		\newpage
-		\begin{theorem*}
-			Кольцо вычетов  $\integers_p$ является полем тогда и только тогда, когда $p$~--- простое число.
-		\end{theorem*}
-		\begin{proof}
-			\
-			\newline
-			{\textit{Необходимость.}} Если ${n = 1,}$ то ${\integers_n = \{0\}}$ ~--- не поле. \n
-			Если ${n > 1,}$ и ${n = m \cdot k,}$  где ${1 < m, k < n,}$ то ${\overline{m} \cdot \overline{k} = \overline{0}} \Longrightarrow$ в $\integers_n$ есть делитель нуля ${\Longrightarrow \integers_n}$~--- не поле. \newline
-			{\textit{Достаточность.}} Пусть $p$~--- простое, ${\overline{a} \in \integers_p \, \backslash \, \{\overline{0}\}.}$ \n
-			Тогда ${{\NOD(a,p)} = 1} \Longrightarrow {\exists k,l \in \integers \suchthat ak + pl = 1.}$ Значит, ${\overline{a} \cdot \overline{k} + \overline{p} \cdot \overline{l} = \overline{1} \Longrightarrow a \cdot k \equiv 1 \ (\mod p) \Longrightarrow a}$ обратим.
-		\end{proof}
+	\begin{definition}
+		Кольцо $R$ называется \textit{ассоциативным} и \textit{коммутативным} соответственно, если 
+		\begin{equation*}
+			\forall a, b \in R{:} \ ab = ba.
+		\end{equation*}
+	\end{definition}
+	\begin{definition}
+		Элемент $a$ кольца $R$ называется \textit{обратимым}, а кольцо \textit{содержащим единицу}, если 
+		\begin{equation*}
+			\exists b \in R \suchthat ab = ba = 1.
+		\end{equation*}
+	\end{definition}
+	\begin{remark}
+		Все обратимые элементы кольца образуют группу по умножению.
+	\end{remark}
+	\begin{definition}
+		Элемент $a$ кольца $R$ называется \textit{левым} (соответственно \textit{правым}) \textit{делителем нуля}, если ${a \neq 0}$ и ${\exists b \neq 0 \in R \suchthat ab = 0}$ (соответственно $ba = 0$).
+	\end{definition}
+	\begin{remark}
+		Если кольцо коммутативно, то множества левых и правых делителей нуля совпадают. Тогда левые и правые делители нуля называются просто «делителями нуля».
+	\end{remark}
+	\begin{remark}
+		Все делители нуля в кольце необратимы.
+	\end{remark}
+	\begin{proof}
+		Пусть $R$~--- кольцо; ${a \neq 0, \ b \neq 0.}$ Если ${ab = 0}$ и ${\exists a^{-1},}$ то ${a^{-1}ab = a^{-1}0 \Longrightarrow b = 0}$~--- противоречие.
+	\end{proof}
+	\begin{definition}
+		Элемент $a$ кольца $R$ называется \textit{нильпотентным (нильпотентом)}, если ${a \neq 0}$ и ${\exists n \in \naturals \suchthat a^n = 0.}$
+	\end{definition}
+	\begin{remark}
+		Всякий нильпотент является делителем нуля.
+	\end{remark}
+	\begin{definition}
+		Кольцо $R$ называется \textit{полем}, если оно коммутативно, ассоциативно, содержит ${1 \neq 0,}$ и любой ненулевой элемент обратим.
+	\end{definition}
+	\begin{remark}
+		В поле не существует делителей нуля.
+	\end{remark}
+	\begin{exmpls}
+		$\rationals, \real, \complex, \algebraic, \integers_2.$
+	\end{exmpls}
+	\newpage
+	\begin{theorem*}
+		Кольцо вычетов  $\integers_p$ является полем тогда и только тогда, когда $p$~--- простое число.
+	\end{theorem*}
+	\begin{proof}
+		\
+		\newline
+		{\textit{Необходимость.}} Если ${n = 1,}$ то ${\integers_n = \{0\}}$ ~--- не поле. \n
+		Если ${n > 1,}$ и ${n = m \cdot k,}$  где ${1 < m, k < n,}$ то ${\overline{m} \cdot \overline{k} = \overline{0}} \Longrightarrow$ в $\integers_n$ есть делитель нуля ${\Longrightarrow \integers_n}$~--- не поле. \newline
+		{\textit{Достаточность.}} Пусть $p$~--- простое, ${\overline{a} \in \integers_p \, \backslash \, \{\overline{0}\}.}$ \n
+		Тогда ${{\NOD(a,p)} = 1} \Longrightarrow {\exists k,l \in \integers \suchthat ak + pl = 1.}$ Значит, ${\overline{a} \cdot \overline{k} + \overline{p} \cdot \overline{l} = \overline{1} \Longrightarrow a \cdot k \equiv 1 \ (\mod p) \Longrightarrow a}$ обратим.
+	\end{proof}
 	\newpage
 	\section{Идеалы колец. Факторкольцо кольца по идеалу. Гомоморфизмы и изоморфизмы колец. Ядро и образ гомоморфизма колец. Теорема о гомоморфизме для колец}
-		\setcounter{definition}{0}
-		\begin{definition}
-			Подмножество $I$ кольца $R$ называется \textit{(двусторонним) идеалом,} если
-			\begin{enumerate}
-				\setlength\itemsep{0.1em}
-				\item $I$~--- подгруппа по сложению;
-				\item $\forall a \in I \ \forall r \in R{:} \ ar \in I, ra \in I.$
-			\end{enumerate} \n
-			\textit{Несобственными} или \textit{тривиальными} идеалами являются $\{0\}$ и $R$. Остальные называются \textit{собственными}.
-		\end{definition}
-		\begin{definition}
-			Множество ${(a) = \{ra \ | \ r \in R\}}$ называется \textit{главным идеалом}, порождаемым элементом $a.$
-		\end{definition}
-		\begin{exmpl*}
-			${(k) = k\integers}$~--- главный идеал в $\integers.$
-		\end{exmpl*}
-		\begin{remark}
-			\ \newline
-			$(a) = R \Longleftrightarrow a$ обратим; \newline
-			$(a) = 0 \Longleftrightarrow a = 0.$
-		\end{remark}
-		\begin{definition}
-			Если $S$~--- подмножество кольца $R$, то
-			\begin{equation*}
-				(S) = \{r_1 s_1 + \mathellipsis + r_k s_k \ | \ r_i \in R, s_i \in S\}
-			\end{equation*}
-			называется \textit{идеалом, порожденным подмножеством $S$.}
-		\end{definition}
-		Пусть $R$~--- кольцо, $I$~--- его идеал. \n
-		Рассмотрим факторгруппу $(R/I, +)$ и введём на ней операцию умножения, полагая, что ${(a + I) \cdot (b + I) = ab + I.}$ \n
-		Проверим корректность такого определения:
+	\setcounter{definition}{0}
+	\begin{definition}
+		Подмножество $I$ кольца $R$ называется \textit{(двусторонним) идеалом,} если
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $I$~--- подгруппа по сложению;
+			\item $\forall a \in I \ \forall r \in R{:} \ ar \in I, ra \in I.$
+		\end{enumerate} \n
+		\textit{Несобственными} или \textit{тривиальными} идеалами являются $\{0\}$ и $R$. Остальные называются \textit{собственными}.
+	\end{definition}
+	\begin{definition}
+		Множество ${(a) = \{ra \ | \ r \in R\}}$ называется \textit{главным идеалом}, порождаемым элементом $a.$
+	\end{definition}
+	\begin{exmpl*}
+		${(k) = k\integers}$~--- главный идеал в $\integers.$
+	\end{exmpl*}
+	\begin{remark}
+		\ \newline
+		$(a) = R \Longleftrightarrow a$ обратим; \newline
+		$(a) = 0 \Longleftrightarrow a = 0.$
+	\end{remark}
+	\begin{definition}
+		Если $S$~--- подмножество кольца $R$, то
 		\begin{equation*}
+			(S) = \{r_1 s_1 + \mathellipsis + r_k s_k \ | \ r_i \in R, s_i \in S\}
+		\end{equation*}
+		называется \textit{идеалом, порожденным подмножеством $S$.}
+	\end{definition}
+	Пусть $R$~--- кольцо, $I$~--- его идеал. \n
+	Рассмотрим факторгруппу $(R/I, +)$ и введём на ней операцию умножения, полагая, что ${(a + I) \cdot (b + I) = ab + I.}$ \n
+	Проверим корректность такого определения:
+	\begin{equation*}
 		\begin{gathered}
 			{a + I = a' + I, \ b + I = b' + I \Longrightarrow a' = a + x, \ b' = b + y, \text{ где } x, y \in I;} \\
 			{(a' + I)(b' + I) =  a'b' + I =(a + x)(b + y) + I = ab + \underbrace{ay + xb + xy}_{\in I} + I = ab + I.}
 		\end{gathered}
+	\end{equation*}
+	\begin{remark}
+		$R/I$~--- кольцо.
+	\end{remark}
+	\begin{definition}
+		$R/I$ называется \textit{факторкольцом} кольца $R$ по идеалу $I.$
+	\end{definition}
+	\begin{exmpl*}
+		$\integers/n\integers = \integers_n.$
+	\end{exmpl*}
+	\begin{definition}
+		Если $R, S$~--- два кольца, то отображение ${\phi{:} \ R \rightarrow S}$ называется \textit{гомоморфизмом колец,} если
+		\begin{equation*}
+			\forall a,b \in R{:} \ \phi(a + b) = \phi(a) + \phi(b), \ \phi(ab) = \phi(a) \cdot \phi(b).
+		\end{equation*} \n
+		Биективный гомоморфизм называется \textit{изоморфизмом}.\n
+		${\ker \phi = \{r \in R \ | \ \phi(r) = 0\} \subseteq R;}$ \n
+		${\im \phi = \phi(R) \subseteq S.}$
+	\end{definition}
+	\begin{remark}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.25em}
+			\item $\ker \phi$ является идеалом $R;$
+			\item $\im \phi$~--- подкольцо в $S.$
+		\end{enumerate}
+	\end{remark}
+	\begin{proof}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.25em}
+			\item $\ker \phi$ является подгруппой в $R$ по сложению, т.к. $\phi$~--- гомоморфизм \n
+			абелевых групп. Покажем, что \n ${\forall a \in \ker \phi \ \forall r \in R{:} \ ra \in \ker \phi, ar \in \ker \phi.}$ 
+			\begin{equation*}
+				\phi(ra) = \phi(r)\phi(a) = \phi(r)0 = 0 \Longrightarrow ra \in \ker \phi, \text{ аналогично для } ar \in \ker \phi.
+			\end{equation*}
+		\end{enumerate}
+	\end{proof}
+	\newpage
+	\begin{theorem*}[\textbf{О гомоморфизме колец}]
+		Пусть ${\phi{:} \ R \rightarrow S}$~--- гомоморфизм колец, тогда
+		\begin{equation*}
+			R/\ker \phi \cong \im \phi.
 		\end{equation*}
-		\begin{remark}
-			$R/I$~--- кольцо.
-		\end{remark}
-		\begin{definition}
-			$R/I$ называется \textit{факторкольцом} кольца $R$ по идеалу $I.$
-		\end{definition}
-		\begin{exmpl*}
-			$\integers/n\integers = \integers_n.$
-		\end{exmpl*}
-		\begin{definition}
-			Если $R, S$~--- два кольца, то отображение ${\phi{:} \ R \rightarrow S}$ называется \textit{гомоморфизмом колец,} если
-			\begin{equation*}
-				\forall a,b \in R{:} \ \phi(a + b) = \phi(a) + \phi(b), \ \phi(ab) = \phi(a) \cdot \phi(b).
-			\end{equation*} \n
-			Биективный гомоморфизм называется \textit{изоморфизмом}.\n
-			${\ker \phi = \{r \in R \ | \ \phi(r) = 0\} \subseteq R;}$ \n
-			${\im \phi = \phi(R) \subseteq S.}$
-		\end{definition}
-		\begin{remark}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.25em}
-				\item $\ker \phi$ является идеалом $R;$
-				\item $\im \phi$~--- подкольцо в $S.$
-			\end{enumerate}
-		\end{remark}
-		\begin{proof}
-			\
-			\begin{enumerate}
-				\setlength\itemsep{0.25em}
-				\item $\ker \phi$ является подгруппой в $R$ по сложению, т.к. $\phi$~--- гомоморфизм \n
-				абелевых групп. Покажем, что \n ${\forall a \in \ker \phi \ \forall r \in R{:} \ ra \in \ker \phi, ar \in \ker \phi.}$ 
-				\begin{equation*}
-					\phi(ra) = \phi(r)\phi(a) = \phi(r)0 = 0 \Longrightarrow ra \in \ker \phi, \text{ аналогично для } ar \in \ker \phi.
-				\end{equation*}
-			\end{enumerate}
-		\end{proof}
-		\newpage
-		\begin{theorem*}[\textbf{О гомоморфизме колец}]
-			Пусть ${\phi{:} \ R \rightarrow S}$~--- гомоморфизм колец, тогда
-			\begin{equation*}
-				R/\ker \phi \cong \im \phi.
-			\end{equation*}
-		\end{theorem*}
-		\begin{proof}
-			Пусть ${I = \ker \phi.}$ Тогда из доказательства теоремы о гомоморфизме для групп отображение ${\psi{:} \ R/I \rightarrow \im \phi, \ \psi(a + I) = \phi(a)}$ является изоморфизмом групп по сложению.\n
-			Остаётся проверить, что $\psi$~--- гомоморфизм колец:
-			\begin{equation*}
-				\psi((a + I)(b + I)) = \psi(ab + I) = \phi(ab) = \phi(a)\phi(b) = \psi(a + I)\psi(b + I). \qedhere
-			\end{equation*}
-		\end{proof}
-		\begin{exmpl*}
-			Пусть $K$~--- поле, ${a \in K, \quad \phi{:} \ K[x] \rightarrow K, \quad f \mapsto f(a).}$ \n
-			Это гомоморфизм, он сюръективен ${(b = \phi(b)).}$ \n
-			$\ker \phi = (x - a) \Longrightarrow K[x]/(x - a) \cong K.$
-		\end{exmpl*}
-
+	\end{theorem*}
+	\begin{proof}
+		Пусть ${I = \ker \phi.}$ Тогда из доказательства теоремы о гомоморфизме для групп отображение ${\psi{:} \ R/I \rightarrow \im \phi, \ \psi(a + I) = \phi(a)}$ является изоморфизмом групп по сложению.\n
+		Остаётся проверить, что $\psi$~--- гомоморфизм колец:
+		\begin{equation*}
+			\psi((a + I)(b + I)) = \psi(ab + I) = \phi(ab) = \phi(a)\phi(b) = \psi(a + I)\psi(b + I). \qedhere
+		\end{equation*}
+	\end{proof}
+	\begin{exmpl*}
+		Пусть $K$~--- поле, ${a \in K, \quad \phi{:} \ K[x] \rightarrow K, \quad f \mapsto f(a).}$ \n
+		Это гомоморфизм, он сюръективен ${(b = \phi(b)).}$ \n
+		$\ker \phi = (x - a) \Longrightarrow K[x]/(x - a) \cong K.$
+	\end{exmpl*}
+	\newpage
+	\begin{thebibliography}{99}
+		\bibitem{kostrikin} Кострикин А.И. Введение в алгебру: МНЦНО, 2020.
+		\bibitem{kurosh} Курош А.Г. Курс высшей алгебры: Лань, 2007.
+		\bibitem{winberg} Винберг Э.Б. Курс алгебры: МЦНМО, 2019.
+		\bibitem{alekseev} Алексеев В.Б. Теорема Абеля в задачах и решениях: МЦНМО, 2024.
+		\bibitem{atiyah} М. Атья, И. Макдональд. Введение в коммутативную алгебру: МЦНМО, 2021.
+		\bibitem{lindon} Р. Линдон, П. Шупп. Комбинаторная теория групп: Мир, 1980.
+		\bibitem{finite_fields_vid} \href{https://www.youtube.com/watch?v=9PTiaQODKiA}{Иван Аржанцев. Конечные поля}
+		\bibitem{finite_fields_list} \href{https://youtube.com/playlist?list=PLH3NNipqeM1vcHnP4czWemq5DyBw9MXxn&si=UFBR6POWzySgFqPt}{Алексей Савватеев. Конечные поля}
+		\bibitem{algebra} \href{https://youtube.com/playlist?list=PLEwK9wdS5g0pxQ2ThGS3ObFwm4h1Ll0Kr&si=AM33kfEJxKFqNR-k}{Роман Авдеев. Алгебра}
+		\bibitem{geometry_and_groups} \href{https://youtube.com/playlist?list=PLlx2izuC9gjgZsBALx2ZF7IMGoNl07A9l&si=9X5Oosl5a53UTlTb}{Алексей Савватеев. Геометрия и группы}
+		\bibitem{galois_theory} \href{https://youtube.com/playlist?list=PLgEpoT7yAl9VWebUfw4uOlut1ZaoFjFcb&si=yM6DjTk5Cenofg5U}{Алексей Савватеев. Теория Галуа}
+		\bibitem{category_theory} \href{https://youtube.com/playlist?list=PLvPsfYrGz3wsX3Z5KuuEVYhijDxhKCDDD&si=eh_MI9GO0mYzxZMU}{Виталий Брагилевский и др. Теория категорий}
+		\bibitem{for_physicists} \href{https://youtube.com/playlist?list=PLnbH8YQPwKblIpRi0ARO2VadnMwntvF51&si=qXQx9-xB7_arfxB8}{Элементарное введение в теорию групп (для физиков)}
+	\end{thebibliography}
 \end{document}

@@ -11,3 +11,4 @@
 \contentsline {section}{\numberline {10}Экспонента конечной абелевой группы и критерий цикличности}{24}{section.10}%
 \contentsline {section}{\numberline {11}Кольца. Коммутативные кольца. Обратимые элементы, делители нуля и нильпотенты. Поля. Критерий того, что кольцо вычетов является полем}{25}{section.11}%
 \contentsline {section}{\numberline {12}Идеалы колец. Факторкольцо кольца по идеалу. Гомоморфизмы и изоморфизмы колец. Ядро и образ гомоморфизма колец. Теорема о гомоморфизме для колец}{28}{section.12}%
+\contentsline {section}{{\cyrillictext \CYRS \cyrp \cyri \cyrs \cyro \cyrk \ \cyrl \cyri \cyrt \cyre \cyrr \cyra \cyrt \cyru \cyrr \cyrery }}{31}{Item.62}%
