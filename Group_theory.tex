@@ -30,7 +30,9 @@
 \usepackage[affil-it]{authblk}
 \usepackage{ulem}
 \usepackage{tikz}
+\usepackage{verbatim}
 \usetikzlibrary{arrows.meta, positioning}
+
 
 \linespread{1.25} % Межстрочный интервал
 \setlength{\parindent}{1.25cm} % Табуляция
@@ -77,7 +79,7 @@ citecolor=black, menucolor=black, filecolor=black,
 \newcommand{\SUnit}{\mathrm{SU}}
 \newcommand{\ord}{\mathrm{ord}}
 \newcommand{\CS}{\mathrm{CS}}
-\newcommand{\suchthat}{{:}{-} \ }
+\newcommand{\suchthat}{{:}{ } \ }
 \newcommand{\im}{\mathrm{Im} \,}
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\Isom}{\mathrm{Isom}}
@@ -132,7 +134,7 @@ citecolor=black, menucolor=black, filecolor=black,
 \title{Введение в теорию групп}
 \author{Артём Рашевский}
 \affil{ФКН ВГУ}
-\date{2024}
+\date{2025}
 \begin{document}
 	
 	\maketitle
@@ -956,6 +958,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		{\textit{Достаточность.}} Пусть $p$~--- простое, ${\overline{a} \in \integers_p \, \backslash \, \{\overline{0}\}.}$ \n
 		Тогда ${{\NOD(a,p)} = 1} \Longrightarrow {\exists k,l \in \integers \suchthat ak + pl = 1.}$ Значит, ${\overline{a} \cdot \overline{k} + \overline{p} \cdot \overline{l} = \overline{1} \Longrightarrow a \cdot k \equiv 1 \ (\mod p) \Longrightarrow a}$ обратим.
 	\end{proof}
+    \begin{comment}
 	\newpage
 	\section{Идеалы колец. Факторкольцо кольца по идеалу. Гомоморфизмы и изоморфизмы колец. Ядро и образ гомоморфизма колец. Теорема о гомоморфизме для колец}
 	\setcounter{definition}{0}
@@ -1051,11 +1054,12 @@ citecolor=black, menucolor=black, filecolor=black,
 		Это гомоморфизм, он сюръективен ${(b = \phi(b)).}$ \n
 		$\ker \phi = (x - a) \Longrightarrow K[x]/(x - a) \cong K.$
 	\end{exmpl*}
+    \end{comment}
 	\newpage
 	\begin{thebibliography}{99}
 		\bibitem{sets_theory} Верещагин Н.К., Шень А.
 		\textit{Лекции по математической логике и теории алгоритмов. Часть 1. Начала теории множеств}: МЦНМО, 2024.
-		\bibitem{kostrikin} Кострикин А.И. \textit{Введение в алгебру}: МНЦНО, 2020.
+		\bibitem{kostrikin} Кострикин А.И. \textit{Введение в алгебру}: МЦНМО, 2020.
 		\bibitem{kurosh} Курош А.Г. \textit{Курс высшей алгебры}: Лань, 2007.
 		\bibitem{winberg} Винберг Э.Б. \textit{Курс алгебры}: МЦНМО, 2019.
 		\bibitem{alekseev} Алексеев В.Б. \textit{Теорема Абеля в задачах и решениях}: МЦНМО, 2024.
