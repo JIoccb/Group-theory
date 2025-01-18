@@ -31,6 +31,7 @@
 \usepackage{ulem}
 \usepackage{tikz}
 \usepackage{verbatim}
+\usepackage{xfrac}
 \usetikzlibrary{arrows.meta, positioning}
 
 
@@ -62,6 +63,7 @@ citecolor=black, menucolor=black, filecolor=black,
 
 % НОВЫЕ КОМАНДЫ
 \newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\deq}{\stackrel{\mathrm{def}}{=}}
 \newcommand{\n}{\par}
 \newcommand{\percent}{\mathbin{\%}}
 \newcommand{\integers}{\mathbb{Z}}
@@ -341,11 +343,11 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		\textit{Левым смежным классом} элемента $g$ группы $G$ по подгруппе $H$ называется подмножество
 		\begin{equation*}
-			gH = \{gh \ | \ h \in H\},
+			gH \deq \{gh \ | \ h \in H\},
 		\end{equation*}
 		аналогично определяется \textit{правый смежный класс}:
 		\begin{equation*}
-			Hg = \{hg \ | \ h \in H\}.
+			Hg \deq \{hg \ | \ h \in H\}.
 		\end{equation*}
 	\end{definition}
 	\begin{lemma}
@@ -421,7 +423,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		Пусть $E$~--- \textit{евклидово аффинное пространство} и ${F \subseteq E}$~--- геометрическая фигура. \textit{Группой движений (изометрий)} ${\Isom(F)}$ фигуры $F$ называется множество тех движений аффинного пространства $E$, которые  переводят фигуру $F$ в себя:
 		\begin{equation*}
-			\Isom(F) = \{\phi: E \rightarrow E \ | \ \phi\textrm{~--- движение}, \ \phi(F) = F\}.
+			\Isom(F) \deq \{\phi: E \rightarrow E \ | \ \phi\textrm{~--- движение}, \ \phi(F) = F\}.
 		\end{equation*} 
 		В качестве групповой операции рассматривается операция композиции движений.
 	\end{definition}
@@ -432,7 +434,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		Группа движений правильного $n$-угольника ${\Delta_n \subset \real^2}$ называется \textit{диэдральной группой} $D_n{:}$
 		\begin{equation*}
-			D_n = \Isom(\Delta_n).
+			D_n \deq \Isom(\Delta_n).
 		\end{equation*}
 	\end{definition}
 	\begin{statement}
@@ -558,7 +560,7 @@ citecolor=black, menucolor=black, filecolor=black,
             Пусть $\sigma_1,\mathellipsis,\sigma_k$~--- все чётные перестановки длины $n$, тогда $\sigma_1(12),\mathellipsis,\sigma_k(12)$~--- нечётные перестановки. Если $\sigma$~--- чётная, то $\sigma (12)$~--- нечётная $\Longrightarrow \ {\sigma = (\sigma (12))(12) = \sigma (12)^2 = \sigma \ \id = \sigma} \Longrightarrow$ среди $\sigma_1,\mathellipsis,\sigma_k$ встретятся все нечётные перестановки. Значит, мы установили биекцию между множеством чётных и множеством нечётных перестановок $\Longrightarrow$ эти множества равномощны.
         \end{proof}
         \begin{definition}
-            \textit{Знак} перестановки $\mathrm{sgn}(\sigma) =
+            \textit{Знак} перестановки $\mathrm{sgn}(\sigma) \deq
                 \begin{cases*}
 				1,  &$\sigma$~--- чётная \\
 				-1,  &$\sigma$~--- нечётная.
@@ -747,11 +749,11 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		\textit{Ядром} гомоморфизма ${\phi: G \rightarrow F}$ называется множество всех элементов $G$, которые отображаются в нейтральный элемент $F$, т.е.
 		\begin{equation*}
-			\ker \phi = \{g \in G \ | \ \phi(g) = e_F\}.
+			\ker \phi \deq \{g \in G \ | \ \phi(g) = e_F\}.
 		\end{equation*} \n
 		\textit{Образ} $\phi$ определяется как
 		\begin{equation*}
-			\im \phi = \phi(G) = \{f \in F \ | \ \exists g \in G \suchthat \phi(g) = f\}.
+			\im \phi \deq \phi(G) = \{f \in F \ | \ \exists g \in G \suchthat \phi(g) = f\}.
 		\end{equation*}
 	\end{definition}
 	Очевидно, что $\ker \phi < G$ и Im$\, \phi < F.$
@@ -783,7 +785,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		Любая конечная группа $G$ порядка $n$ изоморфна некоторой подгруппе $S_n.$
 	\end{theorem*}
 	\begin{proof}
-		  $\forall {a \in G}$ рассмотрим отображение ${L_a : G \rightarrow G}$, определённое формулой ${L_a(g) = ag.}$\\
+		  $\forall {a \in G}$ рассмотрим отображение ${L_a : G \rightarrow G}$, определённое формулой ${L_a(g) = ag.}$\n
           Если $e, g_2,\mathellipsis,g_n$~--- все элементы $G$, то $a, ag_2,\mathellipsis,ag_n$ будут теми же элементами, но расположенными в каком-то другом порядке. Значит, $L_a$~--- биекция, обратной к которой будет $L_a^{-1} = L_{a^{-1}}$, тождественным отображением является $L_e$. Тогда $L_{ab}(g) = (ab)g = a(bg) = L_a(L_b(g)),$ т.е. $L_{ab} = L_a L_b.$ Следовательно множество $L_e, L_{g_2}\mathellipsis,L_{g_n}$ образует подгруппу ${H < S(G) = S_n}$, а ${L : a \mapsto L_a}$ является изоморфизмом.
 	\end{proof}
 	\newpage
@@ -838,7 +840,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		\textit{Прямым произведением групп} $G_1, \mathellipsis, G_m$ называется группа
 		\begin{equation*}
-			G_1 \times \mathellipsis \times G_m = \{(g_1, \mathellipsis, g_m) \ | \ g_1 \in G_1, \mathellipsis, g_m \in G_m\}
+			G_1 \times \mathellipsis \times G_m \deq \{(g_1, \mathellipsis, g_m) \ | \ g_1 \in G_1, \mathellipsis, g_m \in G_m\}
 		\end{equation*}
 		с операцией $(g_1, \mathellipsis, g_m)(g'_1, \mathellipsis, g'_m) = (g_1g'_1, \mathellipsis g_mg'_m).$ \n
 		Ясно, что эта операция ассоциативна, обладает нейтральным элементом $(e_{G_1}, \mathellipsis, e_{G_m})$ и для каждого элемента $(g_1, \mathellipsis, g_m)$ есть обратный элемент $(g^{-1}_1, \mathellipsis, g^{-1}_1).$
@@ -895,14 +897,14 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		\textit{Экспонентой} конечной абелевой группы $A$ называется число
 		\begin{equation*}
-			\exp A =\min \{m \in \naturals \ | \ \forall a \in A{:} \ ma = 0\}.
+			\exp A \deq \min \{m \in \naturals \ | \ \forall a \in A{:} \ ma = 0\}.
 		\end{equation*}
 	\end{definition}
 	\begin{remark}
 		\
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
-			\item Из того, что ${\forall a \in A \  \forall m \in \integers{:} \ ma = 0 \Longleftrightarrow m \divby \ord(a),}$ определение экспоненты можно переписать в виде ${\exp A = \NOK \{\ord(a) \ | \ a \in A\}.}$
+			\item Из того, что ${\forall a \in A \  \forall m \in \integers{:} \ ma = 0 \Longleftrightarrow m \divby \ord(a),}$ определение экспоненты можно переписать в виде ${\exp A \deq \NOK \{\ord(a) \ | \ a \in A\}.}$
 			\item Из того, что ${\forall a \in A{:} \ |A| \divby \ord(a),}$ следует, что $|A|$~--- общее кратное
 			множества ${\{\ord(a) \ | \ a \in A\},}$ а значит, ${|A| \divby \exp A.}$ В частности,
 			${\exp A \leqslant |A|.}$
@@ -918,6 +920,64 @@ citecolor=black, menucolor=black, filecolor=black,
 		${n_i \ndivby p_i}$, то ${m \divby p^{k_i}_i.}$  В силу произвольности выбора $i$ отсюда вытекает, что ${m \divby n,}$ и т.к. ${na = 0,}$ то окончательно получаем ${\ord(a) = n.}$ Значит, ${A = \langle a \rangle}$~--- циклическая группа.
 	\end{proof}
 	\newpage
+    
+        \section{Действия групп. Формула Бёрнсайда. Теоремы Силова}
+        \setcounter{definition}{0}
+        \begin{definition}
+            Пусть $G$~--- группа, $X$~--- произвольное множество. \textit{Действием} группы $G$ на множестве $X$ называется гомоморфизм ${\alpha : G \rightarrow S(X),}$ где $S(X)$~--- группа биекций на $X$. Альтернативное определение заключается в том, что действие~--- отображение ${G \times X \rightarrow X, \ (g,x) \mapsto gx,}$ удовлетворяющее условиям:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item $\forall x \in X{:} \  ex = x;$
+                \item $\forall g,h \in G \ \forall x \in X{:} \ g(hx) = (gh)x.$
+            \end{enumerate}
+            Действие $G$ на $X$ обозначается $G \curvearrowright X$ или $G : X$.
+        \end{definition}
+        \begin{remark}
+            Эти определения эквивалентны.
+        \end{remark}
+        \begin{definition}
+            \textit{Орбитой} точки ${x \in X}$ называется множество $Orb(x) \deq \{gx \ | \ g \in G\} \subseteq X$.
+        \end{definition}
+        \begin{definition}
+            \textit{Стабилизатором (стационарной подгруппой, подгруппой изотропии)} точки ${x \in X}$ называется множество $St(x) \deq \{g \in G \ | \ gx = x\} \subseteq G.$
+        \end{definition}
+        \begin{remark}
+            $St(x) < G.$
+        \end{remark}
+        \begin{definition}
+            Действие
+            \begin{itemize}
+                \item \textit{транзитивно}, если $\forall x,y \in X \ \exists g \in G{:} \ y = gx$ (т.е. $X$ состоит из одной орбиты);
+                \item \textit{свободно}, если $\exists x \in X{:} \ gx = x$ влечёт $St(x) = \{e\};$
+                \item \textit{эффективно}, если ${\forall x \in X{:} \ gx = x}$ влечёт ${g = e}$ (т.е. действие инъективно).
+            \end{itemize}
+        \end{definition}
+        \begin{definition}
+            \textit{Ядром неэффективности действия} $a$ назывется множество $\ker \alpha \deq \{g \in G \ | \ \forall x \in X{:} \ gx = x\}.$
+        \end{definition}
+        \begin{definition}
+            От действия ${G \curvearrowright X}$ можно перейти к действию ${\sfrac{G}{\ker \alpha} \curvearrowright X : g \ker \alpha = gx}$, которое будет эффективным.
+        \end{definition}
+        \newpage
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+                \item ${\SOrth_n(\real) \curvearrowright \real^n, \ (A,v) \mapsto Av.}$ Орбитами этого действия при ${n = 2}$ будут концентрические окружности с центром в начале координат (а также сама точка начала координат, считающаяся окружностью с нулевым радиусом). В общем случае это сферы с центром в начале координат, а также сама точка начала координат.\n
+                Стабилизатор ненулевого вектора ${St(v) \cong \SOrth_{n - 1}(\real)}$~--- все специальные ортогональные преобразования в ортогональной плоскости к $v$. Если же $v = 0$, то $St(v) = \SOrth_n(\real)$.
+                Действие не транзитивно (длина сохраняется), не свободно (хотя при ${n = 2}$ очень к этому близко) и эффективно.
+                \item ${S_n \curvearrowright \{1,\mathellipsis, n\}, \ i \mapsto \sigma(i)}.$ Действие транзитивно и эффективно, но не свободно при $n \geqslant 3$, т.к. ${St(i) \cong S_{n-1}.}$ 
+            \end{enumerate}
+        \end{exmpls}
+        \begin{definition}
+            Подгруппы $H_1, H_2 < G$ называются \textit{сопряжёнными}, если $\exists g \in G{:} \ gH_1g^{-1} = H_2.$
+        \end{definition}
+        \begin{theorem*}[\textbf{формула Бёрнсайда}]
+            Пусть $G$~--- конечная группа, $X$~--- конечное множество, ${G \curvearrowright X.}$ Тогда число орбит действия равно
+            \begin{equation*}
+                \frac{1}{|G|} \sum_{g \in G} |X^g|, \  \textrm{где} \ X^g \deq \{x \in X \ | \ gx = x\}.
+            \end{equation*}
+        \end{theorem*}
+        \newpage
 	\section{Кольца и поля}
 	\setcounter{definition}{0}
 	\begin{definition}
@@ -1143,10 +1203,10 @@ citecolor=black, menucolor=black, filecolor=black,
         \bibitem{algebra2} \href{https://youtube.com/playlist?list=PLcsjsqLLSfNBes4Xj0eZJRYU2j-Vmpyc9&si=4ev672dK9VFnEIw-}{Аржанцев И.В. \textit{Алгебра. Часть 2}}
         \bibitem{algebra3} \href{https://youtube.com/playlist?list=PLp9ABVh6_x4H52YxrWoJn0sS3XSoK9_Il&si=cPkPI_sHb8OTqWaH}{Аржанцев И.В. \textit{Алгебра. Часть 3}}
 		\bibitem{finite_fields_vid} \href{https://www.youtube.com/watch?v=9PTiaQODKiA}{Аржанцев И.В. \textit{Конечные поля}}
+        \bibitem{category_theory} \href{https://youtube.com/playlist?list=PLvPsfYrGz3wsX3Z5KuuEVYhijDxhKCDDD&si=eh_MI9GO0mYzxZMU}{Брагилевский В.Н. и др. \textit{Теория категорий}}
+        \bibitem{geometry_and_groups} \href{https://youtube.com/playlist?list=PLlx2izuC9gjgZsBALx2ZF7IMGoNl07A9l&si=9X5Oosl5a53UTlTb}{Савватеев А.В. \textit{Геометрия и группы}}
 		\bibitem{finite_fields_list} \href{https://youtube.com/playlist?list=PLH3NNipqeM1vcHnP4czWemq5DyBw9MXxn&si=UFBR6POWzySgFqPt}{Савватеев А.В. \textit{Конечные поля}}
-		\bibitem{geometry_and_groups} \href{https://youtube.com/playlist?list=PLlx2izuC9gjgZsBALx2ZF7IMGoNl07A9l&si=9X5Oosl5a53UTlTb}{Савватеев А.В. \textit{Геометрия и группы}}
 		\bibitem{galois_theory} \href{https://youtube.com/playlist?list=PLgEpoT7yAl9VWebUfw4uOlut1ZaoFjFcb&si=yM6DjTk5Cenofg5U}{Савватеев А.В. \textit{Теория Галуа}}
-		\bibitem{category_theory} \href{https://youtube.com/playlist?list=PLvPsfYrGz3wsX3Z5KuuEVYhijDxhKCDDD&si=eh_MI9GO0mYzxZMU}{Брагилевский В.Н. и др. \textit{Теория категорий}}
 		\bibitem{for_physicists} \href{https://youtube.com/playlist?list=PLnbH8YQPwKblIpRi0ARO2VadnMwntvF51&si=qXQx9-xB7_arfxB8}{\textit{Элементарное введение в теорию групп (для физиков)}}
 	\end{thebibliography}
 \end{document}
