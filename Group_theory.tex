@@ -73,12 +73,12 @@ citecolor=black, menucolor=black, filecolor=black,
 \newcommand{\complex}{\mathbb{C}}
 \newcommand{\algebraic}{\mathbb{A}}
 
-\newcommand{\GL}{\mathrm{GL}}
-\newcommand{\SL}{\mathrm{SL}}
-\newcommand{\Orth}{\mathrm{O}}
-\newcommand{\SOrth}{\mathrm{SO}}
-\newcommand{\Unit}{\mathrm{U}}
-\newcommand{\SUnit}{\mathrm{SU}}
+\newcommand{\GL}{\mathbf{GL}}
+\newcommand{\SL}{\mathbf{SL}}
+\newcommand{\Orth}{\mathbf{O}}
+\newcommand{\SOrth}{\mathbf{SO}}
+\newcommand{\Unit}{\mathbf{U}}
+\newcommand{\SUnit}{\mathbf{SU}}
 \newcommand{\ord}{\mathrm{ord}}
 \newcommand{\CS}{\mathrm{CS}}
 \newcommand{\suchthat}{{:}{ } \ }
@@ -201,11 +201,15 @@ citecolor=black, menucolor=black, filecolor=black,
 			${\SL_n(\real) = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ \det A = 1 \}}$~--- \textit{специальная линейная
 				группа}; \newline
 			${\Orth_n(\real)} = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ A \cdot A^T = I\}$~--- \textit{ортогональная группа}; \newline
-			${\SOrth_n(\real) = \Orth_n(\real) \cap \SL_n(\real)}$~--- \textit{специальная ортогональная группа.}
+			${\SOrth_n(\real) = \Orth_n(\real) \cap \SL_n(\real)}$~--- \textit{специальная ортогональная группа;} \newline
+                ${\Unit_n = \{A \in \mathrm{Mat}_{n \times n}(\complex) \ | \ A \cdot A^\dagger = I\}}$~--- \textit{унитарная группа}; \newline
+                ${\SUnit_n = \Unit_n \cap \SL_n(\complex)}$~--- \textit{специальная унитарная группа.}
 			\item Группы перестановок: \newline
 			\textit{симметрическая группа} $S_n$~--- все перестановки длины $n$;\newline
 			\textit{знакопеременная группа} $A_n$~--- все чётные перестановки длины $n$.
 			\item Группы преобразований подобия: гомотетии, движения (осевые и скользящие симметрии, параллельные переносы, повороты).
+                \item \textit{Группа кватернионов:} \newline
+                Множество ${Q_8 = \{\pm 1, \pm i, \pm j, \pm k\}}$ с операцией умножения заданной следующим образом: ${i^2 = j^2 = k^2 = -1,}$ ${ij = k,}$ ${ji = -k.}$
 		\end{enumerate}
 	\end{exmpls}
 	\begin{definition}
@@ -243,9 +247,9 @@ citecolor=black, menucolor=black, filecolor=black,
 		\
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
-			\item ${\integers ^ + < \rationals ^ + < \real ^ + < \complex ^ +}$
-			\item ${\GL_n(\real) > \Orth_n(\real) > \SOrth_n(\real); \ \GL_n(\real) > \SL_n(\real).}$
-			\item ${S_n > A_n.}$
+			\item ${n\integers^ + < \integers ^ + < \rationals ^ + < \real ^ + < \complex ^ +;}$
+			\item ${\SOrth_n(\real) < \Orth_n(\real) < \GL_n(\real);}$
+			\item ${A_n < S_n.}$
 		\end{enumerate}
 	\end{exmpls}
 	\begin{theorem*}[\textbf{Критерий подгруппы}]
@@ -389,13 +393,13 @@ citecolor=black, menucolor=black, filecolor=black,
 		Пусть $\overline{a}$~--- ненулевой вычет по простому модулю $p$, тогда $\overline{a}^{p-1} \equiv 1 \ (\mod \, p).$
 	\end{consequence}
 	\begin{proof}
-		Достаточно применить следствие 3 к группе $\integers_p ^ {\times} \, \backslash \ \{0\}$
+		Применим следствие 3 к группе $\integers_p ^ {\times} \, \backslash \ \{0\}.$ \qedhere
 	\end{proof}
 	\begin{consequence}
-		Пусть $|G|$~--- простое число, тогда $G$~--- циклическая группа, порождённая любым своим ненейтральным элементом.
+		Пусть $|G|$~--- простое число, тогда $G$~--- циклическая группа, порождённая любым своим не нейтральным элементом.
 	\end{consequence}
 	\begin{proof}
-		Пусть $g \in G$~--- произвольный ненейтральный элемент. Тогда циклическая подгруппа $\langle g \rangle$ содержит более одного элемента и $|\langle g \rangle|$ делит $|G|$ по следствию 1. Значит, $|\langle g \rangle| = |G|$, откуда $G = \langle g \rangle$. 
+		Пусть $g \in G$~--- произвольный не нейтральный элемент. Тогда циклическая подгруппа $\langle g \rangle$ содержит более одного элемента и $|\langle g \rangle|$ делит $|G|$ по следствию 1. Значит, $|\langle g \rangle| = |G|$, откуда $G = \langle g \rangle$. 
 	\end{proof}
 	\newpage
 	\section{Группы движений}
@@ -812,11 +816,16 @@ citecolor=black, menucolor=black, filecolor=black,
 			${\psi(g_1 \ker \phi) = \psi(g_2 \ker \phi) \Longrightarrow \phi(g_1) = \phi(g_2) \Longrightarrow \phi(g_1) \phi(g_2)^{-1} = e_F \Longrightarrow}$ \n $\Longrightarrow \phi(g_1g_2^{-1}) = e_F \Longrightarrow g_1g_2^{-1} \in \ker \phi \Longrightarrow g_1 \ker \phi = g_2 \ker \phi. \qedhere$
 		\end{enumerate} 
 	\end{proof}
-	\begin{exmpl*}
-		Пусть ${G = \real ^ +}$ и ${H = \integers ^ +}$. Рассмотрим группу ${F = \complex^{\times} \, \backslash \, \{0\}}$ и гомоморфизм ${\phi: G \rightarrow F}, {\quad g \mapsto e^{2\pi i g} = \cos(2\pi g) + i \sin(2\pi g).}$
-		Тогда ${\ker \phi = H}$ и факторгруппа $G/H$ изоморфна окружности $S^1$, рассматриваемой как подгруппа в $F$, состоящей из комплексных чисел с модулем равным 1.
-	\end{exmpl*}
-	\newpage
+        \newpage
+	\begin{exmpls}
+        \
+        \begin{enumerate}
+            \setlength\itemsep{0.1em}
+            \item Пусть ${G = \real ^ +}$ и ${H = \integers ^ +}$. Рассмотрим группу ${F = \complex^{\times} \, \backslash \, \{0\}}$ и гомоморфизм ${\phi: G \rightarrow F}, {\quad g \mapsto e^{2\pi i g} = \cos(2\pi g) + i \sin(2\pi g).}$
+		Тогда ${\ker \phi = H}$ и факторгруппа $G/H$ изоморфна окружности $S^1$, рассматриваемой как подгруппа в $F$, состоящей из комплексных чисел с модулем равным 1. Если положить ${G = (\real^2, +)}$, ${H = (\integers^2, +)}$ и ${\phi : (g, g') \mapsto (e^{2\pi i g}, e^{2\pi i g'})}$, то ${G/H \cong S^1 \times S^1 \cong \mathbb{T}^2}$~--- двумерный тор.
+            \item Пусть ${G = \GL_n(\real),}$ ${H = \SL_n(\real)}.$ Построим гомоморфизм ${\phi : \GL_n(\real) \rightarrow \real^{\times}, \ A \mapsto \det A}$ ${\Rightarrow \ker \phi = \SL_n(\real).}$
+        \end{enumerate}
+	\end{exmpls}
 	\begin{theorem*}[\textbf{О классификации циклических групп}]
 		Пусть $G$~--- циклическая группа.
 		\begin{enumerate}
@@ -955,9 +964,9 @@ citecolor=black, menucolor=black, filecolor=black,
         \begin{definition}
             \textit{Ядром неэффективности действия} $a$ назывется множество $\ker \alpha \deq \{g \in G \ | \ \forall x \in X{:} \ gx = x\}.$
         \end{definition}
-        \begin{definition}
+        \begin{remark}
             От действия ${G \curvearrowright X}$ можно перейти к действию ${\sfrac{G}{\ker \alpha} \curvearrowright X : g \ker \alpha = gx}$, которое будет эффективным.
-        \end{definition}
+        \end{remark}
         \newpage
         \begin{exmpls}
             \
@@ -985,10 +994,8 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
 			\item $(R, +)$ ~--- абелева группа;
-			\item $(R, \cdot)$~--- алгебраическая структура;
+			\item $(R, \cdot)$~--- полугруппа;
 			\item $\forall a, b, c \in R{:} \ a(b + c) = ab + ac$ и $(a + b)c = ac + bc.$
-			%\item $\forall a, b, c \in R{:} \ (ab)c = a(bc);$
-			%\item $\exists 1 \in R \suchthat 1 \cdot a = a \cdot 1 = a \quad \forall a \in R.$
 		\end{enumerate} 
 	\end{definition}
 	\begin{remark}
@@ -1020,21 +1027,28 @@ citecolor=black, menucolor=black, filecolor=black,
 			$\forall m \in M{:} \ (f_1 + f_2)(m) = f_1(m) + f_2(m), \quad (f_1 \cdot f_2)(m) = f_1(m) \cdot f_2(m).$
 		\end{enumerate}
 	\end{exmpls}
-	\newpage
-	\begin{definition}
-		Кольцо $R$ называется \textit{ассоциативным}, если 
+        \begin{comment}
+        \begin{definition}
+            Кольцо $R$ называется \textit{ассоциативным}, если 
 		\begin{equation*}
 			\forall a, b, c \in R{:} \ (ab)c = a(bc).
 		\end{equation*}
 	\end{definition}
+        \end{comment}
 	\begin{definition}
 		Кольцо $R$ называется \textit{коммутативным}, если 
 		\begin{equation*}
 			\forall a, b \in R{:} \ ab = ba.
 		\end{equation*}
 	\end{definition}
+        \begin{definition}
+            Говорят, что кольцо $R$ \textit{содержит единицу}, если
+            \begin{equation*}
+                \exists 1 \in R \ \forall a \in R{:} \ 1 \times a = a \times 1 = a.
+            \end{equation*}
+        \end{definition}
 	\begin{definition}
-		Элемент $a$ кольца $R$ называется \textit{обратимым}, а кольцо \textit{содержащим единицу}, если 
+		Элемент $a$ кольца $R$ называется \textit{обратимым}, если 
 		\begin{equation*}
 			\exists b \in R \suchthat ab = ba = 1.
 		\end{equation*}
@@ -1061,7 +1075,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		Всякий нильпотент является делителем нуля.
 	\end{remark}
 	\begin{definition}
-		Кольцо называется \textit{телом}, если оно ассоциативно, содержит ${1 \neq 0,}$ и любой ненулевой элемент обратим.
+		Кольцо называется \textit{телом}, если оно содержит ${1 \neq 0,}$ и любой ненулевой элемент обратим.
         \begin{exmpl*}
             $\mathbb{H}$~--- тело кватернионов.
         \end{exmpl*}
@@ -1069,12 +1083,16 @@ citecolor=black, menucolor=black, filecolor=black,
         \begin{definition}
             Тело называется \textit{полем}, если оно коммутативно.
         \end{definition}
-	\begin{remark}
-		В поле не существует делителей нуля.
-	\end{remark}
-	\begin{exmpls}
-		$\rationals, \real, \complex, \algebraic, \integers_2.$
+        \begin{exmpls}
+		$\rationals, \real, \complex, \algebraic, \integers_p, \rationals_p$ для простых $p$.
 	\end{exmpls}
+	\begin{remark}
+		В полях не существует делителей нуля.
+	\end{remark}
+        \begin{definition}
+            \textit{Характеристикой} $\mathrm{char} \, F$ поля $F$ называется такое ${n \in \naturals,}$ что ${\underbrace{1+\mathellipsis+1}_{n \ \text{раз}} = 0.}$
+        \end{definition}
+        \newpage
 	\begin{theorem}
 		Кольцо вычетов  $\integers_p$ является полем тогда и только тогда, когда $p$~--- простое число.
 	\end{theorem}
