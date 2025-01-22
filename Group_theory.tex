@@ -87,6 +87,8 @@ citecolor=black, menucolor=black, filecolor=black,
 \newcommand{\Isom}{\mathrm{Isom}}
 \newcommand{\Rot}{\mathrm{R}}
 \newcommand{\Sym}{\mathrm{S}}
+\newcommand{\Tor}{\mathrm{Tor} \,}
+\newcommand{\rank}{\mathrm{rank} \,}
 
 
 \DeclareRobustCommand{\divby}{%
@@ -133,7 +135,7 @@ citecolor=black, menucolor=black, filecolor=black,
 \newtheorem{consequence}{Следствие}
 \newtheorem*{consequence*}{Следствие}
 \numberwithin{consequence}{section}
-\title{Введение в теорию групп}
+\title{Теория групп}
 \author{Артём Рашевский}
 %\affil{ФКН ВГУ}
 \date{2025}
@@ -252,7 +254,7 @@ citecolor=black, menucolor=black, filecolor=black,
 			\item ${A_n < S_n.}$
 		\end{enumerate}
 	\end{exmpls}
-	\begin{theorem*}[\textbf{Критерий подгруппы}]
+	\begin{theorem*}[\textbf{критерий подгруппы}]
 		Пусть $G$~--- группа, тогда
 		\begin{equation*}
 			H < G \Longleftrightarrow \forall a,b \in H{:} \ a \circ b^{-1} \in H.
@@ -493,7 +495,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		\end{center} \n
 	\end{exmpl*}
 	\newpage
-	\section{Группа перестановок}
+	\section{Группы перестановок}
 	\setcounter{definition}{0}
 	\begin{definition}
 		Пусть задано множество ${X = \{1, 2, \mathellipsis, n\}, \ n \in \naturals}$. Множество всех возможных биекций ${X \leftrightarrow X}$ с операцией композиции образует группу $S_n$, называемую \textit{симметрической группой} или \textit{группой перестановок}.
@@ -794,7 +796,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\end{proof}
 	\newpage
 	\section{Теорема о гомоморфизме. Классификация циклических групп}
-	\begin{theorem*}[\textbf{О гомоморфизме}]
+	\begin{theorem*}[\textbf{о гомоморфизме}]
 		Пусть ${\phi: G \rightarrow F}$~--- гомоморфизм групп, тогда
 		\begin{equation*}
 			\im \phi \cong G/ \ker \phi.
@@ -826,7 +828,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \item Пусть ${G = \GL_n(\real),}$ ${H = \SL_n(\real)}.$ Построим гомоморфизм ${\phi : \GL_n(\real) \rightarrow \real^{\times}, \ A \mapsto \det A}$ ${\Rightarrow \ker \phi = \SL_n(\real).}$
         \end{enumerate}
 	\end{exmpls}
-	\begin{theorem*}[\textbf{О классификации циклических групп}]
+	\begin{theorem*}[\textbf{о классификации циклических групп}]
 		Пусть $G$~--- циклическая группа.
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
@@ -842,9 +844,14 @@ citecolor=black, menucolor=black, filecolor=black,
 		\end{equation*} \n
 		Из определения циклической группы следует, что $\phi$ сюръективен, т.е. $\im \phi = G$. По теореме о гомоморфизме получаем ${G \cong \integers/\ker \phi,}$ т.к. ${\ker \phi < \integers \Longrightarrow \exists m \geqslant 0 \suchthat \ker \phi = m \integers}$ (любая подгруппа $\integers$ имеет вид $k\integers$). Если ${m = 0},$ то ${\ker \phi = \{0\},}$ откуда ${G \cong \integers \, / \, \{0\} \cong \integers.}$ Если ${m > 0,}$ то ${G \cong \integers/m\integers = \integers_m.}$
 	\end{proof}
-	
 	\newpage
-	\section{Прямое произведение групп. Теорема о строении конечных абелевых групп}
+        \section{Группы автоморфизмов}
+        \setcounter{definition}{0}
+        \newpage
+        \section{Классы сопряжённости}
+        \setcounter{definition}{0}
+	\newpage
+	\section{Прямое произведение групп}
 	\setcounter{definition}{0}
 	\begin{definition}
 		\textit{Прямым произведением групп} $G_1, \mathellipsis, G_m$ называется группа
@@ -895,31 +902,111 @@ citecolor=black, menucolor=black, filecolor=black,
 			\integers_n \cong \integers_{p^{k_1}_1} \times \mathellipsis \times \integers_{p^{k_s}_s}.
 		\end{equation*}
 	\end{consequence*}
+        \newpage
+        \section{Свободные абелевы группы}
+        \setcounter{definition}{0}
+        \begin{definition}
+            \textit{Кручением} или \textit{периодической частью} группы $G$ называется множество элементов конечного порядка
+            \begin{equation*}
+                \Tor (G) \deq \{g \in G \ | \ \ord(g) < \infty\}.
+            \end{equation*}
+        \end{definition}
+        \begin{lemma}
+            Если группа $A$~--- абелева, то ${\Tor(A) < A.}$
+        \end{lemma}
+        \begin{proof}
+            Пусть ${\ord(a) = n}$, ${\ord(b) = m}$, ${a,b \in A.}$ Тогда ${nm(a+b) = 0}$ $\Longrightarrow$ ${\ord(a+b) = 0.}$ \qedhere
+        \end{proof}
+        \begin{remark}
+            В неабелевой группе элементы конечного порядка не всегда образуют подгруппу.
+        \end{remark}
+        \begin{definition}
+            Группа $A$ называется \textit{конечнопорождённой}, если ${\forall a \in A}$ ${\exists a_1,\mathellipsis,a_n \in A{:}}$ ${a = k_1a_1+\mathellipsis+k_na_n}$ для некоторых ${k_1,\mathellipsis,k_n \in \integers.}$ Такой набор ${\{a_1,\mathellipsis,a_n\}}$ называется \textit{системой образующих или порождающих.}
+        \end{definition}
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Любая конечная абелева группа конечнопорождена.
+                \item \textit{Решётка} ${\integers^n = \underbrace{\integers \oplus \mathellipsis \oplus \integers}_{n \ \textrm{раз}} = \{(c_1,\mathellipsis,c_n) \ | \ c_i \in \integers\}.}$ Системой порождающих будет \textit{стандартный базис}
+                \begin{equation*}
+                    \{e_1 = (1,0,\mathellipsis,0), e_2 = (0,1,\mathellipsis,0), \mathellipsis, e_n = (0,0,\mathellipsis,1)\}.
+                \end{equation*}
+            \end{enumerate}
+        \end{exmpls}
+        \begin{definition}
+            Система порождающих ${\{a_1,\mathellipsis,a_n\}}$ группы $A$ называется \textit{базисом}, если ${\forall a \in A}$ запись ${a = k_1a_1+\mathellipsis+a_nk_n}$ единственна. Группа, обладающая базисом, называется \textit{свободной}. Число элементов в базисе называется \textit{рангом} и обозначается $\rank A$.
+        \end{definition}
+        \begin{statement}
+            Все базисы свободной абелевой группы содержат одно и то же число элементов.
+        \end{statement}
+        \newpage
+        \begin{lemma}
+            Свободная абелева группа $A$ ранга $n$ изоморфна $\integers^n.$
+        \end{lemma}
+        \begin{proof}
+            Если ${\{e_1,\mathellipsis,e_n\}}$~--- базис в $A,$ то ${a = k_1e_1+\mathellipsis+k_ne_n \leftrightarrow (k_1,\mathellipsis,k_n) \in \integers^n.}$ Для этого отображения простым образом проверяются корректность, биективность и сохранение операции.
+        \end{proof}
+        \begin{theorem}
+            Всякая подгруппа $B$ свободной абелевой группы $A$ ранга $n$ является свободной абелевой группой ранга $\leqslant n$. 
+        \end{theorem}
+        \begin{statement}
+            Пусть $A$~--- свободная абелева группа с базисом ${\{e_1,\mathellipsis,e_n\},}$ $D$~--- произвольная абелева группа, ${d_1,\mathellipsis,d_n \in D}$~--- произвольные элементы. Тогда $\exists!$ гомоморфизм 
+            \begin{equation*}
+                \phi : A \rightarrow D, \ \phi(e_i) = d_i, \ i = \overline{1,n}.
+            \end{equation*}
+        \end{statement}
+        \begin{proof}
+            ${\forall a \in A{:} \ a = k_1e_1+\mathellipsis+k_ne_n.}$\newline
+            Положим ${\phi(a) = k_1\phi(e_1)+\mathellipsis+k_n\phi(e_n).}$ Это гомоморфизм, что проверяется очевидным образом.
+        \end{proof}
+        \begin{consequence*}
+            Для любой конечнопорождённой абелевой группы $D$ существует эпиморфизм ${\phi : A \twoheadrightarrow D}$ из некоторой свободной абелевой группы $A$. 
+        \end{consequence*}
+        \begin{proof}
+            Пусть ${\{d_1,\mathellipsis,d_n\}}$~--- порождающие элементы группы $D.$ Положим ${A = \integers^n}$ и определим $\phi$ условием ${\phi(e_i) = d_i,}$ где ${\{e_1,\mathellipsis,e_n\}}$~--- стандартный базис в $\integers^n.$ Тогда $\phi$ сюръективен, т.к. ${d_1,\mathellipsis,d_n}$~--- порождающие.
+        \end{proof}
+        \newpage
+        \section{Структура абелевых групп}
+        \setcounter{definition}{0}
 	\begin{definition}
 		Конечная абелева группа $A$ называется \textit{примарной}, если ${|A| = p^k}$ для некоторого ${k \in \naturals,}$ где $p$~--- простое.
 	\end{definition}
-	\begin{theorem*}[\textbf{О строении конечных абелевых групп}]
-		Пусть $A$~--- конечная абелева группа. Тогда ${A \cong \integers_{p^{k_1}_1} \times \mathellipsis \times \integers_{p^{k_t}_t},}$ где ${p_1, \mathellipsis, p_t}$~--- простые числа (не обязательно различные) и ${k_1, \mathellipsis, k_t \in \naturals.}$ Более того, набор примарных циклических множителей ${\integers_{p^{k_1}_1}, \mathellipsis, \integers_{p^{k_t}_t}}$ определен однозначно с точностью до перестановки (в частности, число этих множителей определено однозначно).
-	\end{theorem*}
-	\newpage
-	\section{Экспонента конечной абелевой группы и критерий цикличности}
+	\begin{theorem}
+        Любая конечнопорождённая абелева группа $A$
+        изоморфна прямой сумме примарных циклических групп и бесконечных циклических групп: 
+        \begin{equation*}
+            A \cong \integers^n \oplus \integers_{p^{k_1}_1} \oplus \mathellipsis \oplus \integers_{p^{k_t}_t},
+        \end{equation*}
+        где ${p_1, \mathellipsis, p_t}$~--- простые числа (не обязательно различные) и ${k_1, \mathellipsis, k_t \in \naturals.}$ Более того, набор примарных циклических множителей ${\integers_{p^{k_1}_1}, \mathellipsis, \integers_{p^{k_t}_t}}$ определен однозначно с точностью до перестановки (в частности, число этих множителей определено однозначно).
+	\end{theorem}
 	\begin{definition}
-		\textit{Экспонентой} конечной абелевой группы $A$ называется число
+		\textit{Экспонентой} конечной группы $G$ называется число
 		\begin{equation*}
-			\exp A \deq \min \{m \in \naturals \ | \ \forall a \in A{:} \ ma = 0\}.
+			\exp G \deq \min \{m \in \naturals \ | \ \forall g \in G{:} \ mg = 0\}.
 		\end{equation*}
 	\end{definition}
 	\begin{remark}
 		\
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
-			\item Из того, что ${\forall a \in A \  \forall m \in \integers{:} \ ma = 0 \Longleftrightarrow m \divby \ord(a),}$ определение экспоненты можно переписать в виде ${\exp A \deq \NOK \{\ord(a) \ | \ a \in A\}.}$
-			\item Из того, что ${\forall a \in A{:} \ |A| \divby \ord(a),}$ следует, что $|A|$~--- общее кратное
-			множества ${\{\ord(a) \ | \ a \in A\},}$ а значит, ${|A| \divby \exp A.}$ В частности,
-			${\exp A \leqslant |A|.}$
+			\item Из того, что ${\forall g \in G \  \forall m \in \integers{:} \ mg = 0 \Longleftrightarrow m \divby \ord(g),}$ определение экспоненты можно переписать в виде ${\exp G \deq \NOK \{\ord(g) \ | \ g \in G\}.}$
+			\item Из того, что ${\forall g \in G{:} \ |G| \divby \ord(g),}$ следует, что $|G|$~--- общее кратное
+			множества ${\{\ord(g) \ | \ g \in G\},}$ а значит, ${|G| \divby \exp G.}$ В частности,
+			${\exp G \leqslant |G|.}$
 		\end{enumerate}
 	\end{remark}
-	\begin{theorem*}[\textbf{Критерий цикличности}]
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item $\exp(\integers_n) = n;$
+                \item $\exp(\integers_2 \oplus \integers_2) = 2;$
+                \item $\exp(S_3) = 6.$
+            \end{enumerate}
+        \end{exmpls}
+        \newpage
+	\begin{theorem*}[\textbf{rритерий цикличности}]
 		Группа $A$ является циклической тогда и только тогда, когда ${\exp A = |A|.}$
 	\end{theorem*}
 	\begin{proof}
@@ -928,9 +1015,25 @@ citecolor=black, menucolor=black, filecolor=black,
 		{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \mathellipsis, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \mathellipsis, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \mathellipsis + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \mathellipsis + ma_s = 0.}$ При фиксированном ${i \in \{1, \mathellipsis, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j{:} \ mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Longrightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
 		${n_i \ndivby p_i}$, то ${m \divby p^{k_i}_i.}$  В силу произвольности выбора $i$ отсюда вытекает, что ${m \divby n,}$ и т.к. ${na = 0,}$ то окончательно получаем ${\ord(a) = n.}$ Значит, ${A = \langle a \rangle}$~--- циклическая группа.
 	\end{proof}
-	\newpage
     
-        \section{Действия групп. Формула Бёрнсайда. Теоремы Силова}
+        \newpage
+        \section{Порождающие элементы}
+        \setcounter{definition}{0}
+
+        \newpage
+        \section{Коммутант}
+        \setcounter{definition}{0}
+        
+        \newpage
+        \section{Разрешимые группы}
+        \setcounter{definition}{0}
+
+        \newpage
+        \section{Простые группы}
+        \setcounter{definition}{0}
+
+        \newpage
+        \section{Действия групп. Формула Бёрнсайда}
         \setcounter{definition}{0}
         \begin{definition}
             Пусть $G$~--- группа, $X$~--- произвольное множество. \textit{Действием} группы $G$ на множестве $X$ называется гомоморфизм ${\alpha : G \rightarrow S(X),}$ где $S(X)$~--- группа биекций на $X$. Альтернативное определение заключается в том, что действие~--- отображение ${G \times X \rightarrow X, \ (g,x) \mapsto gx,}$ удовлетворяющее условиям:
@@ -945,10 +1048,16 @@ citecolor=black, menucolor=black, filecolor=black,
             Эти определения эквивалентны.
         \end{remark}
         \begin{definition}
-            \textit{Орбитой} точки ${x \in X}$ называется множество $Orb(x) \deq \{gx \ | \ g \in G\} \subseteq X$.
+            \textit{Орбитой} точки ${x \in X}$ называется множество
+            \begin{equation*}
+                Orb(x) \deq \{gx \ | \ g \in G\} \subseteq X.
+            \end{equation*}
         \end{definition}
         \begin{definition}
-            \textit{Стабилизатором (стационарной подгруппой, подгруппой изотропии)} точки ${x \in X}$ называется множество $St(x) \deq \{g \in G \ | \ gx = x\} \subseteq G.$
+            \textit{Стабилизатором (стационарной подгруппой, подгруппой изотропии)} точки ${x \in X}$ называется множество
+            \begin{equation*}
+                St(x) \deq \{g \in G \ | \ gx = x\} \subseteq G.
+            \end{equation*}
         \end{definition}
         \begin{remark}
             $St(x) < G.$
@@ -962,12 +1071,14 @@ citecolor=black, menucolor=black, filecolor=black,
             \end{itemize}
         \end{definition}
         \begin{definition}
-            \textit{Ядром неэффективности действия} $a$ назывется множество $\ker \alpha \deq \{g \in G \ | \ \forall x \in X{:} \ gx = x\}.$
+            \textit{Ядром неэффективности действия} $a$ назывется множество 
+            \begin{equation*}
+                \ker \alpha \deq \{g \in G \ | \ \forall x \in X{:} \ gx = x\}.
+            \end{equation*}
         \end{definition}
         \begin{remark}
             От действия ${G \curvearrowright X}$ можно перейти к действию ${\sfrac{G}{\ker \alpha} \curvearrowright X : g \ker \alpha = gx}$, которое будет эффективным.
         \end{remark}
-        \newpage
         \begin{exmpls}
             \
             \begin{enumerate}
@@ -986,6 +1097,11 @@ citecolor=black, menucolor=black, filecolor=black,
                 \frac{1}{|G|} \sum_{g \in G} |X^g|, \  \textrm{где} \ X^g \deq \{x \in X \ | \ gx = x\}.
             \end{equation*}
         \end{theorem*}
+        
+        \newpage
+	\section{$p$-группы. Теоремы Силова}
+	\setcounter{definition}{0}
+    
         \newpage
 	\section{Кольца и поля}
 	\setcounter{definition}{0}
@@ -1104,6 +1220,15 @@ citecolor=black, menucolor=black, filecolor=black,
 		{\textit{Достаточность.}} Пусть $p$~--- простое, ${\overline{a} \in \integers_p \, \backslash \, \{\overline{0}\}.}$ \n
 		Тогда ${{\NOD(a,p)} = 1} \Longrightarrow {\exists k,l \in \integers \suchthat ak + pl = 1.}$ Значит, ${\overline{a} \cdot \overline{k} + \overline{p} \cdot \overline{l} = \overline{1} \Longrightarrow a \cdot k \equiv 1 \ (\mod p) \Longrightarrow a}$ обратим, противоречие.
 	\end{proof}
+        \begin{statement}
+            Любая конечная подгруппа мультипликативной группы поля является циклической.
+        \end{statement}
+        \begin{proof}
+            Пусть $F$~--- поле, ${A \leqslant F^\times}$~--- конечная подгруппа, ${m = \exp(A).}$ Тогда ${\forall a \in A{:} \ a^m = 1.}$ Но уравнение ${x^m - 1 = 0}$ имеет над полем $\leqslant m$ корней $\Rightarrow$ ${|A| \leqslant m}$. С другой стороны, ${|A| \divby m \Rightarrow}$ ${m = |A| \Leftrightarrow A}$~--- циклическая.
+        \end{proof}
+        \begin{consequence*}
+            Если поле $F$ конечно, то $F^\times$~--- циклическая.
+        \end{consequence*}
         \begin{theorem*}[\textbf{Ваддербёрн}]
             Всякое конечное тело является полем.
         \end{theorem*}
@@ -1204,6 +1329,15 @@ citecolor=black, menucolor=black, filecolor=black,
 		$\ker \phi = (x - a) \Longrightarrow K[x]/(x - a) \cong K.$
 	\end{exmpl*}
     \end{comment}
+    \newpage
+    \section{Приложения теории групп в криптографии*}
+    \setcounter{definition}{0}
+    \newpage
+    \section{Группы Ли*}
+    \setcounter{definition}{0}
+    \newpage
+    \section{Введение в гомологическую алгебру*}
+    \setcounter{definition}{0}
 	\newpage
 	\begin{thebibliography}{99}
         \bibitem{alekseev} Алексеев В.Б. \textit{Теорема Абеля в задачах и решениях}: МЦНМО, 2024.
