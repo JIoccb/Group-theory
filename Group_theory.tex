@@ -91,6 +91,7 @@ citecolor=black, menucolor=black, filecolor=black,
 \newcommand{\Tor}{\mathrm{Tor} \,}
 \newcommand{\rank}{\mathrm{rank} \,}
 \newcommand{\Aut}{\mathrm{Aut} \,}
+\newcommand{\Inn}{\mathrm{Inn} \,}
 
 
 \DeclareRobustCommand{\divby}{%
@@ -183,7 +184,6 @@ citecolor=black, menucolor=black, filecolor=black,
 			\forall a, b \in G{:} \ ab = ba.
 		\end{equation*}
 	\end{definition}
-	\thispagestyle{empty}
 	\begin{definition}
 		\textit{Порядком} $|G|$ группы $G$ называется число элементов в ней. Группа называется \textit{конечной}, если её порядок конечен, и \textit{бесконечной} иначе.
 	\end{definition} 
@@ -318,7 +318,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{equation*}
 			\exists g \in G \suchthat G = \langle g \rangle.
 		\end{equation*}
-		Циклическая группа порядка $n$ обозначается ${C_n.}$
+		%Циклическая группа порядка $n$ обозначается ${C_n.}$
 	\end{definition}
 	\begin{exmpls}
 		${\integers ^ +; \ \integers_n ^ +, \ n \geqslant 1.}$
@@ -848,10 +848,206 @@ citecolor=black, menucolor=black, filecolor=black,
 	\end{proof}
 	\newpage
         \section{Группы автоморфизмов}
-        \setcounter{definition}{0}
+        \begin{statement}
+            Пусть $G$~--- группа. \textit{Множество её автоморфизмов} $\Aut(G)$ несёт каноническую структуру группы с операцией композиции отображений.
+        \end{statement}
+        \begin{proof}
+            Необходимые свойства: ассоциативность верна для композиции любых отображений, в том числе и автоморфизмов; нейтральный элемент~--- тождественное отображение; обратный элемент существует, так как автоморфизмы биективны.
+        \end{proof}
+        \begin{statement}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${\Aut(\integers) \cong \integers_2;}$
+                \item ${\Aut(\integers_n) \cong \integers^\times_n.}$
+            \end{enumerate}
+        \end{statement}
+        \begin{proof}
+            Пусть ${G_1 = \langle g \rangle.}$ Тогда любой гомоморфизм ${\phi : G_1 \rightarrow G_2}$ однозначно определяется образом порождающего элемента ${\phi(g) \in G_2.}$ В самом деле, ${\forall m \in \integers{:} \ \phi(g^m) = \phi(g)^m.}$ Пусть ${\phi : G_1 \rightarrow G_1}$~--- автоморфизм. Тогда, из сюръективности, ${\exists k \in \integers{:} \ \phi(g) = g^k,}$ и это порож- дающий элемент $G$.
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item В $\integers$ всего два порождающих. Для каждого из них есть гомоморфизм:
+                \begin{itemize}
+                \setlength\itemsep{0.1em}
+                    \item ${\phi_1 : 1 \mapsto 1 \ (\phi_1 = \id);}$
+                    \item ${\phi_1 : 1 \mapsto -1 \ (\phi_1 = -\id).}$
+                \end{itemize}
+                Это автоморфизмы ${\Rightarrow |\Aut(\integers)| = 2 \Rightarrow \Aut(\integers) \cong \integers_2.}$
+                \item В $\integers_n$ порождающие~--- это ${\overline{k}{:} \ \NOD(k,n) = 1.}$ \newline
+                Построим ${\phi_{\overline{k}} : \overline{1} \mapsto \overline{k}, \ \ \overline{m} \mapsto \overline{km}.}$ Это биекция из множества в само себя, значит, это автоморфизм. Проверим, что отображение ${\overline{k} \mapsto \phi_{\overline{k}}}$ сохраняет операцию. Действительно,
+                \begin{equation*}
+                    \phi_{\overline{s}}(\phi_{\overline{k}}(\overline{m})) = \overline{skm} = \phi_{\overline{sk}}(\overline{m}) \Rightarrow \Aut(\integers_n) \cong \integers^\times_n. \qedhere
+                \end{equation*}
+            \end{enumerate}
+          \end{proof}
+          \newpage
+          \begin{definition}
+              Пусть $G$~--- группа, ${g \in G.}$ \textit{Внутренним автоморфизмом} группы $G$, определяемым $g$, называется отображение ${i_g : G \rightarrow G, \ \ a \mapsto gag^{-1}.}$\newline
+              Проверим, что это автоморфизм:
+              \begin{equation*}
+                  i_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = i_g(a)i_g(b),
+              \end{equation*}
+              обратный к нему существует, и это $i_{g^{-1}.}$\newline
+              Множество всех внутренних автоморфизмов группы $G$ обозначается как $\Inn(G)$.
+          \end{definition}
+          \begin{lemma}
+          \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${\Inn(G) \triangleleft \Aut(G);}$
+                \item Отображение ${i : G \rightarrow \Inn(G), \ \ g \mapsto i_g}$ является гомоморфизмом групп.
+            \end{enumerate}
+          \end{lemma}
+          \begin{proof}
+          \
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item Поскольку ${\Inn(G) = \im i \subseteq \Aut(G),}$ то это подгруппа. \newline
+              Для проверки нормальности возьмём произвольные ${\phi \in \Aut(G)}$ и ${i_g \in \Inn(G)}$ и сопряжём их:
+              \begin{equation*}
+                  (\phi i_g \phi^{-1})(a) = \phi(g \phi^{-1}(a) g^{-1}) =  \phi(g) a \phi(g^{-1}) = i_{\phi(g)}(a).
+              \end{equation*}
+              Таким образом, ${\phi i_g \phi^{-1} \in \Inn(G) \Rightarrow \Inn(G) \triangleleft \Aut(G).}$
+                \item ${i_{gh}(a) = gha(gh)^{-1} = ghah^{-1}g^{-1} = g(hah^{-1})g^{-1} = i_g(i_h(a)) =}$ ${= (i_g \circ i_h)(a),}$ то есть операция сохраняется. \qedhere
+            \end{enumerate}
+            \end{proof}
+            \begin{definition}
+              \textit{Центром} группы $G$ называется множество всех элементов группы, коммутирующих со всеми элементами группы:
+              \begin{equation*}
+                  Z(G) \deq \{g \in G \ | \ \forall g' \in G{:} \ gg' = g'g\}.
+              \end{equation*}
+          \end{definition}
+          \begin{remark}
+              ${G = Z(G) \Leftrightarrow G}$ абелева.
+          \end{remark}
+          \newpage
+          \begin{lemma}
+              Пусть $G$~--- группа, тогда
+              \begin{enumerate}
+              \setlength\itemsep{0.1em}
+                  \item ${Z(G) \triangleleft G;}$
+                  \item ${\forall i \in \Aut(G){:} \ \ker i = Z(G).}$
+              \end{enumerate}
+          \end{lemma}
+          \begin{proof}
+            Достаточно доказать только пункт 2, так как пункт 1 из него следует. 
+            \begin{enumerate}[start=2]
+            \setlength\itemsep{0.1em}
+                \item Проверим, что ${\forall a \in G{:} \ i_g(a) = a}$:
+                \begin{equation*}
+                    g \in Z(G) \Leftrightarrow \forall a \in G{:} \ ga = ag \Leftrightarrow gag^{-1} = a \Leftrightarrow i_g(a) = a. \qedhere
+                \end{equation*}
+            \end{enumerate}
+          \end{proof}
+          \begin{remark}
+              ${\Inn(G) = {e} \Leftrightarrow G}$ абелева.
+          \end{remark}
+          \begin{statement}
+              Пусть $G$~--- группа, тогда ${\Inn(G) \cong \sfrac{G}{Z(G)}.}$
+          \end{statement}
+          \begin{proof}
+              Рассмотрим гомоморфизм ${i : G \rightarrow \Aut(G), \ \ g \mapsto i_g.}$ Тогда ${\im i = \Inn(G),}$ ${\ker i = Z(G)}$ по предыдущей лемме. По теореме о гомоморфизме, ${\im i = \Inn(G) \cong \sfrac{G}{\ker i} = \sfrac{G}{Z(G)}.}$
+          \end{proof}
+          \begin{exmpls}
+          \
+              \begin{enumerate}
+              \setlength\itemsep{0.1em}
+                  \item $Z(S_n) = \begin{cases*}
+                      S_n,& $n \leqslant 2$,\\
+                      \{e\},& $n \geqslant 3.$
+                  \end{cases*}$ \newline
+                  $Z(A_n) = \begin{cases*}
+                      A_n,& $n \leqslant 3$,\\
+                      \{e\},& $n \geqslant 4.$
+                  \end{cases*}$
+                  \item ${Z(\GL_n(\real)) = \{\lambda I \ | \ \lambda \in \real \, \backslash \, \{0\}\}}.$
+                  \item $Z(D_n) = \begin{cases*}
+                      \{e, \Rot_\pi\},& $n = 2k$,\\
+                      \{e\},& $n = 2k + 1.$
+                  \end{cases*}$
+                  \item ${Z(Q_8) = \{\pm 1\}.}$
+              \end{enumerate}
+          \end{exmpls}
+          \begin{definition}
+              \textit{Множество внешних автомрфизмов} группы $G$ определяется как\
+              \begin{equation*}
+                  \mathrm{Out}\,(G) \deq \sfrac{\Aut(G)}{\Inn(G)}.
+              \end{equation*}
+          \end{definition}
         \newpage
         \section{Классы сопряжённости}
         \setcounter{definition}{0}
+        \begin{definition}
+            Пусть $G$~--- группа. Элементы ${a,b \in G}$ называются \textit{сопряжёнными} и обозначаются ${a \sim b}$, если ${\exists g \in G{:} \ a = gbg^{-1}.}$
+        \end{definition}
+        \begin{definition}
+            \textit{Классом сопряжённости} элемента $a$ группы $G$ называется множество
+            \begin{equation*}
+                C_G(a) \deq \{b \in G \ | \ a \sim b\}.
+            \end{equation*}
+        \end{definition}
+        \begin{lemma}
+            Пусть $G$~--- группа.
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Отношение сопряжённости является отношением эквивалентности.
+                \item ${C_G(a) = \{a\} \Leftrightarrow a \in Z(G).}$
+            \end{enumerate}
+        \end{lemma}
+        \begin{proof}
+            \
+            \begin{enumerate}
+            
+                \item Проверим свойства отношения эквивалентности:
+                \begin{itemize}
+                \setlength\itemsep{0.1em}
+                    \item Рефлексивность: ${a = eae^{-1} \Rightarrow a \sim a;}$
+                    \item Симметричность: ${a = gba^{-1} \Leftrightarrow b = g^{-1}ag;}$
+                    \item Транзитивность: ${(a = gbg^{-1}, \, b = hch^{-1} \Rightarrow a = ghch^{-1}g^{-1}) \Rightarrow (a \sim b, \, b \sim c \Rightarrow a \sim c).}$
+                \end{itemize}
+                \item ${C_G(a) = \{a\} \Leftrightarrow \forall g \in G{:} \ gag^{-1} = a \Leftrightarrow a \in Z(G).}$ \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{lemma}
+            Пусть $G$~--- группа, ${a,b \in G.}$ \\
+            Тогда ${b \in C_G(a) \Rightarrow \ord(b) = \ord(a).}$
+        \end{lemma}
+        \begin{proof}
+            Пусть ${b = gag^{-1}, \ a^n = e.}$ \\
+            Тогда ${b^n = (gag^{-1})^n = ga^ng^{-1} = gg^{-1} = e}$ и наоборот из симметричности сопряжённости $\Rightarrow$ минимальные показатели совпадают.
+        \end{proof}
+        \begin{definition}
+            \textit{Централизатором} элемента $a$ группы $G$ называется множество
+            \begin{equation*}
+                Z_G(a) \deq \{g \in G \ | \ ga = ag\}.
+            \end{equation*}
+        \end{definition}
+        \begin{remark}
+            ${Z_G(a) < G.}$
+        \end{remark}
+        \newpage
+        \begin{statement}
+            Пусть $G$~--- конечная группа, ${a \in G.}$ Тогда ${|C_G(a)| = |\frac{|G|}{|Z_G(a)|}|.}$ В частности, ${|G| \divby |C_G(a)|.}$
+        \end{statement}
+        \begin{proof}
+            Пусть $\sfrac{G}{Z_G(a)}$~--- множество левых смежных классов (не факторгруппа, т.к. ${Z_G(a)}$ не обязательно нормальна). Достаточно установить биекцию ${\sfrac{G}{Z_G(a)} \leftrightarrow C_G(a).}$\newline
+            Определим отображение ${\sfrac{G}{Z_G(a)} \rightarrow C_G(a),}$ ${gZ_G(a) \mapsto gag^{-1}.}$ Проверим:
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Корректность:
+                \begin{equation*}
+                    \begin{gathered}
+                        h \in Z_G(a) \Rightarrow ghZ_G(a) \mapsto (gh)a(gh)^{-1} = ghah^{-1}g^{-1} = gahh^{-1}g^{-1} = \\
+                        = gag^{-1} \mapsfrom gZ_G(a);
+                    \end{gathered}
+                \end{equation*}
+                \item Сюръективность: по построению;
+                \item Инъективность:\
+                \begin{equation*}
+                    gag^{-1} = g'a(g')^{-1} \Leftrightarrow ag^{-1}g' = g^{-1}g'a \Leftrightarrow g^{-1}g' \in Z_G(a) \Leftrightarrow g' \in Z_G(a). \qedhere
+                \end{equation*}
+            \end{enumerate}
+        \end{proof}
 	\newpage
 	\section{Прямое произведение групп}
 	\setcounter{definition}{0}
@@ -923,7 +1119,7 @@ citecolor=black, menucolor=black, filecolor=black,
             В неабелевой группе элементы конечного порядка не всегда образуют подгруппу.
         \end{remark}
         \begin{definition}
-            Группа $A$ называется \textit{конечнопорождённой}, если ${\forall a \in A}$ ${\exists a_1,\mathellipsis,a_n \in A{:}}$ ${a = k_1a_1+\mathellipsis+k_na_n}$ для некоторых ${k_1,\mathellipsis,k_n \in \integers.}$ Такой набор ${\{a_1,\mathellipsis,a_n\}}$ называется \textit{системой образующих или порождающих.}
+            Группа $A$ называется \textit{конечнопорождённой}, если ${\forall a \in A \ \exists a_1,\mathellipsis,a_n \in A{:}}$ ${a = k_1a_1+\mathellipsis+k_na_n}$ для некоторых ${k_1,\mathellipsis,k_n \in \integers.}$ Такой набор ${\{a_1,\mathellipsis,a_n\}}$ называется \textit{системой образующих или порождающих.}
         \end{definition}
         \begin{exmpls}
             \
@@ -1077,7 +1273,7 @@ citecolor=black, menucolor=black, filecolor=black,
             ${[G,G] = \{e\} \Longleftrightarrow G}$~--- абелева.
         \end{remark}
         \begin{exmpl*}
-            ${G = S_n \Rightarrow [\sigma, \tau] = \sigma \tau \sigma^{-1} \tau^{-1}}$~--- чётная ${\Rightarrow G' \leqslant A_n.}$ С другой стороны, $A_n$, по пред- ложению 20, порождается тройными циклами, которые, в свою очередь, представимы как коммутаторы:
+            ${G = S_n \Rightarrow [\sigma, \tau] = \sigma \tau \sigma^{-1} \tau^{-1}}$~--- чётная ${\Rightarrow G' \leqslant A_n.}$ С другой стороны, $A_n$ порождается тройными циклами, которые, в свою очередь, представимы как коммутаторы:
             \begin{equation*}
 		  \begin{gathered}
 			(ijk) = (ij)(ik)(ij)(ik) = (ij)(ik)(ij)^{-1}(ik)^{-1} = [(ij), (ik)] \Rightarrow A_n \leqslant G' \Rightarrow \\
@@ -1119,7 +1315,7 @@ citecolor=black, menucolor=black, filecolor=black,
             Если $\phi$ сюръективен и ${a,b \in G_2,}$ то ${\exists x,y \in G_1{:} \ a = \phi(x), \ b = \phi(y).}$ Тогда ${[a,b] = [\phi(x), \phi(y)] = \phi([x,y]) \in \phi(G'_1) \Rightarrow G'_2 \leqslant \phi(G'_1) \Rightarrow \phi(G'_1) = G'_2.}$
         \end{proof}
         \begin{definition}
-            Пусть $G$~--- группа. Тогда подгруппа ${H \leqslant G}$ называется \textit{характеристической}, если она устойчива относительно всех автоморфизмов, т.е. ${\forall \phi \in \Aut(G){:} \ \phi(H) = H.}$
+            Пусть $G$~--- группа. Подгруппа ${H \leqslant G}$ называется \textit{характеристической}, если она устойчива относительно всех автоморфизмов, т.е. ${\forall \phi \in \Aut(G){:} \ \phi(H) = H.}$
         \end{definition}
         \begin{remark}
            Центр группы является характеристической подгруппой. 
@@ -1211,6 +1407,7 @@ citecolor=black, menucolor=black, filecolor=black,
         \begin{definition}
             Действие
             \begin{itemize}
+                \setlength\itemsep{0.1em}
                 \item \textit{транзитивно}, если $\forall x,y \in X \ \exists g \in G{:} \ y = gx$ (т.е. $X$ состоит из одной орбиты);
                 \item \textit{свободно}, если $\exists x \in X{:} \ gx = x$ влечёт $St(x) = \{e\};$
                 \item \textit{эффективно}, если ${\forall x \in X{:} \ gx = x}$ влечёт ${g = e}$ (т.е. действие инъективно).
@@ -1228,10 +1425,30 @@ citecolor=black, menucolor=black, filecolor=black,
         \begin{exmpls}
             \
             \begin{enumerate}
-                \item ${\SOrth_n(\real) \curvearrowright \real^n, \ (A,v) \mapsto Av.}$ Орбитами этого действия при ${n = 2}$ будут концентрические окружности с центром в начале координат (а также сама точка начала координат, считающаяся окружностью с нулевым радиусом). В общем случае это сферы с центром в начале координат, а также сама точка начала координат.\n
+                \setlength\itemsep{0.1em}
+                \item ${\SOrth_n(\real) \curvearrowright \real^n, \ (A,v) \mapsto Av.}$\n
+                Орбитами этого действия при ${n = 2}$ будут концентрические окружности с центром в начале координат (а также сама точка начала координат, считающаяся окружностью с нулевым радиусом). В общем случае это сферы с центром в начале координат, а также сама точка начала координат.\n
                 Стабилизатор ненулевого вектора ${St(v) \cong \SOrth_{n - 1}(\real)}$~--- все специальные ортогональные преобразования в ортогональной плоскости к $v$. Если же $v = 0$, то $St(v) = \SOrth_n(\real)$.
                 Действие не транзитивно (длина сохраняется), не свободно (хотя при ${n = 2}$ очень к этому близко) и эффективно.
-                \item ${S_n \curvearrowright \{1,\mathellipsis, n\}, \ i \mapsto \sigma(i)}.$ Действие транзитивно и эффективно, но не свободно при $n \geqslant 3$, т.к. ${St(i) \cong S_{n-1}.}$ 
+                \item ${S_n \curvearrowright \{1,\mathellipsis, n\}, \ i \mapsto \sigma(i)}.$ \n
+                Действие транзитивно и эффективно, но не свободно при $n \geqslant 3$, т.к. ${St(i) \cong S_{n-1}.}$ 
+                \item ${\sigma \in S_n, \ G = \langle \sigma \rangle \curvearrowright \{1,\mathellipsis, n\} = X.}$\n
+                Орбиты соответствуют независимым циклам в разложении $\sigma$.\newline
+                Действие транзитивно $\Leftrightarrow \sigma$~--- цикл длины $n$.
+                \item ${G = \GL_n(F)}$ или ${\SL_n(F) \ (n \geqslant 2) \curvearrowright F^n \ X, \ \ (A,v) \mapsto Av.}$\n
+                Орбиты: (для ${\SL_n(F)}$ при ${n > 1}$) ${F^n \, \backslash \, \{0\}}$ и $\{0\}$.
+                \item ${G = \GL_n(\complex) \curvearrowright \mathrm{Mat}_{n \times n}(\complex) = X, \ \ (g,M) \mapsto gMg^{-1}.}$\n
+                Орбиты~--- матрицы одного оператора в разных базисах: ${GM = \{M' \ | \ \mathcal{J}(M') = \mathcal{J}(M)\},}$ где $\mathcal{J}(M)$~--- жорданова нормальная форма $M$.\n
+                ${St(M) = Z_{\GL_n(\complex)}(M) = \{g \ | \ gM = Mg\}.}$
+                \item ${G = \GL_n(F) \curvearrowright \mathrm{Mat}_{n \times n}(\complex) = X, \ \ (g,M) \mapsto gMg^T.}$\n
+                Орбиты $GM$~--- матрицы одной билинейной формы.
+            \end{enumerate}
+            Три важных действия ${G \curvearrowright G}$:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item \textit{левые сдвиги}: ${(g,x) \mapsto gx;}$
+                \item \textit{правые сдвиги}: ${(g,x) \mapsto xg;}$
+                \item сопряжения: ${(g,x) \mapsto gxg^{-1}.}$
             \end{enumerate}
         \end{exmpls}
         \begin{definition}
