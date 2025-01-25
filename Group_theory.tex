@@ -10,6 +10,9 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
 \usepackage[left=3cm, right=1.5cm, top=2cm, bottom=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+\usepackage{relsize}
 \usepackage{titleps} % Колонтитулы
 \usepackage{indentfirst} % Красная строка после заголовка
 \usepackage{bm}
@@ -23,10 +26,6 @@
 \usepackage{dsfont}
 \usepackage{mathrsfs}
 \usepackage{calrsfs}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
 \usepackage[affil-it]{authblk}
 \usepackage{ulem}
 \usepackage{tikz}
@@ -80,6 +79,11 @@ citecolor=black, menucolor=black, filecolor=black,
 \newcommand{\SOrth}{\mathbf{SO}}
 \newcommand{\Unit}{\mathbf{U}}
 \newcommand{\SUnit}{\mathbf{SU}}
+\newcommand{\quaternary}{\mathbf{V}_4}
+\newcommand{\dihedral}{\mathbf{D}}
+\newcommand{\symmetrical}{\mathbf{S}}
+\newcommand{\alternating}{\mathbf{A}}
+
 \newcommand{\ord}{\mathrm{ord}}
 \newcommand{\CS}{\mathrm{CS}}
 \newcommand{\suchthat}{{:}{ } \ }
@@ -209,11 +213,11 @@ citecolor=black, menucolor=black, filecolor=black,
                 ${\Unit_n = \{A \in \mathrm{Mat}_{n \times n}(\complex) \ | \ A \cdot A^\dagger = I\}}$~--- \textit{унитарная группа}; \newline
                 ${\SUnit_n = \Unit_n \cap \SL_n(\complex)}$~--- \textit{специальная унитарная группа.}
 			\item Группы перестановок: \newline
-			\textit{симметрическая группа} $S_n$~--- все перестановки длины $n$;\newline
-			\textit{знакопеременная группа} $A_n$~--- все чётные перестановки длины $n$.
+			\textit{симметрическая группа} $\symmetrical_n$~--- все перестановки длины $n$;\newline
+			\textit{знакопеременная группа} $\alternating_n$~--- все чётные перестановки длины $n$.
 			\item Группы преобразований подобия: гомотетии, движения (осевые и скользящие симметрии, параллельные переносы, повороты).
                 \item \textit{Группа кватернионов:} \newline
-                Множество ${Q_8 = \{\pm 1, \pm i, \pm j, \pm k\}}$ с операцией умножения заданной следующим образом: ${i^2 = j^2 = k^2 = -1,}$ ${ij = k,}$ ${ji = -k.}$
+                Множество ${\mathbf{Q}_8 = \{\pm 1, \pm i, \pm j, \pm k\}}$ с операцией умножения заданной следующим образом: ${i^2 = j^2 = k^2 = -1,}$ ${ij = k,}$ ${ji = -k.}$
 		\end{enumerate}
 	\end{exmpls}
 	\begin{definition}
@@ -253,7 +257,7 @@ citecolor=black, menucolor=black, filecolor=black,
 			\setlength\itemsep{0.1em}
 			\item ${n\integers^ + < \integers ^ + < \rationals ^ + < \real ^ + < \complex ^ +;}$
 			\item ${\SOrth_n(\real) < \Orth_n(\real) < \GL_n(\real);}$
-			\item ${A_n < S_n.}$
+			\item ${\alternating_n < \symmetrical_n.}$
 		\end{enumerate}
 	\end{exmpls}
 	\begin{theorem*}[\textbf{критерий подгруппы}]
@@ -292,9 +296,9 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{equation*}
 			g^{n}=
 			\begin{cases*}
-				\underbrace{g \mathellipsis g}_n,  &$n > 0$ \\
+				\underbrace{g \ldots g}_n,  &$n > 0$ \\
 				e,  &$n = 0$ \\
-				\underbrace{g^{-1} \mathellipsis g^{-1}}_n, &$n < 0$
+				\underbrace{g^{-1} \ldots g^{-1}}_n, &$n < 0$
 			\end{cases*}
 		\end{equation*}
 		и обладает свойствами:\n
@@ -337,12 +341,12 @@ citecolor=black, menucolor=black, filecolor=black,
 	\end{statement}
 	\begin{proof}
 		Заметим, что если $g^k = g^s$, то $g^{k - s} = e$. Поэтому если элемент $g$ имеет бесконечный порядок, то все элементы $g^n, n \in \integers$, попарно различны, и подгруппа $\langle g \rangle$ содержит бесконечно много элементов. 
-		Если же ${\ord(g) = m}$, то из минимальности числа $m$ следует, что элементы ${e = g^0, g^1, g^2, \mathellipsis , g^{m-1}}$ попарно различны.
+		Если же ${\ord(g) = m}$, то из минимальности числа $m$ следует, что элементы ${e = g^0, g^1, g^2, \ldots , g^{m-1}}$ попарно различны.
 		Далее, ${\forall n \in \integers{:} \ n = mq + r, \ \text{где} \ 0 \leqslant r \leq m - 1, \ \text{и}}$
 		\begin{equation*}
 			g^n = g^{mq + r} = (g^m)^q g^r = e^q g^r = g^r.
 		\end{equation*}
-		Следовательно, $\langle g \rangle = \{e, g, g^2, \mathellipsis, g^{m - 1}\}$ и $|\langle g \rangle| = m.$
+		Следовательно, $\langle g \rangle = \{e, g, g^2, \ldots, g^{m - 1}\}$ и $|\langle g \rangle| = m.$
 	\end{proof}
 	Очевидно, что всякая циклическая группа коммутативна и не более чем счётна.
 	\newpage
@@ -440,13 +444,13 @@ citecolor=black, menucolor=black, filecolor=black,
 	\end{remark}
 	\newpage
 	\begin{definition}
-		Группа движений правильного $n$-угольника ${\Delta_n \subset \real^2}$ называется \textit{диэдральной группой} $D_n{:}$
+		Группа движений правильного $n$-угольника ${\Delta_n \subset \real^2}$ называется \textit{диэдральной группой} $\dihedral_n{:}$
 		\begin{equation*}
-			D_n \deq \Isom(\Delta_n).
+			\dihedral_n \deq \Isom(\Delta_n).
 		\end{equation*}
 	\end{definition}
 	\begin{statement}
-		${|D_n| = 2n.}$
+		${|\dihedral_n| = 2n.}$
 	\end{statement}
         \begin{proof}
             Есть всего 2 вида движений:
@@ -459,11 +463,11 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{remark}
 		Группа собственных движений $\Delta_n$ содержит только повороты:
 		\begin{equation*}
-			\Isom(D_n)^+ = \{\Rot_{\frac{2\pi k}{n}}\}, \ k = \overline{0, \ n - 1}.
+			\Isom(\dihedral_n)^+ = \{\Rot_{\frac{2\pi k}{n}}\}, \ k = \overline{0, \ n - 1}.
 		\end{equation*}
 	\end{remark}
 	\begin{exmpl*}
-		Таблица Кэли группы $D_4$ квадрата $ABCD{:}$
+		Таблица Кэли группы $\dihedral_4$ квадрата $ABCD{:}$
 		\begin{center}
 			\begin{tabular}{c|c|c|c|c|c|c|c|c}
 				$\circ$ & $\id$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_{\frac{3\pi}{2}}$ & 
@@ -500,15 +504,15 @@ citecolor=black, menucolor=black, filecolor=black,
 	\section{Группы перестановок}
 	\setcounter{definition}{0}
 	\begin{definition}
-		Пусть задано множество ${X = \{1, 2, \mathellipsis, n\}, \ n \in \naturals}$. Множество всех возможных биекций ${X \leftrightarrow X}$ с операцией композиции образует группу $S_n$, называемую \textit{симметрической группой} или \textit{группой перестановок}.
+		Пусть задано множество ${X = \{1, 2, \ldots, n\}, \ n \in \naturals}$. Множество всех возможных биекций ${X \leftrightarrow X}$ с операцией композиции образует группу $\symmetrical_n$, называемую \textit{симметрической группой} или \textit{группой перестановок}.
 	\end{definition}
 	\begin{statement}
 		\begin{equation*}
-			|S_n| = n!
+			|\symmetrical_n| = n!
 		\end{equation*}
 	\end{statement}
 	\begin{proof}
-		Символ 1 можно подходящей перестановкой $\sigma$ перевести в любой другой символ ${\sigma(1)}$, для чего существует в точности $n$ различных возможностей. Но зафиксировав ${\sigma(1)}$, в качестве ${\sigma(2)}$ можно брать лишь один из оставшихся ${n - 1}$ символов и т.д. Всего возможностей выбора ${\sigma(1), \sigma(2), \mathellipsis, \sigma(n)}$, значит и всех перестановок будет ${n(n - 1) \mathellipsis 2 \cdot 1 = n!.}$
+		Символ 1 можно подходящей перестановкой $\sigma$ перевести в любой другой символ ${\sigma(1)}$, для чего существует в точности $n$ различных возможностей. Но зафиксировав ${\sigma(1)}$, в качестве ${\sigma(2)}$ можно брать лишь один из оставшихся ${n - 1}$ символов и т.д. Всего возможностей выбора ${\sigma(1), \sigma(2), \ldots, \sigma(n)}$, значит и всех перестановок будет ${n(n - 1) \ldots 2 \cdot 1 = n!.}$
 	\end{proof}
 	\begin{statement}
 		Любая перестановка может быть представлена в виде композиции независимых циклов единственным образом с точностью до порядка множителей.
@@ -531,7 +535,7 @@ citecolor=black, menucolor=black, filecolor=black,
         \begin{proof}
             Достаточно доказать это для циклов непосредственной проверкой:
             \begin{equation*}
-                (i_1 i_2 i_3 \mathellipsis i_k) = (i_1 i_2)(i_2 i_3)\mathellipsis(i_{k-1} i_k). \qedhere
+                (i_1 i_2 i_3 \ldots i_k) = (i_1 i_2)(i_2 i_3)\ldots(i_{k-1} i_k). \qedhere
             \end{equation*}
         \end{proof}
         \begin{definition}
@@ -541,7 +545,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \textit{Чётностью} перестановки называется чётность числа инверсий в ней.
         \end{definition}
         \begin{lemma}
-            Пусть $(ij)$~--- произвольная транспозиция, тогда ${\forall \sigma \in S_n}$ чётности перестановок $\sigma$ и $\sigma (ij)$ различны.
+            Пусть $(ij)$~--- произвольная транспозиция, тогда ${\forall \sigma \in \symmetrical_n}$ чётности перестановок $\sigma$ и $\sigma (ij)$ различны.
         \end{lemma}
         \begin{proof}
             Рассмотрим два случая:
@@ -550,7 +554,7 @@ citecolor=black, menucolor=black, filecolor=black,
                 \item $(ij) = (i \ i+1)$~--- число инверсий изменилось на одну, чётность изменилась.
                 \item $(ij)$~--- любая, тогда
                 \begin{equation}
-                    (ij) = (j-1 \ j)\mathellipsis(i+1 \ i+2)(i \ i+1)(i+1 \ i+2)\mathellipsis(j-1 \ j),
+                    (ij) = (j-1 \ j)\ldots(i+1 \ i+2)(i \ i+1)(i+1 \ i+2)\ldots(j-1 \ j),
                 \end{equation}
                 что подтверждается непосредственной проверкой. \qedhere
             \end{enumerate}
@@ -562,10 +566,10 @@ citecolor=black, menucolor=black, filecolor=black,
             В разложении (1) $2(j - i - 1) + 1$ сомножителей, т.е, нечётное число. При перемене чётности нечётное число раз, она изменится, что доказывает следствие.
         \end{proof}
         \begin{theorem}
-            В $S_n$ число чётных перестановок равно числу нечётных перестановок.
+            В $\symmetrical_n$ число чётных перестановок равно числу нечётных перестановок.
         \end{theorem}
         \begin{proof}
-            Пусть $\sigma_1,\mathellipsis,\sigma_k$~--- все чётные перестановки длины $n$, тогда $\sigma_1(12),\mathellipsis,\sigma_k(12)$~--- нечётные перестановки. Если $\sigma$~--- чётная, то $\sigma (12)$~--- нечётная $\Longrightarrow \ {\sigma = (\sigma (12))(12) = \sigma (12)^2 = \sigma \ \id = \sigma} \Longrightarrow$ среди $\sigma_1,\mathellipsis,\sigma_k$ встретятся все нечётные перестановки. Значит, мы установили биекцию между множеством чётных и множеством нечётных перестановок $\Longrightarrow$ эти множества равномощны.
+            Пусть $\sigma_1,\ldots,\sigma_k$~--- все чётные перестановки длины $n$, тогда $\sigma_1(12),\ldots,\sigma_k(12)$~--- нечётные перестановки. Если $\sigma$~--- чётная, то $\sigma (12)$~--- нечётная $\Longrightarrow \ {\sigma = (\sigma (12))(12) = \sigma (12)^2 = \sigma \ \id = \sigma} \Longrightarrow$ среди $\sigma_1,\ldots,\sigma_k$ встретятся все нечётные перестановки. Значит, мы установили биекцию между множеством чётных и множеством нечётных перестановок $\Longrightarrow$ эти множества равномощны.
         \end{proof}
         \begin{definition}
             \textit{Знак} перестановки $\mathrm{sgn}(\sigma) \deq
@@ -577,12 +581,12 @@ citecolor=black, menucolor=black, filecolor=black,
         \newpage
         \begin{theorem}
             \begin{equation*}
-                \forall \sigma, \tau \in S_n{:} \ \mathrm{sgn}(\sigma \tau) = \mathrm{sgn}(\sigma) \, \mathrm{sgn}(\tau).
+                \forall \sigma, \tau \in \symmetrical_n{:} \ \mathrm{sgn}(\sigma \tau) = \mathrm{sgn}(\sigma) \, \mathrm{sgn}(\tau).
             \end{equation*}
         \end{theorem}
         \begin{proof}
-            Пусть $\sigma = \sigma_1,\mathellipsis,\sigma_k, \ \tau = \tau_1,\mathellipsis,\tau_s$~--- произведение транспозиций. Тогда $\mathrm{sgn}(\sigma) = (-1)^k, \ \mathrm{sgn}(\tau) = (-1)^s.$\\
-            $\sigma \tau = \sigma_1,\mathellipsis,\sigma_k \tau_1,\mathellipsis,\tau_s \Longrightarrow \mathrm{sgn}(\sigma \tau) = (-1)^{k + s}.$
+            Пусть $\sigma = \sigma_1,\ldots,\sigma_k, \ \tau = \tau_1,\ldots,\tau_s$~--- произведение транспозиций. Тогда $\mathrm{sgn}(\sigma) = (-1)^k, \ \mathrm{sgn}(\tau) = (-1)^s.$\\
+            $\sigma \tau = \sigma_1,\ldots,\sigma_k \tau_1,\ldots,\tau_s \Longrightarrow \mathrm{sgn}(\sigma \tau) = (-1)^{k + s}.$
         \end{proof}
         \begin{consequence*}
             \begin{equation*}
@@ -596,11 +600,11 @@ citecolor=black, menucolor=black, filecolor=black,
         \end{proof}
         
 	%\begin{definition}
-		%\textit{Цикловой структурой} перестановки ${\pi \in S_n}$ называется упорядоченный набор чисел ${\CS(\pi) = (c_1, c_2, \mathellipsis, c_n),}$ где $c_i$~--- количество циклов длины $i$ в разложении $\pi.$%
+		%\textit{Цикловой структурой} перестановки ${\pi \in \symmetrical_n}$ называется упорядоченный набор чисел ${\CS(\pi) = (c_1, c_2, \ldots, c_n),}$ где $c_i$~--- количество циклов длины $i$ в разложении $\pi.$%
 	%\end{definition}
         
 	\begin{exmpl*}
-		Пусть $G = S_3, \ H = \langle(12)\rangle = \{\id, (12)\}.$ Найдём все левые и правые смежные классы $G$ по $H$ (произвольный элемент обозначим $a$):
+		Пусть $G = \symmetrical_3, \ H = \langle(12)\rangle = \{\id, (12)\}.$ Найдём все левые и правые смежные классы $G$ по $H$ (произвольный элемент обозначим $a$):
 		\begin{center}
 			\begin{tabular}{c|c|c}
 				$a$ & $aH$ & $Ha$\\
@@ -634,7 +638,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		Пусть $H$~--- подгруппа группы $G$, тогда следующие условия эквивалентны:
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
-			\item $H$ нормальна;
+			\item ${H \lhd G;}$
 			\item $\forall g \in G{:} \ gHg^{-1} = H$;
 			\item $\forall g \in G{:} \ gHg^{-1} \subseteq H$.
 		\end{enumerate}
@@ -741,13 +745,13 @@ citecolor=black, menucolor=black, filecolor=black,
 			\end{tabular}
 		\end{center} \n
 		Порядок каждого элемента, отличного от нейтрального, равен 2. \n
-		Обозначается $V$ или $V_4$ (от нем. \textit{Vierergruppe} — четверная группа). \n
-		Любая группа четвёртого порядка изоморфна либо циклической группе, либо четверной группе Клейна, наименьшей по порядку нециклической группе. Симметрическая группа $S_4$ имеет лишь две нетривиальные нормальные подгруппы~--- знакопеременную группу $A_4$ и четверную группу Клейна $V_4$, состоящую из перестановок ${\mathrm{id}, (12)(34), (13)(24), (14)(23).}$ \n
+		Обозначается $V$ или $\quaternary$ (от нем. \textit{Vierergruppe} — четверная группа). \n
+		Любая группа четвёртого порядка изоморфна либо циклической группе, либо четверной группе Клейна, наименьшей по порядку нециклической группе. Симметрическая группа $\symmetrical_4$ имеет лишь две нетривиальные нормальные подгруппы~--- знакопеременную группу $\alternating_4$ и четверную группу Клейна $\quaternary$, состоящую из перестановок ${\mathrm{id}, (12)(34), (13)(24), (14)(23).}$ \n
 		Несколько примеров изоморфных ей групп:
 		\begin{itemize}
 			\setlength\itemsep{0.1em}
 			\item[~--] \textit{прямая сумма} $\integers_2 \oplus \integers_2$;
-			\item[~--] диэдральная группа $D_2;$
+			\item[~--] диэдральная группа $\dihedral_2;$
 			\item[~--] множество ${\{0, 1, 2, 3\}}$ с операцией XOR;
 			\item[~--] группа симметрий ромба $ABCD$ в трёхмерном пространстве, состоящая из 4 преобразований: ${\id, \Rot_\pi, \Sym_{AC}, \Sym_{BD}}$;
 			\item[~--] группа поворотов тетраэдра на угол $\pi$ вокруг всех трёх рёберных медиан (вместе с тождественным поворотом).
@@ -790,11 +794,11 @@ citecolor=black, menucolor=black, filecolor=black,
 	\end{proof}
         \newpage
         \begin{theorem*}[\textbf{Кэли}]
-		Любая конечная группа $G$ порядка $n$ изоморфна некоторой подгруппе $S_n.$
+		Любая конечная группа $G$ порядка $n$ изоморфна некоторой подгруппе $\symmetrical_n.$
 	\end{theorem*}
 	\begin{proof}
 		  $\forall {a \in G}$ рассмотрим отображение ${L_a : G \rightarrow G}$, определённое формулой ${L_a(g) = ag.}$\n
-          Если $e, g_2,\mathellipsis,g_n$~--- все элементы $G$, то $a, ag_2,\mathellipsis,ag_n$ будут теми же элементами, но расположенными в каком-то другом порядке. Значит, $L_a$~--- биекция, обратной к которой будет $L_a^{-1} = L_{a^{-1}}$, тождественным отображением является $L_e$. Тогда $L_{ab}(g) = (ab)g = a(bg) = L_a(L_b(g)),$ т.е. $L_{ab} = L_a L_b.$ Следовательно множество $L_e, L_{g_2}\mathellipsis,L_{g_n}$ образует подгруппу ${H < S(G) = S_n}$, а ${L : a \mapsto L_a}$ является изоморфизмом.
+          Если $e, g_2,\ldots,g_n$~--- все элементы $G$, то $a, ag_2,\ldots,ag_n$ будут теми же элементами, но расположенными в каком-то другом порядке. Значит, $L_a$~--- биекция, обратной к которой будет $L_a^{-1} = L_{a^{-1}}$, тождественным отображением является $L_e$. Тогда $L_{ab}(g) = (ab)g = a(bg) = L_a(L_b(g)),$ т.е. $L_{ab} = L_a L_b.$ Следовательно множество $L_e, L_{g_2}\ldots,L_{g_n}$ образует подгруппу ${H < S(G) = \symmetrical_n}$, а ${L : a \mapsto L_a}$ является изоморфизмом.
 	\end{proof}
 	\newpage
 	\section{Теорема о гомоморфизме. Классификация циклических групп}
@@ -894,7 +898,7 @@ citecolor=black, menucolor=black, filecolor=black,
           \
             \begin{enumerate}
             \setlength\itemsep{0.1em}
-                \item ${\Inn(G) \triangleleft \Aut(G);}$
+                \item ${\Inn(G) \lhd \Aut(G);}$
                 \item Отображение ${i : G \rightarrow \Inn(G), \ \ g \mapsto i_g}$ является гомоморфизмом групп.
             \end{enumerate}
           \end{lemma}
@@ -907,7 +911,7 @@ citecolor=black, menucolor=black, filecolor=black,
               \begin{equation*}
                   (\phi i_g \phi^{-1})(a) = \phi(g \phi^{-1}(a) g^{-1}) =  \phi(g) a \phi(g^{-1}) = i_{\phi(g)}(a).
               \end{equation*}
-              Таким образом, ${\phi i_g \phi^{-1} \in \Inn(G) \Rightarrow \Inn(G) \triangleleft \Aut(G).}$
+              Таким образом, ${\phi i_g \phi^{-1} \in \Inn(G) \Rightarrow \Inn(G) \lhd \Aut(G).}$
                 \item ${i_{gh}(a) = gha(gh)^{-1} = ghah^{-1}g^{-1} = g(hah^{-1})g^{-1} = i_g(i_h(a)) =}$ ${= (i_g \circ i_h)(a),}$ то есть операция сохраняется. \qedhere
             \end{enumerate}
             \end{proof}
@@ -925,7 +929,7 @@ citecolor=black, menucolor=black, filecolor=black,
               Пусть $G$~--- группа, тогда
               \begin{enumerate}
               \setlength\itemsep{0.1em}
-                  \item ${Z(G) \triangleleft G;}$
+                  \item ${Z(G) \lhd G;}$
                   \item ${\forall i \in \Aut(G){:} \ \ker i = Z(G).}$
               \end{enumerate}
           \end{lemma}
@@ -952,16 +956,16 @@ citecolor=black, menucolor=black, filecolor=black,
           \
               \begin{enumerate}
               \setlength\itemsep{0.1em}
-                  \item $Z(S_n) = \begin{cases*}
-                      S_n,& $n \leqslant 2$,\\
+                  \item $Z(\symmetrical_n) = \begin{cases*}
+                      \symmetrical_n,& $n \leqslant 2$,\\
                       \{e\},& $n \geqslant 3.$
                   \end{cases*}$ \newline
-                  $Z(A_n) = \begin{cases*}
-                      A_n,& $n \leqslant 3$,\\
+                  $Z(\alternating_n) = \begin{cases*}
+                      \alternating_n,& $n \leqslant 3$,\\
                       \{e\},& $n \geqslant 4.$
                   \end{cases*}$
                   \item ${Z(\GL_n(\real)) = \{\lambda I \ | \ \lambda \in \real \, \backslash \, \{0\}\}}.$
-                  \item $Z(D_n) = \begin{cases*}
+                  \item $Z(\dihedral_n) = \begin{cases*}
                       \{e, \Rot_\pi\},& $n = 2k$,\\
                       \{e\},& $n = 2k + 1.$
                   \end{cases*}$
@@ -1052,22 +1056,22 @@ citecolor=black, menucolor=black, filecolor=black,
 	\section{Прямое произведение групп}
 	\setcounter{definition}{0}
 	\begin{definition}
-		\textit{Прямым произведением групп} $G_1, \mathellipsis, G_m$ называется группа
+		\textit{Прямым произведением групп} $G_1, \ldots, G_m$ называется группа
 		\begin{equation*}
-			G_1 \times \mathellipsis \times G_m \deq \{(g_1, \mathellipsis, g_m) \ | \ g_1 \in G_1, \mathellipsis, g_m \in G_m\}
+			G_1 \times \ldots \times G_m \deq \{(g_1, \ldots, g_m) \ | \ g_1 \in G_1, \ldots, g_m \in G_m\}
 		\end{equation*}
-		с операцией $(g_1, \mathellipsis, g_m)(g'_1, \mathellipsis, g'_m) = (g_1g'_1, \mathellipsis g_mg'_m).$ \n
-		Ясно, что эта операция ассоциативна, обладает нейтральным элементом $(e_{G_1}, \mathellipsis, e_{G_m})$ и для каждого элемента $(g_1, \mathellipsis, g_m)$ есть обратный элемент $(g^{-1}_1, \mathellipsis, g^{-1}_1).$
+		с операцией $(g_1, \ldots, g_m)(g'_1, \ldots, g'_m) = (g_1g'_1, \ldots g_mg'_m).$ \n
+		Ясно, что эта операция ассоциативна, обладает нейтральным элементом $(e_{G_1}, \ldots, e_{G_m})$ и для каждого элемента $(g_1, \ldots, g_m)$ есть обратный элемент $(g^{-1}_1, \ldots, g^{-1}_1).$
 	\end{definition}
 	\begin{remark}
-		Группа $G_1 \times \mathellipsis \times G_m$ коммутативна тогда и только тогда, когда коммутативна каждая из групп $G_1, \mathellipsis, G_m.$
+		Группа $G_1 \times \ldots \times G_m$ коммутативна тогда и только тогда, когда коммутативна каждая из групп $G_1, \ldots, G_m.$
 	\end{remark}
 	\begin{remark}
-		Если все группы ${G_1, \mathellipsis, G_m}$ конечны, то ${|G_1 \times \mathellipsis \times G_m| = |G_1| \mathellipsis |G_m|.}$
+		Если все группы ${G_1, \ldots, G_m}$ конечны, то ${|G_1 \times \ldots \times G_m| = |G_1| \ldots |G_m|.}$
 	\end{remark}
 	\begin{definition}
-		Говорят, что группа $G$ \textit{раскладывается в прямое произведение} своих подгрупп ${H_1, \mathellipsis, H_m}$, если отображение
-		${H_1 \times \mathellipsis \times H_m \rightarrow G, \quad (h_1, \mathellipsis, h_m) \mapsto h_1 \mathellipsis h_m}$ является изоморфизмом.
+		Говорят, что группа $G$ \textit{раскладывается в прямое произведение} своих подгрупп ${H_1, \ldots, H_m}$, если отображение
+		${H_1 \times \ldots \times H_m \rightarrow G, \quad (h_1, \ldots, h_m) \mapsto h_1 \ldots h_m}$ является изоморфизмом.
 	\end{definition}
 	\begin{theorem}
 		Пусть ${n = pq}$~--- разложение натурального числа $n$ на два взаимно простых сомножителя. Тогда имеет место изоморфизм групп
@@ -1095,9 +1099,9 @@ citecolor=black, menucolor=black, filecolor=black,
 		\end{enumerate}
 	\end{proof}
 	\begin{consequence*}
-		Пусть ${n \geqslant 2}$~--- натуральное число и ${n = p^{k_1}_1 \mathellipsis p^{k_s}_s}$~--- его разложение в произведение простых множителей ${(p_i \neq p_j \text{ при } i \neq j).}$ Тогда имеет место изоморфизм групп
+		Пусть ${n \geqslant 2}$~--- натуральное число и ${n = p^{k_1}_1 \ldots p^{k_s}_s}$~--- его разложение в произведение простых множителей ${(p_i \neq p_j \text{ при } i \neq j).}$ Тогда имеет место изоморфизм групп
 		\begin{equation*}
-			\integers_n \cong \integers_{p^{k_1}_1} \times \mathellipsis \times \integers_{p^{k_s}_s}.
+			\integers_n \cong \integers_{p^{k_1}_1} \times \ldots \times \integers_{p^{k_s}_s}.
 		\end{equation*}
 	\end{consequence*}
         \newpage
@@ -1119,21 +1123,21 @@ citecolor=black, menucolor=black, filecolor=black,
             В неабелевой группе элементы конечного порядка не всегда образуют подгруппу.
         \end{remark}
         \begin{definition}
-            Группа $A$ называется \textit{конечнопорождённой}, если ${\forall a \in A \ \exists a_1,\mathellipsis,a_n \in A{:}}$ ${a = k_1a_1+\mathellipsis+k_na_n}$ для некоторых ${k_1,\mathellipsis,k_n \in \integers.}$ Такой набор ${\{a_1,\mathellipsis,a_n\}}$ называется \textit{системой образующих или порождающих.}
+            Группа $A$ называется \textit{конечнопорождённой}, если ${\forall a \in A \ \exists a_1,\ldots,a_n \in A{:}}$ ${a = k_1a_1+\ldots+k_na_n}$ для некоторых ${k_1,\ldots,k_n \in \integers.}$ Такой набор ${\{a_1,\ldots,a_n\}}$ называется \textit{системой образующих или порождающих.}
         \end{definition}
         \begin{exmpls}
             \
             \begin{enumerate}
             \setlength\itemsep{0.1em}
                 \item Любая конечная абелева группа конечнопорождена.
-                \item \textit{Решётка} ${\integers^n = \underbrace{\integers \oplus \mathellipsis \oplus \integers}_{n \ \textrm{раз}} = \{(c_1,\mathellipsis,c_n) \ | \ c_i \in \integers\}.}$ Системой порождающих будет \textit{стандартный базис}
+                \item \textit{Решётка} ${\integers^n = \underbrace{\integers \oplus \ldots \oplus \integers}_{n \ \textrm{раз}} = \{(c_1,\ldots,c_n) \ | \ c_i \in \integers\}.}$ Системой порождающих будет \textit{стандартный базис}
                 \begin{equation*}
-                    \{e_1 = (1,0,\mathellipsis,0), e_2 = (0,1,\mathellipsis,0), \mathellipsis, e_n = (0,0,\mathellipsis,1)\}.
+                    \{e_1 = (1,0,\ldots,0), e_2 = (0,1,\ldots,0), \ldots, e_n = (0,0,\ldots,1)\}.
                 \end{equation*}
             \end{enumerate}
         \end{exmpls}
         \begin{definition}
-            Система порождающих ${\{a_1,\mathellipsis,a_n\}}$ группы $A$ называется \textit{базисом}, если ${\forall a \in A}$ запись ${a = k_1a_1+\mathellipsis+a_nk_n}$ единственна. Группа, обладающая базисом, называется \textit{свободной}. Число элементов в базисе называется \textit{рангом} и обозначается $\rank A$.
+            Система порождающих ${\{a_1,\ldots,a_n\}}$ группы $A$ называется \textit{базисом}, если ${\forall a \in A}$ запись ${a = k_1a_1+\ldots+a_nk_n}$ единственна. Группа, обладающая базисом, называется \textit{свободной}. Число элементов в базисе называется \textit{рангом} и обозначается $\rank A$.
         \end{definition}
         \begin{statement}
             Все базисы свободной абелевой группы содержат одно и то же число элементов.
@@ -1143,26 +1147,26 @@ citecolor=black, menucolor=black, filecolor=black,
             Свободная абелева группа $A$ ранга $n$ изоморфна $\integers^n.$
         \end{lemma}
         \begin{proof}
-            Если ${\{e_1,\mathellipsis,e_n\}}$~--- базис в $A,$ то ${a = k_1e_1+\mathellipsis+k_ne_n \leftrightarrow (k_1,\mathellipsis,k_n) \in \integers^n.}$ Для этого отображения простым образом проверяются корректность, биективность и сохранение операции.
+            Если ${\{e_1,\ldots,e_n\}}$~--- базис в $A,$ то ${a = k_1e_1+\ldots+k_ne_n \leftrightarrow (k_1,\ldots,k_n) \in \integers^n.}$ Для этого отображения простым образом проверяются корректность, биективность и сохранение операции.
         \end{proof}
         \begin{theorem}
             Всякая подгруппа $B$ свободной абелевой группы $A$ ранга $n$ является свободной абелевой группой ранга $\leqslant n$. 
         \end{theorem}
         \begin{statement}
-            Пусть $A$~--- свободная абелева группа с базисом ${\{e_1,\mathellipsis,e_n\},}$ $D$~--- произвольная абелева группа, ${d_1,\mathellipsis,d_n \in D}$~--- произвольные элементы. Тогда $\exists!$ гомоморфизм 
+            Пусть $A$~--- свободная абелева группа с базисом ${\{e_1,\ldots,e_n\},}$ $D$~--- произвольная абелева группа, ${d_1,\ldots,d_n \in D}$~--- произвольные элементы. Тогда $\exists!$ гомоморфизм 
             \begin{equation*}
                 \phi : A \rightarrow D, \ \phi(e_i) = d_i, \ i = \overline{1,n}.
             \end{equation*}
         \end{statement}
         \begin{proof}
-            ${\forall a \in A{:} \ a = k_1e_1+\mathellipsis+k_ne_n.}$\newline
-            Положим ${\phi(a) = k_1\phi(e_1)+\mathellipsis+k_n\phi(e_n).}$ Это гомоморфизм, что проверяется очевидным образом.
+            ${\forall a \in A{:} \ a = k_1e_1+\ldots+k_ne_n.}$\newline
+            Положим ${\phi(a) = k_1\phi(e_1)+\ldots+k_n\phi(e_n).}$ Это гомоморфизм, что проверяется очевидным образом.
         \end{proof}
         \begin{consequence*}
             Для любой конечнопорождённой абелевой группы $D$ существует эпиморфизм ${\phi : A \twoheadrightarrow D}$ из некоторой свободной абелевой группы $A$. 
         \end{consequence*}
         \begin{proof}
-            Пусть ${\{d_1,\mathellipsis,d_n\}}$~--- порождающие элементы группы $D.$ Положим ${A = \integers^n}$ и определим $\phi$ условием ${\phi(e_i) = d_i,}$ где ${\{e_1,\mathellipsis,e_n\}}$~--- стандартный базис в $\integers^n.$ Тогда $\phi$ сюръективен, т.к. ${d_1,\mathellipsis,d_n}$~--- порождающие.
+            Пусть ${\{d_1,\ldots,d_n\}}$~--- порождающие элементы группы $D.$ Положим ${A = \integers^n}$ и определим $\phi$ условием ${\phi(e_i) = d_i,}$ где ${\{e_1,\ldots,e_n\}}$~--- стандартный базис в $\integers^n.$ Тогда $\phi$ сюръективен, т.к. ${d_1,\ldots,d_n}$~--- порождающие.
         \end{proof}
         \newpage
         \section{Структура абелевых групп}
@@ -1174,9 +1178,9 @@ citecolor=black, menucolor=black, filecolor=black,
         Любая конечнопорождённая абелева группа $A$
         изоморфна прямой сумме примарных циклических групп и бесконечных циклических групп: 
         \begin{equation*}
-            A \cong \integers^n \oplus \integers_{p^{k_1}_1} \oplus \mathellipsis \oplus \integers_{p^{k_t}_t},
+            A \cong \integers^n \oplus \integers_{p^{k_1}_1} \oplus \ldots \oplus \integers_{p^{k_t}_t},
         \end{equation*}
-        где ${p_1, \mathellipsis, p_t}$~--- простые числа (не обязательно различные) и ${k_1, \mathellipsis, k_t \in \naturals.}$ Более того, набор примарных циклических множителей ${\integers_{p^{k_1}_1}, \mathellipsis, \integers_{p^{k_t}_t}}$ определен однозначно с точностью до перестановки (в частности, число этих множителей определено однозначно).
+        где ${p_1, \ldots, p_t}$~--- простые числа (не обязательно различные) и ${k_1, \ldots, k_t \in \naturals.}$ Более того, набор примарных циклических множителей ${\integers_{p^{k_1}_1}, \ldots, \integers_{p^{k_t}_t}}$ определен однозначно с точностью до перестановки (в частности, число этих множителей определено однозначно).
 	\end{theorem}
 	\begin{definition}
 		\textit{Экспонентой} конечной группы $G$ называется число
@@ -1200,7 +1204,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \setlength\itemsep{0.1em}
                 \item $\exp(\integers_n) = n;$
                 \item $\exp(\integers_2 \oplus \integers_2) = 2;$
-                \item $\exp(S_3) = 6.$
+                \item $\exp(\symmetrical_3) = 6.$
             \end{enumerate}
         \end{exmpls}
         \newpage
@@ -1208,9 +1212,9 @@ citecolor=black, menucolor=black, filecolor=black,
 		Группа $A$ является циклической тогда и только тогда, когда ${\exp A = |A|.}$
 	\end{theorem*}
 	\begin{proof}
-		Пусть ${|A| = n = p^{k_1}_1 \cdot \mathellipsis \cdot p^{k_s}_s}$~--- разложение на простые множители, где $p_i$~--- простое и ${k_s \in \naturals \ (p_i \neq p_j \text{ при } i \neq j).}$ \newline
+		Пусть ${|A| = n = p^{k_1}_1 \cdot \ldots \cdot p^{k_s}_s}$~--- разложение на простые множители, где $p_i$~--- простое и ${k_s \in \naturals \ (p_i \neq p_j \text{ при } i \neq j).}$ \newline
 		{\textit{Необходимость.}} Если ${A = \langle a \rangle,}$ то ${\ord (a) = n,}$ откуда ${\exp A = n.}$ \newline
-		{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \mathellipsis, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \mathellipsis, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \mathellipsis + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \mathellipsis + ma_s = 0.}$ При фиксированном ${i \in \{1, \mathellipsis, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j{:} \ mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Longrightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
+		{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \ldots, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \ldots, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \ldots + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \ldots + ma_s = 0.}$ При фиксированном ${i \in \{1, \ldots, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j{:} \ mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Longrightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
 		${n_i \ndivby p_i}$, то ${m \divby p^{k_i}_i.}$  В силу произвольности выбора $i$ отсюда вытекает, что ${m \divby n,}$ и т.к. ${na = 0,}$ то окончательно получаем ${\ord(a) = n.}$ Значит, ${A = \langle a \rangle}$~--- циклическая группа.
 	\end{proof}
     
@@ -1219,10 +1223,10 @@ citecolor=black, menucolor=black, filecolor=black,
         \setcounter{definition}{0}
         \begin{definition}
             Подгруппа в группе $G$ называется порождённой подмножеством $S$, если эта группа
-            есть множество элементов вида ${g_{i_1}^{\epsilon_1},\mathellipsis,g_{i_k}^{\epsilon_k}}$, где ${g_{i_p} \in S, \epsilon_p \in \{\pm1\}.}$ Легко заметить, что это наименьшая подгруппа в $G$, содержащая $S$.
+            есть множество элементов вида ${g_{i_1}^{\epsilon_1},\ldots,g_{i_k}^{\epsilon_k}}$, где ${g_{i_p} \in S, \epsilon_p \in \{\pm1\}.}$ Легко заметить, что это наименьшая подгруппа в $G$, содержащая $S$.
         \end{definition}
         \begin{statement}
-            Группа $A_n$ порождается:
+            Группа $\alternating_n$ порождается:
             \
             \begin{enumerate}
             \setlength\itemsep{0.1em}
@@ -1235,7 +1239,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \
             \begin{enumerate}
             \setlength\itemsep{0.1em}
-                \item ${\forall \sigma \in S_n{:} \ \sigma = \tau_1 \mathellipsis \tau_k,}$ где $\tau_i$~--- транспозиция. Если $\sigma$ чётная, то ${k = 2s.}$ Из этого следует, что ${\sigma = (\tau_1 \tau_2)\mathellipsis(\tau_{2s-1}\tau_{2s}).}$
+                \item ${\forall \sigma \in \symmetrical_n{:} \ \sigma = \tau_1 \ldots \tau_k,}$ где $\tau_i$~--- транспозиция. Если $\sigma$ чётная, то ${k = 2s.}$ Из этого следует, что ${\sigma = (\tau_1 \tau_2)\ldots(\tau_{2s-1}\tau_{2s}).}$
                 \item Выразим пары транспозиций через тройные циклы:
                 \begin{equation*}
                     (ij)(ij) = e, \ (ij)(jk) = (ijk), \ (ij)(kl) = (ijk)(jkl).
@@ -1273,11 +1277,11 @@ citecolor=black, menucolor=black, filecolor=black,
             ${[G,G] = \{e\} \Longleftrightarrow G}$~--- абелева.
         \end{remark}
         \begin{exmpl*}
-            ${G = S_n \Rightarrow [\sigma, \tau] = \sigma \tau \sigma^{-1} \tau^{-1}}$~--- чётная ${\Rightarrow G' \leqslant A_n.}$ С другой стороны, $A_n$ порождается тройными циклами, которые, в свою очередь, представимы как коммутаторы:
+            ${G = \symmetrical_n \Rightarrow [\sigma, \tau] = \sigma \tau \sigma^{-1} \tau^{-1}}$~--- чётная ${\Rightarrow G' \leqslant \alternating_n.}$ С другой стороны, $\alternating_n$ порождается тройными циклами, которые, в свою очередь, представимы как коммутаторы:
             \begin{equation*}
 		  \begin{gathered}
-			(ijk) = (ij)(ik)(ij)(ik) = (ij)(ik)(ij)^{-1}(ik)^{-1} = [(ij), (ik)] \Rightarrow A_n \leqslant G' \Rightarrow \\
-			\Rightarrow A_n = G'.
+			(ijk) = (ij)(ik)(ij)(ik) = (ij)(ik)(ij)^{-1}(ik)^{-1} = [(ij), (ik)] \Rightarrow \alternating_n \leqslant G' \Rightarrow \\
+			\Rightarrow \alternating_n = G'.
 		  \end{gathered}
 	       \end{equation*}
         \end{exmpl*}
@@ -1285,10 +1289,10 @@ citecolor=black, menucolor=black, filecolor=black,
             Пусть $G$~--- группа, тогда:
             \begin{enumerate}
                 \setlength\itemsep{0.1em}
-                \item ${G' \triangleleft G;}$
+                \item ${G' \lhd G;}$
                 \item $G/G'$ абелева;
-                \item если ${N \triangleleft G,}$ то $G/N$ абелева ${\Leftrightarrow G' \leqslant N;}$
-                \item если ${G' \leqslant K \leqslant G,}$ то ${K \triangleleft G.}$
+                \item если ${N \lhd G,}$ то $G/N$ абелева ${\Leftrightarrow G' \leqslant N;}$
+                \item если ${G' \leqslant K \leqslant G,}$ то ${K \lhd G.}$
             \end{enumerate}
         \end{statement}
         \newpage
@@ -1299,7 +1303,7 @@ citecolor=black, menucolor=black, filecolor=black,
                 \item $\forall g,h \in G{:} \ (gN)(hN) = (hN)(gN) \Leftrightarrow (gN)(hN)(gN)^{-1}(hN)^{-1} = \\
                         = (ghg^{-1}h^{-1}N) = eN \Leftrightarrow ghg^{-1}h^{-1} \in N \Leftrightarrow \\
                         \Leftrightarrow N \text{ содержит все коммутаторы } \Leftrightarrow G' \leqslant N.$
-                \item Если ${g \in G, \ k \in K,}$ то ${gkg^{-1} = gkg^{-1}k^{-1}k = [g,k]\, k.}$ Так как ${[g,k] \in K,}$ то ${gkg^{-1} \in K \Rightarrow K \triangleleft G.}$ \qedhere
+                \item Если ${g \in G, \ k \in K,}$ то ${gkg^{-1} = gkg^{-1}k^{-1}k = [g,k]\, k.}$ Так как ${[g,k] \in K,}$ то ${gkg^{-1} \in K \Rightarrow K \lhd G.}$ \qedhere
             \end{enumerate}
         \end{proof}
         \begin{lemma}
@@ -1349,16 +1353,16 @@ citecolor=black, menucolor=black, filecolor=black,
             \end{cases*}}$
         \end{proof}
         \begin{lemma}
-            $A'_n = \begin{cases*}
+            $\alternating'_n = \begin{cases*}
                 e,& $n \leqslant 3,$\\
-                V_4,& $n = 4,$\\
-                A_n,& $n \geqslant 5.$
+                \quaternary,& $n = 4,$\\
+                \alternating_n,& $n \geqslant 5.$
             \end{cases*}$
         \end{lemma}
         \begin{proof}
-            При $n \leqslant 3$ $A_n$ абелева.\newline
-            При ${n = 4{:}}$ ${V_4 \triangleleft A_n,}$ ${|\sfrac{A_4}{V_4}| = \frac{12}{4} = 3}$~--- простое число ${\Rightarrow \sfrac{A_4}{V_4} \cong \integers_3}$~--- абелева ${\Rightarrow A'_4 \leqslant V_4.}$ С другой стороны, ${A'_4 \neq \{e\},}$ т.к. $A_4$ не абелева. Но $A_4$ состоит из двух классов сопряжённости $\Rightarrow$ в $V_4$ нет собственных подгрупп, нормальных в ${A_4 \Rightarrow A'_4 = V_4.}$\newline
-            При ${n \geqslant 5{:}}$ применяя вышеописанные рассуждения к произвольной четвёрке индексов ${i,j,k,l,}$ увидим, что юбая пара независимых транспозиций лежит в $A'_n$. Такие пары порождают $A_n$, значит, $A'_n = A_n$.
+            При $n \leqslant 3$ $\alternating_n$ абелева.\newline
+            При ${n = 4{:}}$ ${\quaternary \lhd \alternating_n,}$ ${|\sfrac{\alternating_4}{\quaternary}| = \frac{12}{4} = 3}$~--- простое число ${\Rightarrow \sfrac{\alternating_4}{\quaternary} \cong \integers_3}$~--- абелева ${\Rightarrow \alternating'_4 \leqslant \quaternary.}$ С другой стороны, ${\alternating'_4 \neq \{e\},}$ т.к. $\alternating_4$ не абелева. Но $\alternating_4$ состоит из двух классов сопряжённости $\Rightarrow$ в $\quaternary$ нет собственных подгрупп, нормальных в ${\alternating_4 \Rightarrow \alternating'_4 = \quaternary.}$\newline
+            При ${n \geqslant 5{:}}$ применяя вышеописанные рассуждения к произвольной четвёрке индексов ${i,j,k,l,}$ увидим, что юбая пара независимых транспозиций лежит в $\alternating'_n$. Такие пары порождают $\alternating_n$, значит, $\alternating'_n = \alternating_n$.
         \end{proof}
         \begin{lemma}
             ${\GL'_n(F) = \SL_n(F)}$ при ${|F| \geqslant 4, \ n \geqslant 2.}$
@@ -1430,9 +1434,9 @@ citecolor=black, menucolor=black, filecolor=black,
                 Орбитами этого действия при ${n = 2}$ будут концентрические окружности с центром в начале координат (а также сама точка начала координат, считающаяся окружностью с нулевым радиусом). В общем случае это сферы с центром в начале координат, а также сама точка начала координат.\n
                 Стабилизатор ненулевого вектора ${St(v) \cong \SOrth_{n - 1}(\real)}$~--- все специальные ортогональные преобразования в ортогональной плоскости к $v$. Если же $v = 0$, то $St(v) = \SOrth_n(\real)$.
                 Действие не транзитивно (длина сохраняется), не свободно (хотя при ${n = 2}$ очень к этому близко) и эффективно.
-                \item ${S_n \curvearrowright \{1,\mathellipsis, n\}, \ i \mapsto \sigma(i)}.$ \n
-                Действие транзитивно и эффективно, но не свободно при $n \geqslant 3$, т.к. ${St(i) \cong S_{n-1}.}$ 
-                \item ${\sigma \in S_n, \ G = \langle \sigma \rangle \curvearrowright \{1,\mathellipsis, n\} = X.}$\n
+                \item ${\symmetrical_n \curvearrowright \{1,\ldots, n\}, \ i \mapsto \sigma(i)}.$ \n
+                Действие транзитивно и эффективно, но не свободно при $n \geqslant 3$, т.к. ${St(i) \cong \symmetrical_{n-1}.}$ 
+                \item ${\sigma \in \symmetrical_n, \ G = \langle \sigma \rangle \curvearrowright \{1,\ldots, n\} = X.}$\n
                 Орбиты соответствуют независимым циклам в разложении $\sigma$.\newline
                 Действие транзитивно $\Leftrightarrow \sigma$~--- цикл длины $n$.
                 \item ${G = \GL_n(F)}$ или ${\SL_n(F) \ (n \geqslant 2) \curvearrowright F^n \ X, \ \ (A,v) \mapsto Av.}$\n
@@ -1464,7 +1468,103 @@ citecolor=black, menucolor=black, filecolor=black,
         \newpage
 	\section{$p$-группы. Теоремы Силова}
 	\setcounter{definition}{0}
-    
+        \begin{definition}
+            Пусть $p$~--- простое число. Конечная группа $G$ называется \textit{$p$-группой}, если ${|G| = p^k}$ для некоторого ${k \in \naturals.}$
+        \end{definition}
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${|\dihedral_4| = 2^3}$~--- 2-группа;
+                \item ${|\mathbf{Q}_8| = 2^3}$~--- 2-группа.
+            \end{enumerate}
+        \end{exmpls}
+        \begin{theorem}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Нетривиальная $p$-группа имеет нетривиальный центр. 
+                \item Любая $p$-группа разрешима.
+            \end{enumerate}
+        \end{theorem}
+        \begin{proof}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${|G| = p^k, \ G = \bigsqcup C_G(g) \Rightarrow |G| = \displaystyle\sum|C_G(g)|.}$\newline Но ${|C_G(g)| = \frac{|G|}{|Z_G(g)|} = p^l, \ l \leqslant k.}$ При этом ${|C_G(g)| = 1 \Leftrightarrow g \in Z(G).}$ Поэтому ${p^k = |G| = |Z(G)| + \displaystyle\sum_{l_i > 0} p^{l_i} \Rightarrow p \cdot |Z(G)| \Rightarrow |Z(G)| \neq 1 \Rightarrow Z(G) \neq \{e\}.}$
+                \item Индукция по $k$:
+                \begin{itemize}
+                \setlength\itemsep{0.1em}
+                    \item При ${k = 0{:}}$ ${|G| = 1 \Rightarrow G = \{e\} \Rightarrow G}$ разрешима.
+                    \item При ${k > 0{:}}$ ${Z(G) \neq \{e\},}$ ${Z(G) \lhd G \Rightarrow |G/Z(G)| = p^l < p^k.}$ По предположению
+                    индукции, ${G/Z(G)}$ разрешима. Сам ${Z(G)}$ абелев, в частности, разрешим. Значит, и $G$ разрешима. \qedhere
+                \end{itemize}
+            \end{enumerate}
+        \end{proof}
+        \begin{lemma}
+            Пусть $G$~--- некоммутативная группа, тогда ${G/Z(G)}$ не циклическая.
+        \end{lemma}
+        \begin{proof}
+            Предположим, что ${G/Z(G)}$~--- циклическая. Тогда ${\exists a \in G{:} \ G/Z(G) = \langle aZ(G) \rangle.}$ Отсюда ${\forall g \in G{:} \ g = a^kz,}$ где ${k \in \integers, \ z \in Z(G).}$ Но ${(a^{k_1}z_1)(a^{k_2}z_2) = a^{k_1+k_2}z_1z_2.}$ Получаем противоречие с некоммутативностью группы.
+        \end{proof}
+        \newpage
+        \begin{theorem}
+            Любая группа порядка $|p^2|$ абелева.
+        \end{theorem}
+        \begin{proof}
+            Пусть $G$~--- группа и ${|G| = p^2.}$ Каким может быть центр?
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${|Z(G)| = 1}$~--- противоречие с пунктом 1 предыдущей теоремы.
+                \item ${|Z(G)| = p \Rightarrow |G/Z(G)| = p \Rightarrow G/Z(G)}$~--- циклическая~--- противоречие с предыдущей леммой.
+                \item ${|Z(G)| = p^2 \Rightarrow G = Z(G) \Rightarrow G}$ абелева. \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{consequence*}
+            Если ${|G| = p^2,}$ то либо ${G \cong \integers_{p^2},}$ либо ${G \cong \integers_p \oplus \integers_p.}$
+        \end{consequence*}
+        \begin{definition}
+            Пусть $G$~--- конечная группа, $p$~--- простое число. Тогда ${|G| = p^km,}$ где ${k \in \naturals, \ \NOD(m,p) = 1.}$ \textit{Силовской $p$-подгруппой} в $G$ называется подгруппа $H_p$ порядка $p^k$.
+        \end{definition}
+        \begin{exmpl*}
+            ${G = \symmetrical_4 \Rightarrow |G| = 24 = 2^3 \cdot 3}$
+            \begin{itemize}
+            \setlength\itemsep{0.1em}
+                \item ${p = 2 \Rightarrow |H_p| = 8 \Rightarrow H_p \cong \dihedral_4.}$
+                \item ${p = 3 \Rightarrow |H_p| = 3.}$ Например, ${H_p = \langle(123)\rangle.}$
+                \item ${p \geqslant 5 \Rightarrow |H_p| = 1 \Rightarrow H_p = \{e\}.}$
+            \end{itemize}
+        \end{exmpl*}
+        \begin{theorem*}[\textbf{первая теорема Силова}]
+            В любой конечной группе $G$ для любого простого $p$ силовская $p$-подгруппа существует. 
+        \end{theorem*}
+        \begin{remark}
+            Первая теорема Силова~--- это частичное обращение теоремы Лагранжа.
+        \end{remark}
+        \begin{theorem*}[\textbf{вторая теорема Силова}]
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Любая $p$-подгруппа в $G$ содержится в некоторой силовской $p$-подгруппе. 
+                \item Все силовские $p$-подгруппы в $G$ сопряжены.
+            \end{enumerate}
+        \end{theorem*}
+        \begin{consequence*}
+            Пусть ${H \leqslant G}$~--- силовская $p$-подгруппа. Тогда ${H \lhd G \Leftrightarrow H}$~--- единственная силовская $p$-подгруппа.
+        \end{consequence*}
+        \begin{definition}
+            Пусть $G$~--- группа, ${H \leqslant G.}$ \textit{Нормализатором} подгруппы $H$ в $G$ называется множество
+            \begin{equation*}
+                N_G(H) \deq \{g \in G \ | \ gHg^{-1} = H\}.
+            \end{equation*}
+            При этом ${H \lhd N_G(H).}$
+        \end{definition}
+        \begin{theorem*}[\textbf{третья теорема Силова}]
+             Если за $n_p$ обозначить число силовских $p$-подгрупп в $G$, то $n_p \equiv 1 \ (\mod p)$ и $n_p|m$, где $m$~--- индекс силовской $p$-подгруппы. 
+        \end{theorem*}
+        \begin{consequence*}
+             Группа $G$ порядка $pq$, где $p,q$~--- простые, ${p > q}$, разрешима ступени $\leqslant2$.
+        \end{consequence*}
         \newpage
 	\section{Кольца и поля}
 	\setcounter{definition}{0}
@@ -1569,7 +1669,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		В полях не существует делителей нуля.
 	\end{remark}
         \begin{definition}
-            \textit{Характеристикой} $\mathrm{char} \, F$ поля $F$ называется такое ${n \in \naturals,}$ что ${\underbrace{1+\mathellipsis+1}_{n \ \text{раз}} = 0.}$
+            \textit{Характеристикой} $\mathrm{char} \, F$ поля $F$ называется такое ${n \in \naturals,}$ что ${\underbrace{1+\ldots+1}_{n \ \text{раз}} = 0.}$
         \end{definition}
         \newpage
 	\begin{theorem}
@@ -1622,7 +1722,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		Если $S$~--- подмножество кольца $R$, то
 		\begin{equation*}
-			(S) = \{r_1 s_1 + \mathellipsis + r_k s_k \ | \ r_i \in R, s_i \in S\}
+			(S) = \{r_1 s_1 + \ldots + r_k s_k \ | \ r_i \in R, s_i \in S\}
 		\end{equation*}
 		называется \textit{идеалом, порожденным подмножеством $S$.}
 	\end{definition}
