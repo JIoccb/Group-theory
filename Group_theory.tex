@@ -64,6 +64,7 @@ citecolor=black, menucolor=black, filecolor=black,
 % НОВЫЕ КОМАНДЫ
 \newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\deq}{\stackrel{\mathrm{def}}{=}}
+  
 \newcommand{\n}{\par}
 \newcommand{\percent}{\mathbin{\%}}
 \newcommand{\integers}{\mathbb{Z}}
@@ -156,7 +157,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\section{Бинарные операции. Полугруппы, моноиды и группы}
 	\begin{definition}
 		Пусть $M$~--- непустое множество. \textit{Бинарной операцией} $\circ$ на множестве $M$ называется отображение 
-		${\circ : M \times M \rightarrow M}$, ${\ \forall a,b \in M{:} \ (a, b) \mapsto a \circ b}$.
+		${\circ : M \times M \rightarrow M}$, ${\ \forall a,b \in M\suchthat (a, b) \mapsto a \circ b}$.
 	\end{definition}
 	
 	Множество с бинарной операцией обычно обозначают $(M, \circ).$
@@ -165,14 +166,14 @@ citecolor=black, menucolor=black, filecolor=black,
 		Множество с бинарной операцией $(M, \circ)$ называется \textit{полугруппой}, если данная бинарная операция
 		ассоциативна, т.е.
 		\begin{equation*}
-			\forall a, b, c \in M{:} \ a \circ (b \circ c) = (a \circ b) \circ c.
+			\forall a, b, c \in M\suchthat a \circ (b \circ c) = (a \circ b) \circ c.
 		\end{equation*}
 	\end{definition}
 	
 	\begin{definition}
 		Полугруппа $(M, \circ)$ называется \textit{моноидом}, если в ней есть \textit{нейтральный элемент}, т.е.
 		\begin{equation*}
-			\exists e \in M \suchthat \forall a \in M{:} \ e \circ a = a \circ e = a.
+			\exists e \in M \suchthat \forall a \in M\suchthat e \circ a = a \circ e = a.
 		\end{equation*}
 	\end{definition}
 	
@@ -185,7 +186,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		Группа $G$ называется \textit{коммутативной} или \textit{абелевой}, если групповая операция \textit{коммутативна}, т.е.
 		\begin{equation*}
-			\forall a, b \in G{:} \ ab = ba.
+			\forall a, b \in G\suchthat ab = ba.
 		\end{equation*}
 	\end{definition}
 	\begin{definition}
@@ -246,8 +247,8 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
 			\item $e \in H;$
-			\item $\forall a,b \in H{:} \ ab \in H;$
-			\item $\forall a \in H{:} \ a^{-1} \in H.$
+			\item $\forall a,b \in H\suchthat ab \in H;$
+			\item $\forall a \in H\suchthat a^{-1} \in H.$
 		\end{enumerate}
 	\end{definition}
 	В каждой группе $G$ есть \textit{несобственные} или \textit{тривиальные} подгруппы $H = \{e\}$ и $H = G$. Все прочие подгруппы называются \textit{собственными}.
@@ -263,7 +264,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{theorem*}[\textbf{критерий подгруппы}]
 		Пусть $G$~--- группа, тогда
 		\begin{equation*}
-			H < G \Longleftrightarrow \forall a,b \in H{:} \ a \circ b^{-1} \in H.
+			H < G \Longleftrightarrow \forall a,b \in H\suchthat a \circ b^{-1} \in H.
 		\end{equation*}
 	\end{theorem*}
 	\begin{proof}
@@ -342,7 +343,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{proof}
 		Заметим, что если $g^k = g^s$, то $g^{k - s} = e$. Поэтому если элемент $g$ имеет бесконечный порядок, то все элементы $g^n, n \in \integers$, попарно различны, и подгруппа $\langle g \rangle$ содержит бесконечно много элементов. 
 		Если же ${\ord(g) = m}$, то из минимальности числа $m$ следует, что элементы ${e = g^0, g^1, g^2, \ldots , g^{m-1}}$ попарно различны.
-		Далее, ${\forall n \in \integers{:} \ n = mq + r, \ \text{где} \ 0 \leqslant r \leq m - 1, \ \text{и}}$
+		Далее, ${\forall n \in \integers\suchthat n = mq + r, \ \text{где} \ 0 \leqslant r \leq m - 1, \ \text{и}}$
 		\begin{equation*}
 			g^n = g^{mq + r} = (g^m)^q g^r = e^q g^r = g^r.
 		\end{equation*}
@@ -363,7 +364,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		\end{equation*}
 	\end{definition}
 	\begin{lemma}
-		Пусть $G$~--- конечная подгруппа, тогда $\forall g \in G{:} \ |gH| = |H|.$
+		Пусть $G$~--- конечная подгруппа, тогда $\forall g \in G\suchthat |gH| = |H|.$
 	\end{lemma}
 	\begin{proof}
 		Поскольку ${gH = \{gh \ | \ h \in H\}}$, в $gH$ элементов не больше, чем в $H$. Если ${gh_1 = gh_2}$, то домножив слева на $g^{-1},$ получаем ${h_1 = h_2}$. Значит, все элементы вида $gh$, где ${h \in H}$, попарно различны, откуда ${|gH| = |H|}$.
@@ -425,7 +426,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		Пусть $X$ и $Y$~--- метрические пространства. Отображение ${f : X \rightarrow Y}$ называется \textit{изометрией}, если оно сохраняет расстояние между точками:
 		\begin{equation*}
-			\forall x, x' \in X{:} \ |f(x) - f(x')|_Y = |x - x'|_X,
+			\forall x, x' \in X\suchthat |f(x) - f(x')|_Y = |x - x'|_X,
 		\end{equation*} \n
 		Если ${X = Y,}$ $f$ называют \textit{движением}.
 	\end{definition}
@@ -581,7 +582,7 @@ citecolor=black, menucolor=black, filecolor=black,
         \newpage
         \begin{theorem}
             \begin{equation*}
-                \forall \sigma, \tau \in \symmetrical_n{:} \ \mathrm{sgn}(\sigma \tau) = \mathrm{sgn}(\sigma) \, \mathrm{sgn}(\tau).
+                \forall \sigma, \tau \in \symmetrical_n\suchthat \mathrm{sgn}(\sigma \tau) = \mathrm{sgn}(\sigma) \, \mathrm{sgn}(\tau).
             \end{equation*}
         \end{theorem}
         \begin{proof}
@@ -629,7 +630,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		Подгруппа $H$ группы $G$ называется \textit{нормальной}, если 
 		\begin{equation*}
-			\forall g \in G{:} \ gH = Hg. 
+			\forall g \in G\suchthat gH = Hg. 
 		\end{equation*}
 		\n
 		Обозначается $H \lhd G.$
@@ -639,17 +640,17 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
 			\item ${H \lhd G;}$
-			\item $\forall g \in G{:} \ gHg^{-1} = H$;
-			\item $\forall g \in G{:} \ gHg^{-1} \subseteq H$.
+			\item $\forall g \in G\suchthat gHg^{-1} = H$;
+			\item $\forall g \in G\suchthat gHg^{-1} \subseteq H$.
 		\end{enumerate}
 	\end{statement}
 	\begin{proof}
 		\
 		\begin{itemize}
 			\setlength\itemsep{0.1em}
-			\item[(1)] $\Longrightarrow (2){:} \ gH = Hg \ | \cdot g^{-1} \Longrightarrow gHg^{-1} = H$.
+			\item[(1)] $\Longrightarrow (2)\suchthat gH = Hg \ | \cdot g^{-1} \Longrightarrow gHg^{-1} = H$.
 			\item[(2)] $\Longrightarrow (3){:}$ очевидно.
-			\item[(3)] ${\Longrightarrow (2){:} \ gHg^{-1} \subseteq H \Longrightarrow gHg^{-1} \subseteq H \ | \cdot g \Longrightarrow gH \subseteq Hg.}$
+			\item[(3)] ${\Longrightarrow (2)\suchthat gHg^{-1} \subseteq H \Longrightarrow gHg^{-1} \subseteq H \ | \cdot g \Longrightarrow gH \subseteq Hg.}$
 			\n
 			${\text{Если} \ g = g^{-1}, \ \text{то} \ g \cdot | \ g^{-1}Hg \subseteq H \Longrightarrow Hg \subseteq gH \Longrightarrow gH = Hg. \qedhere}$ 
 		\end{itemize}
@@ -694,7 +695,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		\n
 		Отображение $\phi: G \rightarrow F$ называется \textit{гомоморфизмом}, если
 		\begin{equation*}
-			\forall g_1, g_2 \in G{:} \ \phi(g_1 \circ g_2) = \phi(g_1) * \phi(g_2).
+			\forall g_1, g_2 \in G\suchthat \phi(g_1 \circ g_2) = \phi(g_1) * \phi(g_2).
 		\end{equation*}
 	\end{definition}
 	\begin{remark}
@@ -702,7 +703,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
 			\item $\phi(e_G) = e_F$
-			\item $\forall g \in G{:} \ \phi(g^{-1}) = \phi(g)^{-1}$
+			\item $\forall g \in G\suchthat \phi(g^{-1}) = \phi(g)^{-1}$
 		\end{enumerate}
 	\end{remark}
 	\begin{proof}
@@ -785,7 +786,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{proof}
 		Достаточно проверить, что
 		\begin{equation*}
-			\forall g \in G \ \ \forall h \in \ker \phi{:} \ g^{-1}hg \in \ker \phi.
+			\forall g \in G \ \ \forall h \in \ker \phi\suchthat g^{-1}hg \in \ker \phi.
 		\end{equation*}
 		Это следует из цепочки равенств:
 		\begin{equation*}
@@ -867,17 +868,17 @@ citecolor=black, menucolor=black, filecolor=black,
             \end{enumerate}
         \end{statement}
         \begin{proof}
-            Пусть ${G_1 = \langle g \rangle.}$ Тогда любой гомоморфизм ${\phi : G_1 \rightarrow G_2}$ однозначно определяется образом порождающего элемента ${\phi(g) \in G_2.}$ В самом деле, ${\forall m \in \integers{:} \ \phi(g^m) = \phi(g)^m.}$ Пусть ${\phi : G_1 \rightarrow G_1}$~--- автоморфизм. Тогда, из сюръективности, ${\exists k \in \integers{:} \ \phi(g) = g^k,}$ и это порож- дающий элемент $G$.
+            Пусть ${G_1 = \langle g \rangle.}$ Тогда любой гомоморфизм ${\phi : G_1 \rightarrow G_2}$ однозначно определяется образом порождающего элемента ${\phi(g) \in G_2.}$ В самом деле, ${\forall m \in \integers\suchthat \phi(g^m) = \phi(g)^m.}$ Пусть ${\phi : G_1 \rightarrow G_1}$~--- автоморфизм. Тогда, из сюръективности, ${\exists k \in \integers\suchthat \phi(g) = g^k,}$ и это порож- дающий элемент $G$.
             \begin{enumerate}
             \setlength\itemsep{0.1em}
                 \item В $\integers$ всего два порождающих. Для каждого из них есть гомоморфизм:
                 \begin{itemize}
                 \setlength\itemsep{0.1em}
                     \item ${\phi_1 : 1 \mapsto 1 \ (\phi_1 = \id);}$
-                    \item ${\phi_1 : 1 \mapsto -1 \ (\phi_1 = -\id).}$
+                    \item ${\phi_2 : 1 \mapsto -1 \ (\phi_1 = -\id).}$
                 \end{itemize}
                 Это автоморфизмы ${\Rightarrow |\Aut(\integers)| = 2 \Rightarrow \Aut(\integers) \cong \integers_2.}$
-                \item В $\integers_n$ порождающие~--- это ${\overline{k}{:} \ \NOD(k,n) = 1.}$ \newline
+                \item В $\integers_n$ порождающие~--- это ${\overline{k}\suchthat \NOD(k,n) = 1.}$ \newline
                 Построим ${\phi_{\overline{k}} : \overline{1} \mapsto \overline{k}, \ \ \overline{m} \mapsto \overline{km}.}$ Это биекция из множества в само себя, значит, это автоморфизм. Проверим, что отображение ${\overline{k} \mapsto \phi_{\overline{k}}}$ сохраняет операцию. Действительно,
                 \begin{equation*}
                     \phi_{\overline{s}}(\phi_{\overline{k}}(\overline{m})) = \overline{skm} = \phi_{\overline{sk}}(\overline{m}) \Rightarrow \Aut(\integers_n) \cong \integers^\times_n. \qedhere
@@ -918,7 +919,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \begin{definition}
               \textit{Центром} группы $G$ называется множество всех элементов группы, коммутирующих со всеми элементами группы:
               \begin{equation*}
-                  Z(G) \deq \{g \in G \ | \ \forall g' \in G{:} \ gg' = g'g\}.
+                  Z(G) \deq \{g \in G \ | \ \forall g' \in G\suchthat gg' = g'g\}.
               \end{equation*}
           \end{definition}
           \begin{remark}
@@ -930,16 +931,16 @@ citecolor=black, menucolor=black, filecolor=black,
               \begin{enumerate}
               \setlength\itemsep{0.1em}
                   \item ${Z(G) \lhd G;}$
-                  \item ${\forall i \in \Aut(G){:} \ \ker i = Z(G).}$
+                  \item ${\forall i \in \Aut(G)\suchthat \ker i = Z(G).}$
               \end{enumerate}
           \end{lemma}
           \begin{proof}
             Достаточно доказать только пункт 2, так как пункт 1 из него следует. 
             \begin{enumerate}[start=2]
             \setlength\itemsep{0.1em}
-                \item Проверим, что ${\forall a \in G{:} \ i_g(a) = a}$:
+                \item Проверим, что ${\forall a \in G\suchthat i_g(a) = a}$:
                 \begin{equation*}
-                    g \in Z(G) \Leftrightarrow \forall a \in G{:} \ ga = ag \Leftrightarrow gag^{-1} = a \Leftrightarrow i_g(a) = a. \qedhere
+                    g \in Z(G) \Leftrightarrow \forall a \in G\suchthat ga = ag \Leftrightarrow gag^{-1} = a \Leftrightarrow i_g(a) = a. \qedhere
                 \end{equation*}
             \end{enumerate}
           \end{proof}
@@ -982,7 +983,7 @@ citecolor=black, menucolor=black, filecolor=black,
         \section{Классы сопряжённости}
         \setcounter{definition}{0}
         \begin{definition}
-            Пусть $G$~--- группа. Элементы ${a,b \in G}$ называются \textit{сопряжёнными} и обозначаются ${a \sim b}$, если ${\exists g \in G{:} \ a = gbg^{-1}.}$
+            Пусть $G$~--- группа. Элементы ${a,b \in G}$ называются \textit{сопряжёнными} и обозначаются ${a \sim b}$, если ${\exists g \in G\suchthat a = gbg^{-1}.}$
         \end{definition}
         \begin{definition}
             \textit{Классом сопряжённости} элемента $a$ группы $G$ называется множество
@@ -1009,7 +1010,7 @@ citecolor=black, menucolor=black, filecolor=black,
                     \item Симметричность: ${a = gba^{-1} \Leftrightarrow b = g^{-1}ag;}$
                     \item Транзитивность: ${(a = gbg^{-1}, \, b = hch^{-1} \Rightarrow a = ghch^{-1}g^{-1}) \Rightarrow (a \sim b, \, b \sim c \Rightarrow a \sim c).}$
                 \end{itemize}
-                \item ${C_G(a) = \{a\} \Leftrightarrow \forall g \in G{:} \ gag^{-1} = a \Leftrightarrow a \in Z(G).}$ \qedhere
+                \item ${C_G(a) = \{a\} \Leftrightarrow \forall g \in G\suchthat gag^{-1} = a \Leftrightarrow a \in Z(G).}$ \qedhere
             \end{enumerate}
         \end{proof}
         \begin{lemma}
@@ -1159,7 +1160,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \end{equation*}
         \end{statement}
         \begin{proof}
-            ${\forall a \in A{:} \ a = k_1e_1+\ldots+k_ne_n.}$\newline
+            ${\forall a \in A\suchthat a = k_1e_1+\ldots+k_ne_n.}$\newline
             Положим ${\phi(a) = k_1\phi(e_1)+\ldots+k_n\phi(e_n).}$ Это гомоморфизм, что проверяется очевидным образом.
         \end{proof}
         \begin{consequence*}
@@ -1185,15 +1186,15 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		\textit{Экспонентой} конечной группы $G$ называется число
 		\begin{equation*}
-			\exp G \deq \min \{m \in \naturals \ | \ \forall g \in G{:} \ mg = 0\}.
+			\exp G \deq \min \{m \in \naturals \ | \ \forall g \in G\suchthat mg = 0\}.
 		\end{equation*}
 	\end{definition}
 	\begin{remark}
 		\
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
-			\item Из того, что ${\forall g \in G \  \forall m \in \integers{:} \ mg = 0 \Longleftrightarrow m \divby \ord(g),}$ определение экспоненты можно переписать в виде ${\exp G \deq \NOK \{\ord(g) \ | \ g \in G\}.}$
-			\item Из того, что ${\forall g \in G{:} \ |G| \divby \ord(g),}$ следует, что $|G|$~--- общее кратное
+			\item Из того, что ${\forall g \in G \  \forall m \in \integers\suchthat mg = 0 \Longleftrightarrow m \divby \ord(g),}$ определение экспоненты можно переписать в виде ${\exp G \deq \NOK \{\ord(g) \ | \ g \in G\}.}$
+			\item Из того, что ${\forall g \in G\suchthat |G| \divby \ord(g),}$ следует, что $|G|$~--- общее кратное
 			множества ${\{\ord(g) \ | \ g \in G\},}$ а значит, ${|G| \divby \exp G.}$ В частности,
 			${\exp G \leqslant |G|.}$
 		\end{enumerate}
@@ -1214,7 +1215,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{proof}
 		Пусть ${|A| = n = p^{k_1}_1 \cdot \ldots \cdot p^{k_s}_s}$~--- разложение на простые множители, где $p_i$~--- простое и ${k_s \in \naturals \ (p_i \neq p_j \text{ при } i \neq j).}$ \newline
 		{\textit{Необходимость.}} Если ${A = \langle a \rangle,}$ то ${\ord (a) = n,}$ откуда ${\exp A = n.}$ \newline
-		{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \ldots, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \ldots, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \ldots + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \ldots + ma_s = 0.}$ При фиксированном ${i \in \{1, \ldots, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j{:} \ mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Longrightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
+		{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \ldots, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \ldots, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \ldots + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \ldots + ma_s = 0.}$ При фиксированном ${i \in \{1, \ldots, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j\suchthat mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Longrightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
 		${n_i \ndivby p_i}$, то ${m \divby p^{k_i}_i.}$  В силу произвольности выбора $i$ отсюда вытекает, что ${m \divby n,}$ и т.к. ${na = 0,}$ то окончательно получаем ${\ord(a) = n.}$ Значит, ${A = \langle a \rangle}$~--- циклическая группа.
 	\end{proof}
     
@@ -1239,7 +1240,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \
             \begin{enumerate}
             \setlength\itemsep{0.1em}
-                \item ${\forall \sigma \in \symmetrical_n{:} \ \sigma = \tau_1 \ldots \tau_k,}$ где $\tau_i$~--- транспозиция. Если $\sigma$ чётная, то ${k = 2s.}$ Из этого следует, что ${\sigma = (\tau_1 \tau_2)\ldots(\tau_{2s-1}\tau_{2s}).}$
+                \item ${\forall \sigma \in \symmetrical_n\suchthat \sigma = \tau_1 \ldots \tau_k,}$ где $\tau_i$~--- транспозиция. Если $\sigma$ чётная, то ${k = 2s.}$ Из этого следует, что ${\sigma = (\tau_1 \tau_2)\ldots(\tau_{2s-1}\tau_{2s}).}$
                 \item Выразим пары транспозиций через тройные циклы:
                 \begin{equation*}
                     (ij)(ij) = e, \ (ij)(jk) = (ijk), \ (ij)(kl) = (ijk)(jkl).
@@ -1300,7 +1301,7 @@ citecolor=black, menucolor=black, filecolor=black,
             Достаточно доказать только факты 3 и 4, из которых сразу следуют 2 и 1, соответственно.
             \begin{enumerate}[start=3]
                 \setlength\itemsep{0.1em}
-                \item $\forall g,h \in G{:} \ (gN)(hN) = (hN)(gN) \Leftrightarrow (gN)(hN)(gN)^{-1}(hN)^{-1} = \\
+                \item $\forall g,h \in G\suchthat (gN)(hN) = (hN)(gN) \Leftrightarrow (gN)(hN)(gN)^{-1}(hN)^{-1} = \\
                         = (ghg^{-1}h^{-1}N) = eN \Leftrightarrow ghg^{-1}h^{-1} \in N \Leftrightarrow \\
                         \Leftrightarrow N \text{ содержит все коммутаторы } \Leftrightarrow G' \leqslant N.$
                 \item Если ${g \in G, \ k \in K,}$ то ${gkg^{-1} = gkg^{-1}k^{-1}k = [g,k]\, k.}$ Так как ${[g,k] \in K,}$ то ${gkg^{-1} \in K \Rightarrow K \lhd G.}$ \qedhere
@@ -1316,10 +1317,10 @@ citecolor=black, menucolor=black, filecolor=black,
                    = [\phi(x), \phi(y)] \in G'_2 \Rightarrow \phi(G'_1) \leqslant G'_2.
                \end{gathered} 
             \end{equation*}
-            Если $\phi$ сюръективен и ${a,b \in G_2,}$ то ${\exists x,y \in G_1{:} \ a = \phi(x), \ b = \phi(y).}$ Тогда ${[a,b] = [\phi(x), \phi(y)] = \phi([x,y]) \in \phi(G'_1) \Rightarrow G'_2 \leqslant \phi(G'_1) \Rightarrow \phi(G'_1) = G'_2.}$
+            Если $\phi$ сюръективен и ${a,b \in G_2,}$ то ${\exists x,y \in G_1\suchthat a = \phi(x), \ b = \phi(y).}$ Тогда ${[a,b] = [\phi(x), \phi(y)] = \phi([x,y]) \in \phi(G'_1) \Rightarrow G'_2 \leqslant \phi(G'_1) \Rightarrow \phi(G'_1) = G'_2.}$
         \end{proof}
         \begin{definition}
-            Пусть $G$~--- группа. Подгруппа ${H \leqslant G}$ называется \textit{характеристической}, если она устойчива относительно всех автоморфизмов, т.е. ${\forall \phi \in \Aut(G){:} \ \phi(H) = H.}$
+            Пусть $G$~--- группа. Подгруппа ${H \leqslant G}$ называется \textit{характеристической}, если она устойчива относительно всех автоморфизмов, т.е. ${\forall \phi \in \Aut(G)\suchthat \phi(H) = H.}$
         \end{definition}
         \begin{remark}
            Центр группы является характеристической подгруппой. 
@@ -1328,7 +1329,7 @@ citecolor=black, menucolor=black, filecolor=black,
             Коммутант группы является характеристической подгруппой.
         \end{statement}
         \begin{proof}
-            Достаточно проверить, что ${\forall \phi \in \Aut(G){:} \ \phi([x,y]) \in G'.}$
+            Достаточно проверить, что ${\forall \phi \in \Aut(G)\suchthat \phi([x,y]) \in G'.}$
             ${\phi([x,y]) = [\phi(x), \phi(y)] \in G'.}$
         \end{proof}
         \begin{remark}
@@ -1373,11 +1374,120 @@ citecolor=black, menucolor=black, filecolor=black,
         \newpage
         \section{Разрешимые группы}
         \setcounter{definition}{0}
+        \begin{definition}
+        \textit{Кратный коммутант} группы $G^{(k)}$ группы $G$ определяется индуктивно:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item ${G^{(1)} = G';}$
+                \item ${G^{(k)} = (G^{(k - 1)})'.}$
+            \end{enumerate}
+        Для удобства считается, что ${G^{(0)} = G.}$
+        \end{definition}
 
+        \begin{definition}
+            Группа $G$ называется \textit{разрешимой}, если ${\exists k \in \naturals\suchthat G^{(k)} = \{e\}.}$ В этом случае ${G \supset G' \supset \ldots \supset G^{(k)} = \{e\},}$\\ ${\sfrac{G^{(i)}}{G^{(i + 1)}}}$ абелева ${i = \overline{0, \ldots, k - 1},}$ такая цепочка называется \textit{производным рядом}.
+            Наименьшее такое ${k \in \naturals}$ называется \textit{ступенью разрешимости} $G$, а группа \textit{разрешимой ступени} $k$.
+        \end{definition}
+
+        \begin{remark}
+            Разрешимые группы ступени 1~--- абелевы группы. Разрешимые группы ступени 2 называют \textit{метабелевыми}.
+        \end{remark}
+        \begin{exmpls}
+        \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${G = \symmetrical_3 \Rightarrow G' = \alternating_3 \Rightarrow G^{(2)} = \alternating_3' = \{e\} \Rightarrow G}$ разрешима ступени 2. 
+                \item ${G = \symmetrical_4 \Rightarrow G' = \alternating_4 \Rightarrow G^{(2)} = \alternating_4' = \quaternary \Rightarrow G^{(3)} = \quaternary' = \{e\} \Rightarrow G}$ разрешима ступени 3. 
+                \item ${G = \symmetrical_n, \ n \geqslant 5 \Rightarrow G' = \alternating_n \Rightarrow \forall k \geqslant 2\suchthat G^{(k)} = \alternating_k \Rightarrow G}$ неразрешима. Аналогично для ${G = \alternating_n, \ n \geqslant 5.}$ 
+                \item ${G = \GL_n(F) \ (\textrm{или }\SL_n(F)),}$ ${|F| \geqslant 4 \Rightarrow G' = \SL_n(F) \Rightarrow \forall k \geqslant 2\suchthat G^{(k)} = \SL_n(F) \Rightarrow}$ неразрешима. 
+            \end{enumerate}
+        \end{exmpls}
+        \newpage
+        \begin{statement}
+            Пусть в группе $G$ существует ряд подгрупп ${G \supseteq G_1 \supseteq \ldots \supseteq G_s = \{e\}, \ G_{i+1} \lhd G_i,}$ ${\sfrac{G_i}{G_{i+1}}}$ абелева $\forall i$. Тогда $G$ разрешима.
+        \end{statement}
+        \begin{proof}
+            Достаточно доказать, что ${\forall i\suchthat G^{(0)} \subseteq G_i.}$ Воспользуемся индукцией по $n$.
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${i = 0 \Rightarrow G^{(0)} = G = G_0.}$
+                \item Пусть ${G^{(i)} \subseteq G_i.}$ Проверим, что ${G^{(i + 1)} \subseteq G_{i+1}.}$ Так как, по предположению индукции, ${\sfrac{G_i}{G_{i+1}}}$ абелева, то ${G'_i \subseteq G_{i+1}.}$ Но ${G^{(i+1)} = (G^{(i)})' \subseteq G'_i \subseteq G_{i+1}.}$ \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{lemma}
+        \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Подгруппа разрешимой группы разрешима. 
+                \item Факторгруппа разрешимой группы разрешима. 
+            \end{enumerate}
+        \end{lemma}
+        \begin{proof}
+        \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Пусть ${H<G,}$ тогда ${\forall i\suchthat H' \subseteq G', \ldots, H^{(i)} \subseteq G^{(i)}.}$ Поскольку ${\exists k \in \naturals \suchthat G^{(k)} = \{e\},}$ то ${H^{(k)} = \{e\}.}$
+                \item Пусть ${H \lhd G,}$ ${F = G/N.}$ Для эпиморфизма ${\phi : G \twoheadrightarrow F, \ g \mapsto gN}$ имеем: ${F' = \phi(G'), \ldots, F^{(i)} = \phi(G^{(i)}) \ \forall i.}$ Поскольку ${\exists k \in \naturals \suchthat G^{(k)} = \{e\},}$ то ${F^{(k)} = \phi(G^{(k)}) = \phi(\{e\}) = \{eN\} \Rightarrow F}$ разрешима.
+            \end{enumerate}
+        \end{proof}
+        \begin{statement}
+            Пусть $G$~--- группа, ${N \lhd G,}$ $N$ разрешима. Тогда $G$ разрешима.
+        \end{statement}
+        \begin{proof}
+            По предположению, ${\exists k \in \naturals{:} \ (G/K)^{(k)} = \{eN\}.}$
+            \begin{equation*}
+                [gN, hN] = (gN)(hN)(gN)^{-1}(hN)^{-1} = ghg^{-1}h^{-1}N
+            \end{equation*}
+            Рассмотрим проекцию ${\pi : G \rightarrow G/N, \ g \mapsto gN.}$ Тогда
+            \begin{equation*}
+                \pi(G') = (G/N)', \ldots, \pi(G^{(k)}) = (G/N)^{(k)} = \{eN\} \Rightarrow G^{(k)} \subseteq N.
+            \end{equation*}
+            С другой стороны, так как $N$ разрешима, ${\exists s \in \naturals{:} \ N^{(s)} = \{e\}}$ $\Rightarrow$ ${{(G^{(k)})}^{(s)} = G^{(k+s)} \subseteq N^{(s)} = \{e\}} \Rightarrow G$ разрешима. \qedhere
+        \end{proof}
         \newpage
         \section{Простые группы}
         \setcounter{definition}{0}
-
+        \begin{definition}
+            Группа называется \textit{простой}, если в ней нет нетривиальных нормальных подгрупп.
+        \end{definition}
+        \begin{theorem}
+            Пусть $G$~--- конечная группа, тогда существует ряд подгрупп ${G > H_1 > H_2 > \ldots > H_k = \{e\},}$ такой что ${H_{i + 1} \lhd H_i, \ \sfrac{H_i}{H_{i+1}}}$ проста ${\forall i = \overline{1,k}.}$
+        \end{theorem}
+        \begin{definition}
+            Пусть $G$~--- группа, ${N \lhd G,}$ ${F = G/N.}$ Тогда говорят, что $G$~--- \textit{расширение} группы $N$ с помощью подгруппы $F$.
+        \end{definition}
+        \begin{remark}
+            Имеет место цепочка гомоморфизмов:
+            \begin{equation*}
+                N \xhookrightarrow{i} G \xlongrightarrow{\pi} G/N = F.
+            \end{equation*}
+        \end{remark}
+        \begin{consequence*}
+            Любая конечная группа получается цепочкой расширений при помощи простых групп.
+        \end{consequence*}
+        \begin{exmpls}
+            Не всегда тем, что $G$~--- расширение $N$ с помощью $F$, $G$ определяется однозначно.ч Например, пусть ${N \cong \integers_3}$, ${F \cong \integers_2}$. Тогда: 
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${N = \integers_3, \ F = \integers_2 \Rightarrow G = \integers_3 \oplus \integers_2}$~--- абелева.
+                \item ${N = \alternating_3 \cong \integers_3, \ F = \symmetrical_3/\alternating_3 \cong \integers_2 \Rightarrow G = \symmetrical_3}$~--- неабелева.
+            \end{enumerate}
+        \end{exmpls}
+        \begin{remark}
+            Абелева группа $A$ проста ${\Leftrightarrow A \cong \integers_p,}$ где $p$~--- простое.
+        \end{remark}
+         \begin{theorem}
+             Группа $\alternating_n$ проста при ${n \geqslant 5.}$
+         \end{theorem}
+         \begin{theorem*}[\textbf{о классификации конечных простых групп}]
+             Любая конечная простая группа изоморфна либо одной из 26 спорадических групп, либо принадлежит одному из следующих трёх семейств:
+             \begin{itemize}
+             \setlength\itemsep{0.1em}
+                 \item ${\integers_p,}$ $p$~--- простое;
+                 \item ${\alternating_n,}$ ${n \geqslant 5;}$
+                 \item простые группы типа Ли.
+             \end{itemize}
+         \end{theorem*}
         \newpage
         \section{Действия групп. Формула Бёрнсайда}
         \setcounter{definition}{0}
@@ -1385,8 +1495,8 @@ citecolor=black, menucolor=black, filecolor=black,
             Пусть $G$~--- группа, $X$~--- произвольное множество. \textit{Действием} группы $G$ на множестве $X$ называется гомоморфизм ${\alpha : G \rightarrow S(X),}$ где $S(X)$~--- группа биекций на $X$. Альтернативное определение заключается в том, что действие~--- отображение ${G \times X \rightarrow X, \ (g,x) \mapsto gx,}$ удовлетворяющее условиям:
             \begin{enumerate}
                 \setlength\itemsep{0.1em}
-                \item $\forall x \in X{:} \  ex = x;$
-                \item $\forall g,h \in G \ \forall x \in X{:} \ g(hx) = (gh)x.$
+                \item $\forall x \in X\suchthat  ex = x;$
+                \item $\forall g,h \in G \ \forall x \in X\suchthat g(hx) = (gh)x.$
             \end{enumerate}
             Действие $G$ на $X$ обозначается $G \curvearrowright X$ или $G : X$.
         \end{definition}
@@ -1412,15 +1522,15 @@ citecolor=black, menucolor=black, filecolor=black,
             Действие
             \begin{itemize}
                 \setlength\itemsep{0.1em}
-                \item \textit{транзитивно}, если $\forall x,y \in X \ \exists g \in G{:} \ y = gx$ (т.е. $X$ состоит из одной орбиты);
-                \item \textit{свободно}, если $\exists x \in X{:} \ gx = x$ влечёт $St(x) = \{e\};$
-                \item \textit{эффективно}, если ${\forall x \in X{:} \ gx = x}$ влечёт ${g = e}$ (т.е. действие инъективно).
+                \item \textit{транзитивно}, если $\forall x,y \in X \ \exists g \in G\suchthat y = gx$ (т.е. $X$ состоит из одной орбиты);
+                \item \textit{свободно}, если $\exists x \in X\suchthat gx = x$ влечёт $St(x) = \{e\};$
+                \item \textit{эффективно}, если ${\forall x \in X\suchthat gx = x}$ влечёт ${g = e}$ (т.е. действие инъективно).
             \end{itemize}
         \end{definition}
         \begin{definition}
             \textit{Ядром неэффективности действия} $a$ назывется множество 
             \begin{equation*}
-                \ker \alpha \deq \{g \in G \ | \ \forall x \in X{:} \ gx = x\}.
+                \ker \alpha \deq \{g \in G \ | \ \forall x \in X\suchthat gx = x\}.
             \end{equation*}
         \end{definition}
         \begin{remark}
@@ -1456,7 +1566,7 @@ citecolor=black, menucolor=black, filecolor=black,
             \end{enumerate}
         \end{exmpls}
         \begin{definition}
-            Подгруппы $H_1, H_2 < G$ называются \textit{сопряжёнными}, если $\exists g \in G{:} \ gH_1g^{-1} = H_2.$
+            Подгруппы $H_1, H_2 < G$ называются \textit{сопряжёнными}, если $\exists g \in G\suchthat gH_1g^{-1} = H_2.$
         \end{definition}
         \begin{theorem*}[\textbf{формула Бёрнсайда}]
             Пусть $G$~--- конечная группа, $X$~--- конечное множество, ${G \curvearrowright X.}$ Тогда число орбит действия равно
@@ -1505,7 +1615,7 @@ citecolor=black, menucolor=black, filecolor=black,
             Пусть $G$~--- некоммутативная группа, тогда ${G/Z(G)}$ не циклическая.
         \end{lemma}
         \begin{proof}
-            Предположим, что ${G/Z(G)}$~--- циклическая. Тогда ${\exists a \in G{:} \ G/Z(G) = \langle aZ(G) \rangle.}$ Отсюда ${\forall g \in G{:} \ g = a^kz,}$ где ${k \in \integers, \ z \in Z(G).}$ Но ${(a^{k_1}z_1)(a^{k_2}z_2) = a^{k_1+k_2}z_1z_2.}$ Получаем противоречие с некоммутативностью группы.
+            Предположим, что ${G/Z(G)}$~--- циклическая. Тогда ${\exists a \in G\suchthat G/Z(G) = \langle aZ(G) \rangle.}$ Отсюда ${\forall g \in G\suchthat g = a^kz,}$ где ${k \in \integers, \ z \in Z(G).}$ Но ${(a^{k_1}z_1)(a^{k_2}z_2) = a^{k_1+k_2}z_1z_2.}$ Получаем противоречие с некоммутативностью группы.
         \end{proof}
         \newpage
         \begin{theorem}
@@ -1574,14 +1684,14 @@ citecolor=black, menucolor=black, filecolor=black,
 			\setlength\itemsep{0.1em}
 			\item $(R, +)$ ~--- абелева группа;
 			\item $(R, \cdot)$~--- полугруппа;
-			\item $\forall a, b, c \in R{:} \ a(b + c) = ab + ac$ и $(a + b)c = ac + bc.$
+			\item $\forall a, b, c \in R\suchthat a(b + c) = ab + ac$ и $(a + b)c = ac + bc.$
 		\end{enumerate} 
 	\end{definition}
 	\begin{remark}
 		\
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
-			\item $\forall a \in R{:} \ 0 \cdot a = a \cdot 0 = 0;$
+			\item $\forall a \in R\suchthat 0 \cdot a = a \cdot 0 = 0;$
 			\item Если $|R| > 1,$ то $1 \neq 0.$ 
 		\end{enumerate}
 	\end{remark}
@@ -1603,27 +1713,27 @@ citecolor=black, menucolor=black, filecolor=black,
 			\item Кольцо многочленов $\real[x]$ от переменной $x$ с коэффициентами из $\real;$
 			\item Кольцо функций $F(M, \real)$ из множества $M$ в $\real$ с поэлементными
 			операциями сложения и умножения: \n
-			$\forall m \in M{:} \ (f_1 + f_2)(m) = f_1(m) + f_2(m), \quad (f_1 \cdot f_2)(m) = f_1(m) \cdot f_2(m).$
+			$\forall m \in M\suchthat (f_1 + f_2)(m) = f_1(m) + f_2(m), \quad (f_1 \cdot f_2)(m) = f_1(m) \cdot f_2(m).$
 		\end{enumerate}
 	\end{exmpls}
         \begin{comment}
         \begin{definition}
             Кольцо $R$ называется \textit{ассоциативным}, если 
 		\begin{equation*}
-			\forall a, b, c \in R{:} \ (ab)c = a(bc).
+			\forall a, b, c \in R\suchthat (ab)c = a(bc).
 		\end{equation*}
 	\end{definition}
         \end{comment}
 	\begin{definition}
 		Кольцо $R$ называется \textit{коммутативным}, если 
 		\begin{equation*}
-			\forall a, b \in R{:} \ ab = ba.
+			\forall a, b \in R\suchthat ab = ba.
 		\end{equation*}
 	\end{definition}
         \begin{definition}
             Говорят, что кольцо $R$ \textit{содержит единицу}, если
             \begin{equation*}
-                \exists 1 \in R \ \forall a \in R{:} \ 1 \times a = a \times 1 = a.
+                \exists 1 \in R \ \forall a \in R\suchthat 1 \times a = a \times 1 = a.
             \end{equation*}
         \end{definition}
 	\begin{definition}
@@ -1687,7 +1797,7 @@ citecolor=black, menucolor=black, filecolor=black,
             Любая конечная подгруппа мультипликативной группы поля является циклической.
         \end{statement}
         \begin{proof}
-            Пусть $F$~--- поле, ${A \leqslant F^\times}$~--- конечная подгруппа, ${m = \exp(A).}$ Тогда ${\forall a \in A{:} \ a^m = 1.}$ Но уравнение ${x^m - 1 = 0}$ имеет над полем $\leqslant m$ корней $\Rightarrow$ ${|A| \leqslant m}$. С другой стороны, ${|A| \divby m \Rightarrow}$ ${m = |A| \Leftrightarrow A}$~--- циклическая.
+            Пусть $F$~--- поле, ${A \leqslant F^\times}$~--- конечная подгруппа, ${m = \exp(A).}$ Тогда ${\forall a \in A\suchthat a^m = 1.}$ Но уравнение ${x^m - 1 = 0}$ имеет над полем $\leqslant m$ корней $\Rightarrow$ ${|A| \leqslant m}$. С другой стороны, ${|A| \divby m \Rightarrow}$ ${m = |A| \Leftrightarrow A}$~--- циклическая.
         \end{proof}
         \begin{consequence*}
             Если поле $F$ конечно, то $F^\times$~--- циклическая.
@@ -1704,7 +1814,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{enumerate}
 			\setlength\itemsep{0.1em}
 			\item $I$~--- подгруппа по сложению;
-			\item $\forall a \in I \ \forall r \in R{:} \ ar \in I, ra \in I.$
+			\item $\forall a \in I \ \forall r \in R\suchthat ar \in I, ra \in I.$
 		\end{enumerate} \n
 		\textit{Несобственными} или \textit{тривиальными} идеалами являются $\{0\}$ и $R$. Остальные называются \textit{собственными}.
 	\end{definition}
@@ -1747,7 +1857,7 @@ citecolor=black, menucolor=black, filecolor=black,
 	\begin{definition}
 		Если $R, S$~--- два кольца, то отображение ${\phi: R \rightarrow S}$ называется \textit{гомоморфизмом колец,} если
 		\begin{equation*}
-			\forall a,b \in R{:} \ \phi(a + b) = \phi(a) + \phi(b), \ \phi(ab) = \phi(a) \cdot \phi(b).
+			\forall a,b \in R\suchthat \phi(a + b) = \phi(a) + \phi(b), \ \phi(ab) = \phi(a) \cdot \phi(b).
 		\end{equation*} \n
 		Биективный гомоморфизм называется \textit{изоморфизмом}.\n
 		${\ker \phi = \{r \in R \ | \ \phi(r) = 0\} \subseteq R;}$ \n
@@ -1766,7 +1876,7 @@ citecolor=black, menucolor=black, filecolor=black,
 		\begin{enumerate}
 			\setlength\itemsep{0.25em}
 			\item $\ker \phi$ является подгруппой в $R$ по сложению, т.к. $\phi$~--- гомоморфизм \n
-			абелевых групп. Покажем, что \n ${\forall a \in \ker \phi \ \forall r \in R{:} \ ra \in \ker \phi, ar \in \ker \phi.}$ 
+			абелевых групп. Покажем, что \n ${\forall a \in \ker \phi \ \forall r \in R\suchthat ra \in \ker \phi, ar \in \ker \phi.}$ 
 			\begin{equation*}
 				\phi(ra) = \phi(r)\phi(a) = \phi(r)0 = 0 \Longrightarrow ra \in \ker \phi, \text{ аналогично для } ar \in \ker \phi.
 			\end{equation*}
