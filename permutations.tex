@@ -1,0 +1,123 @@
+\newpage
+	\section{Группы перестановок}
+	\setcounter{definition}{0}
+	\begin{definition}
+		Пусть задано множество ${X = \{1, 2, \ldots, n\}, \ n \in \naturals}$. Множество всех возможных биекций ${X \leftrightarrow X}$ с операцией композиции образует группу $\symmetrical_n$, называемую \textit{симметрической группой} или \textit{группой перестановок}.
+	\end{definition}
+	\begin{statement}
+		\begin{equation*}
+			|\symmetrical_n| = n!
+		\end{equation*}
+	\end{statement}
+	\begin{proof}
+		Символ 1 можно подходящей перестановкой $\sigma$ перевести в любой другой символ ${\sigma(1)}$, для чего существует в точности $n$ различных возможностей. Но зафиксировав ${\sigma(1)}$, в качестве ${\sigma(2)}$ можно брать лишь один из оставшихся ${n - 1}$ символов и т.д. Всего возможностей выбора ${\sigma(1), \sigma(2), \ldots, \sigma(n)}$, значит и всех перестановок будет ${n(n - 1) \ldots 2 \cdot 1 = n!.}$
+	\end{proof}
+	\begin{statement}
+		Любая перестановка может быть представлена в виде композиции независимых циклов единственным образом с точностью до порядка множителей.
+	\end{statement}
+	\begin{statement}
+		Независимые циклы коммутируют.
+	\end{statement}
+        \begin{statement}
+		Порядок цикла равен его длине.
+	\end{statement}
+	\begin{statement}
+		Порядок перестановки равен $\NOK$ длин циклов в его цикловом разложении.
+	\end{statement}
+        \begin{definition}
+		Цикл длины 2 называется \textit{транспозицией}.
+	\end{definition}
+	\begin{lemma}
+		Любая перестановка является произведением транспозиций.
+	\end{lemma}
+        \begin{proof}
+            Достаточно доказать это для циклов непосредственной проверкой:
+            \begin{equation*}
+                (i_1 i_2 i_3 \ldots i_k) = (i_1 i_2)(i_2 i_3)\ldots(i_{k-1} i_k). \qedhere
+            \end{equation*}
+        \end{proof}
+        \begin{definition}
+        \textit{Инверсией} в перестановке называется пара индексов $k < s$, таких что $i_k > i_s$.
+        \end{definition}
+        \begin{definition}
+            \textit{Чётностью} перестановки называется чётность числа инверсий в ней.
+        \end{definition}
+        \begin{lemma}
+            Пусть $(ij)$~--- произвольная транспозиция, тогда ${\forall \sigma \in \symmetrical_n}$ чётности перестановок $\sigma$ и $\sigma (ij)$ различны.
+        \end{lemma}
+        \begin{proof}
+            Рассмотрим два случая:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item $(ij) = (i \ i+1)$~--- число инверсий изменилось на одну, чётность изменилась.
+                \item $(ij)$~--- любая, тогда
+                \begin{equation}
+                    (ij) = (j-1 \ j)\ldots(i+1 \ i+2)(i \ i+1)(i+1 \ i+2)\ldots(j-1 \ j),
+                \end{equation}
+                что подтверждается непосредственной проверкой. \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{consequence*}
+            Любая перестановка является композицией произведением соседних элементов.
+        \end{consequence*}
+        \begin{proof}
+            В разложении (1) $2(j - i - 1) + 1$ сомножителей, т.е, нечётное число. При перемене чётности нечётное число раз, она изменится, что доказывает следствие.
+        \end{proof}
+        \begin{theorem}
+            В $\symmetrical_n$ число чётных перестановок равно числу нечётных перестановок.
+        \end{theorem}
+        \begin{proof}
+            Пусть $\sigma_1,\ldots,\sigma_k$~--- все чётные перестановки длины $n$, тогда $\sigma_1(12),\ldots,\sigma_k(12)$~--- нечётные перестановки. Если $\sigma$~--- чётная, то $\sigma (12)$~--- нечётная $\Rightarrow \ {\sigma = (\sigma (12))(12) = \sigma (12)^2 = \sigma \ \id = \sigma} \Rightarrow$ среди $\sigma_1,\ldots,\sigma_k$ встретятся все нечётные перестановки. Значит, мы установили биекцию между множеством чётных и множеством нечётных перестановок $\Rightarrow$ эти множества равномощны.
+        \end{proof}
+        \begin{definition}
+            \textit{Знак} перестановки $\mathrm{sgn}(\sigma) \deq
+                \begin{cases*}
+				1,  &$\sigma$~--- чётная \\
+				-1,  &$\sigma$~--- нечётная.
+			\end{cases*}$
+        \end{definition}
+        \newpage
+        \begin{theorem}
+            \begin{equation*}
+                \forall \sigma, \tau \in \symmetrical_n\suchthat \mathrm{sgn}(\sigma \tau) = \mathrm{sgn}(\sigma) \, \mathrm{sgn}(\tau).
+            \end{equation*}
+        \end{theorem}
+        \begin{proof}
+            Пусть $\sigma = \sigma_1,\ldots,\sigma_k, \ \tau = \tau_1,\ldots,\tau_s$~--- произведение транспозиций. Тогда $\mathrm{sgn}(\sigma) = (-1)^k, \ \mathrm{sgn}(\tau) = (-1)^s.$\\
+            $\sigma \tau = \sigma_1,\ldots,\sigma_k \tau_1,\ldots,\tau_s \Rightarrow \mathrm{sgn}(\sigma \tau) = (-1)^{k + s}.$
+        \end{proof}
+        \begin{consequence*}
+            \begin{equation*}
+                \mathrm{sgn}(\sigma) = \mathrm{sgn}(\sigma^{-1}).
+            \end{equation*}
+        \end{consequence*}
+        \begin{proof}
+            \begin{equation*}
+                 \mathrm{sgn}(\sigma) \, \mathrm{sgn}(\sigma^{-1}) = \mathrm{sgn}(\sigma \sigma^{-1}) = \mathrm{sgn}(\id) = 1. \qedhere
+            \end{equation*}
+        \end{proof}
+        
+	%\begin{definition}
+		%\textit{Цикловой структурой} перестановки ${\pi \in \symmetrical_n}$ называется упорядоченный набор чисел ${\CS(\pi) = (c_1, c_2, \ldots, c_n),}$ где $c_i$~--- количество циклов длины $i$ в разложении $\pi.$%
+	%\end{definition}
+        
+	\begin{exmpl*}
+		Пусть $G = \symmetrical_3, \ H = \langle(12)\rangle = \{\id, (12)\}.$ Найдём все левые и правые смежные классы $G$ по $H$ (произвольный элемент обозначим $a$):
+		\begin{center}
+			\begin{tabular}{c|c|c}
+				$a$ & $aH$ & $Ha$\\
+				\hline
+				$\id$ & $aH$ & $Ha$ \\
+				\hline
+				$(12)$ & $\{(12), \id\}$ & $\{(12), \id\}$ \\
+				\hline
+				$(13)$ & $\{(13), (123)\}$ & $\{(13), (132)\}$ \\
+				\hline
+				$(23)$ & $\{(23), (132)\}$ & $\{(23), (123)\}$ \\
+				\hline
+				$(123)$ & $\{(123), (13)\}$ & $\{(123), (23)\}$ \\
+				\hline
+				$(132)$ & $\{(132), (23)\}$ & $\{(132), (13)\}$
+			\end{tabular}
+		\end{center} \n
+	\end{exmpl*}

@@ -1,0 +1,52 @@
+\newpage
+	\section{Прямое произведение групп}
+	\setcounter{definition}{0}
+	\begin{definition}
+		\textit{Прямым произведением групп} $G_1, \ldots, G_m$ называется группа
+		\begin{equation*}
+			G_1 \times \ldots \times G_m \deq \{(g_1, \ldots, g_m) \ | \ g_1 \in G_1, \ldots, g_m \in G_m\}
+		\end{equation*}
+		с операцией $(g_1, \ldots, g_m)(g'_1, \ldots, g'_m) = (g_1g'_1, \ldots g_mg'_m).$ \n
+		Ясно, что эта операция ассоциативна, обладает нейтральным элементом $(e_{G_1}, \ldots, e_{G_m})$ и для каждого элемента $(g_1, \ldots, g_m)$ есть обратный элемент $(g^{-1}_1, \ldots, g^{-1}_1).$
+	\end{definition}
+	\begin{remark}
+		Группа $G_1 \times \ldots \times G_m$ коммутативна тогда и только тогда, когда коммутативна каждая из групп $G_1, \ldots, G_m.$
+	\end{remark}
+	\begin{remark}
+		Если все группы ${G_1, \ldots, G_m}$ конечны, то ${|G_1 \times \ldots \times G_m| = |G_1| \ldots |G_m|.}$
+	\end{remark}
+	\begin{definition}
+		Говорят, что группа $G$ \textit{раскладывается в прямое произведение} своих подгрупп ${H_1, \ldots, H_m}$, если отображение
+		${H_1 \times \ldots \times H_m \rightarrow G, \quad (h_1, \ldots, h_m) \mapsto h_1 \ldots h_m}$ является изоморфизмом.
+	\end{definition}
+	\begin{theorem}
+		Пусть ${n = pq}$~--- разложение натурального числа $n$ на два взаимно простых сомножителя. Тогда имеет место изоморфизм групп
+		\begin{equation*}
+			\integers_n \cong \integers_p \times \integers_q.
+		\end{equation*}
+	\end{theorem}
+	\newpage
+	\begin{proof}
+		Рассмотрим отображение
+		\begin{equation*}
+			\phi: \integers_n \rightarrow \integers_p \times \integers_q, \quad \phi(a \ \mod n) = (a \ \mod p, \, a \ \mod q).
+		\end{equation*}
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Корректность следует из того, что $n \divby p, \ n \divby q.$
+			\item $\phi$~--- гомоморфизм, т.к.
+			\begin{equation*}
+				\phi((a + b) \ \mod n) = \phi(a \ \mod n) + \phi(b \ \mod n).
+			\end{equation*}
+			\item $\phi$ инъективен: \n
+			Если ${\phi(a \ \mod n) =(0, \, 0),}$ то ${a \divby p, \ a \divby q.}$ Но так как ${\NOD(p, \, q) = 1,}$ \n
+			получаем, что $a \, | \, n.$ Тогда ${a \equiv 0 \ (\mod n),}$ т.е. ${\ker \phi = \{0\}.}$
+			\item $\phi$ сюръективен, т.к. ${|\integers_n| = n = p \cdot q = |\integers_p \times \integers_q|.}$ \qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{consequence*}
+		Пусть ${n \geqslant 2}$~--- натуральное число и ${n = p^{k_1}_1 \ldots p^{k_s}_s}$~--- его разложение в произведение простых множителей ${(p_i \neq p_j \text{ при } i \neq j).}$ Тогда имеет место изоморфизм групп
+		\begin{equation*}
+			\integers_n \cong \integers_{p^{k_1}_1} \times \ldots \times \integers_{p^{k_s}_s}.
+		\end{equation*}
+	\end{consequence*}

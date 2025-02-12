@@ -1,0 +1,106 @@
+\newpage	
+	\section{Гомоморфизмы групп. Четверная группа Клейна}
+	\setcounter{definition}{0}
+	\begin{definition}
+		Пусть $(G, \circ)$ и $( F, *)$~--- группы.
+		\n
+		Отображение $\phi: G \rightarrow F$ называется \textit{гомоморфизмом}, если
+		\begin{equation*}
+			\forall g_1, g_2 \in G\suchthat \phi(g_1 \circ g_2) = \phi(g_1) * \phi(g_2).
+		\end{equation*}
+	\end{definition}
+	\begin{remark}
+		Пусть ${\phi: G \rightarrow F}$~--- гомоморфизм групп, и пусть ${e_G, \ e_F}$~--- нейтральные элементы групп $G$ и $F$ соответственно, тогда:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $\phi(e_G) = e_F$
+			\item $\forall g \in G\suchthat \phi(g^{-1}) = \phi(g)^{-1}$
+		\end{enumerate}
+	\end{remark}
+	\begin{proof}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $\phi(e_G) = \phi(e_Ge_G) = \phi(e_G)\phi(e_G).$ \n
+			Домножив обе крайние части равенства на $\phi(e_G)^{-1},$ получим
+			${e_F = \phi(e_G).}$
+			\item $\phi(g * g^{-1}) = e_F = \phi(g)\phi(g^{-1}).$ \n
+			Умножив обе части на $\phi(g)^{-1},$ получаем необходимое. \qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{definition}
+		Гомоморфизм групп ${\phi: G \rightarrow F}$ называется 
+		\begin{itemize}
+			\item [~--] \textit{эндоморфизмом}, если $F = G$;
+			\item [~--] \textit{мономорфизмом}, если $\phi$ инъективно;
+			\item [~--] \textit{эпиморфизмом}, если $\phi$ сюръективно;
+			\item [~--] \textit{изоморфизмом}, если $\phi$ биективно;
+			\item [~--] \textit{автоморфизмом}, если $\phi$ является эндоморфизмом и изоморфизмом.
+		\end{itemize} \n
+		Группы $G$ и $F$ называются \textit{изоморфными}, если между ними существует изоморфизм. Обозначается: $G \cong F.$
+	\end{definition}
+	\newpage
+	\begin{exmpl*}
+		\textit{Четверная группа Клейна}~--- ациклическая коммутативная группа четвёртого порядка, задающаяся следующей таблицей Кэли: \n
+		
+		\begin{center}
+			\begin{tabular}{c |c c c c}
+				$\cdot$ & $e$ & $a$ & $b$ & $ab$\\
+				\hline
+				$e$ & $e$ & $a$ & $b$ & $ab$\\
+				
+				$a$ & $a$ & $e$ & $ab$ & $b$\\
+				
+				$b$ & $b$ & $ab$ & $e$ & $a$\\
+				
+				$ab$ & $ab$ & $b$ & $a$ & $e$\\
+			\end{tabular}
+		\end{center} \n
+		Порядок каждого элемента, отличного от нейтрального, равен 2. \n
+		Обозначается $V$ или $\quaternary$ (от нем. \textit{Vierergruppe} — четверная группа). \n
+		Любая группа четвёртого порядка изоморфна либо циклической группе, либо четверной группе Клейна, наименьшей по порядку нециклической группе. Симметрическая группа $\symmetrical_4$ имеет лишь две нетривиальные нормальные подгруппы~--- знакопеременную группу $\alternating_4$ и четверную группу Клейна $\quaternary$, состоящую из перестановок ${\mathrm{id}, (12)(34), (13)(24), (14)(23).}$ \n
+		Несколько примеров изоморфных ей групп:
+		\begin{itemize}
+			\setlength\itemsep{0.1em}
+			\item[~--] \textit{прямая сумма} $\integers_2 \oplus \integers_2$;
+			\item[~--] диэдральная группа $\dihedral_2;$
+			\item[~--] множество ${\{0, 1, 2, 3\}}$ с операцией XOR;
+			\item[~--] группа симметрий ромба $ABCD$ в трёхмерном пространстве, состоящая из 4 преобразований: ${\id, \Rot_\pi, \Sym_{AC}, \Sym_{BD}}$;
+			\item[~--] группа поворотов тетраэдра на угол $\pi$ вокруг всех трёх рёберных медиан (вместе с тождественным поворотом).
+		\end{itemize}
+	\end{exmpl*}
+	\newpage
+	\begin{definition}
+		\textit{Ядром} гомоморфизма ${\phi: G \rightarrow F}$ называется множество всех элементов $G$, которые отображаются в нейтральный элемент $F$, т.е.
+		\begin{equation*}
+			\ker \phi \deq \{g \in G \ | \ \phi(g) = e_F\}.
+		\end{equation*} \n
+		\textit{Образ} $\phi$ определяется как
+		\begin{equation*}
+			\im \phi \deq \phi(G) = \{f \in F \ | \ \exists g \in G \suchthat \phi(g) = f\}.
+		\end{equation*}
+	\end{definition}
+	Очевидно, что $\ker \phi < G$ и Im$\, \phi < F.$
+	\begin{lemma}
+		Гомоморфизм групп ${\phi: G \rightarrow F}$ инъективен тогда и только тогда, когда  $\ker \phi = \{e_G\}$.
+	\end{lemma}
+	\begin{proof}
+		Ясно, что если $\phi$ инъективен, то $\ker \phi = \{e_G\}.$ \n
+		Обратно, пусть ${g_1, g_2 \in G}$ и ${\phi(g_1) = \phi(g_2).}$ Тогда ${g^{-1}_1g_2 \in \ker \phi,}$ поскольку ${\phi(g^{-1}_1g_2) = \phi(g^{-1}_1) \phi(g_2) = \phi(g_1)^{-1} \phi(g_2) = e_F.}$ Отсюда $g^{-1}_1g_2 = e_G$ и $g_1 = g_2.$
+	\end{proof}
+	\begin{consequence*}
+		Гомоморфизм групп ${\phi: G \rightarrow F}$ является изоморфизмом тогда и только тогда, когда ${\ker \phi = \{e_G\}}$ и ${\im \phi = F.}$
+	\end{consequence*}
+	\begin{statement}
+		Пусть ${\phi: G \rightarrow F}$ гомоморфизм групп, тогда ${\ker \phi \lhd G.}$
+	\end{statement}
+	\begin{proof}
+		Достаточно проверить, что
+		\begin{equation*}
+			\forall g \in G \ \ \forall h \in \ker \phi\suchthat g^{-1}hg \in \ker \phi.
+		\end{equation*}
+		Это следует из цепочки равенств:
+		\begin{equation*}
+			\phi(g^{-1}_1hg) = \phi(g^{-1}) \phi(h) \phi(g) = \phi(g^{-1}) e_F \phi(g) = \phi(g^{-1}) \phi(g) = \phi(g)^{-1} \phi(g) = e_F. \qedhere
+		\end{equation*}
+	\end{proof}

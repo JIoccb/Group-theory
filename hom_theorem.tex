@@ -1,0 +1,56 @@
+\newpage
+	\section{Теорема о гомоморфизме. Классификация циклических групп}
+	\begin{theorem*}[\textbf{о гомоморфизме}]
+		Пусть ${\phi: G \rightarrow F}$~--- гомоморфизм групп, тогда
+		\begin{equation*}
+			\im \phi \cong G/ \ker \phi.
+		\end{equation*}
+	\end{theorem*}
+	\begin{proof}
+		Рассмотрим отображение ${\psi: G/ \ker \phi \rightarrow \im \phi,}$ заданное формулой ${\psi(g \ker \phi) = \phi(g){:}}$ 
+        \[
+          \begin{tikzcd}
+            G \arrow{r}{\pi} \arrow[swap]{d}{\phi} & G/\ker \phi \arrow{ld}{\psi} \\
+             \im\phi
+          \end{tikzcd}
+        \]\n
+		Достаточно проверить определение изоморфизма для $\psi.$ Для этого покажем, что заданное отображение корректно определено, биективно и гомоморфно.
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Проверим корректность $\psi{:}$ \n
+			$\exists h_1, h_2 \in \ker \phi \suchthat g_1 \ker \phi = g_2 \ker \phi \Rightarrow g_1 h_1 = g_2 h_2;$ \n
+			$\psi(g_1 \ker \phi) = \phi(g_1) = \phi(g_1 h_1) = \phi(g_2 h_2) = \phi(g_2) = \psi(g_2 \ker \phi).$
+			\item Докажем, что $\psi$~--- гомоморфизм: \n
+			${\psi((g_1 \ker \phi)(g_2 \ker \phi)) = \psi ((g_1g_2) \ker \phi) = \phi(g_1 g_2) = \phi(g_1) \phi(g_2) =}$ \n
+			${=\psi(g_1 \ker \phi) \psi(g_2 \ker \phi).}$
+			\item Сюръективность видна из построения.
+			\item Инъективность: \n
+			${\psi(g_1 \ker \phi) = \psi(g_2 \ker \phi) \Rightarrow \phi(g_1) = \phi(g_2) \Rightarrow \phi(g_1) \phi(g_2)^{-1} = e_F \Rightarrow}$ \n $\Rightarrow \phi(g_1g_2^{-1}) = e_F \Rightarrow g_1g_2^{-1} \in \ker \phi \Rightarrow g_1 \ker \phi = g_2 \ker \phi. \qedhere$
+		\end{enumerate} 
+	\end{proof}
+        \newpage
+	\begin{exmpls}
+        \
+        \begin{enumerate}
+            \setlength\itemsep{0.1em}
+            \item Пусть ${G = \real ^ +}$ и ${H = \integers ^ +}$. Рассмотрим группу ${F = \complex^{\times} \, \backslash \, \{0\}}$ и гомоморфизм ${\phi: G \rightarrow F}, {\quad g \mapsto e^{2\pi i g} = \cos(2\pi g) + i \sin(2\pi g).}$
+		Тогда ${\ker \phi = H}$ и факторгруппа $G/H$ изоморфна окружности $S^1$, рассматриваемой как подгруппа в $F$, состоящей из комплексных чисел с модулем равным 1. Если положить ${G = (\real^2, +)}$, ${H = (\integers^2, +)}$ и ${\phi : (g, g') \mapsto (e^{2\pi i g}, e^{2\pi i g'})}$, то ${G/H \cong S^1 \times S^1 \cong \mathbb{T}^2}$~--- двумерный тор.
+            \item Пусть ${G = \GL_n(\real),}$ ${H = \SL_n(\real)}.$ Построим гомоморфизм ${\phi : \GL_n(\real) \rightarrow \real^{\times}, \ A \mapsto \det A}$ ${\Rightarrow \ker \phi = \SL_n(\real).}$
+        \end{enumerate}
+	\end{exmpls}
+	\begin{theorem*}[\textbf{о классификации циклических групп}]
+		Пусть $G$~--- циклическая группа.
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Если $|G| = \infty$, то $G \cong \integers ^ +.$
+			\item Если $|G| = n < \infty$, то $G \cong \integers_n ^ +$.
+		\end{enumerate}
+	\end{theorem*}
+	\begin{proof}
+		Пусть ${G = \langle g \rangle.}$ Рассмотрим отображение $\phi: \integers \rightarrow G, \quad k \mapsto g^k.$
+		\begin{equation*}
+			\phi(k + l) = g^{k+l} = g^kg^l =
+			\phi(k) \phi(l), \text{ поэтому } \phi \text{~--- гомоморфизм.}
+		\end{equation*} \n
+		Из определения циклической группы следует, что $\phi$ сюръективен, т.е. $\im \phi = G$. По теореме о гомоморфизме получаем ${G \cong \integers/\ker \phi,}$ т.к. ${\ker \phi < \integers \Rightarrow \exists m \geqslant 0 \suchthat \ker \phi = m \integers}$ (любая подгруппа $\integers$ имеет вид $k\integers$). Если ${m = 0},$ то ${\ker \phi = \{0\},}$ откуда ${G \cong \integers \, / \, \{0\} \cong \integers.}$ Если ${m > 0,}$ то ${G \cong \integers/m\integers = \integers_m.}$
+	\end{proof}

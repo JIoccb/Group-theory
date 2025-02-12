@@ -1,0 +1,91 @@
+\newpage
+	\section{Группы движений}
+	\setcounter{definition}{0}
+	\begin{definition}
+		Упорядоченная пара ${(M, d),}$ состоящая из множества $M$ и отображения ${d : M \times M \rightarrow \real,}$  называется \textit{метрическим пространством}, если ${\forall x, y \in M{:}}$
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item ${d(x, y) = 0 \Leftrightarrow x = y}$ (\textit{аксиома тождества});
+			\item ${d(x, y) \geqslant 0}$ (\textit{аксиома неотрицательности});
+			\item ${d(x, y) = d(y, x)}$ (\textit{аксиома симметричности});
+			\item ${d(x, y) + d(y, z) \geqslant d(x, y)}$ (\textit{аксиома} или \textit{неравенство треугольника}).
+		\end{enumerate}
+	\end{definition}
+	\begin{definition}
+		Пусть $X$ и $Y$~--- метрические пространства. Отображение ${f : X \rightarrow Y}$ называется \textit{изометрией}, если оно сохраняет расстояние между точками:
+		\begin{equation*}
+			\forall x, x' \in X\suchthat |f(x) - f(x')|_Y = |x - x'|_X,
+		\end{equation*} \n
+		Если ${X = Y,}$ $f$ называют \textit{движением}.
+	\end{definition}
+	\begin{definition}
+		Движение называют \textit{собственным}, если оно сохраняет \textit{ориентацию} пространства.
+	\end{definition}
+	\begin{definition}
+		Пусть $E$~--- \textit{евклидово аффинное пространство} и ${F \subseteq E}$~--- геометрическая фигура. \textit{Группой движений (изометрий)} ${\Isom(F)}$ фигуры $F$ называется множество тех движений аффинного пространства $E$, которые  переводят фигуру $F$ в себя:
+		\begin{equation*}
+			\Isom(F) \deq \{\phi: E \rightarrow E \ | \ \phi\textrm{~--- движение}, \ \phi(F) = F\}.
+		\end{equation*} 
+		В качестве групповой операции рассматривается операция композиции движений.
+	\end{definition}
+	\begin{remark}
+		Группа собственных движений ${\Isom(F)^+}$ является подгруппой группы движений ${\Isom(F)}$ фигуры $F.$
+	\end{remark}
+	\newpage
+	\begin{definition}
+		Группа движений правильного $n$-угольника ${\Delta_n \subset \real^2}$ называется \textit{диэдральной группой} $\dihedral_n{:}$
+		\begin{equation*}
+			\dihedral_n \deq \Isom(\Delta_n).
+		\end{equation*}
+	\end{definition}
+	\begin{statement}
+		${|\dihedral_n| = 2n.}$
+	\end{statement}
+        \begin{proof}
+            Есть всего 2 вида движений:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $n$ вращений относительно центра на угол, кратный $\frac{2\pi}{n}$ (вращение на угол $\phi$ обозначается $\Rot_\phi$);
+			\item $n$ симметрий относительно осей симметрии (симметрия относительно прямой $l$ обозначается $\Sym_l$). \n В случае нечётного $n$ любая ось симметрии проходит через центр $\Delta_n$ и одну из вершин, в случае чётного $n$ любая ось симметрии проходит либо через противоположные вершины, либо через середины противоположных сторон. \qedhere
+		\end{enumerate}
+        \end{proof}
+	\begin{remark}
+		Группа собственных движений $\Delta_n$ содержит только повороты:
+		\begin{equation*}
+			\Isom(\dihedral_n)^+ = \{\Rot_{\frac{2\pi k}{n}}\}, \ k = \overline{0, \ n - 1}.
+		\end{equation*}
+	\end{remark}
+	\begin{exmpl*}
+		Таблица Кэли группы $\dihedral_4$ квадрата $ABCD{:}$
+		\begin{center}
+			\begin{tabular}{c|c|c|c|c|c|c|c|c}
+				$\circ$ & $\id$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_{\frac{3\pi}{2}}$ & 
+				$\Sym_h$ &
+				$\Sym_v$ &
+				$\Sym_{AC}$ &
+				$\Sym_{BD}$ \\
+				\hline
+				$\id$ & $\id$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_{\frac{3\pi}{2}}$ & 
+				$\Sym_h$ &
+				$\Sym_v$ &
+				$\Sym_{AC}$ &
+				$\Sym_{BD}$ \\
+				\hline
+				$\Rot_{\frac{\pi}{2}}$ & $\Rot_{\frac{\pi}{2}}$ & $\Rot_{\pi}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Sym_{BD}$ & $\Sym_{AC}$ & $\Sym_h$ & $\Sym_v$ \\
+				\hline
+				$\Rot_{\pi}$ & $\Rot_{\pi}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Rot_\frac{\pi}{2}$ & $\Sym_v$ & $\Sym_h$ & $\Sym_{BD}$ & $\Sym_{AC}$ \\ \hline
+				$\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{3\pi}{2}$ & $\id$ & $\Rot_\frac{\pi}{2}$ & $\Rot_{\pi}$ & $\Sym_{AC}$ & $\Sym_{BD}$ & $\Sym_v$ & $\Sym_h$ \\
+				\hline
+				$\Sym_h$ & $\Sym_h$ & $\Sym_{AC}$ & $\Sym_v$ & $\Sym_{BD}$ & $\id$ & $\Rot_{\pi}$ & $\Rot_\frac{\pi}{2}$ & $\Rot_\frac{3\pi}{2}$
+				\\
+				\hline
+				$\Sym_v$ & $\Sym_v$ & $\Sym_{BD}$ & $\Sym_h$ & $\Sym_{AC}$ & $\Rot_{\pi}$ & $\id$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{\pi}{2}$
+				\\
+				\hline
+				$\Sym_{AC}$ & $\Sym_{AC}$ & $\Sym_v$ & $\Sym_{BD}$ & $\Sym_h$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_\frac{\pi}{2}$ & $\id$ & $\Rot_{\pi}$
+				\\
+				\hline
+				$\Sym_{BD}$ & $\Sym_{BD}$ & $\Sym_h$ & $\Sym_{AC}$ & $\Sym_v$ & $\Rot_\frac{\pi}{2}$ & $\Rot_\frac{3\pi}{2}$ & $\Rot_{\pi}$ & $\id$\\
+			\end{tabular}
+		\end{center} \n
+	\end{exmpl*}

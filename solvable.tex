@@ -1,0 +1,73 @@
+\newpage
+        \section{Разрешимые группы}
+        \setcounter{definition}{0}
+        \begin{definition}
+        \textit{Кратный коммутант} группы $G^{(k)}$ группы $G$ определяется индуктивно:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item ${G^{(1)} = G';}$
+                \item ${G^{(k)} = (G^{(k - 1)})'.}$
+            \end{enumerate}
+        Для удобства считается, что ${G^{(0)} = G.}$
+        \end{definition}
+
+        \begin{definition}
+            Группа $G$ называется \textit{разрешимой}, если ${\exists k \in \naturals\suchthat G^{(k)} = \{e\}.}$ В этом случае ${G \supset G' \supset \ldots \supset G^{(k)} = \{e\},}$\\ ${\sfrac{G^{(i)}}{G^{(i + 1)}}}$ абелева ${i = \overline{0, \ldots, k - 1},}$ такая цепочка называется \textit{производным рядом}.
+            Наименьшее такое ${k \in \naturals}$ называется \textit{ступенью разрешимости} $G$, а группа \textit{разрешимой ступени} $k$.
+        \end{definition}
+
+        \begin{remark}
+            Разрешимые группы ступени 1~--- абелевы группы. Разрешимые группы ступени 2 называют \textit{метабелевыми}.
+        \end{remark}
+        \begin{exmpls}
+        \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${G = \symmetrical_3 \Rightarrow G' = \alternating_3 \Rightarrow G^{(2)} = \alternating_3' = \{e\} \Rightarrow G}$ разрешима ступени 2. 
+                \item ${G = \symmetrical_4 \Rightarrow G' = \alternating_4 \Rightarrow G^{(2)} = \alternating_4' = \quaternary \Rightarrow G^{(3)} = \quaternary' = \{e\} \Rightarrow G}$ разрешима ступени 3. 
+                \item ${G = \symmetrical_n, \ n \geqslant 5 \Rightarrow G' = \alternating_n \Rightarrow \forall k \geqslant 2\suchthat G^{(k)} = \alternating_k \Rightarrow G}$ неразрешима. Аналогично для ${G = \alternating_n, \ n \geqslant 5.}$ 
+                \item ${G = \GL_n(F) \ (\textrm{или }\SL_n(F)),}$ ${|F| \geqslant 4 \Rightarrow G' = \SL_n(F) \Rightarrow \forall k \geqslant 2\suchthat G^{(k)} = \SL_n(F) \Rightarrow}$ неразрешима. 
+            \end{enumerate}
+        \end{exmpls}
+        \newpage
+        \begin{statement}
+            Пусть в группе $G$ существует ряд подгрупп ${G \supseteq G_1 \supseteq \ldots \supseteq G_s = \{e\}, \ G_{i+1} \lhd G_i,}$ ${\sfrac{G_i}{G_{i+1}}}$ абелева $\forall i$. Тогда $G$ разрешима.
+        \end{statement}
+        \begin{proof}
+            Достаточно доказать, что ${\forall i\suchthat G^{(0)} \subseteq G_i.}$ Воспользуемся индукцией по $n$.
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${i = 0 \Rightarrow G^{(0)} = G = G_0.}$
+                \item Пусть ${G^{(i)} \subseteq G_i.}$ Проверим, что ${G^{(i + 1)} \subseteq G_{i+1}.}$ Так как, по предположению индукции, ${\sfrac{G_i}{G_{i+1}}}$ абелева, то ${G'_i \subseteq G_{i+1}.}$ Но ${G^{(i+1)} = (G^{(i)})' \subseteq G'_i \subseteq G_{i+1}.}$ \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{lemma}
+        \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Подгруппа разрешимой группы разрешима. 
+                \item Факторгруппа разрешимой группы разрешима. 
+            \end{enumerate}
+        \end{lemma}
+        \begin{proof}
+        \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Пусть ${H<G,}$ тогда ${\forall i\suchthat H' \subseteq G', \ldots, H^{(i)} \subseteq G^{(i)}.}$ Поскольку ${\exists k \in \naturals \suchthat G^{(k)} = \{e\},}$ то ${H^{(k)} = \{e\}.}$
+                \item Пусть ${H \lhd G,}$ ${F = G/N.}$ Для эпиморфизма ${\phi : G \twoheadrightarrow F, \ g \mapsto gN}$ имеем: ${F' = \phi(G'), \ldots, F^{(i)} = \phi(G^{(i)}) \ \forall i.}$ Поскольку ${\exists k \in \naturals \suchthat G^{(k)} = \{e\},}$ то ${F^{(k)} = \phi(G^{(k)}) = \phi(\{e\}) = \{eN\} \Rightarrow F}$ разрешима.
+            \end{enumerate}
+        \end{proof}
+        \begin{statement}
+            Пусть $G$~--- группа, ${N \lhd G,}$ $N$ разрешима. Тогда $G$ разрешима.
+        \end{statement}
+        \begin{proof}
+            По предположению, ${\exists k \in \naturals{:} \ (G/K)^{(k)} = \{eN\}.}$
+            \begin{equation*}
+                [gN, hN] = (gN)(hN)(gN)^{-1}(hN)^{-1} = ghg^{-1}h^{-1}N
+            \end{equation*}
+            Рассмотрим проекцию ${\pi : G \rightarrow G/N, \ g \mapsto gN.}$ Тогда
+            \begin{equation*}
+                \pi(G') = (G/N)', \ldots, \pi(G^{(k)}) = (G/N)^{(k)} = \{eN\} \Rightarrow G^{(k)} \subseteq N.
+            \end{equation*}
+            С другой стороны, так как $N$ разрешима, ${\exists s \in \naturals{:} \ N^{(s)} = \{e\}}$ $\Rightarrow$ ${{(G^{(k)})}^{(s)} = G^{(k+s)} \subseteq N^{(s)} = \{e\}} \Rightarrow G$ разрешима. \qedhere
+        \end{proof}

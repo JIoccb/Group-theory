@@ -1,0 +1,95 @@
+	\newpage
+	\section{Идеалы колец. Факторкольцо кольца по идеалу. Гомоморфизмы и изоморфизмы колец. Ядро и образ гомоморфизма колец. Теорема о гомоморфизме для колец}
+	\setcounter{definition}{0}
+	\begin{definition}
+		Подмножество $I$ кольца $R$ называется \textit{(двусторонним) идеалом,} если
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $I$~--- подгруппа по сложению;
+			\item $\forall a \in I \ \forall r \in R\suchthat ar \in I, ra \in I.$
+		\end{enumerate} \n
+		\textit{Несобственными} или \textit{тривиальными} идеалами являются $\{0\}$ и $R$. Остальные называются \textit{собственными}.
+	\end{definition}
+	\begin{definition}
+		Множество ${(a) = \{ra \ | \ r \in R\}}$ называется \textit{главным идеалом}, порождаемым элементом $a.$
+	\end{definition}
+	\begin{exmpl*}
+		${(k) = k\integers}$~--- главный идеал в $\integers.$
+	\end{exmpl*}
+	\begin{remark}
+		\ \newline
+		$(a) = R \Leftrightarrow a$ обратим; \newline
+		$(a) = 0 \Leftrightarrow a = 0.$
+	\end{remark}
+	\begin{definition}
+		Если $S$~--- подмножество кольца $R$, то
+		\begin{equation*}
+			(S) = \{r_1 s_1 + \ldots + r_k s_k \ | \ r_i \in R, s_i \in S\}
+		\end{equation*}
+		называется \textit{идеалом, порожденным подмножеством $S$.}
+	\end{definition}
+	Пусть $R$~--- кольцо, $I$~--- его идеал. \n
+	Рассмотрим факторгруппу $(R/I, +)$ и введём на ней операцию умножения, полагая, что ${(a + I) \cdot (b + I) = ab + I.}$ \n
+	Проверим корректность такого определения:
+	\begin{equation*}
+		\begin{gathered}
+			{a + I = a' + I, \ b + I = b' + I \Rightarrow a' = a + x, \ b' = b + y, \text{ где } x, y \in I;} \\
+			{(a' + I)(b' + I) =  a'b' + I =(a + x)(b + y) + I = ab + \underbrace{ay + xb + xy}_{\in I} + I = ab + I.}
+		\end{gathered}
+	\end{equation*}
+	\begin{remark}
+		$R/I$~--- кольцо.
+	\end{remark}
+	\begin{definition}
+		$R/I$ называется \textit{факторкольцом} кольца $R$ по идеалу $I.$
+	\end{definition}
+	\begin{exmpl*}
+		$\integers/n\integers = \integers_n.$
+	\end{exmpl*}
+	\begin{definition}
+		Если $R, S$~--- два кольца, то отображение ${\phi: R \rightarrow S}$ называется \textit{гомоморфизмом колец,} если
+		\begin{equation*}
+			\forall a,b \in R\suchthat \phi(a + b) = \phi(a) + \phi(b), \ \phi(ab) = \phi(a) \cdot \phi(b).
+		\end{equation*} \n
+		Биективный гомоморфизм называется \textit{изоморфизмом}.\n
+		${\ker \phi = \{r \in R \ | \ \phi(r) = 0\} \subseteq R;}$ \n
+		${\im \phi = \phi(R) \subseteq S.}$
+	\end{definition}
+	\begin{remark}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.25em}
+			\item $\ker \phi$ является идеалом $R;$
+			\item $\im \phi$~--- подкольцо в $S.$
+		\end{enumerate}
+	\end{remark}
+	\begin{proof}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.25em}
+			\item $\ker \phi$ является подгруппой в $R$ по сложению, т.к. $\phi$~--- гомоморфизм \n
+			абелевых групп. Покажем, что \n ${\forall a \in \ker \phi \ \forall r \in R\suchthat ra \in \ker \phi, ar \in \ker \phi.}$ 
+			\begin{equation*}
+				\phi(ra) = \phi(r)\phi(a) = \phi(r)0 = 0 \Rightarrow ra \in \ker \phi, \text{ аналогично для } ar \in \ker \phi.
+			\end{equation*}
+		\end{enumerate}
+	\end{proof}
+	\newpage
+	\begin{theorem*}[\textbf{О гомоморфизме колец}]
+		Пусть ${\phi: R \rightarrow S}$~--- гомоморфизм колец, тогда
+		\begin{equation*}
+			R/\ker \phi \cong \im \phi.
+		\end{equation*}
+	\end{theorem*}
+	\begin{proof}
+		Пусть ${I = \ker \phi.}$ Тогда из доказательства теоремы о гомоморфизме для групп отображение ${\psi: R/I \rightarrow \im \phi, \ \psi(a + I) = \phi(a)}$ является изоморфизмом групп по сложению.\n
+		Остаётся проверить, что $\psi$~--- гомоморфизм колец:
+		\begin{equation*}
+			\psi((a + I)(b + I)) = \psi(ab + I) = \phi(ab) = \phi(a)\phi(b) = \psi(a + I)\psi(b + I). \qedhere
+		\end{equation*}
+	\end{proof}
+	\begin{exmpl*}
+		Пусть $K$~--- поле, ${a \in K, \quad \phi: K[x] \rightarrow K, \quad f \mapsto f(a).}$ \n
+		Это гомоморфизм, он сюръективен ${(b = \phi(b)).}$ \n
+		$\ker \phi = (x - a) \Rightarrow K[x]/(x - a) \cong K.$
+	\end{exmpl*}

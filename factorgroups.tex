@@ -1,0 +1,63 @@
+\newpage
+	\section{Нормальные подгруппы. Факторгруппы}
+	\setcounter{definition}{0}
+	\begin{definition}
+		Подгруппа $H$ группы $G$ называется \textit{нормальной}, если 
+		\begin{equation*}
+			\forall g \in G\suchthat gH = Hg. 
+		\end{equation*}
+		\n
+		Обозначается $H \lhd G.$
+	\end{definition}
+	\begin{statement}
+		Пусть $H$~--- подгруппа группы $G$, тогда следующие условия эквивалентны:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item ${H \lhd G;}$
+			\item $\forall g \in G\suchthat gHg^{-1} = H$;
+			\item $\forall g \in G\suchthat gHg^{-1} \subseteq H$.
+		\end{enumerate}
+	\end{statement}
+	\begin{proof}
+		\
+		\begin{itemize}
+			\setlength\itemsep{0.1em}
+			\item[(1)] $\Longrightarrow (2)\suchthat gH = Hg \ | \cdot g^{-1} \Rightarrow gHg^{-1} = H$.
+			\item[(2)] $\Longrightarrow (3){:}$ очевидно.
+			\item[(3)] ${\Longrightarrow (2)\suchthat gHg^{-1} \subseteq H \Rightarrow gHg^{-1} \subseteq H \ | \cdot g \Rightarrow gH \subseteq Hg.}$
+			\n
+			${\text{Если} \ g = g^{-1}, \ \text{то} \ g \cdot | \ g^{-1}Hg \subseteq H \Rightarrow Hg \subseteq gH \Rightarrow gH = Hg. \qedhere}$ 
+		\end{itemize}
+	\end{proof}
+	Рассмотрим множество смежных классов по нормальной подгруппе, обозначенной $G/H$.
+	Определим на $G/H$ бинарную операцию, полагая, что $(g_1H)(g_2H) = (g_1g_2)H$.
+	\n
+	Пусть ${g'_1H = g_1H}$ и ${g'_2H=g_2H,}$ тогда ${g'_1 = g_1h_1, \ g'_2=g_2h_2,}$ ${\text{где} \ h_1, h_2 \in H.}$
+	\begin{equation*}
+		\begin{gathered}
+			(g'_1H)(g'_2H) =
+			(g'_1g'_2)H = 
+			(g_1h_1g_2h_2)H = 
+			(g_1g_2 \underbrace{g^{-1}_2h_1g_2}_{\in H}h_2)H \subseteq (g_1g_2)H \Rightarrow \\
+			\Rightarrow (g'_1g'_2)H = (g_1g_2)H.
+		\end{gathered}
+	\end{equation*}
+	\newpage
+	\begin{statement}
+		$G/H$ является группой.
+	\end{statement}
+	\begin{proof}
+		Проверим аксиомы группы:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Ассоциативность очевидна.
+			\item Нейтральный элемент~--- $eH.$
+			\item Обратный к $gH$~--- $g^{-1}H.$ \qedhere 
+		\end{enumerate}
+	\end{proof}
+	\begin{definition}
+		Множество $G/H$ с указанной операцией называется \textit{факторгруппой} группы $G$ по нормальной подгруппе $H$.
+	\end{definition}
+	\begin{exmpl*}
+		Если $G = \integers ^ + $ и $H = n\integers$, то $G/H$~--- группа вычетов $ \integers_n ^ +$
+	\end{exmpl*}

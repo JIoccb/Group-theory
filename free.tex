@@ -1,0 +1,64 @@
+\newpage
+        \section{Свободные абелевы группы}
+        \setcounter{definition}{0}
+        \begin{definition}
+            \textit{Кручением} или \textit{периодической частью} группы $G$ называется множество элементов конечного порядка
+            \begin{equation*}
+                \Tor (G) \deq \{g \in G \ | \ \ord(g) < \infty\}.
+            \end{equation*}
+        \end{definition}
+        \begin{lemma}
+            Если группа $A$~--- абелева, то ${\Tor(A) < A.}$
+        \end{lemma}
+        \begin{proof}
+            Пусть ${\ord(a) = n}$, ${\ord(b) = m}$, ${a,b \in A.}$ Тогда ${nm(a+b) = 0}$ $\Rightarrow$ ${\ord(a+b) = 0.}$ \qedhere
+        \end{proof}
+        \begin{remark}
+            В неабелевой группе элементы конечного порядка не всегда образуют подгруппу.
+        \end{remark}
+        \begin{definition}
+            Группа $A$ называется \textit{конечнопорождённой}, если ${\forall a \in A \ \exists a_1,\ldots,a_n \in A{:}}$ ${a = k_1a_1+\ldots+k_na_n}$ для некоторых ${k_1,\ldots,k_n \in \integers.}$ Такой набор ${\{a_1,\ldots,a_n\}}$ называется \textit{системой образующих или порождающих.}
+        \end{definition}
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Любая конечная абелева группа конечнопорождена.
+                \item \textit{Решётка} ${\integers^n = \underbrace{\integers \oplus \ldots \oplus \integers}_{n \ \textrm{раз}} = \{(c_1,\ldots,c_n) \ | \ c_i \in \integers\}.}$ Системой порождающих будет \textit{стандартный базис}
+                \begin{equation*}
+                    \{e_1 = (1,0,\ldots,0), e_2 = (0,1,\ldots,0), \ldots, e_n = (0,0,\ldots,1)\}.
+                \end{equation*}
+            \end{enumerate}
+        \end{exmpls}
+        \begin{definition}
+            Система порождающих ${\{a_1,\ldots,a_n\}}$ группы $A$ называется \textit{базисом}, если ${\forall a \in A}$ запись ${a = k_1a_1+\ldots+a_nk_n}$ единственна. Группа, обладающая базисом, называется \textit{свободной}. Число элементов в базисе называется \textit{рангом} и обозначается $\rank A$.
+        \end{definition}
+        \begin{statement}
+            Все базисы свободной абелевой группы содержат одно и то же число элементов.
+        \end{statement}
+        \newpage
+        \begin{lemma}
+            Свободная абелева группа $A$ ранга $n$ изоморфна $\integers^n.$
+        \end{lemma}
+        \begin{proof}
+            Если ${\{e_1,\ldots,e_n\}}$~--- базис в $A,$ то ${a = k_1e_1+\ldots+k_ne_n \leftrightarrow (k_1,\ldots,k_n) \in \integers^n.}$ Для этого отображения простым образом проверяются корректность, биективность и сохранение операции.
+        \end{proof}
+        \begin{theorem}
+            Всякая подгруппа $B$ свободной абелевой группы $A$ ранга $n$ является свободной абелевой группой ранга $\leqslant n$. 
+        \end{theorem}
+        \begin{statement}
+            Пусть $A$~--- свободная абелева группа с базисом ${\{e_1,\ldots,e_n\},}$ $D$~--- произвольная абелева группа, ${d_1,\ldots,d_n \in D}$~--- произвольные элементы. Тогда $\exists!$ гомоморфизм 
+            \begin{equation*}
+                \phi : A \rightarrow D, \ \phi(e_i) = d_i, \ i = \overline{1,n}.
+            \end{equation*}
+        \end{statement}
+        \begin{proof}
+            ${\forall a \in A\suchthat a = k_1e_1+\ldots+k_ne_n.}$\newline
+            Положим ${\phi(a) = k_1\phi(e_1)+\ldots+k_n\phi(e_n).}$ Это гомоморфизм, что проверяется очевидным образом.
+        \end{proof}
+        \begin{consequence*}
+            Для любой конечнопорождённой абелевой группы $D$ существует эпиморфизм ${\phi : A \twoheadrightarrow D}$ из некоторой свободной абелевой группы $A$. 
+        \end{consequence*}
+        \begin{proof}
+            Пусть ${\{d_1,\ldots,d_n\}}$~--- порождающие элементы группы $D.$ Положим ${A = \integers^n}$ и определим $\phi$ условием ${\phi(e_i) = d_i,}$ где ${\{e_1,\ldots,e_n\}}$~--- стандартный базис в $\integers^n.$ Тогда $\phi$ сюръективен, т.к. ${d_1,\ldots,d_n}$~--- порождающие.
+        \end{proof}

@@ -1,0 +1,49 @@
+\newpage
+        \section{Структура абелевых групп}
+        \setcounter{definition}{0}
+	\begin{definition}
+		Конечная абелева группа $A$ называется \textit{примарной}, если ${|A| = p^k}$ для некоторого ${k \in \naturals,}$ где $p$~--- простое.
+	\end{definition}
+	\begin{theorem}
+        Любая конечнопорождённая абелева группа $A$
+        изоморфна прямой сумме примарных циклических групп и бесконечных циклических групп: 
+        \begin{equation*}
+            A \cong \integers^n \oplus \integers_{p^{k_1}_1} \oplus \ldots \oplus \integers_{p^{k_t}_t},
+        \end{equation*}
+        где ${p_1, \ldots, p_t}$~--- простые числа (не обязательно различные) и ${k_1, \ldots, k_t \in \naturals.}$ Более того, набор примарных циклических множителей ${\integers_{p^{k_1}_1}, \ldots, \integers_{p^{k_t}_t}}$ определен однозначно с точностью до перестановки (в частности, число этих множителей определено однозначно).
+	\end{theorem}
+	\begin{definition}
+		\textit{Экспонентой} конечной группы $G$ называется число
+		\begin{equation*}
+			\exp G \deq \min \{m \in \naturals \ | \ \forall g \in G\suchthat mg = 0\}.
+		\end{equation*}
+	\end{definition}
+	\begin{remark}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Из того, что ${\forall g \in G \  \forall m \in \integers\suchthat mg = 0 \Leftrightarrow m \divby \ord(g),}$ определение экспоненты можно переписать в виде ${\exp G \deq \NOK \{\ord(g) \ | \ g \in G\}.}$
+			\item Из того, что ${\forall g \in G\suchthat |G| \divby \ord(g),}$ следует, что $|G|$~--- общее кратное
+			множества ${\{\ord(g) \ | \ g \in G\},}$ а значит, ${|G| \divby \exp G.}$ В частности,
+			${\exp G \leqslant |G|.}$
+		\end{enumerate}
+	\end{remark}
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item $\exp(\integers_n) = n;$
+                \item $\exp(\integers_2 \oplus \integers_2) = 2;$
+                \item $\exp(\symmetrical_3) = 6.$
+            \end{enumerate}
+        \end{exmpls}
+        \newpage
+	\begin{theorem*}[\textbf{критерий цикличности}]
+		Группа $A$ является циклической тогда и только тогда, когда ${\exp A = |A|.}$
+	\end{theorem*}
+	\begin{proof}
+		Пусть ${|A| = n = p^{k_1}_1 \cdot \ldots \cdot p^{k_s}_s}$~--- разложение на простые множители, где $p_i$~--- простое и ${k_s \in \naturals \ (p_i \neq p_j \text{ при } i \neq j).}$ \newline
+		{\textit{Необходимость.}} Если ${A = \langle a \rangle,}$ то ${\ord (a) = n,}$ откуда ${\exp A = n.}$ \newline
+		{\textit{Достаточность.}} Если ${\exp A = n,}$ то для ${i = 1, \ldots, s \quad \exists c_i \in A \suchthat \ord(c_i) = p^{k_i}_i m_i, \ m_i \in \naturals.}$ Для каждого ${i = 1, \ldots, s}$ положим ${a_i = m_i c_i,}$ тогда ${\ord(a_i) = p^{k_i}_i.}$ Рассмотрим элемент ${a = a_1 + \ldots + a_s}$ и покажем, что ${\ord(a) = n.}$ Пусть ${\exists m \in \naturals \suchthat ma = 0,}$ т.е. ${ma_1 + \ldots + ma_s = 0.}$ При фиксированном ${i \in \{1, \ldots, s\}}$ умножим обе части последнего равенства на ${n_i = n/p^{k_i}_i.}$ Видно, что ${\forall i \neq j\suchthat mn_ia_j = 0}$, поэтому в левой части останется только слагаемое ${mn_ia_i,}$ откуда ${mn_ia_i = 0 \Rightarrow mn_i \divby p^{k_i}_i,}$ а т.к. 
+		${n_i \ndivby p_i}$, то ${m \divby p^{k_i}_i.}$  В силу произвольности выбора $i$ отсюда вытекает, что ${m \divby n,}$ и т.к. ${na = 0,}$ то окончательно получаем ${\ord(a) = n.}$ Значит, ${A = \langle a \rangle}$~--- циклическая группа.
+	\end{proof}

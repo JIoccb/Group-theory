@@ -1,0 +1,110 @@
+\newpage
+	\section{Подгруппы. Циклические подгруппы и группы. Порядок элемента}
+	\begin{definition}	
+		Подмножество $H$ группы $G$ называется \textit{подгруппой} и обозначается $H < G$, если выполнены следующие условия:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $e \in H;$
+			\item $\forall a,b \in H\suchthat ab \in H;$
+			\item $\forall a \in H\suchthat a^{-1} \in H.$
+		\end{enumerate}
+	\end{definition}
+	В каждой группе $G$ есть \textit{несобственные} или \textit{тривиальные} подгруппы $H = \{e\}$ и $H = G$. Все прочие подгруппы называются \textit{собственными}.
+	\begin{exmpls}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item ${n\integers^ + < \integers ^ + < \rationals ^ + < \real ^ + < \complex ^ +;}$
+			\item ${\SOrth_n(\real) < \Orth_n(\real) < \GL_n(\real);}$
+			\item ${\alternating_n < \symmetrical_n.}$
+		\end{enumerate}
+	\end{exmpls}
+	\begin{theorem*}[\textbf{критерий подгруппы}]
+		Пусть $G$~--- группа, тогда
+		\begin{equation*}
+			H < G \Leftrightarrow \forall a,b \in H\suchthat a \circ b^{-1} \in H.
+		\end{equation*}
+	\end{theorem*}
+	\begin{proof}
+		Определим на $H$ вспомогательное отношение ${R_H = \{(a,b)\ | \ a \circ b^{-1} \in H\}}.$ Покажем, что $R_H$ является отношением эквивалентности. Для этого проверим, что оно ${\text{рефлексивно} \ (1)}$, симметрично $(2)$ и транзитивно $(3)$:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $a \circ a^{-1} = e \in H;$
+			\item $ab^{-1} \in H \Rightarrow b a^{-1} = (ab^{-1})^{-1} \in H;$
+			\item $ab^{-1} \in H, \ bc^{-1} \in H \Rightarrow ac^{-1} = (ab^{-1})(bc^{-1}) = a(b^{-1}b)c^{-1} \in H.$
+		\end{enumerate} \n
+		
+		Рефлексивность $R_H$ определяет наличие нейтрального элемента, симметричность~-- наличие обратного элемента, транзитивность~-- ассоциативность заданной бинарной операции. Каждый класс эквивалентности будет ассоциирован с некоторой подгруппой (как с алгебраически замкнутым множеством). 
+	\end{proof}
+	\begin{statement}
+		Всякая подгруппа в $\integers ^ +$ имеет вид $k\integers$ для некоторого ${k \in \naturals_0}$.
+	\end{statement}
+	\begin{proof}
+		Очевидно, что все подмножества вида $k\mathbb{Z}$ являются подгруппами в $\integers$.
+		Пусть ${H < \integers}$. Если ${H = \{0\}}$, то ${H = 0\integers}$.
+		Иначе положим ${k = \min(H \cap N) \neq 0}$ (это множество непусто, т.к. ${\forall x \in H \cap N{:} ~-x \in H}$), тогда ${k\integers \subseteq H}$.
+		Покажем, что ${k\integers = H}$. Пусть ${a \in H}$ — произвольный элемент. Поделим его на $k$ с остатком:
+		\begin{equation*}
+			a = qk + r, \text{где} \ k \in H, \  
+			0 \leqslant r < k \Rightarrow r = a - qk \in H.
+		\end{equation*}
+		В силу выбора $k$ получаем: ${r = 0 \Rightarrow a = qk \in k\integers}$.
+	\end{proof}
+	\begin{definition}
+		Пусть $G$~--- группа, $g \in G$ и $n \in \integers$. \textit{Степень} элемента $g$ определяется следующим образом:
+		\begin{equation*}
+			g^{n}=
+			\begin{cases*}
+				\underbrace{g \ldots g}_n,  &$n > 0$ \\
+				e,  &$n = 0$ \\
+				\underbrace{g^{-1} \ldots g^{-1}}_n, &$n < 0$
+			\end{cases*}
+		\end{equation*}
+		и обладает свойствами:\n
+		$\forall m, n \in \integers:$
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $g^m \cdot g^n = g^{m+n};$
+			\item $(g^m)^{-1} = g^{-m};$
+			\item $(g^m)^n = g^{mn}.$
+		\end{enumerate}
+	\end{definition}
+	\begin{definition}
+		Пусть $G$~--- группа и $g \in G$. \textit{Циклической подгруппой}, порожденной элементом $g$, называется подмножество ${\{g^n \ | \ n \in \integers\} \subseteq G}$. \n
+		Циклическая подгруппа, порождённая элементом $g$, обозначается $\langle g \rangle$. Элемент $g$ называется \textit{порождающим} или \textit{образующим} для подгруппы $\langle g \rangle$.
+	\end{definition}
+	\begin{exmpl*}
+		Подгруппа ${2\integers < \integers ^ +}$ является циклической, и в качестве порождающего элемента в ней можно взять $g = 2$ или $g = -2.$ Другими словами, ${2\integers = \langle 2 \rangle = \langle -2 \rangle.}$
+	\end{exmpl*}
+	\begin{definition}
+		Группа $G$ называется \textit{циклической}, если 
+		\begin{equation*}
+			\exists g \in G \suchthat G = \langle g \rangle.
+		\end{equation*}
+		%Циклическая группа порядка $n$ обозначается ${C_n.}$
+	\end{definition}
+	\begin{exmpls}
+		${\integers ^ +; \ \integers_n ^ +, \ n \geqslant 1.}$
+	\end{exmpls}
+	\begin{definition}
+		Пусть $G$ — группа и ${g \in G}$. \textit{Порядком} элемента $g$ называется наименьшее ${m \in \naturals \suchthat g^m = e}$. Если такого натурального числа $m$ не существует, говорят, что порядок элемента $g$ равен бесконечности. Порядок элемента обозначается $\ord(g)$.
+	\end{definition}
+	\begin{remark}
+		\begin{equation*}
+			\ord(g) = 1 \Leftrightarrow g = e.
+		\end{equation*}
+		
+	\end{remark}
+	\begin{statement}
+		Если $G$~--- группа и $g \in G$, то $\ord(g) = |\langle g \rangle|.$
+	\end{statement}
+	\begin{proof}
+		Заметим, что если $g^k = g^s$, то $g^{k - s} = e$. Поэтому если элемент $g$ имеет бесконечный порядок, то все элементы $g^n, n \in \integers$, попарно различны, и подгруппа $\langle g \rangle$ содержит бесконечно много элементов. 
+		Если же ${\ord(g) = m}$, то из минимальности числа $m$ следует, что элементы ${e = g^0, g^1, g^2, \ldots , g^{m-1}}$ попарно различны.
+		Далее, ${\forall n \in \integers\suchthat n = mq + r, \ \text{где} \ 0 \leqslant r \leq m - 1, \ \text{и}}$
+		\begin{equation*}
+			g^n = g^{mq + r} = (g^m)^q g^r = e^q g^r = g^r.
+		\end{equation*}
+		Следовательно, $\langle g \rangle = \{e, g, g^2, \ldots, g^{m - 1}\}$ и $|\langle g \rangle| = m.$
+	\end{proof}
+	Очевидно, что всякая циклическая группа коммутативна и не более чем счётна.

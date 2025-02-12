@@ -1,0 +1,44 @@
+\newpage
+        \section{Простые группы}
+        \setcounter{definition}{0}
+        \begin{definition}
+            Группа называется \textit{простой}, если в ней нет нетривиальных нормальных подгрупп.
+        \end{definition}
+        \begin{theorem}
+            Пусть $G$~--- конечная группа, тогда существует ряд подгрупп ${G > H_1 > H_2 > \ldots > H_k = \{e\},}$ такой что ${H_{i + 1} \lhd H_i, \ \sfrac{H_i}{H_{i+1}}}$ проста ${\forall i = \overline{1,k}.}$
+        \end{theorem}
+        \begin{definition}
+            Пусть $G$~--- группа, ${N \lhd G,}$ ${F = G/N.}$ Тогда говорят, что $G$~--- \textit{расширение} группы $N$ с помощью подгруппы $F$.
+        \end{definition}
+        \begin{remark}
+            Имеет место цепочка гомоморфизмов:
+            \begin{equation*}
+                N \xhookrightarrow{i} G \xlongrightarrow{\pi} G/N = F.
+            \end{equation*}
+        \end{remark}
+        \begin{consequence*}
+            Любая конечная группа получается цепочкой расширений при помощи простых групп.
+        \end{consequence*}
+        \begin{exmpls}
+            Не всегда тем, что $G$~--- расширение $N$ с помощью $F$, $G$ определяется однозначно.ч Например, пусть ${N \cong \integers_3}$, ${F \cong \integers_2}$. Тогда: 
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${N = \integers_3, \ F = \integers_2 \Rightarrow G = \integers_3 \oplus \integers_2}$~--- абелева.
+                \item ${N = \alternating_3 \cong \integers_3, \ F = \symmetrical_3/\alternating_3 \cong \integers_2 \Rightarrow G = \symmetrical_3}$~--- неабелева.
+            \end{enumerate}
+        \end{exmpls}
+        \begin{remark}
+            Абелева группа $A$ проста ${\Leftrightarrow A \cong \integers_p,}$ где $p$~--- простое.
+        \end{remark}
+         \begin{theorem}
+             Группа $\alternating_n$ проста при ${n \geqslant 5.}$
+         \end{theorem}
+         \begin{theorem*}[\textbf{о классификации конечных простых групп}]
+             Любая конечная простая группа изоморфна либо одной из 26 спорадических групп, либо принадлежит одному из следующих трёх семейств:
+             \begin{itemize}
+             \setlength\itemsep{0.1em}
+                 \item ${\integers_p,}$ $p$~--- простое;
+                 \item ${\alternating_n,}$ ${n \geqslant 5;}$
+                 \item простые группы типа Ли.
+             \end{itemize}
+         \end{theorem*}

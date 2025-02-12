@@ -1,0 +1,74 @@
+\newpage
+        \section{Классы сопряжённости}
+        \setcounter{definition}{0}
+        \begin{definition}
+            Пусть $G$~--- группа. Элементы ${a,b \in G}$ называются \textit{сопряжёнными} и обозначаются ${a \sim b}$, если ${\exists g \in G\suchthat a = gbg^{-1}.}$
+        \end{definition}
+        \begin{definition}
+            \textit{Классом сопряжённости} элемента $a$ группы $G$ называется множество
+            \begin{equation*}
+                C_G(a) \deq \{b \in G \ | \ a \sim b\}.
+            \end{equation*}
+        \end{definition}
+        \begin{lemma}
+            Пусть $G$~--- группа.
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Отношение сопряжённости является отношением эквивалентности.
+                \item ${C_G(a) = \{a\} \Leftrightarrow a \in Z(G).}$
+            \end{enumerate}
+        \end{lemma}
+        \begin{proof}
+            \
+            \begin{enumerate}
+            
+                \item Проверим свойства отношения эквивалентности:
+                \begin{itemize}
+                \setlength\itemsep{0.1em}
+                    \item Рефлексивность: ${a = eae^{-1} \Rightarrow a \sim a;}$
+                    \item Симметричность: ${a = gba^{-1} \Leftrightarrow b = g^{-1}ag;}$
+                    \item Транзитивность: ${(a = gbg^{-1}, \, b = hch^{-1} \Rightarrow a = ghch^{-1}g^{-1}) \Rightarrow (a \sim b, \, b \sim c \Rightarrow a \sim c).}$
+                \end{itemize}
+                \item ${C_G(a) = \{a\} \Leftrightarrow \forall g \in G\suchthat gag^{-1} = a \Leftrightarrow a \in Z(G).}$ \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{lemma}
+            Пусть $G$~--- группа, ${a,b \in G.}$ \\
+            Тогда ${b \in C_G(a) \Rightarrow \ord(b) = \ord(a).}$
+        \end{lemma}
+        \begin{proof}
+            Пусть ${b = gag^{-1}, \ a^n = e.}$ \\
+            Тогда ${b^n = (gag^{-1})^n = ga^ng^{-1} = gg^{-1} = e}$ и наоборот из симметричности сопряжённости $\Rightarrow$ минимальные показатели совпадают.
+        \end{proof}
+        \begin{definition}
+            \textit{Централизатором} элемента $a$ группы $G$ называется множество
+            \begin{equation*}
+                Z_G(a) \deq \{g \in G \ | \ ga = ag\}.
+            \end{equation*}
+        \end{definition}
+        \begin{remark}
+            ${Z_G(a) < G.}$
+        \end{remark}
+        \newpage
+        \begin{statement}
+            Пусть $G$~--- конечная группа, ${a \in G.}$ Тогда ${|C_G(a)| = |\frac{|G|}{|Z_G(a)|}|.}$ В частности, ${|G| \divby |C_G(a)|.}$
+        \end{statement}
+        \begin{proof}
+            Пусть $\sfrac{G}{Z_G(a)}$~--- множество левых смежных классов (не факторгруппа, т.к. ${Z_G(a)}$ не обязательно нормальна). Достаточно установить биекцию ${\sfrac{G}{Z_G(a)} \leftrightarrow C_G(a).}$\newline
+            Определим отображение ${\sfrac{G}{Z_G(a)} \rightarrow C_G(a),}$ ${gZ_G(a) \mapsto gag^{-1}.}$ Проверим:
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Корректность:
+                \begin{equation*}
+                    \begin{gathered}
+                        h \in Z_G(a) \Rightarrow ghZ_G(a) \mapsto (gh)a(gh)^{-1} = ghah^{-1}g^{-1} = gahh^{-1}g^{-1} = \\
+                        = gag^{-1} \mapsfrom gZ_G(a);
+                    \end{gathered}
+                \end{equation*}
+                \item Сюръективность: по построению;
+                \item Инъективность:\
+                \begin{equation*}
+                    gag^{-1} = g'a(g')^{-1} \Leftrightarrow ag^{-1}g' = g^{-1}g'a \Leftrightarrow g^{-1}g' \in Z_G(a) \Leftrightarrow g' \in Z_G(a). \qedhere
+                \end{equation*}
+            \end{enumerate}
+        \end{proof}

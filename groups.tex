@@ -1,0 +1,87 @@
+\newpage
+	\section{Бинарные операции. Полугруппы, моноиды и группы}
+	\begin{definition}
+		Пусть $M$~--- непустое множество. \textit{Бинарной операцией} $\circ$ на множестве $M$ называется отображение 
+		${\circ : M \times M \rightarrow M}$, ${\ \forall a,b \in M\suchthat (a, b) \mapsto a \circ b}$.
+	\end{definition}
+	
+	Множество с бинарной операцией обычно обозначают $(M, \circ).$
+	
+	\begin{definition}
+		Множество с бинарной операцией $(M, \circ)$ называется \textit{полугруппой}, если данная бинарная операция
+		ассоциативна, т.е.
+		\begin{equation*}
+			\forall a, b, c \in M\suchthat a \circ (b \circ c) = (a \circ b) \circ c.
+		\end{equation*}
+	\end{definition}
+	
+	\begin{definition}
+		Полугруппа $(M, \circ)$ называется \textit{моноидом}, если в ней есть \textit{нейтральный элемент}, т.е.
+		\begin{equation*}
+			\exists e \in M \suchthat \forall a \in M\suchthat e \circ a = a \circ e = a.
+		\end{equation*}
+	\end{definition}
+	
+	\begin{definition}
+		Моноид $(M, \circ)$ называется \textit{группой}, если для каждого элемента $a \in M$ найдется \textit{обратный элемент}, т.е.
+		  \begin{equation*} 
+		      \forall a \in M \ \exists a^{-1} \in M \suchthat a \circ a^{-1} = a^{-1}     \circ a = e.
+		  \end{equation*}
+	\end{definition}
+	\begin{definition}
+		Группа $G$ называется \textit{коммутативной} или \textit{абелевой}, если групповая операция \textit{коммутативна}, т.е.
+		\begin{equation*}
+			\forall a, b \in G\suchthat ab = ba.
+		\end{equation*}
+	\end{definition}
+	\begin{definition}
+		\textit{Порядком} $|G|$ группы $G$ называется число элементов в ней. Группа называется \textit{конечной}, если её порядок конечен, и \textit{бесконечной} иначе.
+	\end{definition} 
+	\newpage
+	\begin{exmpls}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Числовые \textit{аддитивные} группы: \newline
+			$\integers ^ +, \, \rationals ^ +, \, \real ^ +, \, \complex ^ +, \, 
+			\integers_n ^ +.$ 
+			\item Числовые \textit{мультипликативные} группы: \newline
+			$\rationals ^ {\times} \, \backslash \, \{0\}, \
+			\real ^ {\times} \, \backslash \, \{0\}, \
+			\complex ^ {\times} \, \backslash \, \{0\}, \
+			\integers_p ^ {\times} \, \backslash \, \{0\}, \ p$~--- простое.
+			\item Группы матриц: \newline
+			${\GL_n(\real) = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ \det A \neq 0 \}}$~--- \textit{полная линейная группа}; \newline
+			${\SL_n(\real) = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ \det A = 1 \}}$~--- \textit{специальная линейная
+				группа}; \newline
+			${\Orth_n(\real)} = \{A \in \mathrm{Mat}_{n \times n}(\real) \ | \ A \cdot A^T = I\}$~--- \textit{ортогональная группа}; \newline
+			${\SOrth_n(\real) = \Orth_n(\real) \cap \SL_n(\real)}$~--- \textit{специальная ортогональная группа;} \newline
+                ${\Unit_n = \{A \in \mathrm{Mat}_{n \times n}(\complex) \ | \ A \cdot A^\dagger = I\}}$~--- \textit{унитарная группа}; \newline
+                ${\SUnit_n = \Unit_n \cap \SL_n(\complex)}$~--- \textit{специальная унитарная группа.}
+			\item Группы перестановок: \newline
+			\textit{симметрическая группа} $\symmetrical_n$~--- все перестановки длины $n$;\newline
+			\textit{знакопеременная группа} $\alternating_n$~--- все чётные перестановки длины $n$.
+			\item Группы преобразований подобия: гомотетии, движения (осевые и скользящие симметрии, параллельные переносы, повороты).
+                \item \textit{Группа кватернионов:} \newline
+                Множество ${\mathbf{Q}_8 = \{\pm 1, \pm i, \pm j, \pm k\}}$ с операцией умножения заданной следующим образом: ${i^2 = j^2 = k^2 = -1,}$ ${ij = k,}$ ${ji = -k.}$
+		\end{enumerate}
+	\end{exmpls}
+	\begin{definition}
+		Для описания структур групп часто используются \textit{таблицы Кэли}. Они представляют собой квадратные таблицы, заполненные результатами применения бинарной операции к элементам множества.
+	\end{definition}
+	\begin{exmpl*}
+		Таблица Кэли для группы $(\{1, 3, 5, 7\}, \times (\mod 8)){:}$
+		\begin{center}
+			\begin{tabular}{c|cccc}
+				$\times$ & 1 & 3 & 5 & 7\\
+				\hline
+				1 & 1 & 3 & 5 & 7\\
+				
+				3 & 3 & 1 & 7 & 5\\
+				
+				5 & 5 & 7 & 1 & 3\\
+				
+				7 & 7 & 5 & 3 & 1\\
+			\end{tabular}
+		\end{center} \n
+	\end{exmpl*}

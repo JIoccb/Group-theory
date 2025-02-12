@@ -1,0 +1,100 @@
+\newpage
+	\section{$p$-группы. Теоремы Силова}
+	\setcounter{definition}{0}
+        \begin{definition}
+            Пусть $p$~--- простое число. Конечная группа $G$ называется \textit{$p$-группой}, если ${|G| = p^k}$ для некоторого ${k \in \naturals.}$
+        \end{definition}
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${|\dihedral_4| = 2^3}$~--- 2-группа;
+                \item ${|\mathbf{Q}_8| = 2^3}$~--- 2-группа.
+            \end{enumerate}
+        \end{exmpls}
+        \begin{theorem}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Нетривиальная $p$-группа имеет нетривиальный центр. 
+                \item Любая $p$-группа разрешима.
+            \end{enumerate}
+        \end{theorem}
+        \begin{proof}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${|G| = p^k, \ G = \bigsqcup C_G(g) \Rightarrow |G| = \displaystyle\sum|C_G(g)|.}$\newline Но ${|C_G(g)| = \frac{|G|}{|Z_G(g)|} = p^l, \ l \leqslant k.}$ При этом ${|C_G(g)| = 1 \Leftrightarrow g \in Z(G).}$ Поэтому ${p^k = |G| = |Z(G)| + \displaystyle\sum_{l_i > 0} p^{l_i} \Rightarrow p \cdot |Z(G)| \Rightarrow |Z(G)| \neq 1 \Rightarrow Z(G) \neq \{e\}.}$
+                \item Индукция по $k$:
+                \begin{itemize}
+                \setlength\itemsep{0.1em}
+                    \item При ${k = 0{:}}$ ${|G| = 1 \Rightarrow G = \{e\} \Rightarrow G}$ разрешима.
+                    \item При ${k > 0{:}}$ ${Z(G) \neq \{e\},}$ ${Z(G) \lhd G \Rightarrow |G/Z(G)| = p^l < p^k.}$ По предположению
+                    индукции, ${G/Z(G)}$ разрешима. Сам ${Z(G)}$ абелев, в частности, разрешим. Значит, и $G$ разрешима. \qedhere
+                \end{itemize}
+            \end{enumerate}
+        \end{proof}
+        \begin{lemma}
+            Пусть $G$~--- некоммутативная группа, тогда ${G/Z(G)}$ не циклическая.
+        \end{lemma}
+        \begin{proof}
+            Предположим, что ${G/Z(G)}$~--- циклическая. Тогда ${\exists a \in G\suchthat G/Z(G) = \langle aZ(G) \rangle.}$ Отсюда ${\forall g \in G\suchthat g = a^kz,}$ где ${k \in \integers, \ z \in Z(G).}$ Но ${(a^{k_1}z_1)(a^{k_2}z_2) = a^{k_1+k_2}z_1z_2.}$ Получаем противоречие с некоммутативностью группы.
+        \end{proof}
+        \newpage
+        \begin{theorem}
+            Любая группа порядка $|p^2|$ абелева.
+        \end{theorem}
+        \begin{proof}
+            Пусть $G$~--- группа и ${|G| = p^2.}$ Каким может быть центр?
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${|Z(G)| = 1}$~--- противоречие с пунктом 1 предыдущей теоремы.
+                \item ${|Z(G)| = p \Rightarrow |G/Z(G)| = p \Rightarrow G/Z(G)}$~--- циклическая~--- противоречие с предыдущей леммой.
+                \item ${|Z(G)| = p^2 \Rightarrow G = Z(G) \Rightarrow G}$ абелева. \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{consequence*}
+            Если ${|G| = p^2,}$ то либо ${G \cong \integers_{p^2},}$ либо ${G \cong \integers_p \oplus \integers_p.}$
+        \end{consequence*}
+        \begin{definition}
+            Пусть $G$~--- конечная группа, $p$~--- простое число. Тогда ${|G| = p^km,}$ где ${k \in \naturals, \ \NOD(m,p) = 1.}$ \textit{Силовской $p$-подгруппой} в $G$ называется подгруппа $H_p$ порядка $p^k$.
+        \end{definition}
+        \begin{exmpl*}
+            ${G = \symmetrical_4 \Rightarrow |G| = 24 = 2^3 \cdot 3}$
+            \begin{itemize}
+            \setlength\itemsep{0.1em}
+                \item ${p = 2 \Rightarrow |H_p| = 8 \Rightarrow H_p \cong \dihedral_4.}$
+                \item ${p = 3 \Rightarrow |H_p| = 3.}$ Например, ${H_p = \langle(123)\rangle.}$
+                \item ${p \geqslant 5 \Rightarrow |H_p| = 1 \Rightarrow H_p = \{e\}.}$
+            \end{itemize}
+        \end{exmpl*}
+        \begin{theorem*}[\textbf{первая теорема Силова}]
+            В любой конечной группе $G$ для любого простого $p$ силовская $p$-подгруппа существует. 
+        \end{theorem*}
+        \begin{remark}
+            Первая теорема Силова~--- это частичное обращение теоремы Лагранжа.
+        \end{remark}
+        \begin{theorem*}[\textbf{вторая теорема Силова}]
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item Любая $p$-подгруппа в $G$ содержится в некоторой силовской $p$-подгруппе. 
+                \item Все силовские $p$-подгруппы в $G$ сопряжены.
+            \end{enumerate}
+        \end{theorem*}
+        \begin{consequence*}
+            Пусть ${H \leqslant G}$~--- силовская $p$-подгруппа. Тогда ${H \lhd G \Leftrightarrow H}$~--- единственная силовская $p$-подгруппа.
+        \end{consequence*}
+        \begin{definition}
+            Пусть $G$~--- группа, ${H \leqslant G.}$ \textit{Нормализатором} подгруппы $H$ в $G$ называется множество
+            \begin{equation*}
+                N_G(H) \deq \{g \in G \ | \ gHg^{-1} = H\}.
+            \end{equation*}
+            При этом ${H \lhd N_G(H).}$
+        \end{definition}
+        \begin{theorem*}[\textbf{третья теорема Силова}]
+             Если за $n_p$ обозначить число силовских $p$-подгрупп в $G$, то $n_p \equiv 1 \ (\mod p)$ и $n_p|m$, где $m$~--- индекс силовской $p$-подгруппы. 
+        \end{theorem*}
+        \begin{consequence*}
+             Группа $G$ порядка $pq$, где $p,q$~--- простые, ${p > q}$, разрешима ступени $\leqslant2$.
+        \end{consequence*}

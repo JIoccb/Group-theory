@@ -1,0 +1,128 @@
+\newpage
+        \section{Группы автоморфизмов}
+        \begin{statement}
+            Пусть $G$~--- группа. \textit{Множество её автоморфизмов} $\Aut(G)$ несёт каноническую структуру группы с операцией композиции отображений.
+        \end{statement}
+        \begin{proof}
+            Необходимые свойства: ассоциативность верна для композиции любых отображений, в том числе и автоморфизмов; нейтральный элемент~--- тождественное отображение; обратный элемент существует, так как автоморфизмы биективны.
+        \end{proof}
+        \begin{statement}
+            \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${\Aut(\integers) \cong \integers_2;}$
+                \item ${\Aut(\integers_n) \cong \integers^\times_n.}$
+            \end{enumerate}
+        \end{statement}
+        \begin{proof}
+            Пусть ${G_1 = \langle g \rangle.}$ Тогда любой гомоморфизм ${\phi : G_1 \rightarrow G_2}$ однозначно определяется образом порождающего элемента ${\phi(g) \in G_2.}$ В самом деле, ${\forall m \in \integers\suchthat \phi(g^m) = \phi(g)^m.}$ Пусть ${\phi : G_1 \rightarrow G_1}$~--- автоморфизм. Тогда, из сюръективности, ${\exists k \in \integers\suchthat \phi(g) = g^k,}$ и это порож- дающий элемент $G$.
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item В $\integers$ всего два порождающих. Для каждого из них есть гомоморфизм:
+                \begin{itemize}
+                \setlength\itemsep{0.1em}
+                    \item ${\phi_1 : 1 \mapsto 1 \ (\phi_1 = \id);}$
+                    \item ${\phi_2 : 1 \mapsto -1 \ (\phi_1 = -\id).}$
+                \end{itemize}
+                Это автоморфизмы ${\Rightarrow |\Aut(\integers)| = 2 \Rightarrow \Aut(\integers) \cong \integers_2.}$
+                \item В $\integers_n$ порождающие~--- это ${\overline{k}\suchthat \NOD(k,n) = 1.}$ \newline
+                Построим ${\phi_{\overline{k}} : \overline{1} \mapsto \overline{k}, \ \ \overline{m} \mapsto \overline{km}.}$ Это биекция из множества в само себя, значит, это автоморфизм. Проверим, что отображение ${\overline{k} \mapsto \phi_{\overline{k}}}$ сохраняет операцию. Действительно,
+                \begin{equation*}
+                    \phi_{\overline{s}}(\phi_{\overline{k}}(\overline{m})) = \overline{skm} = \phi_{\overline{sk}}(\overline{m}) \Rightarrow \Aut(\integers_n) \cong \integers^\times_n. \qedhere
+                \end{equation*}
+            \end{enumerate}
+          \end{proof}
+          \newpage
+          \begin{definition}
+              Пусть $G$~--- группа, ${g \in G.}$ \textit{Внутренним автоморфизмом} группы $G$, определяемым $g$, называется отображение ${i_g : G \rightarrow G, \ \ a \mapsto gag^{-1}.}$\newline
+              Проверим, что это автоморфизм:
+              \begin{equation*}
+                  i_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = i_g(a)i_g(b),
+              \end{equation*}
+              обратный к нему существует, и это $i_{g^{-1}.}$\newline
+              Множество всех внутренних автоморфизмов группы $G$ обозначается как $\Inn(G)$.
+          \end{definition}
+          \begin{lemma}
+          \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item ${\Inn(G) \lhd \Aut(G);}$
+                \item Отображение ${i : G \rightarrow \Inn(G), \ \ g \mapsto i_g}$ является гомоморфизмом групп.
+            \end{enumerate}
+          \end{lemma}
+          \begin{proof}
+          \
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item Поскольку ${\Inn(G) = \im i \subseteq \Aut(G),}$ то это подгруппа. \newline
+              Для проверки нормальности возьмём произвольные ${\phi \in \Aut(G)}$ и ${i_g \in \Inn(G)}$ и сопряжём их:
+              \begin{equation*}
+                  (\phi i_g \phi^{-1})(a) = \phi(g \phi^{-1}(a) g^{-1}) =  \phi(g) a \phi(g^{-1}) = i_{\phi(g)}(a).
+              \end{equation*}
+              Таким образом, ${\phi i_g \phi^{-1} \in \Inn(G) \Rightarrow \Inn(G) \lhd \Aut(G).}$
+                \item ${i_{gh}(a) = gha(gh)^{-1} = ghah^{-1}g^{-1} = g(hah^{-1})g^{-1} = i_g(i_h(a)) =}$ ${= (i_g \circ i_h)(a),}$ то есть операция сохраняется. \qedhere
+            \end{enumerate}
+            \end{proof}
+            \begin{definition}
+              \textit{Центром} группы $G$ называется множество всех элементов группы, коммутирующих со всеми элементами группы:
+              \begin{equation*}
+                  Z(G) \deq \{g \in G \ | \ \forall g' \in G\suchthat gg' = g'g\}.
+              \end{equation*}
+          \end{definition}
+          \begin{remark}
+              ${G = Z(G) \Leftrightarrow G}$ абелева.
+          \end{remark}
+          \newpage
+          \begin{lemma}
+              Пусть $G$~--- группа, тогда
+              \begin{enumerate}
+              \setlength\itemsep{0.1em}
+                  \item ${Z(G) \lhd G;}$
+                  \item ${\forall i \in \Aut(G)\suchthat \ker i = Z(G).}$
+              \end{enumerate}
+          \end{lemma}
+          \begin{proof}
+            Достаточно доказать только пункт 2, так как пункт 1 из него следует. 
+            \begin{enumerate}[start=2]
+            \setlength\itemsep{0.1em}
+                \item Проверим, что ${\forall a \in G\suchthat i_g(a) = a}$:
+                \begin{equation*}
+                    g \in Z(G) \Leftrightarrow \forall a \in G\suchthat ga = ag \Leftrightarrow gag^{-1} = a \Leftrightarrow i_g(a) = a. \qedhere
+                \end{equation*}
+            \end{enumerate}
+          \end{proof}
+          \begin{remark}
+              ${\Inn(G) = {e} \Leftrightarrow G}$ абелева.
+          \end{remark}
+          \begin{statement}
+              Пусть $G$~--- группа, тогда ${\Inn(G) \cong \sfrac{G}{Z(G)}.}$
+          \end{statement}
+          \begin{proof}
+              Рассмотрим гомоморфизм ${i : G \rightarrow \Aut(G), \ \ g \mapsto i_g.}$ Тогда ${\im i = \Inn(G),}$ ${\ker i = Z(G)}$ по предыдущей лемме. По теореме о гомоморфизме, ${\im i = \Inn(G) \cong \sfrac{G}{\ker i} = \sfrac{G}{Z(G)}.}$
+          \end{proof}
+          \begin{exmpls}
+          \
+              \begin{enumerate}
+              \setlength\itemsep{0.1em}
+                  \item $Z(\symmetrical_n) = \begin{cases*}
+                      \symmetrical_n,& $n \leqslant 2$,\\
+                      \{e\},& $n \geqslant 3.$
+                  \end{cases*}$ \newline
+                  $Z(\alternating_n) = \begin{cases*}
+                      \alternating_n,& $n \leqslant 3$,\\
+                      \{e\},& $n \geqslant 4.$
+                  \end{cases*}$
+                  \item ${Z(\GL_n(\real)) = \{\lambda I \ | \ \lambda \in \real \, \backslash \, \{0\}\}}.$
+                  \item $Z(\dihedral_n) = \begin{cases*}
+                      \{e, \Rot_\pi\},& $n = 2k$,\\
+                      \{e\},& $n = 2k + 1.$
+                  \end{cases*}$
+                  \item ${Z(Q_8) = \{\pm 1\}.}$
+              \end{enumerate}
+          \end{exmpls}
+          \begin{definition}
+              \textit{Множество внешних автомрфизмов} группы $G$ определяется как\
+              \begin{equation*}
+                  \mathrm{Out}\,(G) \deq \sfrac{\Aut(G)}{\Inn(G)}.
+              \end{equation*}
+          \end{definition}

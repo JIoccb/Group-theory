@@ -1,0 +1,116 @@
+\newpage
+        \section{Коммутант}
+        \setcounter{definition}{0}
+        \begin{definition}
+            Пусть $G$~--- группа. \textit{Коммутатором} двух элементов ${x,y \in G}$ называется ${[x,y] \deq xyx^{-1}y^{-1} \in G.}$
+        \end{definition}
+        \begin{remark}
+        \
+            \begin{enumerate}
+            \setlength\itemsep{0.1em}
+                \item $[x,y] = e \Leftrightarrow xy = yx;$
+                \item ${xy = [x,y] \, yx,}$ поэтому $[x,y]$ называют \textit{корректирующим множителем};
+                \item ${[x,x] = e;}$
+                \item ${[x,y]^{-1} = (xyx^{-1}y^{-1})^{-1}=yxy^{-1}x^{-1}=[y,x].}$
+            \end{enumerate}
+        \end{remark}
+        \begin{definition}
+            \textit{Коммутантом} или \textit{производной подгруппой} группы $G$ называется подгруппа ${G' \ (\text{или }[G,G]) \leqslant G,}$ порождённая всеми коммутаторами в $G$.
+        \end{definition}
+        \begin{remark}
+            ${[G,G] = \{e\} \Leftrightarrow G}$~--- абелева.
+        \end{remark}
+        \begin{exmpl*}
+            ${G = \symmetrical_n \Rightarrow [\sigma, \tau] = \sigma \tau \sigma^{-1} \tau^{-1}}$~--- чётная ${\Rightarrow G' \leqslant \alternating_n.}$ С другой стороны, $\alternating_n$ порождается тройными циклами, которые, в свою очередь, представимы как коммутаторы:
+            \begin{equation*}
+		  \begin{gathered}
+			(ijk) = (ij)(ik)(ij)(ik) = (ij)(ik)(ij)^{-1}(ik)^{-1} = [(ij), (ik)] \Rightarrow \alternating_n \leqslant G' \Rightarrow \\
+			\Rightarrow \alternating_n = G'.
+		  \end{gathered}
+	       \end{equation*}
+        \end{exmpl*}
+        \begin{statement}
+            Пусть $G$~--- группа, тогда:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item ${G' \lhd G;}$
+                \item $G/G'$ абелева;
+                \item если ${N \lhd G,}$ то $G/N$ абелева ${\Leftrightarrow G' \leqslant N;}$
+                \item если ${G' \leqslant K \leqslant G,}$ то ${K \lhd G.}$
+            \end{enumerate}
+        \end{statement}
+        \newpage
+        \begin{proof}
+            Достаточно доказать только факты 3 и 4, из которых сразу следуют 2 и 1, соответственно.
+            \begin{enumerate}[start=3]
+                \setlength\itemsep{0.1em}
+                \item $\forall g,h \in G\suchthat (gN)(hN) = (hN)(gN) \Leftrightarrow (gN)(hN)(gN)^{-1}(hN)^{-1} = \\
+                        = (ghg^{-1}h^{-1}N) = eN \Leftrightarrow ghg^{-1}h^{-1} \in N \Leftrightarrow \\
+                        \Leftrightarrow N \text{ содержит все коммутаторы } \Leftrightarrow G' \leqslant N.$
+                \item Если ${g \in G, \ k \in K,}$ то ${gkg^{-1} = gkg^{-1}k^{-1}k = [g,k]\, k.}$ Так как ${[g,k] \in K,}$ то ${gkg^{-1} \in K \Rightarrow K \lhd G.}$ \qedhere
+            \end{enumerate}
+        \end{proof}
+        \begin{lemma}
+            Пусть ${\phi : G_1 \rightarrow G_2}$~--- гомоморфизм. Тогда ${\phi(G'_1) \leqslant G'_2.}$ Если $\phi$ сюръективен, то ${\phi(G'_1) = G'_2.}$
+        \end{lemma}
+        \begin{proof}
+            \begin{equation*}
+               \begin{gathered}
+                   \phi([x,y]) = \phi(xyx^{-1}y^{-1}) = \phi(x)\phi(y)\phi(x^{-1})\phi(y^{-1}) = \phi(x)\phi(y)\phi(x)^{-1}\phi(y)^{-1} = \\
+                   = [\phi(x), \phi(y)] \in G'_2 \Rightarrow \phi(G'_1) \leqslant G'_2.
+               \end{gathered} 
+            \end{equation*}
+            Если $\phi$ сюръективен и ${a,b \in G_2,}$ то ${\exists x,y \in G_1\suchthat a = \phi(x), \ b = \phi(y).}$ Тогда ${[a,b] = [\phi(x), \phi(y)] = \phi([x,y]) \in \phi(G'_1) \Rightarrow G'_2 \leqslant \phi(G'_1) \Rightarrow \phi(G'_1) = G'_2.}$
+        \end{proof}
+        \begin{definition}
+            Пусть $G$~--- группа. Подгруппа ${H \leqslant G}$ называется \textit{характеристической}, если она устойчива относительно всех автоморфизмов, т.е. ${\forall \phi \in \Aut(G)\suchthat \phi(H) = H.}$
+        \end{definition}
+        \begin{remark}
+           Центр группы является характеристической подгруппой. 
+        \end{remark}
+        \begin{statement}
+            Коммутант группы является характеристической подгруппой.
+        \end{statement}
+        \begin{proof}
+            Достаточно проверить, что ${\forall \phi \in \Aut(G)\suchthat \phi([x,y]) \in G'.}$
+            ${\phi([x,y]) = [\phi(x), \phi(y)] \in G'.}$
+        \end{proof}
+        \begin{remark}
+            Если ${H \leqslant G,}$ то ${H' \subseteq G'.}$
+        \end{remark}
+        \newpage
+        \begin{lemma}
+            $D'_n  = \begin{cases*}
+                \langle \Rot_{\frac{2\pi}{n}} \rangle,& $n = 2s + 1,$ \\
+                \langle \Rot_{\frac{2\pi}{s}} \rangle,& $n = 2s$.
+            \end{cases*}$
+        \end{lemma}
+        \begin{proof}
+            Коммутаторы вращений тривиальны. \newline
+            ${\Rot_\phi \Sym_v \Rot_{-\phi} \Sym_v = \Sym_{\Rot_\phi v} \Sym_v = \Rot_{2\phi}.}$ \newline
+            ${\Sym_1 \Sym_2 \Sym_1 \Sym_2 = \Rot_{2\phi} \Rot_{2\phi} = \Rot_{4\phi},}$ где $\phi$~--- угол между осями симметрий. \newline
+            Таким образом, ${D'_n  = 
+                \{\Rot_{2 \cdot \frac{2\pi k}{n}}\}^{n-1}_{k=0} =
+            \begin{cases*}
+                \langle \Rot_{\frac{2\pi}{n}} \rangle,& $n = 2s + 1,$ \\
+                \langle \Rot_{\frac{2\pi}{s}} \rangle,& $n = 2s$.
+            \end{cases*}}$
+        \end{proof}
+        \begin{lemma}
+            $\alternating'_n = \begin{cases*}
+                e,& $n \leqslant 3,$\\
+                \quaternary,& $n = 4,$\\
+                \alternating_n,& $n \geqslant 5.$
+            \end{cases*}$
+        \end{lemma}
+        \begin{proof}
+            При $n \leqslant 3$ $\alternating_n$ абелева.\newline
+            При ${n = 4{:}}$ ${\quaternary \lhd \alternating_n,}$ ${|\sfrac{\alternating_4}{\quaternary}| = \frac{12}{4} = 3}$~--- простое число ${\Rightarrow \sfrac{\alternating_4}{\quaternary} \cong \integers_3}$~--- абелева ${\Rightarrow \alternating'_4 \leqslant \quaternary.}$ С другой стороны, ${\alternating'_4 \neq \{e\},}$ т.к. $\alternating_4$ не абелева. Но $\alternating_4$ состоит из двух классов сопряжённости $\Rightarrow$ в $\quaternary$ нет собственных подгрупп, нормальных в ${\alternating_4 \Rightarrow \alternating'_4 = \quaternary.}$\newline
+            При ${n \geqslant 5{:}}$ применяя вышеописанные рассуждения к произвольной четвёрке индексов ${i,j,k,l,}$ увидим, что юбая пара независимых транспозиций лежит в $\alternating'_n$. Такие пары порождают $\alternating_n$, значит, $\alternating'_n = \alternating_n$.
+        \end{proof}
+        \begin{lemma}
+            ${\GL'_n(F) = \SL_n(F)}$ при ${|F| \geqslant 4, \ n \geqslant 2.}$
+        \end{lemma}
+        \begin{proof}
+            ${\det [A,B] = \det(ABA^{-1}B^{-1}) = 1 \Rightarrow \GL'_n(F) \subseteq \SL_n(F).}$ С другой стороны, ${\SL'_n(F) = \SL_n(F) \subseteq \GL'_n(F).}$ Значит, ${\GL'_n(F) = \SL_n(F).}$
+        \end{proof}

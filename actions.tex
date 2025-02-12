@@ -1,0 +1,135 @@
+\newpage
+        \section{Действия групп. Формула Бёрнсайда}
+        \setcounter{definition}{0}
+        \begin{definition}
+            Пусть $G$~--- группа, $X$~--- произвольное множество. \textit{Действием} группы $G$ на множестве $X$ называется гомоморфизм ${\alpha : G \rightarrow S(X),}$ где $S(X)$~--- группа биекций на $X$. Альтернативное определение заключается в том, что действие~--- отображение ${G \times X \rightarrow X, \ (g,x) \mapsto gx,}$ удовлетворяющее условиям:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item $\forall x \in X\suchthat  ex = x;$
+                \item $\forall g,h \in G \ \forall x \in X\suchthat g(hx) = (gh)x.$
+            \end{enumerate}
+            Действие $G$ на $X$ обозначается $G \curvearrowright X$ или $G : X$.
+        \end{definition}
+        \begin{remark}
+            Эти определения эквивалентны.
+        \end{remark}
+        \begin{definition}
+            \textit{Орбитой} точки ${x \in X}$ называется множество
+            \begin{equation*}
+                Orb(x) \deq \{gx \ | \ g \in G\} \subseteq X.
+            \end{equation*}
+        \end{definition}
+        \begin{definition}
+            \textit{Стабилизатором (стационарной подгруппой, подгруппой изотропии)} точки ${x \in X}$ называется множество
+            \begin{equation*}
+                St(x) \deq \{g \in G \ | \ gx = x\} \subseteq G.
+            \end{equation*}
+        \end{definition}
+        \begin{remark}
+            $St(x) < G.$
+        \end{remark}
+        \begin{definition}
+            Действие
+            \begin{itemize}
+                \setlength\itemsep{0.1em}
+                \item \textit{транзитивно}, если $\forall x,y \in X \ \exists g \in G\suchthat y = gx$ (т.е. $X$ состоит из одной орбиты);
+                \item \textit{свободно}, если $\exists x \in X\suchthat gx = x$ влечёт $St(x) = \{e\};$
+                \item \textit{эффективно}, если ${\forall x \in X\suchthat gx = x}$ влечёт ${g = e}$ (т.е. действие инъективно).
+            \end{itemize}
+        \end{definition}
+        \begin{definition}
+            \textit{Ядром неэффективности действия} $a$ назывется множество 
+            \begin{equation*}
+                \ker \alpha \deq \{g \in G \ | \ \forall x \in X\suchthat gx = x\}.
+            \end{equation*}
+        \end{definition}
+        \begin{remark}
+            От действия ${G \curvearrowright X}$ можно перейти к действию ${\sfrac{G}{\ker \alpha} \curvearrowright X : g \ker \alpha = gx}$, которое будет эффективным.
+        \end{remark}
+        \begin{exmpls}
+            \
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item ${\SOrth_n(\real) \curvearrowright \real^n, \ (A,v) \mapsto Av.}$\n
+                Орбитами этого действия при ${n = 2}$ будут концентрические окружности с центром в начале координат (а также сама точка начала координат, считающаяся окружностью с нулевым радиусом). В общем случае это сферы с центром в начале координат, а также сама точка начала координат.\n
+                Стабилизатор ненулевого вектора ${St(v) \cong \SOrth_{n - 1}(\real)}$~--- все специальные ортогональные преобразования в ортогональной плоскости к $v$. Если же $v = 0$, то $St(v) = \SOrth_n(\real)$.
+                Действие не транзитивно (длина сохраняется), не свободно (хотя при ${n = 2}$ очень к этому близко) и эффективно.
+                \item ${\symmetrical_n \curvearrowright \{1,\ldots, n\}, \ i \mapsto \sigma(i)}.$ \n
+                Действие транзитивно и эффективно, но не свободно при $n \geqslant 3$, т.к. ${St(i) \cong \symmetrical_{n-1}.}$ 
+                \item ${\sigma \in \symmetrical_n, \ G = \langle \sigma \rangle \curvearrowright \{1,\ldots, n\} = X.}$\n
+                Орбиты соответствуют независимым циклам в разложении $\sigma$.\newline
+                Действие транзитивно $\Leftrightarrow \sigma$~--- цикл длины $n$.
+                \item ${G = \GL_n(F)}$ или ${\SL_n(F) \ (n \geqslant 2) \curvearrowright F^n \ X, \ \ (A,v) \mapsto Av.}$\n
+                Орбиты: (для ${\SL_n(F)}$ при ${n > 1}$) ${F^n \, \backslash \, \{0\}}$ и $\{0\}$.
+                \item ${G = \GL_n(\complex) \curvearrowright \mathrm{Mat}_{n \times n}(\complex) = X, \ \ (g,M) \mapsto gMg^{-1}.}$\n
+                Орбиты~--- матрицы одного оператора в разных базисах: ${GM = \{M' \ | \ \mathcal{J}(M') = \mathcal{J}(M)\},}$ где $\mathcal{J}(M)$~--- жорданова нормальная форма $M$.\n
+                ${St(M) = Z_{\GL_n(\complex)}(M) = \{g \ | \ gM = Mg\}.}$
+                \item ${G = \GL_n(F) \curvearrowright \mathrm{Mat}_{n \times n}(\complex) = X, \ \ (g,M) \mapsto gMg^T.}$\n
+                Орбиты $GM$~--- матрицы одной билинейной формы.
+            \end{enumerate}
+            Три важных действия ${G \curvearrowright G}$:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item \textit{левые сдвиги}: ${(g,x) \mapsto gx;}$
+                \item \textit{правые сдвиги}: ${(g,x) \mapsto xg;}$
+                \item сопряжения: ${(g,x) \mapsto gxg^{-1}.}$
+            \end{enumerate}
+            Действия 1 и 2 транзитивны: ${x \xmapsto{g=yx^{-1}}y.}$\\
+            Действия 1 и 2 свободны: ${St(x) = \{g \in G \ | \ gx = x\} = \{e\}.}$\\
+            Действия 1 и 2 эффективны.\\
+            Орбиты действия 3~--- классы сопряжённости $C_G(x)$, стабилизатор ${St(x) = Z_G(x)}$~--- централизатор.\\
+            Пусть $G$ нетривиальна. Тогда действие 3 не транзитивно, не свободно и не эффективно: ${\ker \alpha = \displaystyle\bigcap_{x \in X} St(x) = Z(G).}$
+        \end{exmpls}
+        \begin{theorem*}[\textbf{Кэли}]
+		Любая конечная группа $G$ порядка $n$ изоморфна некоторой подгруппе $\symmetrical_n.$
+	\end{theorem*}
+	\begin{proof}
+            Рассмотрим ${G \curvearrowright G}$ левыми сдвигами. Оно определяет гомоморфизм ${\alpha : G \rightarrow S(G) \cong \symmetrical_n.}$ Действие свободно $\Rightarrow$ эффективно ${\Rightarrow \alpha}$ инъективно $\Rightarrow$ по теореме о гомоморфизме, ${G \cong \alpha(G) \leqslant \symmetrical_n.}$\n
+		  Можно построить такой гоморфизм и вручную: ${\forall {a \in G}}$ рассмотрим отображение ${L_a : G \rightarrow G}$, определённое формулой ${L_a(g) = ag.}$\n
+          Если $e, g_2,\ldots,g_n$~--- все элементы $G$, то $a, ag_2,\ldots,ag_n$ будут теми же элементами, но расположенными в каком-то другом порядке. Значит, $L_a$~--- биекция, обратной к которой будет $L_a^{-1} = L_{a^{-1}}$, тождественным отображением является $L_e$. Тогда $L_{ab}(g) = (ab)g = a(bg) = L_a(L_b(g)),$ т.е. $L_{ab} = L_a L_b.$ Следовательно множество $L_e, L_{g_2}\ldots,L_{g_n}$ образует подгруппу ${H < S(G) = \symmetrical_n}$, а ${L : a \mapsto L_a}$ является изоморфизмом.
+	\end{proof}
+        \begin{definition}
+            Подгруппы $H_1, H_2 < G$ называются \textit{сопряжёнными}, если $\exists g \in G\suchthat gH_1g^{-1} = H_2.$
+        \end{definition}
+        \begin{lemma}
+        	Пусть группа $G$ действует на множество $X$, ${x,y \in X}$ лежат в одной $G$-орбите. Тогда $St(x)$ и $St(y)$ сопряжены.
+        \end{lemma}
+        \begin{proof}
+        	По условию, ${\exists g \in G \suchthat gx = y.}$ Тогда
+        	\begin{equation*}
+        		\begin{gathered}
+        			h = St(y) \Leftrightarrow hy = y \Leftrightarrow h(gx) = gx \Leftrightarrow g^{-1}hgx = x \Leftrightarrow g^{-1}hg \in St(x) \Leftrightarrow \\
+        			 \Leftrightarrow St(x) = g^{-1}St(y) = gSt(x)g^{-1}. \qedhere
+        		\end{gathered}
+        	\end{equation*}
+        \end{proof}
+        \begin{remark}
+        	Обратное утверждение неверно.
+        \end{remark}
+        \begin{definition}
+        	Пусть ${G_1 \curvearrowright X_1,}$ ${G_2 \curvearrowright X_2}$~--- два действия. Они называются \textit{изоморфными}, если существует изоморфизм ${\phi : G_1 \rightarrow G_2}$ и биекция ${f : X_1 \rightarrow X_2,}$ такие что одно действие переходит в другое, т.е. ${\forall x \in X_1 \ \forall g \in G_1 \suchthat f(gx) = \phi(g)f(x):}$
+            \[
+              \begin{tikzcd}
+                x \arrow{r} \arrow[swap]{d}{f} & gx \arrow{d}{f} \\
+                 f(x) \arrow{r} & \phi(g)f(x)
+              \end{tikzcd}
+            \]
+        \end{definition}
+        \begin{remark}
+        	Пусть $G$~--- группа, ${H \leqslant G.}$ Тогда $G$ действует на множество смежных классов ${G/H:}$
+        	\begin{equation*}
+        		G \times G/H \rightarrow G/H, \ (g,xH) \mapsto (gxH).
+        	\end{equation*}
+        	Это действие транзитивно ${xH \xmapsto{g = yx^{-1}} yH.}$ \n
+        	${G/H}$ называют \textit{однородным пространством} группы $G$.
+        	
+        \end{remark}
+        \begin{theorem*}[\textbf{формула Бёрнсайда}]
+            Пусть $G$~--- конечная группа, $X$~--- конечное множество, ${G \curvearrowright X.}$ Тогда число орбит действия равно
+            \begin{equation*}
+                \frac{1}{|G|} \sum_{g \in G} |X^g|, \  \textrm{где} \ X^g \deq \{x \in X \ | \ gx = x\}.
+            \end{equation*}
+        \end{theorem*}
+        \begin{proof}
+        	Рассмотрим ${M = \{(g, x) \ | \ gx =x\}.}$ \\ Тогда ${|M| = \displaystyle\sum_{g \in G} |X^g|.}$ С другой стороны, если зафиксировать $x$, то ${|M| = \displaystyle\sum_{x \in X} |St(x)| = \displaystyle\sum_{x \in X} \frac{|G|}{|Gx|} = |G|\displaystyle\sum_{x \in X}\frac{1}{|Gx|}.}$ Нетрудно заметить, что для каждой орбиты обратная величина к её порядку войдёт в сумму ровно столько раз, сколько элементов в орбите, то есть сумма просто будет равна числу орбит. Приравняв две полученные мощности $M$, получим требуемое. \qedhere
+        \end{proof}

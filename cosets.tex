@@ -1,0 +1,60 @@
+\newpage
+	\section{Смежные классы. Индекс подгруппы. Теорема Лагранжа}
+	\setcounter{definition}{0}
+	\begin{definition}
+		\textit{Левым смежным классом} элемента $g$ группы $G$ по подгруппе $H$ называется подмножество
+		\begin{equation*}
+			gH \deq \{gh \ | \ h \in H\},
+		\end{equation*}
+		аналогично определяется \textit{правый смежный класс}:
+		\begin{equation*}
+			Hg \deq \{hg \ | \ h \in H\}.
+		\end{equation*}
+	\end{definition}
+	\begin{lemma}
+		Пусть $G$~--- конечная подгруппа, тогда $\forall g \in G\suchthat |gH| = |H|.$
+	\end{lemma}
+	\begin{proof}
+		Поскольку ${gH = \{gh \ | \ h \in H\}}$, в $gH$ элементов не больше, чем в $H$. Если ${gh_1 = gh_2}$, то домножив слева на $g^{-1},$ получаем ${h_1 = h_2}$. Значит, все элементы вида $gh$, где ${h \in H}$, попарно различны, откуда ${|gH| = |H|}$.
+	\end{proof}
+	\begin{definition}
+		Пусть $G$~--- группа, $H < G$. \textit{Индексом} подгруппы $H$ в группе $G$ называется число левых смежных классов $G$ по $H$.
+	\end{definition} \n
+	Индекс группы $G$ по подгруппе $H$ обозначается $[G : H]$.
+	\begin{theorem*}[\textbf{Лагранж}]
+		Пусть $G$~--- конечная группа, $H < G$. Тогда
+		\begin{equation*}
+			|G| = |H| \cdot [G : H].
+		\end{equation*}
+	\end{theorem*}
+	\begin{proof}
+		Каждый элемент группы $G$ лежит в (своём) левом смежном классе по подгруппе $H$, разные смежные классы не пересекаются (по следствию из доказательства критерия подгруппы) и каждый из них содержит по $|H|$ элементов (по предыдущей лемме).
+	\end{proof}
+	\newpage
+	\begin{consequence}
+		$|G| \divby |H|$.
+	\end{consequence}
+	\begin{consequence}
+		$|G| \divby \ord(g)$.
+	\end{consequence}
+	\begin{proof}
+		Вытекает из следствия 1 и того, что $\ord(g) = |\langle g \rangle|$.
+	\end{proof}
+	\begin{consequence}
+		$g^{|G|} = e$.
+	\end{consequence}
+	\begin{proof}
+		Из предыдущего следствия получаем: ${|G| = \ord(g) \cdot s, \ s \in \naturals} \Rightarrow g^{|G|} = (g^{\ord(g)})^s = e^s = e.$
+	\end{proof}
+	\begin{consequence}[\textbf{Малая теорема Ферма}]
+		Пусть $\overline{a}$~--- ненулевой вычет по простому модулю $p$, тогда $\overline{a}^{p-1} \equiv 1 \ (\mod \, p).$
+	\end{consequence}
+	\begin{proof}
+		Применим следствие 3 к группе $\integers_p ^ {\times} \, \backslash \ \{0\}.$ \qedhere
+	\end{proof}
+	\begin{consequence}
+		Пусть $|G|$~--- простое число, тогда $G$~--- циклическая группа, порождённая любым своим не нейтральным элементом.
+	\end{consequence}
+	\begin{proof}
+		Пусть $g \in G$~--- произвольный не нейтральный элемент. Тогда циклическая подгруппа $\langle g \rangle$ содержит более одного элемента и $|\langle g \rangle|$ делит $|G|$ по следствию 1. Значит, $|\langle g \rangle| = |G|$, откуда $G = \langle g \rangle$. 
+	\end{proof}

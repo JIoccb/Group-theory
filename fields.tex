@@ -1,0 +1,130 @@
+\newpage
+	\section{Кольца и поля}
+	\setcounter{definition}{0}
+	\begin{definition}
+		\textit{Кольцо}~--- это множество $R,$ на котором заданы две бинарные операции ${\flqq+\frqq}$ (сложение) и ${\flqq \cdot \frqq}$ (умножение), удовлетворяющее следующим условиям:
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $(R, +)$ ~--- абелева группа;
+			\item $(R, \cdot)$~--- полугруппа;
+			\item $\forall a, b, c \in R\suchthat a(b + c) = ab + ac$ и $(a + b)c = ac + bc.$
+		\end{enumerate} 
+	\end{definition}
+	\begin{remark}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $\forall a \in R\suchthat 0 \cdot a = a \cdot 0 = 0;$
+			\item Если $|R| > 1,$ то $1 \neq 0.$ 
+		\end{enumerate}
+	\end{remark}
+	\begin{proof}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item $a0 = a(0 + 0) = a0 + a0 \Rightarrow 0 = a0.$
+			\item Следует из условий выше. \qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{exmpls}
+		\
+		\begin{enumerate}
+			\setlength\itemsep{0.1em}
+			\item Числовые кольца $\integers, \rationals, \real, \complex;$
+			\item Кольцо $\integers_n$ вычетов по модулю $n;$
+			\item Кольцо матриц $\mathrm{Mat}_{n \times n}(\real);$
+			\item Кольцо многочленов $\real[x]$ от переменной $x$ с коэффициентами из $\real;$
+			\item Кольцо функций $F(M, \real)$ из множества $M$ в $\real$ с поэлементными
+			операциями сложения и умножения: \n
+			$\forall m \in M\suchthat (f_1 + f_2)(m) = f_1(m) + f_2(m), \quad (f_1 \cdot f_2)(m) = f_1(m) \cdot f_2(m).$
+		\end{enumerate}
+	\end{exmpls}
+        \begin{comment}
+        \begin{definition}
+            Кольцо $R$ называется \textit{ассоциативным}, если 
+		\begin{equation*}
+			\forall a, b, c \in R\suchthat (ab)c = a(bc).
+		\end{equation*}
+	\end{definition}
+        \end{comment}
+	\begin{definition}
+		Кольцо $R$ называется \textit{коммутативным}, если 
+		\begin{equation*}
+			\forall a, b \in R\suchthat ab = ba.
+		\end{equation*}
+	\end{definition}
+        \begin{definition}
+            Говорят, что кольцо $R$ \textit{содержит единицу}, если
+            \begin{equation*}
+                \exists 1 \in R \ \forall a \in R\suchthat 1 \times a = a \times 1 = a.
+            \end{equation*}
+        \end{definition}
+	\begin{definition}
+		Элемент $a$ кольца $R$ называется \textit{обратимым}, если 
+		\begin{equation*}
+			\exists b \in R \suchthat ab = ba = 1.
+		\end{equation*}
+	\end{definition}
+	\begin{remark}
+		Все обратимые элементы кольца образуют группу по умножению.
+	\end{remark}
+	\begin{definition}
+		Элемент $a$ кольца $R$ называется \textit{левым} (соответственно \textit{правым}) \textit{делителем нуля}, если ${a \neq 0}$ и ${\exists b \neq 0 \in R \suchthat ab = 0}$ (соответственно $ba = 0$).
+	\end{definition}
+	\begin{remark}
+		Если кольцо коммутативно, то множества левых и правых делителей нуля совпадают. Тогда левые и правые делители нуля называются просто «делителями нуля».
+	\end{remark}
+	\begin{remark}
+		Все делители нуля в кольце необратимы.
+	\end{remark}
+	\begin{proof}
+		Пусть $R$~--- кольцо; ${a \neq 0, \ b \neq 0.}$ Если ${ab = 0}$ и ${\exists a^{-1},}$ то ${a^{-1}ab = a^{-1}0 \Rightarrow b = 0}$~--- противоречие.
+	\end{proof}
+	\begin{definition}
+		Элемент $a$ кольца $R$ называется \textit{нильпотентным (нильпотентом)}, если ${a \neq 0}$ и ${\exists n \in \naturals \suchthat a^n = 0.}$
+	\end{definition}
+	\begin{remark}
+		Всякий нильпотент является делителем нуля.
+	\end{remark}
+	\begin{definition}
+		Кольцо называется \textit{телом}, если оно содержит ${1 \neq 0,}$ и любой ненулевой элемент обратим.
+        \begin{exmpl*}
+            $\mathbb{H}$~--- тело кватернионов.
+        \end{exmpl*}
+	\end{definition}
+        \begin{definition}
+            Тело называется \textit{полем}, если оно коммутативно.
+        \end{definition}
+        \begin{exmpls}
+		$\rationals, \real, \complex, \algebraic, \integers_p, \rationals_p$ для простых $p$.
+	\end{exmpls}
+	\begin{remark}
+		В полях не существует делителей нуля.
+	\end{remark}
+        \begin{definition}
+            \textit{Характеристикой} $\mathrm{char} \, F$ поля $F$ называется такое ${n \in \naturals,}$ что ${\underbrace{1+\ldots+1}_{n \ \text{раз}} = 0.}$
+        \end{definition}
+        \newpage
+	\begin{theorem}
+		Кольцо вычетов  $\integers_p$ является полем тогда и только тогда, когда $p$~--- простое число.
+	\end{theorem}
+	\begin{proof}
+		\
+		\newline
+		{\textit{Необходимость.}} Если ${n = 1,}$ то ${\integers_n = \{0\}}$ ~--- не поле. \n
+		Если ${n > 1}$ и ${n = m \cdot k,}$  где ${1 < m, k < n,}$ то ${\overline{m} \cdot \overline{k} = \overline{0}} \Rightarrow$ в $\integers_n$ есть делитель нуля ${\Rightarrow \integers_n}$~--- не поле. \newline
+		{\textit{Достаточность.}} Пусть $p$~--- простое, ${\overline{a} \in \integers_p \, \backslash \, \{\overline{0}\}.}$ \n
+		Тогда ${{\NOD(a,p)} = 1} \Rightarrow {\exists k,l \in \integers \suchthat ak + pl = 1.}$ Значит, ${\overline{a} \cdot \overline{k} + \overline{p} \cdot \overline{l} = \overline{1} \Rightarrow a \cdot k \equiv 1 \ (\mod p) \Rightarrow a}$ обратим, противоречие.
+	\end{proof}
+        \begin{statement}
+            Любая конечная подгруппа мультипликативной группы поля является циклической.
+        \end{statement}
+        \begin{proof}
+            Пусть $F$~--- поле, ${A \leqslant F^\times}$~--- конечная подгруппа, ${m = \exp(A).}$ Тогда ${\forall a \in A\suchthat a^m = 1.}$ Но уравнение ${x^m - 1 = 0}$ имеет над полем ${\leqslant m}$ корней $\Rightarrow$ ${|A| \leqslant m}$. С другой стороны, ${|A| \divby m \Rightarrow}$ ${m = |A| \Leftrightarrow A}$~--- циклическая.
+        \end{proof}
+        \begin{consequence*}
+            Если поле $F$ конечно, то $F^\times$~--- циклическая.
+        \end{consequence*}
+        \begin{theorem*}[\textbf{Ваддербёрн}]
+            Всякое конечное тело является полем.
+        \end{theorem*}
