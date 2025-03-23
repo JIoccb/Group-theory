@@ -11,6 +11,17 @@
 			Hg \deq \{hg \ | \ h \in H\}.
 		\end{equation*}
 	\end{definition}
+        \begin{lemma}
+            Смежные классы либо не пересекаются, либо совпадают.
+        \end{lemma}
+        \begin{proof}
+        Пусть $G$~--- группа, ${H < G}$, ${a,b \in G.}$ Предположим, что ${aH \cap bH \neq \varnothing,}$ т.е. ${\exists x \in aH \cap bH.}$ Тогда ${\exists h_1, h_2 \in H{:} \ x = ah_1, \ x = bh_2.}$  Отсюда 
+        \begin{equation*}
+            ah_1 = bh_2 \Rightarrow b^{-1}ah_1 = h_2 \Rightarrow b^{-1}a = h_2h_1^{-1} \in H.
+        \end{equation*}
+        Значит, ${\exists h \in H{:} \ a = bh.}$ Пусть ${x' \in aH,}$ т.е. ${\exists h' \in H{:} \ x' = ah'.}$ \\
+        Тогда ${x' = ah' = bhh' \in bH \Rightarrow aH \subseteq bH.}$ Аналогично можно показать, что ${bh \subseteq aH.}$ Следовательно ${aH = bH.}$ Таким образом, если ${aH \cap bH \neq \varnothing,}$ то ${aH = bH.}$
+        \end{proof}
 	\begin{lemma}
 		Пусть $G$~--- конечная подгруппа, тогда $\forall g \in G\suchthat |gH| = |H|.$
 	\end{lemma}
@@ -21,6 +32,7 @@
 		Пусть $G$~--- группа, $H < G$. \textit{Индексом} подгруппы $H$ в группе $G$ называется число левых смежных классов $G$ по $H$.
 	\end{definition} \n
 	Индекс группы $G$ по подгруппе $H$ обозначается $[G : H]$.
+        \newpage
 	\begin{theorem*}[\textbf{Лагранж}]
 		Пусть $G$~--- конечная группа, $H < G$. Тогда
 		\begin{equation*}
@@ -30,7 +42,6 @@
 	\begin{proof}
 		Каждый элемент группы $G$ лежит в (своём) левом смежном классе по подгруппе $H$, разные смежные классы не пересекаются (по следствию из доказательства критерия подгруппы) и каждый из них содержит по $|H|$ элементов (по предыдущей лемме).
 	\end{proof}
-	\newpage
 	\begin{consequence}
 		$|G| \divby |H|$.
 	\end{consequence}
