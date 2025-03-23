@@ -12,6 +12,14 @@
 	\begin{proof}
 		Символ 1 можно подходящей перестановкой $\sigma$ перевести в любой другой символ ${\sigma(1)}$, для чего существует в точности $n$ различных возможностей. Но зафиксировав ${\sigma(1)}$, в качестве ${\sigma(2)}$ можно брать лишь один из оставшихся ${n - 1}$ символов и т.д. Всего возможностей выбора ${\sigma(1), \sigma(2), \ldots, \sigma(n)}$, значит и всех перестановок будет ${n(n - 1) \ldots 2 \cdot 1 = n!.}$
 	\end{proof}
+        \begin{definition}
+            Перестановка $\sigma$ называется \textit{циклической} или \textit{циклом}, если ${\exists \{a_1, \ldots, a_k\} \subseteq X, \ k \geqslant 2,}$ такое что:
+            \begin{enumerate}
+                \setlength\itemsep{0.1em}
+                \item ${\sigma(a_i) = a_{i+1}; \ \sigma(a_k) = a_1, \ i = \overline{1,k-1;}}$
+                \item ${\forall x \in X \backslash \{a_1, \ldots, a_k\}{:} \ \sigma(x) = x.}$
+            \end{enumerate}
+        \end{definition}
 	\begin{statement}
 		Любая перестановка может быть представлена в виде композиции независимых циклов единственным образом с точностью до порядка множителей.
 	\end{statement}
